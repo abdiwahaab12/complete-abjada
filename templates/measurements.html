@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Measurements - Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="/static/img/abjad-logo.png" alt="Abjad" class="sidebar-logo-img">
+          <div class="sidebar-logo-wrap">
+            <span class="sidebar-logo-text">Abjad</span>
+            <span class="sidebar-logo-tagline">tailor management system</span>
+          </div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="sidebar-nav-label">Main</span>
+        <a href="/dashboard" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+          <span class="sidebar-nav-text">Dashboard</span>
+        </a>
+        <span class="sidebar-nav-label">Operations</span>
+        <a href="/customers" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="sidebar-nav-text">Customers</span>
+        </a>
+        <a href="/orders" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+          <span class="sidebar-nav-text">Orders</span>
+        </a>
+        <a href="/measurements" class="sidebar-nav-link active">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg></span>
+          <span class="sidebar-nav-text">Measurements</span>
+        </a>
+        <a href="/payments" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
+          <span class="sidebar-nav-text">Payments</span>
+        </a>
+        <a href="/transactions" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="sidebar-nav-text">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4l4 4"/><path d="M17 8v12M17 20l4-4M17 20l-4-4"/></svg></span>
+          <span class="sidebar-nav-text">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M6 14h2"/><path d="M10 14h2"/></svg></span>
+          <span class="sidebar-nav-text">Banks</span>
+        </a>
+        <a href="/stock" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+          <span class="sidebar-nav-text">Stock</span>
+        </a>
+        <a href="/store" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/><path d="M12 14v4"/></svg></span>
+          <span class="sidebar-nav-text">Store</span>
+        </a>
+        <a href="/tasks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="sidebar-nav-text">Tasks</span>
+        </a>
+        <span class="sidebar-nav-label">Reports</span>
+        <a href="/reports" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+          <span class="sidebar-nav-text">Reports</span>
+        </a>
+        <a href="/staff" class="sidebar-nav-link nav-admin-only">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></span>
+          <span class="sidebar-nav-text">Staff</span>
+        </a>
+        <span class="sidebar-nav-label">Account</span>
+        <a href="/settings" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1.08A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h1.08A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v1.08a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-1.08a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+          <span class="sidebar-nav-text">Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="sidebarUserAvatar">JD</div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name" id="sidebarUserName">User</span>
+            <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+          </div>
+        </div>
+        <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <div class="main-header">
+        <div class="welcome-text">Measurements</div>
+        <div class="header-right">
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" class="search-input" id="headerSearch" placeholder="Search measurements...">
+          </div>
+          <div class="header-user-wrap">
+            <button type="button" class="header-icon-btn" id="notificationBtn" title="Notifications" aria-label="Notifications">
+              🔔
+              <span class="notification-badge" id="notificationBadge" style="display:none">0</span>
+            </button>
+            <div id="notificationPanel" class="notification-panel" aria-hidden="true">
+              <h4>Notifications</h4>
+              <div class="notification-panel-empty" id="notificationList">No new notifications</div>
+            </div>
+          </div>
+          <div class="header-user-wrap">
+            <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="user-avatar-small" id="userAvatar">JD</div>
+              <span style="font-size: 11px; color: var(--text-muted);">▼</span>
+            </div>
+            <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
+              <a href="/dashboard" role="menuitem">Dashboard</a>
+              <a href="/customers" role="menuitem">Customers</a>
+              <a href="/orders" role="menuitem">Orders</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" id="headerLogoutBtn" role="menuitem">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page Content -->
+      <div class="page-content">
+        <div class="customers-header-actions" style="margin-bottom: 20px;">
+          <div class="form-group" style="max-width:280px; margin: 0;">
+            <label style="margin-bottom: 6px;">Select customer</label>
+            <select id="customerSelect" class="search-input" style="padding: 10px 14px;"><option value="">Select customer</option></select>
+          </div>
+          <div class="form-group" style="max-width:180px; margin: 0;">
+            <label style="margin-bottom: 6px;">Profile</label>
+            <select id="profile_type" class="search-input" style="padding: 10px 14px;"><option value="standard">Standard</option><option value="men">Men</option><option value="women">Women</option><option value="kids">Kids</option></select>
+          </div>
+        </div>
+
+        <!-- Body Measurements Card -->
+        <div class="measurements-card">
+          <div class="measurements-card-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg>
+            Body Measurements
+          </div>
+          <div class="measurements-card-body">
+            <form id="form">
+              <input type="hidden" id="measurementId">
+              <div class="measurements-grid">
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M6 3v6M18 3v6"/></svg></span>
+                    Neck (inches)
+                  </span>
+                  <input type="number" id="neck" step="0.01" placeholder="Enter neck">
+                  <span class="measurement-field-desc">Around the base of the neck</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></span>
+                    Chest (inches)
+                  </span>
+                  <input type="number" id="chest" step="0.01" placeholder="Enter chest">
+                  <span class="measurement-field-desc">Around the fullest part of the chest</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                    Waist (inches)
+                  </span>
+                  <input type="number" id="waist" step="0.01" placeholder="Enter waist">
+                  <span class="measurement-field-desc">Around the natural waistline</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="M3 12h18"/></svg></span>
+                    Hip (inches)
+                  </span>
+                  <input type="number" id="hip" step="0.01" placeholder="Enter hip">
+                  <span class="measurement-field-desc">Around the fullest part of the hips</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg></span>
+                    Shoulder (inches)
+                  </span>
+                  <input type="number" id="shoulder" step="0.01" placeholder="Enter shoulder">
+                  <span class="measurement-field-desc">Across the shoulders from point to point</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></span>
+                    Sleeve (inches)
+                  </span>
+                  <input type="number" id="sleeve" step="0.01" placeholder="Enter sleeve">
+                  <span class="measurement-field-desc">From shoulder to wrist</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                    Inseam (inches)
+                  </span>
+                  <input type="number" id="inseam" step="0.01" placeholder="Enter inseam">
+                  <span class="measurement-field-desc">Inside leg from crotch to ankle</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                    Outseam (inches)
+                  </span>
+                  <input type="number" id="outseam" step="0.01" placeholder="Enter outseam">
+                  <span class="measurement-field-desc">Outside leg from waist to ankle</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg></span>
+                    Height (inches)
+                  </span>
+                  <input type="number" id="length" step="0.01" placeholder="Enter height">
+                  <span class="measurement-field-desc">Total height</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="M12 6v12"/><path d="M7 12h10"/></svg></span>
+                    Weight (kg)
+                  </span>
+                  <input type="number" id="weight" step="0.01" placeholder="Enter weight">
+                  <span class="measurement-field-desc">Body weight</span>
+                </div>
+              </div>
+              <div class="measurements-actions">
+                <button type="submit" class="btn btn-primary">Save measurements</button>
+                <span class="text-muted" id="saveHint" style="font-size: 13px;">Select a customer to save.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Saved measurements list -->
+        <div class="dashboard-card" id="savedListCard" style="margin-top: 24px; display: none;">
+          <h4 style="margin-bottom: 12px;">Saved measurements</h4>
+          <div class="table-responsive">
+            <table class="customers-table">
+              <thead>
+                <tr>
+                  <th>Profile</th>
+                  <th>Date</th>
+                  <th>Neck</th>
+                  <th>Chest</th>
+                  <th>Waist</th>
+                  <th>Hip</th>
+                  <th>Shoulder</th>
+                  <th>Sleeve</th>
+                  <th>Inseam</th>
+                  <th>Outseam</th>
+                  <th>Height</th>
+                  <th>Weight</th>
+                  <th class="text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="list"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    const user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+    
+    // User display name and initials
+    const userName = user.full_name || user.username || 'User';
+    const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+    const roleLabel = (user.role || 'user').charAt(0).toUpperCase() + (user.role || 'user').slice(1);
+    
+    document.getElementById('userAvatar').textContent = initials;
+    document.getElementById('sidebarUserAvatar').textContent = initials;
+    document.getElementById('sidebarUserName').textContent = userName;
+    document.getElementById('sidebarUserRole').textContent = roleLabel;
+    
+    // Theme toggle in sidebar
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) {
+        btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+    })();
+    
+    // Logout (sidebar and header)
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) {
+      e.preventDefault();
+      logout();
+    });
+    document.getElementById('headerLogoutBtn').addEventListener('click', function() {
+      logout();
+    });
+
+    // User dropdown (header)
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      function open() { menu.classList.add('show'); menu.setAttribute('aria-hidden', 'false'); profile.setAttribute('aria-expanded', 'true'); }
+      function close() { menu.classList.remove('show'); menu.setAttribute('aria-hidden', 'true'); profile.setAttribute('aria-expanded', 'false'); }
+      function toggle() { if (menu.classList.contains('show')) close(); else { open(); notifClose(); } }
+      profile.addEventListener('click', function(e) { e.stopPropagation(); toggle(); });
+      document.addEventListener('click', function(e) {
+        if (!profile.contains(e.target) && !menu.contains(e.target)) close();
+      });
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    })();
+
+    // Notification panel
+    var notifPanel = document.getElementById('notificationPanel');
+    var notifBtn = document.getElementById('notificationBtn');
+    var headerUserWrapNotif = notifBtn.closest('.header-user-wrap');
+    function notifClose() { notifPanel.classList.remove('show'); notifPanel.setAttribute('aria-hidden', 'true'); }
+    function notifToggle() {
+      if (notifPanel.classList.contains('show')) notifClose();
+      else {
+        notifPanel.classList.add('show');
+        notifPanel.setAttribute('aria-hidden', 'false');
+        document.getElementById('userDropdownMenu').classList.remove('show');
+      }
+    }
+    notifBtn.addEventListener('click', function(e) { e.stopPropagation(); notifToggle(); });
+    document.addEventListener('click', function(e) {
+      if (!headerUserWrapNotif.contains(e.target)) notifClose();
+    });
+
+    // Hide admin-only nav
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    // Measurements page logic
+    let customers = [];
+    async function loadCustomers() {
+      const res = await api('/customers?per_page=500');
+      customers = res.items || [];
+      const opts = '<option value="">Select customer</option>' + customers.map(c => `<option value="${c.id}">${c.full_name}</option>`).join('');
+      document.getElementById('customerSelect').innerHTML = opts;
+      const cid = new URLSearchParams(location.search).get('customer_id');
+      if (cid) document.getElementById('customerSelect').value = cid;
+      load();
+    }
+    function fillForm(m) {
+      document.getElementById('measurementId').value = m ? m.id : '';
+      document.getElementById('profile_type').value = m ? (m.profile_type || 'standard') : document.getElementById('profile_type').value;
+      document.getElementById('neck').value = m ? (m.neck ?? '') : '';
+      document.getElementById('chest').value = m ? (m.chest ?? '') : '';
+      document.getElementById('waist').value = m ? (m.waist ?? '') : '';
+      document.getElementById('hip').value = m ? (m.hip ?? '') : '';
+      document.getElementById('shoulder').value = m ? (m.shoulder ?? '') : '';
+      document.getElementById('sleeve').value = m ? (m.sleeve ?? '') : '';
+      document.getElementById('inseam').value = m ? (m.inseam ?? '') : '';
+      document.getElementById('outseam').value = m ? (m.outseam ?? '') : '';
+      document.getElementById('length').value = m ? (m.length ?? '') : '';
+      document.getElementById('weight').value = m ? (m.weight ?? '') : '';
+    }
+    document.getElementById('form').onsubmit = async (e) => {
+      e.preventDefault();
+      const cid = document.getElementById('customerSelect').value;
+      if (!cid) { showToast('Select a customer first', 'error'); return; }
+      const id = document.getElementById('measurementId').value;
+      const payload = {
+        customer_id: parseInt(cid),
+        profile_type: document.getElementById('profile_type').value,
+        neck: document.getElementById('neck').value || null,
+        chest: document.getElementById('chest').value || null,
+        waist: document.getElementById('waist').value || null,
+        hip: document.getElementById('hip').value || null,
+        shoulder: document.getElementById('shoulder').value || null,
+        sleeve: document.getElementById('sleeve').value || null,
+        inseam: document.getElementById('inseam').value || null,
+        outseam: document.getElementById('outseam').value || null,
+        length: document.getElementById('length').value || null,
+        weight: document.getElementById('weight').value || null
+      };
+      try {
+        if (id) await api('/measurements/' + id, { method: 'PUT', body: JSON.stringify(payload) });
+        else await api('/measurements', { method: 'POST', body: JSON.stringify(payload) });
+        showToast(id ? 'Measurement updated' : 'Measurement saved', 'success');
+        load();
+      } catch (err) { showToast(err.message || 'Failed to save measurement', 'error'); }
+    };
+    async function load() {
+      const cid = document.getElementById('customerSelect').value;
+      const profile = document.getElementById('profile_type').value;
+      const hint = document.getElementById('saveHint');
+      const listCard = document.getElementById('savedListCard');
+      const listEl = document.getElementById('list');
+      if (!cid) {
+        fillForm(null);
+        hint.textContent = 'Select a customer to save.';
+        listCard.style.display = 'none';
+        return;
+      }
+      hint.textContent = '';
+      try {
+        const list = await api('/measurements?customer_id=' + cid);
+        const forProfile = (list || []).filter(m => (m.profile_type || 'standard') === profile);
+        const latest = forProfile[0] || null;
+        if (latest) {
+          document.getElementById('profile_type').value = latest.profile_type || 'standard';
+          fillForm(latest);
+        } else {
+          fillForm(null);
+        }
+        listCard.style.display = (list && list.length) ? 'block' : 'none';
+        function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+        function val(v) { return (v != null && v !== '') ? Number(v) : null; }
+        function showVal(v) { const n = val(v); return n != null ? (Number.isInteger(n) ? n : n.toFixed(1)) : '-'; }
+        listEl.innerHTML = (list || []).map(m => `
+          <tr>
+            <td>${escapeHtml(m.profile_type || 'standard')}</td>
+            <td>${m.created_at ? m.created_at.slice(0, 10) : '-'}</td>
+            <td>${showVal(m.neck)}</td>
+            <td>${showVal(m.chest)}</td>
+            <td>${showVal(m.waist)}</td>
+            <td>${showVal(m.hip)}</td>
+            <td>${showVal(m.shoulder)}</td>
+            <td>${showVal(m.sleeve)}</td>
+            <td>${showVal(m.inseam)}</td>
+            <td>${showVal(m.outseam)}</td>
+            <td>${showVal(m.length)}</td>
+            <td>${showVal(m.weight)}</td>
+            <td class="text-right">
+              <button class="btn btn-secondary btn-sm" type="button" data-id="${m.id}">Edit</button>
+              <button class="btn btn-danger btn-sm" type="button" data-del="${m.id}">Delete</button>
+            </td>
+          </tr>
+        `).join('') || '<tr><td colspan="13" style="text-align:center; padding: 16px; color: var(--text-muted);">No saved measurements</td></tr>';
+        listEl.querySelectorAll('[data-id]').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const m = list.find(x => x.id === parseInt(this.getAttribute('data-id'), 10));
+            if (m) { fillForm(m); document.getElementById('measurementId').value = m.id; document.getElementById('profile_type').value = m.profile_type || 'standard'; }
+          });
+        });
+        listEl.querySelectorAll('[data-del]').forEach(btn => {
+          btn.addEventListener('click', async function() {
+            if (!confirm('Delete this measurement?')) return;
+            await api('/measurements/' + this.getAttribute('data-del'), { method: 'DELETE' });
+            showToast('Deleted', 'success');
+            load();
+          });
+        });
+      } catch (err) {
+        showToast(err.message || 'Failed to load measurements', 'error');
+        listCard.style.display = 'none';
+        listEl.innerHTML = '<tr><td colspan="13" style="text-align:center; padding: 16px; color: var(--text-muted);">Failed to load</td></tr>';
+      }
+    }
+    document.getElementById('customerSelect').onchange = load;
+    document.getElementById('profile_type').onchange = load;
+    loadCustomers();
+  </script>
+</body>
+</html>

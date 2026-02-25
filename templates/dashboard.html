@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Abjad management system</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container" id="dashboardRoot">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="/static/img/abjad-logo.png" alt="Abjad" class="sidebar-logo-img">
+          <div class="sidebar-logo-wrap">
+            <span class="sidebar-logo-text">Abjad</span>
+            <span class="sidebar-logo-tagline">tailor management system</span>
+          </div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="sidebar-nav-label">Main</span>
+        <a href="/dashboard" class="sidebar-nav-link active">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+          <span class="sidebar-nav-text">Dashboard</span>
+        </a>
+        <span class="sidebar-nav-label">Operations</span>
+        <a href="/customers" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="sidebar-nav-text">Customers</span>
+        </a>
+        <a href="/orders" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+          <span class="sidebar-nav-text">Orders</span>
+        </a>
+        <a href="/measurements" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg></span>
+          <span class="sidebar-nav-text">Measurements</span>
+        </a>
+        <a href="/payments" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
+          <span class="sidebar-nav-text">Payments</span>
+        </a>
+        <a href="/transactions" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="sidebar-nav-text">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4l4 4"/><path d="M17 8v12M17 20l4-4M17 20l-4-4"/></svg></span>
+          <span class="sidebar-nav-text">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M6 14h2"/><path d="M10 14h2"/></svg></span>
+          <span class="sidebar-nav-text">Banks</span>
+        </a>
+        <a href="/stock" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+          <span class="sidebar-nav-text">Stock</span>
+        </a>
+        <a href="/store" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/><path d="M12 14v4"/></svg></span>
+          <span class="sidebar-nav-text">Store</span>
+        </a>
+        <a href="/tasks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="sidebar-nav-text">Tasks</span>
+        </a>
+        <span class="sidebar-nav-label">Reports</span>
+        <a href="/reports" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+          <span class="sidebar-nav-text">Reports</span>
+        </a>
+        <a href="/staff" class="sidebar-nav-link nav-admin-only">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></span>
+          <span class="sidebar-nav-text">Staff</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="sidebarUserAvatar">JD</div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name" id="sidebarUserName">User</span>
+            <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+          </div>
+        </div>
+        <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <div class="main-header">
+        <div class="welcome-text">Welcome Abdjad management system</div>
+        <div class="header-right">
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" class="search-input" id="headerSearch" placeholder="Search orders, customers...">
+          </div>
+          <div class="header-user-wrap">
+            <button type="button" class="header-icon-btn" id="notificationBtn" title="Notifications" aria-label="Notifications">
+              🔔
+              <span class="notification-badge" id="notificationBadge" style="display:none">0</span>
+            </button>
+            <div id="notificationPanel" class="notification-panel" aria-hidden="true">
+              <h4>Notifications</h4>
+              <div class="notification-panel-empty" id="notificationList">No new notifications</div>
+            </div>
+          </div>
+          <div class="header-user-wrap">
+            <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="user-avatar-small" id="userAvatar">JD</div>
+              <span style="font-size: 11px; color: var(--text-muted);">▼</span>
+            </div>
+            <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
+              <a href="/dashboard" role="menuitem">Dashboard</a>
+              <a href="/customers" role="menuitem">Customers</a>
+              <a href="/orders" role="menuitem">Orders</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" id="headerLogoutBtn" role="menuitem">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Statistic Cards (Total, Completed, Pending, In Progress) -->
+      <div class="stat-cards" id="summaryCards"></div>
+
+      <!-- Order Status Cards (Pending, In Progress, Completed) -->
+      <div class="order-status-cards" id="orderStatusCards"></div>
+
+      <!-- Recent Orders -->
+      <div class="dashboard-card dashboard-card-hover">
+        <div class="recent-orders-header">
+          <h3 class="dashboard-card-title" style="margin: 0;">Recent Orders</h3>
+          <a href="/orders" class="recent-orders-view-all">View all</a>
+        </div>
+        <div class="recent-orders-list" id="recentOrdersList">
+          <div class="recent-orders-loading">Loading…</div>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="dashboard-bottom-row">
+        <!-- Revenue Generated -->
+        <div class="dashboard-card dashboard-card-hover">
+          <h3 class="dashboard-card-title">Revenue Generated</h3>
+          <div class="donut-chart-container">
+            <canvas id="revenueDonut" width="280" height="280"></canvas>
+            <div class="donut-center">
+              <div class="donut-center-value" id="revenueTotal">$0</div>
+            </div>
+          </div>
+          <div class="donut-legend" id="revenueLegend"></div>
+        </div>
+
+        <!-- Top Customers -->
+        <div class="dashboard-card dashboard-card-hover">
+          <div class="top-performer-header">
+            <h3 class="dashboard-card-title" style="margin: 0;">Top Customers</h3>
+            <select class="period-selector" id="periodSelect">
+              <option>This Month</option>
+              <option>Last Month</option>
+              <option>This Year</option>
+            </select>
+          </div>
+          <div class="performer-cards" id="topCustomers"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    const user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+
+    // Page enter animation
+    (function() {
+      var root = document.getElementById('dashboardRoot');
+      if (!root) return;
+      // Remove any previous class before re-adding (for hot reloads)
+      root.classList.remove('dashboard-enter');
+      // Small timeout so animation plays after first paint
+      requestAnimationFrame(function() {
+        root.classList.add('dashboard-enter');
+      });
+    })();
+    
+    // User display name and initials
+    const userName = user.full_name || user.username || 'User';
+    const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+    const roleLabel = (user.role || 'user').charAt(0).toUpperCase() + (user.role || 'user').slice(1);
+    
+    document.getElementById('userAvatar').textContent = initials;
+    document.getElementById('sidebarUserAvatar').textContent = initials;
+    document.getElementById('sidebarUserName').textContent = userName;
+    document.getElementById('sidebarUserRole').textContent = roleLabel;
+    
+    // Theme toggle in sidebar
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) {
+        btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+    })();
+    
+    // Logout (sidebar and header)
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) {
+      e.preventDefault();
+      logout();
+    });
+    document.getElementById('headerLogoutBtn').addEventListener('click', function() {
+      logout();
+    });
+
+    // User dropdown (header)
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      function open() { menu.classList.add('show'); menu.setAttribute('aria-hidden', 'false'); profile.setAttribute('aria-expanded', 'true'); }
+      function close() { menu.classList.remove('show'); menu.setAttribute('aria-hidden', 'true'); profile.setAttribute('aria-expanded', 'false'); }
+      function toggle() { if (menu.classList.contains('show')) close(); else { open(); notifClose(); } }
+      profile.addEventListener('click', function(e) { e.stopPropagation(); toggle(); });
+      document.addEventListener('click', function(e) {
+        if (!profile.contains(e.target) && !menu.contains(e.target)) close();
+      });
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    })();
+
+    // Notification panel
+    var notifPanel = document.getElementById('notificationPanel');
+    var notifBtn = document.getElementById('notificationBtn');
+    var headerUserWrapNotif = notifBtn.closest('.header-user-wrap');
+    function notifClose() { notifPanel.classList.remove('show'); notifPanel.setAttribute('aria-hidden', 'true'); }
+    function notifToggle() {
+      if (notifPanel.classList.contains('show')) notifClose();
+      else {
+        notifPanel.classList.add('show');
+        notifPanel.setAttribute('aria-hidden', 'false');
+        document.getElementById('userDropdownMenu').classList.remove('show');
+      }
+    }
+    notifBtn.addEventListener('click', function(e) { e.stopPropagation(); notifToggle(); });
+    document.addEventListener('click', function(e) {
+      if (!headerUserWrapNotif.contains(e.target)) notifClose();
+    });
+
+    // Search: navigate on Enter to orders with q=
+    document.getElementById('headerSearch').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        var q = this.value.trim();
+        if (q) window.location.href = '/orders?search=' + encodeURIComponent(q);
+        else window.location.href = '/orders';
+      }
+    });
+
+    // Hide admin-only nav
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    function formatCompactNumber(value) {
+      const n = Number(value || 0);
+      if (n >= 1_000_000_000) return '$' + (n / 1_000_000_000).toFixed(2) + 'B';
+      if (n >= 1_000_000) return '$' + (n / 1_000_000).toFixed(2) + 'M';
+      if (n >= 1_000) return '$' + (n / 1_000).toFixed(2) + 'K';
+      return '$' + n.toFixed(0);
+    }
+
+    function formatPercentChange(current, previous) {
+      if (previous === null || previous === undefined || previous === 0) return null;
+      const pct = ((current - previous) / previous) * 100;
+      const sign = pct >= 0 ? '+' : '';
+      return { text: sign + pct.toFixed(2) + '%', up: pct >= 0 };
+    }
+
+    // Load dashboard data
+    async function load() {
+      let d;
+      try {
+        d = await api('/dashboard');
+      } catch (err) {
+        showToast(err.message || 'Failed to load dashboard', 'error');
+        return;
+      }
+      const total = d.total_orders || 0;
+      const completed = d.completed_orders || 0;
+      const pending = d.pending_orders || 0;
+      const inProgress = d.in_progress_orders || 0;
+      const totalRevenue = d.total_revenue || 0;
+      const monthlyRevenue = d.monthly_revenue || 0;
+      const activeCustomers = d.active_customers || 0;
+
+      // Compute revenue change vs previous month using monthly_chart
+      const chart = Array.isArray(d.monthly_chart) ? d.monthly_chart : [];
+      const last = chart.length > 0 ? chart[chart.length - 1] : null;
+      const prev = chart.length > 1 ? chart[chart.length - 2] : null;
+      const revChange = last && prev ? formatPercentChange(last.revenue || 0, prev.revenue || 0) : null;
+
+      const completionRate = total > 0 ? (completed / total) * 100 : 0;
+      const pendingShare = total > 0 ? (pending / total) * 100 : 0;
+      const inProgressShare = total > 0 ? (inProgress / total) * 100 : 0;
+
+      // Summary statistic cards focused on order status, styled like modern overview cards
+      document.getElementById('summaryCards').innerHTML = `
+        <a href="/orders?status=pending" class="stat-card stat-card-primary stat-card-mint">
+          <div class="stat-card-icon stat-card-icon-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="stat-card-content">
+            <div class="stat-card-label">Pending Orders</div>
+            <div class="stat-card-value">${pending}</div>
+            <div class="stat-card-trend ${pendingShare <= 30 ? 'stat-card-trend-up' : 'stat-card-trend-down'}">
+              ${pendingShare.toFixed(1)}% of total
+            </div>
+          </div>
+        </a>
+        <a href="/orders?status=in_progress" class="stat-card stat-card-lilac">
+          <div class="stat-card-icon stat-card-icon-success">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <div class="stat-card-content">
+            <div class="stat-card-label">In Progress</div>
+            <div class="stat-card-value">${inProgress}</div>
+            <div class="stat-card-trend ${inProgressShare >= 10 ? 'stat-card-trend-up' : 'stat-card-trend-down'}">
+              ${inProgressShare.toFixed(1)}% of total
+            </div>
+          </div>
+        </a>
+        <a href="/orders?status=completed" class="stat-card stat-card-sky">
+          <div class="stat-card-icon stat-card-icon-warning">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="stat-card-content">
+            <div class="stat-card-label">Completed Orders</div>
+            <div class="stat-card-value">${completed}</div>
+            <div class="stat-card-trend stat-card-trend-up">
+              ${completionRate.toFixed(1)}% completed
+            </div>
+          </div>
+        </a>
+        <a href="/orders" class="stat-card stat-card-rose">
+          <div class="stat-card-icon stat-card-icon-info">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <div class="stat-card-content">
+            <div class="stat-card-label">Total Orders</div>
+            <div class="stat-card-value">${total}</div>
+            <div class="stat-card-trend ${total > 0 ? 'stat-card-trend-up' : 'stat-card-trend-down'}">
+              ${total > 0 ? 'Orders this period' : 'No orders yet'}
+            </div>
+          </div>
+        </a>
+      `;
+
+      // Recent Orders (latest 5) - load from API
+      (function loadRecentOrders() {
+        api('/orders?per_page=5').then(function(res) {
+          var items = res.items || [];
+          var html = items.length === 0
+            ? '<div class="recent-orders-empty">No orders yet. <a href="/orders">Create an order</a></div>'
+            : items.map(function(o) {
+                var name = (o.customer && o.customer.full_name) ? o.customer.full_name : 'Customer';
+                var status = (o.status || 'pending').replace('_', ' ');
+                var date = o.created_at ? new Date(o.created_at).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
+                var statusClass = 'recent-orders-status recent-orders-status-' + (o.status || 'pending').replace('_', '-');
+                return '<a href="/orders?id=' + (o.id || '') + '" class="recent-orders-row">' +
+                  '<span class="recent-orders-name">' + escapeHtml(name) + '</span>' +
+                  '<span class="' + statusClass + '">' + escapeHtml(status) + '</span>' +
+                  '<span class="recent-orders-date">' + escapeHtml(date) + '</span>' +
+                '</a>';
+              }).join('');
+          document.getElementById('recentOrdersList').innerHTML = html;
+        }).catch(function() {
+          document.getElementById('recentOrdersList').innerHTML = '<div class="recent-orders-empty">Unable to load orders.</div>';
+        });
+      })();
+      function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+      // Order Status Cards (Pending, In Progress, Completed) - Horizontal cards
+      const pendingPct = total > 0 ? Math.round((pending / total) * 100) : 0;
+      const progressPct = total > 0 ? Math.round((inProgress / total) * 100) : 0;
+      const completedPct = total > 0 ? Math.round((completed / total) * 100) : 0;
+      
+      document.getElementById('orderStatusCards').innerHTML = `
+        <a href="/orders?status=pending" class="order-status-card order-status-card-pending">
+          <div class="order-status-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="order-status-card-content">
+            <div class="order-status-card-value">${pending}</div>
+            <div class="order-status-card-label">Pending Orders</div>
+            <div class="order-status-card-percent">${pendingPct}%</div>
+          </div>
+        </a>
+        <a href="/orders?status=in_progress" class="order-status-card order-status-card-progress">
+          <div class="order-status-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <div class="order-status-card-content">
+            <div class="order-status-card-value">${inProgress}</div>
+            <div class="order-status-card-label">In Progress Orders</div>
+            <div class="order-status-card-percent">${progressPct}%</div>
+          </div>
+        </a>
+        <a href="/orders?status=completed" class="order-status-card order-status-card-completed">
+          <div class="order-status-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="order-status-card-content">
+            <div class="order-status-card-value">${completed}</div>
+            <div class="order-status-card-label">Completed Orders</div>
+            <div class="order-status-card-percent">${completedPct}%</div>
+          </div>
+        </a>
+      `;
+
+      // Revenue Donut Chart
+      const revenueTotal = d.total_revenue || 0;
+      const revenueDisplay = revenueTotal >= 1000000 
+        ? `$${(revenueTotal / 1000000).toFixed(1)}M` 
+        : `$${(revenueTotal / 1000).toFixed(0)}K`;
+      document.getElementById('revenueTotal').textContent = revenueDisplay;
+      
+      const ctx = document.getElementById('revenueDonut').getContext('2d');
+      const centerX = 140;
+      const centerY = 140;
+      const radius = 80;
+      const innerRadius = 50;
+      
+      // Get payment data from orders
+      let cashPayments = 0, onlinePayments = 0, advancePayments = 0;
+      try {
+        const allOrders = await api('/orders?per_page=500');
+        (allOrders.items || []).forEach(order => {
+          if (order.advance_paid > 0) advancePayments += order.advance_paid;
+          // Assume completed orders are cash, pending might be online
+          if (order.status === 'completed' || order.status === 'delivered') {
+            cashPayments += (order.total_price || 0) - (order.advance_paid || 0);
+          }
+        });
+        const totalPaid = cashPayments + advancePayments;
+        if (totalPaid > 0) {
+          cashPayments = Math.round((cashPayments / totalPaid) * 100);
+          advancePayments = Math.round((advancePayments / totalPaid) * 100);
+          onlinePayments = 100 - cashPayments - advancePayments;
+        }
+      } catch (e) {
+        // Default values if API fails
+        cashPayments = 50;
+        onlinePayments = 30;
+        advancePayments = 20;
+      }
+      
+      const revenueData = [
+        { label: 'Cash Payments', value: cashPayments, color: '#ef4444' },
+        { label: 'Online Payments', value: onlinePayments, color: '#3b82f6' },
+        { label: 'Advance Payments', value: advancePayments, color: '#fca5a5' }
+      ];
+      const revenuePctTotal = revenueData.reduce((sum, r) => sum + r.value, 0);
+      const hasData = revenuePctTotal > 0;
+      
+      if (!hasData) {
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.arc(centerX, centerY, innerRadius, 2 * Math.PI, 0, true);
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(0,0,0,0.06)';
+        ctx.fill();
+      } else {
+        let currentAngle = -Math.PI / 2;
+        revenueData.forEach(item => {
+          const sliceAngle = (item.value / revenuePctTotal) * 2 * Math.PI;
+          if (sliceAngle <= 0) return;
+          ctx.beginPath();
+          ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
+          ctx.arc(centerX, centerY, innerRadius, currentAngle + sliceAngle, currentAngle, true);
+          ctx.closePath();
+          ctx.fillStyle = item.color;
+          ctx.fill();
+          currentAngle += sliceAngle;
+        });
+      }
+      
+      document.getElementById('revenueLegend').innerHTML = hasData
+        ? revenueData.map(r => `
+          <div class="donut-legend-item">
+            <div class="donut-legend-color" style="background: ${r.color};"></div>
+            <span>${r.label} ${r.value}% of total revenue</span>
+          </div>
+        `).join('')
+        : '<div class="donut-legend-item"><span class="dashboard-empty-state">No payment data yet</span></div>';
+
+      // Top Customers (clickable cards)
+      function renderTopCustomers(list) {
+        list = list || [];
+        return list.map((c, i) => {
+          const colors = ['red', 'blue', 'pink'];
+          const badges = ['Gold', 'Silver', 'Bronze'];
+          const initials = (c.full_name || 'C').split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+          const href = '/customers' + (c.id ? '?id=' + c.id : '');
+          return `
+            <a href="${href}" class="performer-card ${colors[i]}" style="text-decoration:none;color:inherit;">
+              <div class="performer-avatar">${initials}</div>
+              <div class="performer-name">${c.full_name}</div>
+              <div class="performer-batch">${c.order_count} Orders</div>
+              <div class="performer-attendance">$${Number(c.total_spent || 0).toLocaleString()}</div>
+              <div class="performer-badge">${badges[i]} Customer</div>
+            </a>
+          `;
+        }).join('') || '<div class="dashboard-empty-state">No customer data yet. <a href="/customers">Add customers</a></div>';
+      }
+      var topCustomersList = await api('/reports/best-customers?limit=3').catch(() => []);
+      document.getElementById('topCustomers').innerHTML = renderTopCustomers(Array.isArray(topCustomersList) ? topCustomersList : (topCustomersList.items || topCustomersList.data || []));
+
+      // Period select: refetch top customers when changed
+      document.getElementById('periodSelect').addEventListener('change', async function() {
+        var limit = 3;
+        var list = await api('/reports/best-customers?limit=' + limit).catch(() => []);
+        list = Array.isArray(list) ? list : (list.items || list.data || []);
+        document.getElementById('topCustomers').innerHTML = renderTopCustomers(list);
+      });
+    }
+    
+    load();
+  </script>
+</body>
+</html>

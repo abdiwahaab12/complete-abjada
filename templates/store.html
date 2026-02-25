@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Store - Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="/static/img/abjad-logo.png" alt="Abjad" class="sidebar-logo-img">
+          <div class="sidebar-logo-wrap">
+            <span class="sidebar-logo-text">Abjad</span>
+            <span class="sidebar-logo-tagline">tailor management system</span>
+          </div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="sidebar-nav-label">Main</span>
+        <a href="/dashboard" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+          <span class="sidebar-nav-text">Dashboard</span>
+        </a>
+        <span class="sidebar-nav-label">Operations</span>
+        <a href="/customers" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="sidebar-nav-text">Customers</span>
+        </a>
+        <a href="/orders" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+          <span class="sidebar-nav-text">Orders</span>
+        </a>
+        <a href="/measurements" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg></span>
+          <span class="sidebar-nav-text">Measurements</span>
+        </a>
+        <a href="/payments" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
+          <span class="sidebar-nav-text">Payments</span>
+        </a>
+        <a href="/transactions" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="sidebar-nav-text">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4l4 4"/><path d="M17 8v12M17 20l4-4M17 20l-4-4"/></svg></span>
+          <span class="sidebar-nav-text">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M6 14h2"/><path d="M10 14h2"/></svg></span>
+          <span class="sidebar-nav-text">Banks</span>
+        </a>
+        <a href="/stock" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+          <span class="sidebar-nav-text">Stock</span>
+        </a>
+        <a href="/store" class="sidebar-nav-link active">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/><path d="M12 14v4"/></svg></span>
+          <span class="sidebar-nav-text">Store</span>
+        </a>
+        <a href="/tasks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="sidebar-nav-text">Tasks</span>
+        </a>
+        <span class="sidebar-nav-label">Reports</span>
+        <a href="/reports" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+          <span class="sidebar-nav-text">Reports</span>
+        </a>
+        <a href="/staff" class="sidebar-nav-link nav-admin-only">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></span>
+          <span class="sidebar-nav-text">Staff</span>
+        </a>
+        <span class="sidebar-nav-label">Account</span>
+        <a href="/settings" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1.08A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h1.08A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v1.08a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-1.08a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+          <span class="sidebar-nav-text">Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="sidebarUserAvatar">JD</div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name" id="sidebarUserName">User</span>
+            <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+          </div>
+        </div>
+        <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="main-header">
+        <div class="welcome-text store-page-title">Accounts Dashboard</div>
+        <div class="header-right">
+          <button type="button" class="btn btn-primary" id="btnAddAccount">
+            <span class="btn-add-icon">+</span> Add New Account
+          </button>
+          <div class="header-user-wrap">
+            <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="user-avatar-small" id="userAvatar">JD</div>
+              <span style="font-size: 11px; color: var(--text-muted);">▼</span>
+            </div>
+            <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
+              <a href="/dashboard" role="menuitem">Dashboard</a>
+              <a href="/customers" role="menuitem">Customers</a>
+              <a href="/orders" role="menuitem">Orders</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" id="headerLogoutBtn" role="menuitem">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-content">
+        <div class="accounts-dashboard-cards" id="accountsDashboardCards"></div>
+      </div>
+    </main>
+  </div>
+
+  <div id="registerAccountModal" class="modal hidden">
+    <div class="modal-content register-account-modal" style="max-width: 420px;">
+      <div class="modal-header">
+        <h3>Register New Account</h3>
+        <button type="button" class="btn btn-secondary btn-sm" id="registerAccountModalClose">&#215;</button>
+      </div>
+      <form id="registerAccountForm">
+        <div class="form-group">
+          <label for="registerAccountType">Account Type</label>
+          <select id="registerAccountType" class="search-input" style="padding: 10px 14px; width: 100%;">
+            <option value="">KES OR USD</option>
+            <option value="KES">KES</option>
+            <option value="USD">USD</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="registerBalance">Balance</label>
+          <input type="number" id="registerBalance" class="search-input" step="0.01" placeholder="Enter balance" style="padding: 10px 14px; width: 100%;">
+        </div>
+        <div class="form-group">
+          <label for="registerCashBalance">Cash Balance</label>
+          <input type="number" id="registerCashBalance" class="search-input" step="0.01" placeholder="Enter cash balance" style="padding: 10px 14px; width: 100%;">
+        </div>
+        <div class="form-group register-account-default-wrap">
+          <label class="register-account-checkbox-label">
+            <input type="checkbox" id="registerSetDefault">
+            <span>Set as default account</span>
+          </label>
+          <p class="form-help">If activated, this account will be used as default throughout the app.</p>
+        </div>
+        <div class="form-actions" style="margin-top: 20px;">
+          <button type="submit" class="btn btn-primary register-account-btn">Register Account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    const user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+
+    const userName = user.full_name || user.username || 'User';
+    const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+    document.getElementById('userAvatar').textContent = initials;
+    document.getElementById('sidebarUserAvatar').textContent = initials;
+    document.getElementById('sidebarUserName').textContent = userName;
+    document.getElementById('sidebarUserRole').textContent = (user.role || 'user').charAt(0).toUpperCase() + (user.role || 'user').slice(1);
+
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) { btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; }; };
+    })();
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) { e.preventDefault(); logout(); });
+    document.getElementById('headerLogoutBtn').addEventListener('click', function() { logout(); });
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      profile.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('show'); });
+      document.addEventListener('click', function(e) { if (!profile.contains(e.target) && !menu.contains(e.target)) menu.classList.remove('show'); });
+    })();
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    var registerModal = document.getElementById('registerAccountModal');
+    document.getElementById('btnAddAccount').onclick = function() {
+      document.getElementById('registerAccountType').value = '';
+      document.getElementById('registerBalance').value = '';
+      document.getElementById('registerCashBalance').value = '';
+      document.getElementById('registerSetDefault').checked = false;
+      registerModal.classList.remove('hidden');
+    };
+    document.getElementById('registerAccountModalClose').onclick = function() { registerModal.classList.add('hidden'); };
+    registerModal.addEventListener('click', function(e) { if (e.target === registerModal) registerModal.classList.add('hidden'); });
+
+    document.getElementById('registerAccountForm').onsubmit = async function(e) {
+      e.preventDefault();
+      var currency = (document.getElementById('registerAccountType').value || '').trim().toUpperCase();
+      if (currency !== 'KES' && currency !== 'USD') {
+        showToast('Please select Account Type (KES or USD)', 'error');
+        return;
+      }
+      var balance = parseFloat(document.getElementById('registerBalance').value) || 0;
+      var cashBalance = parseFloat(document.getElementById('registerCashBalance').value) || 0;
+      var setDefault = document.getElementById('registerSetDefault').checked;
+      try {
+        if (balance <= 0 && cashBalance <= 0) {
+          showToast('Enter at least one balance (Balance or Cash Balance)', 'error');
+          return;
+        }
+        if (balance > 0) {
+          await api('/transactions', { method: 'POST', body: JSON.stringify({
+            currency: currency, amount: balance, method: 'digital', transaction_type: 'in', category: 'Opening balance', details: 'Initial balance'
+          }) });
+        }
+        if (cashBalance > 0) {
+          await api('/transactions', { method: 'POST', body: JSON.stringify({
+            currency: currency, amount: cashBalance, method: 'cash', transaction_type: 'in', category: 'Opening balance', details: 'Initial cash balance'
+          }) });
+        }
+        if (setDefault) localStorage.setItem('defaultAccount', currency);
+        registerModal.classList.add('hidden');
+        showToast('Account registered', 'success');
+        loadAccountsDashboard();
+      } catch (err) { showToast(err.message || 'Failed to register account', 'error'); }
+    };
+
+    function formatMoney(n) {
+      var x = Number(n);
+      if (isNaN(x)) return '0';
+      var s = x < 0 ? '-' : '';
+      return s + Math.abs(x).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+    function formatCreated(dateStr) {
+      if (!dateStr) return '—';
+      var d = new Date(dateStr + 'T00:00:00');
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    }
+    function progressPct(val, maxAbs) {
+      if (!maxAbs || maxAbs <= 0) return 0;
+      var v = Math.abs(Number(val));
+      return Math.min(100, (v / maxAbs) * 100);
+    }
+
+    function renderAccountsDashboard(summary) {
+      var currencies = ['USD', 'KES'];
+      var wrap = document.getElementById('accountsDashboardCards');
+      wrap.innerHTML = currencies.map(function(currency) {
+        var s = summary[currency] || { digital_balance: 0, cash_balance: 0, total_balance: 0, first_date: null };
+        var digital = Number(s.digital_balance || 0);
+        var cash = Number(s.cash_balance || 0);
+        var total = Number(s.total_balance || 0);
+        var maxAbs = Math.max(Math.abs(digital), Math.abs(cash), Math.abs(total), 1);
+        var digitalPct = progressPct(digital, maxAbs);
+        var cashPct = progressPct(cash, maxAbs);
+        var totalPct = progressPct(total, maxAbs);
+        return '<div class="account-card">' +
+          '<div class="account-card-header"></div>' +
+          '<div class="account-card-body">' +
+            '<div class="account-card-currency">' + currency + '</div>' +
+            '<div class="account-card-created">Created: ' + formatCreated(s.first_date) + '</div>' +
+            '<div class="account-balance account-balance-digital">' +
+              '<span class="account-balance-icon">$</span>' +
+              '<div><div class="account-balance-label">DIGITAL BALANCE</div>' +
+              '<div class="account-balance-value">' + formatMoney(digital) + '</div>' +
+              '<div class="account-balance-bar"><div class="account-balance-fill account-balance-fill-digital" style="width:' + digitalPct + '%"></div></div></div>' +
+            '</div>' +
+            '<div class="account-balance account-balance-cash">' +
+              '<span class="account-balance-icon account-balance-icon-cash">&#128179;</span>' +
+              '<div><div class="account-balance-label">CASH BALANCE</div>' +
+              '<div class="account-balance-value account-balance-value-green">' + formatMoney(cash) + '</div>' +
+              '<div class="account-balance-bar"><div class="account-balance-fill account-balance-fill-cash" style="width:' + cashPct + '%"></div></div></div>' +
+            '</div>' +
+            '<div class="account-balance account-balance-total">' +
+              '<span class="account-balance-icon account-balance-icon-total">T</span>' +
+              '<div><div class="account-balance-label">TOTAL BALANCE</div>' +
+              '<div class="account-balance-value account-balance-value-purple">' + formatMoney(total) + '</div>' +
+              '<div class="account-balance-bar"><div class="account-balance-fill account-balance-fill-total" style="width:' + totalPct + '%"></div></div></div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    function loadAccountsDashboard() {
+      api('/transactions/summary').then(function(summary) {
+        renderAccountsDashboard(summary || {});
+      }).catch(function(err) {
+        showToast(err.message || 'Failed to load summary', 'error');
+        document.getElementById('accountsDashboardCards').innerHTML = '<p class="account-card-error">Failed to load transaction summary.</p>';
+      });
+    }
+
+    loadAccountsDashboard();
+  </script>
+</body>
+</html>

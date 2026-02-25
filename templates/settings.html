@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings - Abjad management system</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="/static/img/abjad-logo.png" alt="Abjad" class="sidebar-logo-img">
+          <div class="sidebar-logo-wrap">
+            <span class="sidebar-logo-text">Abjad</span>
+            <span class="sidebar-logo-tagline">tailor management system</span>
+          </div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="sidebar-nav-label">Main</span>
+        <a href="/dashboard" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+          <span class="sidebar-nav-text">Dashboard</span>
+        </a>
+        <span class="sidebar-nav-label">Operations</span>
+        <a href="/customers" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="sidebar-nav-text">Customers</span>
+        </a>
+        <a href="/orders" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+          <span class="sidebar-nav-text">Orders</span>
+        </a>
+        <a href="/measurements" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg></span>
+          <span class="sidebar-nav-text">Measurements</span>
+        </a>
+        <a href="/payments" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
+          <span class="sidebar-nav-text">Payments</span>
+        </a>
+        <a href="/transactions" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="sidebar-nav-text">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4l4 4"/><path d="M17 8v12M17 20l4-4M17 20l-4-4"/></svg></span>
+          <span class="sidebar-nav-text">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M6 14h2"/><path d="M10 14h2"/></svg></span>
+          <span class="sidebar-nav-text">Banks</span>
+        </a>
+        <a href="/stock" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+          <span class="sidebar-nav-text">Stock</span>
+        </a>
+        <a href="/store" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/><path d="M12 14v4"/></svg></span>
+          <span class="sidebar-nav-text">Store</span>
+        </a>
+        <a href="/tasks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="sidebar-nav-text">Tasks</span>
+        </a>
+        <span class="sidebar-nav-label">Reports</span>
+        <a href="/reports" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+          <span class="sidebar-nav-text">Reports</span>
+        </a>
+        <a href="/staff" class="sidebar-nav-link nav-admin-only">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></span>
+          <span class="sidebar-nav-text">Staff</span>
+        </a>
+        <span class="sidebar-nav-label">Account</span>
+        <a href="/settings" class="sidebar-nav-link active">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1.08A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h1.08A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v1.08a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-1.08a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+          <span class="sidebar-nav-text">Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="sidebarUserAvatar">JD</div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name" id="sidebarUserName">User</span>
+            <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+          </div>
+        </div>
+        <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="main-header">
+        <div class="welcome-text">Settings</div>
+        <div class="header-right">
+          <div class="header-user-wrap">
+            <button type="button" class="header-icon-btn" id="notificationBtn" title="Notifications" aria-label="Notifications">
+              🔔
+              <span class="notification-badge" id="notificationBadge" style="display:none">0</span>
+            </button>
+            <div id="notificationPanel" class="notification-panel" aria-hidden="true">
+              <h4>Notifications</h4>
+              <div class="notification-panel-empty" id="notificationList">No new notifications</div>
+            </div>
+          </div>
+          <div class="header-user-wrap">
+            <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="user-avatar-small" id="userAvatar">JD</div>
+              <span style="font-size: 11px; color: var(--text-muted);">▼</span>
+            </div>
+            <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
+              <a href="/dashboard" role="menuitem">Dashboard</a>
+              <a href="/customers" role="menuitem">Customers</a>
+              <a href="/orders" role="menuitem">Orders</a>
+              <div class="dropdown-divider"></div>
+              <a href="/settings" role="menuitem">Settings</a>
+              <button type="button" id="headerLogoutBtn" role="menuitem">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-content settings-page">
+        <div class="settings-sections">
+          <!-- General workspace settings -->
+          <section class="settings-section-card">
+            <h3 class="settings-section-title">General</h3>
+            <p class="settings-section-desc" style="margin-bottom: 18px;">
+              Configure the basics for your tailor shop.
+            </p>
+            <div class="settings-two-column">
+              <div class="form-group">
+                <label>Business name</label>
+                <input type="text" id="businessName" class="search-input" placeholder="e.g. Abjad Tailor Shop" disabled>
+                <small class="settings-hint">Managed by the system owner. Contact admin to change.</small>
+              </div>
+              <div class="form-group">
+                <label>Default currency</label>
+                <select id="currency" class="search-input">
+                  <option value="USD">$ USD</option>
+                  <option value="KES">KSh KES</option>
+                </select>
+                <small class="settings-hint">Used in all prices and reports.</small>
+              </div>
+            </div>
+          </section>
+
+          <!-- Profile & security -->
+          <section class="settings-section-card">
+            <h3 class="settings-section-title">Profile & security</h3>
+            <div class="settings-two-column">
+              <div class="form-group">
+                <label>Full name</label>
+                <input type="text" id="profileName" class="search-input" readonly>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="profileEmail" class="search-input" readonly>
+                <small class="settings-hint">Email is managed by the administrator.</small>
+              </div>
+            </div>
+            <hr class="settings-divider">
+            <form id="passwordForm" class="settings-form-inline">
+              <div class="form-group">
+                <label>Current password</label>
+                <input type="password" id="currentPassword" class="search-input" autocomplete="current-password" required>
+              </div>
+              <div class="form-group">
+                <label>New password</label>
+                <input type="password" id="newPassword" class="search-input" autocomplete="new-password" required>
+              </div>
+              <div class="form-group">
+                <label>Confirm new password</label>
+                <input type="password" id="confirmPassword" class="search-input" autocomplete="new-password" required>
+              </div>
+              <div class="form-actions settings-actions">
+                <button type="submit" class="btn btn-primary">Update password</button>
+              </div>
+            </form>
+          </section>
+
+          <!-- Notification preferences -->
+          <section class="settings-section-card">
+            <h3 class="settings-section-title">Notifications</h3>
+            <p class="settings-section-desc" style="margin-bottom: 16px;">
+              Choose when Abjad should notify you.
+            </p>
+            <form id="notificationsForm" class="settings-notifications">
+              <label class="settings-toggle">
+                <input type="checkbox" id="notifOverdue">
+                <span class="settings-toggle-switch"></span>
+                <span class="settings-toggle-text">
+                  Orders due today & overdue
+                  <small>Get alerts when orders need your attention.</small>
+                </span>
+              </label>
+              <label class="settings-toggle">
+                <input type="checkbox" id="notifLowStock">
+                <span class="settings-toggle-switch"></span>
+                <span class="settings-toggle-text">
+                  Low stock items
+                  <small>Alerts when fabric or items go below threshold.</small>
+                </span>
+              </label>
+              <label class="settings-toggle">
+                <input type="checkbox" id="notifDailySummary">
+                <span class="settings-toggle-switch"></span>
+                <span class="settings-toggle-text">
+                  Daily summary
+                  <small>One summary with orders, payments, and tasks.</small>
+                </span>
+              </label>
+              <div class="form-actions settings-actions">
+                <button type="submit" class="btn btn-secondary">Save notification preferences</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    const user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+
+    const userName = user.full_name || user.username || 'User';
+    const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+    const roleLabel = (user.role || 'user').charAt(0).toUpperCase() + (user.role || 'user').slice(1);
+
+    document.getElementById('userAvatar').textContent = initials;
+    document.getElementById('sidebarUserAvatar').textContent = initials;
+    document.getElementById('sidebarUserName').textContent = userName;
+    document.getElementById('sidebarUserRole').textContent = roleLabel;
+
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) btn.addEventListener('click', toggleTheme);
+    })();
+
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) {
+      e.preventDefault();
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    });
+    var headerLogout = document.getElementById('headerLogoutBtn');
+    if (headerLogout) headerLogout.addEventListener('click', function() {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    });
+
+    var userProfile = document.getElementById('userProfile');
+    var userMenu = document.getElementById('userDropdownMenu');
+    if (userProfile && userMenu) {
+      userProfile.addEventListener('click', function() {
+        var hidden = userMenu.getAttribute('aria-hidden') === 'true';
+        userMenu.setAttribute('aria-hidden', !hidden);
+        userProfile.setAttribute('aria-expanded', hidden);
+      });
+      document.addEventListener('click', function(e) {
+        if (!userProfile.contains(e.target) && !userMenu.contains(e.target)) {
+          userMenu.setAttribute('aria-hidden', 'true');
+          userProfile.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Profile display
+    var profileName = document.getElementById('profileName');
+    var profileEmail = document.getElementById('profileEmail');
+    if (profileName) profileName.value = user.full_name || user.username || '';
+    if (profileEmail) profileEmail.value = user.email || '';
+
+    // Change password
+    var passwordForm = document.getElementById('passwordForm');
+    if (passwordForm) {
+      passwordForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var current = document.getElementById('currentPassword').value.trim();
+        var next = document.getElementById('newPassword').value.trim();
+        var confirm = document.getElementById('confirmPassword').value.trim();
+        if (!current || !next || !confirm) {
+          showToast('Please fill in all password fields.', 'error');
+          return;
+        }
+        if (next.length < 6) {
+          showToast('New password should be at least 6 characters.', 'error');
+          return;
+        }
+        if (next !== confirm) {
+          showToast('New passwords do not match.', 'error');
+          return;
+        }
+        try {
+          await api('/auth/change-password', {
+            method: 'POST',
+            body: JSON.stringify({ current_password: current, new_password: next })
+          });
+          passwordForm.reset();
+          showToast('Password updated successfully.', 'success');
+        } catch (err) {
+          showToast(err.message || 'Failed to update password.', 'error');
+        }
+      });
+    }
+
+    // Notification preferences (stored locally for now)
+    var NOTIF_KEY = 'abjad_settings_notifications';
+    function loadNotificationSettings() {
+      try {
+        var s = JSON.parse(localStorage.getItem(NOTIF_KEY) || '{}');
+        document.getElementById('notifOverdue').checked = !!s.overdue;
+        document.getElementById('notifLowStock').checked = !!s.lowStock;
+        document.getElementById('notifDailySummary').checked = !!s.dailySummary;
+      } catch {}
+    }
+    function saveNotificationSettings() {
+      var settings = {
+        overdue: document.getElementById('notifOverdue').checked,
+        lowStock: document.getElementById('notifLowStock').checked,
+        dailySummary: document.getElementById('notifDailySummary').checked
+      };
+      localStorage.setItem(NOTIF_KEY, JSON.stringify(settings));
+    }
+    var notificationsForm = document.getElementById('notificationsForm');
+    if (notificationsForm) {
+      notificationsForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        saveNotificationSettings();
+        showToast('Notification preferences saved.', 'success');
+      });
+      loadNotificationSettings();
+    }
+  </script>
+</body>
+</html>

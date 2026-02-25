@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orders - Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="/static/img/abjad-logo.png" alt="Abjad" class="sidebar-logo-img">
+          <div class="sidebar-logo-wrap">
+            <span class="sidebar-logo-text">Abjad</span>
+            <span class="sidebar-logo-tagline">tailor management system</span>
+          </div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="sidebar-nav-label">Main</span>
+        <a href="/dashboard" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+          <span class="sidebar-nav-text">Dashboard</span>
+        </a>
+        <span class="sidebar-nav-label">Operations</span>
+        <a href="/customers" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="sidebar-nav-text">Customers</span>
+        </a>
+        <a href="/orders" class="sidebar-nav-link active">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+          <span class="sidebar-nav-text">Orders</span>
+        </a>
+        <a href="/measurements" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg></span>
+          <span class="sidebar-nav-text">Measurements</span>
+        </a>
+        <a href="/payments" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
+          <span class="sidebar-nav-text">Payments</span>
+        </a>
+        <a href="/transactions" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="sidebar-nav-text">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4l4 4"/><path d="M17 8v12M17 20l4-4M17 20l-4-4"/></svg></span>
+          <span class="sidebar-nav-text">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M6 14h2"/><path d="M10 14h2"/></svg></span>
+          <span class="sidebar-nav-text">Banks</span>
+        </a>
+        <a href="/stock" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+          <span class="sidebar-nav-text">Stock</span>
+        </a>
+        <a href="/store" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/><path d="M12 14v4"/></svg></span>
+          <span class="sidebar-nav-text">Store</span>
+        </a>
+        <a href="/tasks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="sidebar-nav-text">Tasks</span>
+        </a>
+        <span class="sidebar-nav-label">Reports</span>
+        <a href="/reports" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+          <span class="sidebar-nav-text">Reports</span>
+        </a>
+        <a href="/staff" class="sidebar-nav-link nav-admin-only">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></span>
+          <span class="sidebar-nav-text">Staff</span>
+        </a>
+        <span class="sidebar-nav-label">Account</span>
+        <a href="/settings" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1.08A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h1.08A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v1.08a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-1.08a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+          <span class="sidebar-nav-text">Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="sidebarUserAvatar">JD</div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name" id="sidebarUserName">User</span>
+            <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+          </div>
+        </div>
+        <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <div class="main-header">
+        <div class="welcome-text">Orders</div>
+        <div class="header-right">
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" class="search-input" id="headerSearch" placeholder="Search orders...">
+          </div>
+          <div class="header-user-wrap">
+            <button type="button" class="header-icon-btn" id="notificationBtn" title="Notifications" aria-label="Notifications">
+              🔔
+              <span class="notification-badge" id="notificationBadge" style="display:none">0</span>
+            </button>
+            <div id="notificationPanel" class="notification-panel" aria-hidden="true">
+              <h4>Notifications</h4>
+              <div class="notification-panel-empty" id="notificationList">No new notifications</div>
+            </div>
+          </div>
+          <div class="header-user-wrap">
+            <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="user-avatar-small" id="userAvatar">JD</div>
+              <span style="font-size: 11px; color: var(--text-muted);">▼</span>
+            </div>
+            <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
+              <a href="/dashboard" role="menuitem">Dashboard</a>
+              <a href="/customers" role="menuitem">Customers</a>
+              <a href="/orders" role="menuitem">Orders</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" id="headerLogoutBtn" role="menuitem">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page Content -->
+      <div class="page-content">
+        <!-- Header Actions -->
+        <div class="customers-header-actions">
+          <div class="form-group" style="max-width:200px; margin: 0;">
+            <label style="margin-bottom: 6px;">Filter by status</label>
+            <select id="filterStatus" class="search-input" style="padding: 10px 14px;"><option value="">All</option><option value="pending">Pending</option><option value="in_progress">In Progress</option><option value="completed">Completed</option><option value="delivered">Delivered</option><option value="cancelled">Cancelled</option></select>
+          </div>
+          <button class="btn btn-primary" id="btnAdd">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New Order
+          </button>
+        </div>
+
+        <!-- Orders Table Card -->
+        <div class="dashboard-card">
+          <div class="table-responsive">
+            <table class="customers-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Customer</th>
+                  <th>Type</th>
+                  <th>Delivery</th>
+                  <th>Status</th>
+                  <th>Price</th>
+                  <th class="text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="list"></tbody>
+            </table>
+          </div>
+          <div class="table-pagination" id="pagination"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content" style="max-width:560px;">
+      <div class="modal-header">
+        <h3 id="modalTitle">New Order</h3>
+        <button class="btn btn-secondary btn-sm" id="closeModal">✕</button>
+      </div>
+      <form id="form">
+        <input type="hidden" id="orderId">
+        <div class="form-group"><label>Customer *</label><select id="customer_id" required></select></div>
+        <div class="form-group"><label>Clothing Type *</label><select id="clothing_type"><option value="Suit">Suit</option><option value="Shirt">Shirt</option><option value="Dress">Dress</option><option value="Trouser">Trouser</option><option value="Blouse">Blouse</option><option value="Coat">Coat</option><option value="Other">Other</option></select></div>
+        <div class="form-group"><label>Fabric Details</label><textarea id="fabric_details" rows="2"></textarea></div>
+        <div class="form-group"><label>Design Description</label><textarea id="design_description" rows="2"></textarea></div>
+        <div class="form-group"><label>Delivery Date</label><input type="date" id="delivery_date"></div>
+        <div class="form-group"><label>Total Price</label><input type="number" id="total_price" step="0.01" min="0"></div>
+        <div class="form-group"><label>Advance Paid</label><input type="number" id="advance_paid" step="0.01" min="0" value="0"></div>
+        <div class="form-group"><label>Design Image (upload then paste URL or leave blank)</label><input type="file" id="design_file" accept="image/*"><input type="text" id="design_image" placeholder="Or image URL"></div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    const user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+    
+    // User display name and initials
+    const userName = user.full_name || user.username || 'User';
+    const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+    const roleLabel = (user.role || 'user').charAt(0).toUpperCase() + (user.role || 'user').slice(1);
+    
+    document.getElementById('userAvatar').textContent = initials;
+    document.getElementById('sidebarUserAvatar').textContent = initials;
+    document.getElementById('sidebarUserName').textContent = userName;
+    document.getElementById('sidebarUserRole').textContent = roleLabel;
+    
+    // Theme toggle in sidebar
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) {
+        btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+    })();
+    
+    // Logout (sidebar and header)
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) {
+      e.preventDefault();
+      logout();
+    });
+    document.getElementById('headerLogoutBtn').addEventListener('click', function() {
+      logout();
+    });
+
+    // User dropdown (header)
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      function open() { menu.classList.add('show'); menu.setAttribute('aria-hidden', 'false'); profile.setAttribute('aria-expanded', 'true'); }
+      function close() { menu.classList.remove('show'); menu.setAttribute('aria-hidden', 'true'); profile.setAttribute('aria-expanded', 'false'); }
+      function toggle() { if (menu.classList.contains('show')) close(); else { open(); notifClose(); } }
+      profile.addEventListener('click', function(e) { e.stopPropagation(); toggle(); });
+      document.addEventListener('click', function(e) {
+        if (!profile.contains(e.target) && !menu.contains(e.target)) close();
+      });
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    })();
+
+    // Notification panel
+    var notifPanel = document.getElementById('notificationPanel');
+    var notifBtn = document.getElementById('notificationBtn');
+    var headerUserWrapNotif = notifBtn.closest('.header-user-wrap');
+    function notifClose() { notifPanel.classList.remove('show'); notifPanel.setAttribute('aria-hidden', 'true'); }
+    function notifToggle() {
+      if (notifPanel.classList.contains('show')) notifClose();
+      else {
+        notifPanel.classList.add('show');
+        notifPanel.setAttribute('aria-hidden', 'false');
+        document.getElementById('userDropdownMenu').classList.remove('show');
+      }
+    }
+    notifBtn.addEventListener('click', function(e) { e.stopPropagation(); notifToggle(); });
+    document.addEventListener('click', function(e) {
+      if (!headerUserWrapNotif.contains(e.target)) notifClose();
+    });
+
+    // Header search
+    document.getElementById('headerSearch').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        // Could implement search functionality here
+        this.blur();
+      }
+    });
+
+    // Hide admin-only nav
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    // Orders page logic
+    let customers = [];
+    async function loadCustomers() {
+      const res = await api('/customers?per_page=500');
+      customers = res.items || [];
+      const sel = document.getElementById('customer_id');
+      sel.innerHTML = '<option value="">Select customer</option>' + customers.map(c => `<option value="${c.id}">${c.full_name} - ${c.phone}</option>`).join('');
+    }
+    function statusBadge(s) {
+      const c = { pending: 'badge-pending', in_progress: 'badge-progress', completed: 'badge-completed', delivered: 'badge-delivered', cancelled: 'badge-cancelled' }[s] || '';
+      return `<span class="badge ${c}">${s || 'pending'}</span>`;
+    }
+    function openModal(order) {
+      document.getElementById('modalTitle').textContent = order ? 'Edit Order' : 'New Order';
+      document.getElementById('orderId').value = order ? order.id : '';
+      if (!order) { document.getElementById('customer_id').value = new URLSearchParams(location.search).get('customer_id') || ''; }
+      else document.getElementById('customer_id').value = order.customer_id;
+      document.getElementById('clothing_type').value = order ? order.clothing_type : 'Suit';
+      document.getElementById('fabric_details').value = order ? (order.fabric_details || '') : '';
+      document.getElementById('design_description').value = order ? (order.design_description || '') : '';
+      document.getElementById('delivery_date').value = order && order.delivery_date ? order.delivery_date : '';
+      document.getElementById('total_price').value = order ? (order.total_price || '') : '';
+      document.getElementById('advance_paid').value = order ? (order.advance_paid || 0) : 0;
+      document.getElementById('design_image').value = order ? (order.design_image || '') : '';
+      document.getElementById('modal').classList.remove('hidden');
+    }
+    document.getElementById('btnAdd').onclick = () => openModal(null);
+    document.getElementById('closeModal').onclick = () => document.getElementById('modal').classList.add('hidden');
+    document.getElementById('cancelBtn').onclick = () => document.getElementById('modal').classList.add('hidden');
+    document.getElementById('design_file').onchange = async (e) => {
+      const f = e.target.files[0]; if (!f) return;
+      const fd = new FormData(); fd.append('file', f);
+      const token = getToken();
+      const r = await fetch(window.location.origin + '/api/orders/upload-design', { method: 'POST', headers: token ? { Authorization: 'Bearer ' + token } : {}, body: fd });
+      const j = await r.json(); if (j.design_image) document.getElementById('design_image').value = j.design_image;
+    };
+    document.getElementById('form').onsubmit = async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('orderId').value;
+      const payload = {
+        customer_id: parseInt(document.getElementById('customer_id').value),
+        clothing_type: document.getElementById('clothing_type').value,
+        fabric_details: document.getElementById('fabric_details').value,
+        design_description: document.getElementById('design_description').value,
+        delivery_date: document.getElementById('delivery_date').value || null,
+        total_price: document.getElementById('total_price').value || 0,
+        advance_paid: document.getElementById('advance_paid').value || 0,
+        design_image: document.getElementById('design_image').value || null
+      };
+      try {
+        if (id) await api('/orders/' + id, { method: 'PUT', body: JSON.stringify(payload) });
+        else await api('/orders', { method: 'POST', body: JSON.stringify(payload) });
+        document.getElementById('modal').classList.add('hidden');
+        showToast(id ? 'Order updated' : 'Order created', 'success');
+        load();
+      } catch (err) { showToast(err.message || 'Failed to save order', 'error'); }
+    };
+    async function load() {
+      try {
+        const status = document.getElementById('filterStatus').value;
+        const params = new URLSearchParams(); if (status) params.set('status', status);
+        const res = await api('/orders?' + params);
+        function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+        document.getElementById('list').innerHTML = (res.items || []).map(o => `
+        <tr>
+          <td>${o.id}</td>
+          <td><strong>${escapeHtml(o.customer ? o.customer.full_name : '-')}</strong></td>
+          <td>${escapeHtml(o.clothing_type)}</td>
+          <td>${escapeHtml(o.delivery_date || '-')}</td>
+          <td>${statusBadge(o.status)}</td>
+          <td>$${Number(o.total_price || 0).toFixed(2)}</td>
+          <td class="text-right">
+            <button class="btn btn-secondary btn-sm" onclick='openModal(${JSON.stringify(o).replace(/'/g, "\\'")})'>Edit</button>
+            <a href="/payments?order_id=${o.id}" class="btn btn-secondary btn-sm">Payments</a>
+            ${o.status !== 'cancelled' ? `<a href="${window.location.origin}/api/payments/invoice/${o.id}" class="btn btn-secondary btn-sm" target="_blank">Invoice</a>` : ''}
+            ${o.status !== 'cancelled' ? `<button class="btn btn-danger btn-sm" onclick="cancel(${o.id})">Cancel</button>` : ''}
+          </td>
+        </tr>
+      `).join('') || '<tr><td colspan="7" style="text-align:center; padding: 24px; color: var(--text-muted);">No orders found</td></tr>';
+        document.getElementById('pagination').innerHTML = res.total ? `<div class="pagination-info">Total: ${res.total} order${res.total !== 1 ? 's' : ''}</div>` : '';
+      } catch (err) {
+        showToast(err.message || 'Failed to load orders', 'error');
+        document.getElementById('list').innerHTML = '<tr><td colspan="7" style="text-align:center; padding: 24px; color: var(--text-muted);">Failed to load orders</td></tr>';
+        document.getElementById('pagination').innerHTML = '';
+      }
+    }
+    async function cancel(id) { if (!confirm('Cancel this order?')) return; await api('/orders/' + id, { method: 'DELETE' }); load(); }
+    document.getElementById('filterStatus').onchange = load;
+    loadCustomers().then(load);
+  </script>
+</body>
+</html>

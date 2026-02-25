@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('tailor_theme') || 'dark');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - Abjad tailor management system</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+  <style>
+    .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+    .login-box { width: 100%; max-width: 400px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; box-shadow: var(--shadow); }
+    .login-brand { text-align: center; margin-bottom: 1.5rem; }
+    .login-brand-img { display: block; margin: 0 auto 0.75rem; width: 72px; height: 72px; object-fit: contain; border-radius: 10px; }
+    .login-brand-title { margin: 0; font-size: 1.35rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; line-height: 1.25; }
+    .login-brand-tagline { margin: 0.25rem 0 0; font-size: 0.85rem; font-weight: 500; color: var(--text-muted); }
+    .login-box .btn { width: 100%; justify-content: center; margin-top: 0.5rem; padding: 0.65rem; }
+    .login-err { color: var(--danger); font-size: 0.9rem; margin-top: 0.5rem; }
+    .theme-toggle-login { position: fixed; top: 1rem; right: 1rem; }
+  </style>
+</head>
+<body>
+  <button type="button" class="btn btn-secondary theme-toggle-login" id="themeToggle" title="Toggle light/dark mode" aria-label="Theme">🌙</button>
+  <div class="login-wrap">
+    <div class="login-box">
+      <div class="login-brand">
+        <img src="/static/img/abjad-logo.png" alt="Abjad" class="login-brand-img">
+        <h1 class="login-brand-title">Abjad</h1>
+        <p class="login-brand-tagline">tailor management system</p>
+      </div>
+      <p style="text-align:center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Sign in with your email</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required autocomplete="current-password" placeholder="••••••••">
+        </div>
+        <div id="loginErr" class="login-err hidden"></div>
+        <button type="submit" class="btn">Sign in</button>
+      </form>
+    </div>
+  </div>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script>
+    if (getToken()) { window.location.href = '/dashboard'; }
+    document.getElementById('themeToggle').onclick = () => { toggleTheme(); updateThemeButton(document.getElementById('themeToggle')); };
+    initTheme();
+    updateThemeButton(document.getElementById('themeToggle'));
+
+    document.getElementById('loginForm').onsubmit = async (e) => {
+      e.preventDefault();
+      const errEl = document.getElementById('loginErr');
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      
+      errEl.classList.add('hidden');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Signing in...';
+      
+      try {
+        const email = document.getElementById('email').value.trim().toLowerCase();
+        const password = document.getElementById('password').value;
+        
+        if (!email || !password) {
+          throw new Error('Please enter both email and password');
+        }
+        
+        const res = await api('/auth/login', {
+          method: 'POST',
+          body: JSON.stringify({ email, password })
+        });
+        
+        if (res.access_token && res.user) {
+          setToken(res.access_token);
+          setUser(res.user);
+          submitBtn.textContent = 'Success! Redirecting...';
+          setTimeout(() => {
+            window.location.href = '/dashboard';
+          }, 500);
+        } else {
+          throw new Error('Invalid response from server');
+        }
+      } catch (e) {
+        errEl.textContent = e.message || 'Invalid email or password. Please try again.';
+        errEl.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports - Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="/static/img/abjad-logo.png" alt="Abjad" class="sidebar-logo-img">
+          <div class="sidebar-logo-wrap">
+            <span class="sidebar-logo-text">Abjad</span>
+            <span class="sidebar-logo-tagline">tailor management system</span>
+          </div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="sidebar-nav-label">Main</span>
+        <a href="/dashboard" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+          <span class="sidebar-nav-text">Dashboard</span>
+        </a>
+        <span class="sidebar-nav-label">Operations</span>
+        <a href="/customers" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="sidebar-nav-text">Customers</span>
+        </a>
+        <a href="/orders" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+          <span class="sidebar-nav-text">Orders</span>
+        </a>
+        <a href="/measurements" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg></span>
+          <span class="sidebar-nav-text">Measurements</span>
+        </a>
+        <a href="/payments" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
+          <span class="sidebar-nav-text">Payments</span>
+        </a>
+        <a href="/transactions" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="sidebar-nav-text">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4l4 4"/><path d="M17 8v12M17 20l4-4M17 20l-4-4"/></svg></span>
+          <span class="sidebar-nav-text">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M6 14h2"/><path d="M10 14h2"/></svg></span>
+          <span class="sidebar-nav-text">Banks</span>
+        </a>
+        <a href="/stock" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+          <span class="sidebar-nav-text">Stock</span>
+        </a>
+        <a href="/store" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/><path d="M12 14v4"/></svg></span>
+          <span class="sidebar-nav-text">Store</span>
+        </a>
+        <a href="/tasks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="sidebar-nav-text">Tasks</span>
+        </a>
+        <span class="sidebar-nav-label">Reports</span>
+        <div class="report-nav-parent" id="reportNavParent">
+          <a href="/reports" class="sidebar-nav-link report-nav-main active" id="reportNavMain" role="button" aria-expanded="true" aria-controls="reportNavSub">
+            <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+            <span class="sidebar-nav-text">Report</span>
+            <span class="badge-new">NEW</span>
+            <span class="report-nav-chevron" id="reportNavChevron" title="Expand/Collapse">▼</span>
+          </a>
+          <div class="report-nav-sub" id="reportNavSub" role="region">
+            <a href="/reports/orders" class="sidebar-nav-link report-nav-sub-link" data-section="orders">Orders Report</a>
+            <a href="/reports/products" class="sidebar-nav-link report-nav-sub-link" data-section="products">Products Report</a>
+            <a href="/reports/transactions" class="sidebar-nav-link report-nav-sub-link" data-section="transactions">Transactions Report</a>
+            <a href="/reports/exchange" class="sidebar-nav-link report-nav-sub-link" data-section="exchange">Exchange Report</a>
+            <a href="/reports/swaps" class="sidebar-nav-link report-nav-sub-link" data-section="swaps">Swaps Report</a>
+            <a href="/reports/accounts" class="sidebar-nav-link report-nav-sub-link" data-section="accounts">Account Report <span class="badge-new">NEW</span></a>
+          </div>
+        </div>
+        <a href="/staff" class="sidebar-nav-link nav-admin-only">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></span>
+          <span class="sidebar-nav-text">Staff</span>
+        </a>
+        <span class="sidebar-nav-label">Account</span>
+        <a href="/settings" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1.08A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h1.08A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v1.08a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-1.08a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+          <span class="sidebar-nav-text">Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="sidebarUserAvatar">JD</div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name" id="sidebarUserName">User</span>
+            <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+          </div>
+        </div>
+        <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="main-header">
+        <div class="welcome-text" id="reportPageTitle">Reports</div>
+        <div class="header-right">
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" class="search-input" id="headerSearch" placeholder="Search reports...">
+          </div>
+          <div class="header-user-wrap">
+            <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="user-avatar-small" id="userAvatar">JD</div>
+              <span style="font-size: 11px; color: var(--text-muted);">▼</span>
+            </div>
+            <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
+              <a href="/dashboard" role="menuitem">Dashboard</a>
+              <a href="/customers" role="menuitem">Customers</a>
+              <a href="/orders" role="menuitem">Orders</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" id="headerLogoutBtn" role="menuitem">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-content">
+        <div class="report-filters" id="reportFilters">
+          <div class="report-filter-row">
+            <div class="form-group report-filter-group">
+              <label>Date From</label>
+              <input type="date" id="dateFrom" class="search-input" style="padding: 10px 14px;">
+            </div>
+            <div class="form-group report-filter-group">
+              <label>Date To</label>
+              <input type="date" id="dateTo" class="search-input" style="padding: 10px 14px;">
+            </div>
+            <div class="form-group report-filter-group">
+              <label>Search</label>
+              <input type="text" id="searchInput" class="search-input" style="padding: 10px 14px;" placeholder="Search...">
+            </div>
+            <div class="form-group report-filter-group" id="extraFilterWrap" style="display:none;"></div>
+            <button class="btn btn-primary" id="btnLoadReport">Load Report</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card report-table-card">
+          <div class="table-responsive">
+            <table class="customers-table report-table" id="reportTable">
+              <thead id="reportTableHead">
+                <tr><th>Loading...</th></tr>
+              </thead>
+              <tbody id="reportTableBody">
+                <tr><td colspan="10" class="report-loading">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="report-pagination" id="reportPagination" style="display:none;">
+            <span id="pageInfo">Page 1 of 1</span>
+            <div class="report-pagination-btns">
+              <button type="button" class="btn btn-secondary btn-sm" id="btnPrev">Prev</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btnNext">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    const user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+
+    const userName = user.full_name || user.username || 'User';
+    const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+    document.getElementById('userAvatar').textContent = initials;
+    document.getElementById('sidebarUserAvatar').textContent = initials;
+    document.getElementById('sidebarUserName').textContent = userName;
+    document.getElementById('sidebarUserRole').textContent = (user.role || 'user').charAt(0).toUpperCase() + (user.role || 'user').slice(1);
+
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) { btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; }; };
+    })();
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) { e.preventDefault(); logout(); });
+    document.getElementById('headerLogoutBtn').addEventListener('click', function() { logout(); });
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      profile.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('show'); });
+      document.addEventListener('click', function(e) { if (!profile.contains(e.target) && !menu.contains(e.target)) menu.classList.remove('show'); });
+    })();
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    function getSection() {
+      var p = window.location.pathname;
+      if (p === '/reports' || p === '/reports/') return 'orders';
+      var m = p.match(/\/reports\/([^\/]+)/);
+      return (m && m[1]) || 'orders';
+    }
+
+    function escapeHtml(s) {
+      if (s == null || s === '') return '-';
+      var d = document.createElement('div'); d.textContent = s; return d.innerHTML;
+    }
+    function formatDate(iso) {
+      if (!iso) return '-';
+      var s = String(iso).slice(0, 10);
+      return s ? new Date(s + 'T00:00:00').toLocaleDateString() : '-';
+    }
+    function formatDateTime(iso) {
+      if (!iso) return '-';
+      return new Date(iso.replace('T', ' ').slice(0, 19)).toLocaleString();
+    }
+
+    var sections = {
+      orders: { title: 'Orders Report', api: '/reports/orders', dateRange: true, extraFilter: { name: 'status', label: 'Status', type: 'select', options: [{v: '', t: 'All'}, {v: 'pending', t: 'Pending'}, {v: 'in_progress', t: 'In Progress'}, {v: 'completed', t: 'Completed'}, {v: 'delivered', t: 'Delivered'}, {v: 'cancelled', t: 'Cancelled'}]} },
+      products: { title: 'Products Report', api: '/reports/products', dateRange: false, extraFilter: { name: 'item_type', label: 'Type', type: 'select', options: [{v: '', t: 'All'}, {v: 'fabric', t: 'Fabric'}, {v: 'button', t: 'Button'}, {v: 'zipper', t: 'Zipper'}, {v: 'thread', t: 'Thread'}, {v: 'other', t: 'Other'}]} },
+      transactions: { title: 'Transactions Report', api: '/reports/transactions', dateRange: true, extraFilter: { name: 'currency', label: 'Currency', type: 'select', options: [{v: '', t: 'All'}, {v: 'KES', t: 'KES'}, {v: 'USD', t: 'USD'}]} },
+      exchange: { title: 'Exchange Report', api: '/reports/exchange', dateRange: true },
+      swaps: { title: 'Swaps Report', api: '/reports/swaps', dateRange: true },
+      accounts: { title: 'Account Report', api: '/reports/accounts', dateRange: false }
+    };
+
+    function setActiveNav() {
+      var sec = getSection();
+      document.querySelectorAll('.report-nav-sub-link').forEach(function(a) {
+        a.classList.toggle('active', a.getAttribute('data-section') === sec);
+      });
+      document.getElementById('reportNavMain').classList.toggle('active', true);
+      document.getElementById('reportPageTitle').textContent = (sections[sec] || sections.orders).title;
+    }
+
+    function buildExtraFilter(cfg) {
+      var wrap = document.getElementById('extraFilterWrap');
+      wrap.innerHTML = '';
+      wrap.style.display = 'none';
+      if (!cfg || !cfg.extraFilter) return;
+      var f = cfg.extraFilter;
+      wrap.innerHTML = '<label>' + escapeHtml(f.label) + '</label><select id="extraFilter" class="search-input" style="padding:10px 14px;">' + (f.options || []).map(function(o) { return '<option value="' + escapeHtml(o.v) + '">' + escapeHtml(o.t) + '</option>'; }).join('') + '</select>';
+      wrap.style.display = '';
+    }
+
+    var currentPage = 1;
+    function loadReport() {
+      var sec = getSection();
+      var cfg = sections[sec] || sections.orders;
+      var dateFrom = document.getElementById('dateFrom').value;
+      var dateTo = document.getElementById('dateTo').value;
+      var search = document.getElementById('searchInput').value.trim();
+      var params = ['page=' + currentPage, 'per_page=20'];
+      if (cfg.dateRange && dateFrom) params.push('date_from=' + dateFrom);
+      if (cfg.dateRange && dateTo) params.push('date_to=' + dateTo);
+      if (search) params.push('search=' + encodeURIComponent(search));
+      var extra = document.getElementById('extraFilter');
+      if (extra && cfg.extraFilter && extra.value) params.push(cfg.extraFilter.name + '=' + encodeURIComponent(extra.value));
+
+      document.getElementById('reportTableBody').innerHTML = '<tr><td colspan="10" class="report-loading">Loading...</td></tr>';
+      api(cfg.api + '?' + params.join('&')).then(function(res) {
+        var items = res.items || [];
+        var thead = document.getElementById('reportTableHead');
+        var tbody = document.getElementById('reportTableBody');
+
+        if (sec === 'orders') {
+          thead.innerHTML = '<tr><th>NO</th><th>Order ID</th><th>Customer</th><th>Clothing Type</th><th>Status</th><th>Total</th><th>Paid</th><th>Created</th></tr>';
+          tbody.innerHTML = items.length ? items.map(function(o, i) {
+            var c = o.customer || {};
+            return '<tr><td>' + ((currentPage - 1) * 20 + i + 1) + '</td><td>#' + o.id + '</td><td>' + escapeHtml(c.full_name) + '</td><td>' + escapeHtml(o.clothing_type) + '</td><td><span class="badge badge-' + (o.status === 'completed' || o.status === 'delivered' ? 'completed' : (o.status === 'in_progress' ? 'progress' : 'pending')) + '">' + escapeHtml(o.status) + '</span></td><td>' + (Number(o.total_price || 0).toFixed(2)) + '</td><td>' + (Number(o.advance_paid || 0).toFixed(2)) + '</td><td>' + formatDateTime(o.created_at) + '</td></tr>';
+          }).join('') : '<tr><td colspan="8" class="report-empty">No data</td></tr>';
+        } else if (sec === 'products') {
+          thead.innerHTML = '<tr><th>NO</th><th>Name</th><th>Type</th><th>Quantity</th><th>Unit</th><th>Min Stock</th><th>Notes</th></tr>';
+          tbody.innerHTML = items.length ? items.map(function(p, i) {
+            return '<tr><td>' + ((currentPage - 1) * 20 + i + 1) + '</td><td>' + escapeHtml(p.name) + '</td><td>' + escapeHtml(p.item_type) + '</td><td>' + p.quantity + '</td><td>' + escapeHtml(p.unit) + '</td><td>' + (p.min_stock != null ? p.min_stock : '-') + '</td><td>' + escapeHtml((p.notes || '').slice(0, 50)) + '</td></tr>';
+          }).join('') : '<tr><td colspan="7" class="report-empty">No data</td></tr>';
+        } else if (sec === 'transactions') {
+          thead.innerHTML = '<tr><th>NO</th><th>Date</th><th>Currency</th><th>Type</th><th>Method</th><th>Category</th><th>Amount</th><th>Details</th></tr>';
+          tbody.innerHTML = items.length ? items.map(function(t, i) {
+            return '<tr><td>' + ((currentPage - 1) * 20 + i + 1) + '</td><td>' + formatDateTime(t.transaction_date) + '</td><td>' + escapeHtml(t.currency) + '</td><td>' + escapeHtml(t.transaction_type) + '</td><td>' + escapeHtml(t.method) + '</td><td>' + escapeHtml(t.category) + '</td><td><strong>' + (Number(t.amount).toFixed(2)) + '</strong></td><td>' + escapeHtml((t.details || '').slice(0, 40)) + '</td></tr>';
+          }).join('') : '<tr><td colspan="8" class="report-empty">No data</td></tr>';
+        } else if (sec === 'exchange' || sec === 'swaps') {
+          thead.innerHTML = '<tr><th>NO</th><th>From</th><th>To</th><th>From Amount</th><th>To Amount</th><th>Rate</th><th>Details</th><th>Date</th></tr>';
+          tbody.innerHTML = items.length ? items.map(function(s, i) {
+            var fromAmt = (Number(s.from_cash_amount || 0) + Number(s.from_digital_amount || 0)).toFixed(2);
+            var toAmt = (Number(s.to_cash_amount || 0) + Number(s.to_digital_amount || 0)).toFixed(2);
+            return '<tr><td>' + ((currentPage - 1) * 20 + i + 1) + '</td><td>' + escapeHtml(s.from_account) + '</td><td>' + escapeHtml(s.to_account) + '</td><td>' + fromAmt + '</td><td>' + toAmt + '</td><td>' + (s.exchange_rate != null ? Number(s.exchange_rate).toFixed(4) : '-') + '</td><td>' + escapeHtml((s.details || '').slice(0, 30)) + '</td><td>' + formatDateTime(s.created_at) + '</td></tr>';
+          }).join('') : '<tr><td colspan="8" class="report-empty">No data</td></tr>';
+        } else if (sec === 'accounts') {
+          thead.innerHTML = '<tr><th>NO</th><th>Account</th><th>Name</th><th>Balance</th><th>User</th><th>Created</th></tr>';
+          tbody.innerHTML = items.length ? items.map(function(b, i) {
+            var u = b.user || {};
+            return '<tr><td>' + ((currentPage - 1) * 20 + i + 1) + '</td><td>' + escapeHtml(b.account_number) + '</td><td>' + escapeHtml(b.name) + '</td><td>' + (Number(b.balance || 0).toFixed(2)) + '</td><td>' + escapeHtml(u.full_name || u.username || '-') + '</td><td>' + formatDateTime(b.created_at) + '</td></tr>';
+          }).join('') : '<tr><td colspan="6" class="report-empty">No data</td></tr>';
+        }
+
+        var pages = res.pages || 1;
+        var pagEl = document.getElementById('reportPagination');
+        pagEl.style.display = pages > 1 ? 'flex' : 'none';
+        document.getElementById('pageInfo').textContent = 'Page ' + (res.page || 1) + ' of ' + pages;
+        document.getElementById('btnPrev').disabled = (res.page || 1) <= 1;
+        document.getElementById('btnNext').disabled = (res.page || 1) >= pages;
+      }).catch(function(err) {
+        document.getElementById('reportTableBody').innerHTML = '<tr><td colspan="10" class="report-error">' + escapeHtml(err.message || 'Failed to load') + '</td></tr>';
+      });
+    }
+
+    document.getElementById('btnLoadReport').onclick = function() { currentPage = 1; loadReport(); };
+    document.getElementById('btnPrev').onclick = function() { currentPage = Math.max(1, currentPage - 1); loadReport(); };
+    document.getElementById('btnNext').onclick = function() { currentPage++; loadReport(); };
+    document.getElementById('searchInput').onkeydown = function(e) { if (e.key === 'Enter') { currentPage = 1; loadReport(); } };
+
+    function initSection() {
+      var sec = getSection();
+      var cfg = sections[sec] || sections.orders;
+      document.getElementById('dateFrom').closest('.report-filter-group').style.display = cfg.dateRange ? '' : 'none';
+      document.getElementById('dateTo').closest('.report-filter-group').style.display = cfg.dateRange ? '' : 'none';
+      var today = new Date().toISOString().slice(0, 10);
+      document.getElementById('dateFrom').value = '';
+      document.getElementById('dateTo').value = today;
+      buildExtraFilter(cfg);
+      setActiveNav();
+      currentPage = 1;
+      loadReport();
+    }
+
+    (function reportToggle() {
+      var main = document.getElementById('reportNavMain');
+      var sub = document.getElementById('reportNavSub');
+      var chevron = document.getElementById('reportNavChevron');
+      var expanded = true;
+      function toggle() {
+        expanded = !expanded;
+        sub.classList.toggle('collapsed', !expanded);
+        main.setAttribute('aria-expanded', expanded);
+        chevron.textContent = expanded ? '\u25BC' : '\u25B6';
+        chevron.title = expanded ? 'Collapse' : 'Expand';
+      }
+      main.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggle();
+      });
+    })();
+
+    initSection();
+    window.addEventListener('popstate', initSection);
+    document.querySelectorAll('.report-nav-sub-link').forEach(function(a) {
+      a.addEventListener('click', function(e) { e.preventDefault(); history.pushState({}, '', this.href); initSection(); });
+    });
+  </script>
+</body>
+</html>

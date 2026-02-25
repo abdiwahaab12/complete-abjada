@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banks - Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="/static/img/abjad-logo.png" alt="Abjad" class="sidebar-logo-img">
+          <div class="sidebar-logo-wrap">
+            <span class="sidebar-logo-text">Abjad</span>
+            <span class="sidebar-logo-tagline">tailor management system</span>
+          </div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="sidebar-nav-label">Main</span>
+        <a href="/dashboard" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+          <span class="sidebar-nav-text">Dashboard</span>
+        </a>
+        <span class="sidebar-nav-label">Operations</span>
+        <a href="/customers" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="sidebar-nav-text">Customers</span>
+        </a>
+        <a href="/orders" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+          <span class="sidebar-nav-text">Orders</span>
+        </a>
+        <a href="/measurements" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg></span>
+          <span class="sidebar-nav-text">Measurements</span>
+        </a>
+        <a href="/payments" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
+          <span class="sidebar-nav-text">Payments</span>
+        </a>
+        <a href="/transactions" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="sidebar-nav-text">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4l4 4"/><path d="M17 8v12M17 20l4-4M17 20l-4-4"/></svg></span>
+          <span class="sidebar-nav-text">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-nav-link active">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M6 14h2"/><path d="M10 14h2"/></svg></span>
+          <span class="sidebar-nav-text">Banks</span>
+        </a>
+        <a href="/stock" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+          <span class="sidebar-nav-text">Stock</span>
+        </a>
+        <a href="/store" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/><path d="M12 14v4"/></svg></span>
+          <span class="sidebar-nav-text">Store</span>
+        </a>
+        <a href="/tasks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="sidebar-nav-text">Tasks</span>
+        </a>
+        <span class="sidebar-nav-label">Reports</span>
+        <a href="/reports" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+          <span class="sidebar-nav-text">Reports</span>
+        </a>
+        <a href="/staff" class="sidebar-nav-link nav-admin-only">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></span>
+          <span class="sidebar-nav-text">Staff</span>
+        </a>
+        <span class="sidebar-nav-label">Account</span>
+        <a href="/settings" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1.08A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h1.08A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v1.08a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-1.08a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+          <span class="sidebar-nav-text">Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="sidebarUserAvatar">JD</div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name" id="sidebarUserName">User</span>
+            <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+          </div>
+        </div>
+        <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="main-header">
+        <div class="welcome-text">Banks</div>
+        <div class="header-right">
+          <div class="header-user-wrap">
+            <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="user-avatar-small" id="userAvatar">JD</div>
+              <span style="font-size: 11px; color: var(--text-muted);">▼</span>
+            </div>
+            <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
+              <a href="/dashboard" role="menuitem">Dashboard</a>
+              <a href="/customers" role="menuitem">Customers</a>
+              <a href="/orders" role="menuitem">Orders</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" id="headerLogoutBtn" role="menuitem">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-content">
+        <div class="swaps-page-header">
+          <h1 class="swaps-page-title">Banks</h1>
+          <button type="button" class="btn swaps-add-btn" id="btnAddBank">Add Bank</button>
+        </div>
+
+        <div class="swaps-filter-bar">
+          <input type="text" class="swaps-filter-input" id="filterInput" placeholder="Filter by name">
+          <button type="button" class="swaps-select-columns-btn" id="selectColumnsBtn">Select columns</button>
+        </div>
+
+        <div class="swaps-table-card">
+          <div class="table-responsive">
+            <table class="swaps-table">
+              <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>Account Number</th>
+                  <th>Name</th>
+                  <th>Balance</th>
+                  <th>Created At</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="list"></tbody>
+            </table>
+          </div>
+          <div class="swaps-empty" id="emptyState" style="display:none;">No results.</div>
+        </div>
+
+        <div class="swaps-pagination">
+          <span class="swaps-pagination-rows">Rows per page <select id="rowsPerPage"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option></select></span>
+          <span class="swaps-pagination-info" id="pageInfo">Page 1 of 0</span>
+          <div class="swaps-pagination-nav">
+            <button type="button" class="swaps-pagination-btn" id="btnFirst" title="First page">&laquo;</button>
+            <button type="button" class="swaps-pagination-btn" id="btnPrev" title="Previous">&lsaquo;</button>
+            <button type="button" class="swaps-pagination-btn" id="btnNext" title="Next">&rsaquo;</button>
+            <button type="button" class="swaps-pagination-btn" id="btnLast" title="Last page">&raquo;</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  <!-- Add/Edit Bank Modal -->
+  <div id="bankModal" class="modal hidden">
+    <div class="modal-content" style="max-width: 420px;">
+      <div class="modal-header">
+        <h3 id="bankModalTitle">Add Bank</h3>
+        <button type="button" class="btn btn-secondary btn-sm" id="closeBankModal">&#215;</button>
+      </div>
+      <form id="bankForm">
+        <input type="hidden" id="bankId">
+        <div class="form-group">
+          <label for="taker_name">Taker Name</label>
+          <input type="text" id="taker_name" required placeholder="Enter taker name">
+        </div>
+        <div class="form-group">
+          <label for="bank_user_id">Choose Bank User <span class="label-optional">(Optional)</span></label>
+          <select id="bank_user_id">
+            <option value="">Choose Bank User</option>
+          </select>
+          <small class="form-help">This is an optional field. If you want to assign this bank to a user, select the user from the list.</small>
+        </div>
+        <div class="form-actions" style="margin-top: 16px;">
+          <button type="button" class="btn btn-secondary" id="cancelBankBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Bank</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    const user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+
+    const userName = user.full_name || user.username || 'User';
+    const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+    const roleLabel = (user.role || 'user').charAt(0).toUpperCase() + (user.role || 'user').slice(1);
+
+    document.getElementById('userAvatar').textContent = initials;
+    document.getElementById('sidebarUserAvatar').textContent = initials;
+    document.getElementById('sidebarUserName').textContent = userName;
+    document.getElementById('sidebarUserRole').textContent = roleLabel;
+
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) {
+        btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+    })();
+
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) { e.preventDefault(); logout(); });
+    document.getElementById('headerLogoutBtn').addEventListener('click', function() { logout(); });
+
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      profile.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.add('show'); menu.setAttribute('aria-hidden', 'false'); profile.setAttribute('aria-expanded', 'true'); });
+      document.addEventListener('click', function(e) {
+        if (!profile.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.remove('show'); menu.setAttribute('aria-hidden', 'true'); profile.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    function escapeHtml(s) {
+      if (s == null || s === '') return '-';
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+    function formatDate(iso) {
+      if (!iso) return '-';
+      var d = new Date(iso);
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    }
+
+    var modal = document.getElementById('bankModal');
+    var bankUserSelect = document.getElementById('bank_user_id');
+    async function loadUsers() {
+      try {
+        var users = await api('/auth/users');
+        var opts = '<option value="">Choose Bank User</option>' + (users || []).map(function(u) {
+          return '<option value="' + u.id + '">' + escapeHtml(u.full_name || u.username || 'User #' + u.id) + '</option>';
+        }).join('');
+        bankUserSelect.innerHTML = opts;
+      } catch (err) { bankUserSelect.innerHTML = '<option value="">Choose Bank User</option>'; }
+    }
+    document.getElementById('btnAddBank').onclick = function() {
+      document.getElementById('bankModalTitle').textContent = 'Add Bank';
+      document.getElementById('bankId').value = '';
+      document.getElementById('taker_name').value = '';
+      bankUserSelect.value = '';
+      document.querySelector('#bankForm button[type="submit"]').style.display = '';
+      loadUsers();
+      modal.classList.remove('hidden');
+    };
+    document.getElementById('closeBankModal').onclick = function() { modal.classList.add('hidden'); };
+    document.getElementById('cancelBankBtn').onclick = function() { modal.classList.add('hidden'); };
+    modal.addEventListener('click', function(e) { if (e.target === modal) modal.classList.add('hidden'); });
+
+    document.getElementById('bankForm').onsubmit = async function(e) {
+      e.preventDefault();
+      var id = document.getElementById('bankId').value;
+      var uid = bankUserSelect.value;
+      var payload = {
+        name: document.getElementById('taker_name').value.trim(),
+        user_id: uid ? parseInt(uid, 10) : null
+      };
+      try {
+        if (id) {
+          await api('/banks/' + id, { method: 'PUT', body: JSON.stringify(payload) });
+          showToast('Bank updated', 'success');
+        } else {
+          await api('/banks', { method: 'POST', body: JSON.stringify(payload) });
+          showToast('Bank added', 'success');
+        }
+        modal.classList.add('hidden');
+        load(1);
+      } catch (err) { showToast(err.message || 'Failed to save bank', 'error'); }
+    };
+
+    document.getElementById('selectColumnsBtn').onclick = function() {};
+
+    let currentPage = 1;
+    let perPage = 20;
+
+    document.getElementById('rowsPerPage').onchange = function() {
+      perPage = parseInt(this.value, 10);
+      load(1);
+    };
+    document.getElementById('filterInput').oninput = function() { load(currentPage); };
+    document.getElementById('btnFirst').onclick = function() { load(1); };
+    document.getElementById('btnPrev').onclick = function() { load(Math.max(1, currentPage - 1)); };
+    document.getElementById('btnNext').onclick = function() { load(currentPage + 1); };
+    document.getElementById('btnLast').onclick = function() { var p = document.getElementById('pageInfo').dataset.pages; load(p ? parseInt(p, 10) : 1); };
+
+    async function load(page) {
+      page = page || 1;
+      currentPage = page;
+      try {
+        var res = await api('/banks?page=' + page + '&per_page=' + perPage);
+        var items = res.items || [];
+        var total = res.total || 0;
+        var pages = Math.max(1, Math.ceil(total / perPage) || 1);
+        var filterVal = (document.getElementById('filterInput').value || '').toLowerCase();
+        var filtered = filterVal ? items.filter(function(b) {
+          var n = (b.name || '').toLowerCase();
+          var acc = (b.account_number || '').toLowerCase();
+          return n.includes(filterVal) || acc.includes(filterVal);
+        }) : items;
+
+        var tbody = document.getElementById('list');
+        var emptyEl = document.getElementById('emptyState');
+        if (filtered.length === 0) {
+          tbody.innerHTML = '';
+          emptyEl.textContent = 'No results.';
+          emptyEl.style.display = 'block';
+        } else {
+          emptyEl.style.display = 'none';
+          tbody.innerHTML = filtered.map(function(b, i) {
+            var no = (page - 1) * perPage + i + 1;
+            var bal = Number(b.balance || 0);
+            var balStr = (bal < 0 ? '-' : '') + Math.abs(bal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            return '<tr>' +
+              '<td>' + no + '</td>' +
+              '<td>' + escapeHtml(b.account_number) + '</td>' +
+              '<td>' + escapeHtml(b.name) + '</td>' +
+              '<td>' + balStr + '</td>' +
+              '<td>' + formatDate(b.created_at) + '</td>' +
+              '<td>' +
+              '<button type="button" class="btn banks-action-view" data-id="' + b.id + '" title="View">View</button> ' +
+              '<button type="button" class="btn banks-action-edit" data-id="' + b.id + '" title="Edit">Edit</button> ' +
+              '<button type="button" class="btn banks-action-delete" data-id="' + b.id + '" title="Delete">Delete</button>' +
+              '</td></tr>';
+          }).join('');
+        }
+
+        tbody.querySelectorAll('.banks-action-edit').forEach(function(btn) {
+          btn.onclick = async function() {
+            var id = parseInt(btn.getAttribute('data-id'), 10);
+            var b = items.find(function(x) { return x.id === id; });
+            if (b) {
+              document.getElementById('bankModalTitle').textContent = 'Edit Bank';
+              document.getElementById('bankId').value = b.id;
+              document.getElementById('taker_name').value = b.name || '';
+              await loadUsers();
+              bankUserSelect.value = (b.user_id || '') + '';
+              document.querySelector('#bankForm button[type="submit"]').style.display = '';
+              modal.classList.remove('hidden');
+            }
+          };
+        });
+        tbody.querySelectorAll('.banks-action-delete').forEach(function(btn) {
+          btn.onclick = async function() {
+            if (!confirm('Delete this bank account?')) return;
+            try {
+              await api('/banks/' + btn.getAttribute('data-id'), { method: 'DELETE' });
+              showToast('Bank deleted', 'success');
+              load(currentPage);
+            } catch (err) { showToast(err.message || 'Failed to delete', 'error'); }
+          };
+        });
+        tbody.querySelectorAll('.banks-action-view').forEach(function(btn) {
+          btn.onclick = async function() {
+            var id = parseInt(btn.getAttribute('data-id'), 10);
+            var b = items.find(function(x) { return x.id === id; });
+            if (b) {
+              document.getElementById('bankModalTitle').textContent = 'View Bank';
+              document.getElementById('bankId').value = b.id;
+              document.getElementById('taker_name').value = b.name || '';
+              await loadUsers();
+              bankUserSelect.value = (b.user_id || '') + '';
+              document.querySelector('#bankForm button[type="submit"]').style.display = 'none';
+              modal.classList.remove('hidden');
+            }
+          };
+        });
+
+        document.getElementById('pageInfo').textContent = 'Page ' + page + ' of ' + pages;
+        document.getElementById('pageInfo').dataset.pages = pages;
+        document.getElementById('btnFirst').disabled = page <= 1;
+        document.getElementById('btnPrev').disabled = page <= 1;
+        document.getElementById('btnNext').disabled = page >= pages;
+        document.getElementById('btnLast').disabled = page >= pages;
+      } catch (err) {
+        showToast(err.message || 'Failed to load banks', 'error');
+        document.getElementById('list').innerHTML = '';
+        var emptyElErr = document.getElementById('emptyState');
+        emptyElErr.textContent = 'Failed to load';
+        emptyElErr.style.display = 'block';
+      }
+    }
+
+    load(1);
+  </script>
+</body>
+</html>
