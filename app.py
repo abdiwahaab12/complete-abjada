@@ -8,11 +8,15 @@ from extensions import db, bcrypt
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.config.from_object('config.Config')
 
+# Initialize extensions
 db.init_app(app)
 bcrypt.init_app(app)
 
+jwt = JWTManager(app)
+CORS(app, supports_credentials=True)
 
-# ✅ Ensure MySQL database exists
+
+# Ensure MySQL database exists
 def ensure_mysql_database():
     uri = app.config.get('SQLALCHEMY_DATABASE_URI', '')
     if not uri.startswith('mysql'):
@@ -21,7 +25,6 @@ def ensure_mysql_database():
     try:
         import pymysql
         u = make_url(uri)
-        database = u.database
         conn = pymysql.connect(
             host=u.host,
             user=u.username,
@@ -29,26 +32,23 @@ def ensure_mysql_database():
             port=u.port or 3306,
         )
         with conn.cursor() as cur:
-            cur.execute(f"CREATE DATABASE IF NOT EXISTS `{database}`")
+            cur.execute(f"CREATE DATABASE IF NOT EXISTS `{u.database}`")
         conn.close()
     except Exception as e:
         print(f"MySQL ensure DB error: {e}")
 
 
-jwt = JWTManager(app)
-CORS(app, supports_credentials=True)
-
-# ✅ Import models AFTER db init
+# Import models AFTER db init
 from models import (
     User, Customer, Measurement, Order, Payment,
     Transaction, Swap, Bank, Inventory,
     Task, Notification, LowStockAlertRead
 )
 
-# ✅ Ensure upload folder exists
+# Ensure upload folder exists
 os.makedirs(app.config.get('UPLOAD_FOLDER', 'static/uploads'), exist_ok=True)
 
-# ✅ Register blueprints
+# Register blueprints
 from routes.auth import auth_bp
 from routes.customers import customers_bp
 from routes.orders import orders_bp
@@ -80,20 +80,19 @@ app.register_blueprint(notifications_bp, url_prefix='/api/notifications')
 app.register_blueprint(pages_bp)
 
 
-# ✅ Serve uploaded files
 @app.route('/static/uploads/<path:filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
-# ✅ PRODUCTION SAFE DATABASE INITIALIZATION
+# Production-safe database initialization
 with app.app_context():
     try:
         ensure_mysql_database()
         db.create_all()
         print("✓ Database tables created or already exist")
 
-        # ✅ Create default admin if not exists
+        # Create default admin user
         admin_user = User.query.filter_by(role='admin').first()
         if admin_user is None:
             admin = User(
@@ -106,15 +105,9 @@ with app.app_context():
             admin.set_password('admin123')
             db.session.add(admin)
             db.session.commit()
-
             print("✓ Default admin created")
-            print("Email: admin@tailor.com")
-            print("Password: admin123")
         else:
-            print("✓ Admin user already exists")
+            print("✓ Admin already exists")
 
     except Exception as e:
         print(f"✗ Database initialization error: {e}")
-
-
-# ❌ DO NOT USE __main__ in Render production
