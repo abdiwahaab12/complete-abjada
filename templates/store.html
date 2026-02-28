@@ -84,9 +84,9 @@
       <div class="sidebar-footer">
         <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
         <div class="sidebar-user">
-          <div class="sidebar-user-avatar" id="sidebarUserAvatar">JD</div>
+          <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
           <div class="sidebar-user-info">
-            <span class="sidebar-user-name" id="sidebarUserName">User</span>
+            <span class="sidebar-user-name" id="sidebarUserName"></span>
             <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
           </div>
         </div>
@@ -103,8 +103,8 @@
           </button>
           <div class="header-user-wrap">
             <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
-              <div class="user-avatar-small" id="userAvatar">JD</div>
-              <span class="header-user-name" id="headerUserName">User</span>
+              <div class="user-avatar-small" id="userAvatar"></div>
+              <span class="header-user-name" id="headerUserName"></span>
               <span style="font-size: 11px; color: var(--text-muted);">▼</span>
             </div>
             <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
@@ -162,19 +162,13 @@
   </div>
 
   <script src="/static/js/api.js"></script>
+  <script src="/static/js/avatar.js"></script>
   <script src="/static/js/theme.js"></script>
   <script src="/static/js/notifications.js"></script>
   <script>
-    const user = requireAuth();
+    let user = requireAuth();
     if (!user) { throw new Error('Auth required'); }
-
-    const userName = user.full_name || user.username || 'User';
-    const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
-    document.getElementById('userAvatar').textContent = initials;
-    document.getElementById('headerUserName').textContent = userName;
-    document.getElementById('sidebarUserAvatar').textContent = initials;
-    document.getElementById('sidebarUserName').textContent = userName;
-    document.getElementById('sidebarUserRole').textContent = (user.role || 'user').charAt(0).toUpperCase() + (user.role || 'user').slice(1);
+    initAvatarFromApi(user);
 
     (function() {
       initTheme();

@@ -677,6 +677,25 @@ body {
   color: white;
   font-weight: 600;
   font-size: 13px;
+  flex-shrink: 0;
+}
+.user-avatar-small.avatar-neutral {
+  background: var(--border);
+  color: var(--text-muted);
+}
+.user-avatar-small.avatar-neutral svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+.sidebar-user-avatar.avatar-neutral {
+  background: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+}
+.sidebar-user-avatar.avatar-neutral svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
 }
 .user-dropdown-menu {
   position: absolute;
