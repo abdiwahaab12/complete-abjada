@@ -38,11 +38,19 @@ def ensure_mysql_database():
         print(f"MySQL ensure DB error: {e}")
 
 
-# Import models AFTER db init
+# ✅ Import models AFTER db init
 from models import (
-    User, Customer, Measurement, Order, Payment,
-    Transaction, Swap, Bank, Inventory,
-    Task, Notification, LowStockAlertRead
+    User,
+    Measurement,
+    Order,
+    Payment,
+    Transaction,
+    Swap,
+    Bank,
+    Inventory,
+    Task,
+    Notification,
+    LowStockAlertRead
 )
 
 # Ensure upload folder exists
