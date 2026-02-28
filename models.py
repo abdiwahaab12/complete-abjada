@@ -1,4 +1,3 @@
-import json
 import secrets
 from datetime import datetime, timedelta
 from extensions import db, bcrypt
@@ -14,7 +13,7 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False, index=True)
     password_hash = db.Column(db.String(255), nullable=False)
-    role = db.Column(db.String(20), nullable=False, default='user')  # admin, tailor, cashier, user
+    role = db.Column(db.String(20), nullable=False, default='user')
     is_active = db.Column(db.Boolean, default=False)
     email_verified = db.Column(db.Boolean, default=False)
 
@@ -51,34 +50,13 @@ class User(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     # ========================
-    # Relationships
+    # PASSWORD MANAGEMENT
     # ========================
-    assigned_orders = db.relationship(
-        'Order',
-        backref='assignee',
-        lazy='dynamic',
-        foreign_keys='Order.assigned_to'
-    )
-
-    tasks = db.relationship('Task', backref='assignee', lazy='dynamic')
-
-    notifications = db.relationship(
-        'Notification',
-        backref='user',
-        lazy='dynamic',
-        foreign_keys='Notification.user_id'
-    )
-
-    # =====================================================
-    # ✅ PASSWORD MANAGEMENT (FLASK-BCRYPT VERSION SAX AH)
-    # =====================================================
 
     def set_password(self, password):
-        """Hash and store password safely."""
-        self.password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+        self.password_hash = bcrypt.generate_password_hash(password).decode("utf-8")
 
     def check_password(self, password):
-        """Verify password."""
         if not self.password_hash:
             return False
         return bcrypt.check_password_hash(self.password_hash, password)
@@ -113,40 +91,31 @@ class User(db.Model):
         self.last_login_ip = self.current_login_ip
         self.current_login_at = datetime.utcnow()
         self.current_login_ip = ip_address
-        self.login_count += 1
+        self.login_count = (self.login_count or 0) + 1
         self.failed_login_attempts = 0
         self.account_locked_until = None
 
     def record_failed_login(self):
-        self.failed_login_attempts += 1
+        self.failed_login_attempts = (self.failed_login_attempts or 0) + 1
         if self.failed_login_attempts >= 5:
             self.account_locked_until = datetime.utcnow() + timedelta(minutes=30)
 
     def is_account_locked(self):
-        if self.account_locked_until:
-            if datetime.utcnow() < self.account_locked_until:
-                return True
-            self.account_locked_until = None
-            self.failed_login_attempts = 0
+        if self.account_locked_until and datetime.utcnow() < self.account_locked_until:
+            return True
         return False
 
     # ========================
     # Role helpers
     # ========================
 
-    def has_role(self, role_name):
-        return self.role == role_name
-
-    def has_any_role(self, *roles):
-        return self.role in roles
-
     @property
     def is_admin(self):
-        return self.role == 'admin'
+        return self.role == "admin"
 
     @property
     def is_staff(self):
-        return self.role in ('admin', 'tailor', 'cashier')
+        return self.role in ("admin", "tailor", "cashier")
 
     # ========================
     # Serialize
@@ -154,16 +123,16 @@ class User(db.Model):
 
     def to_dict(self):
         return {
-            'id': self.id,
-            'username': self.username,
-            'email': self.email,
-            'role': self.role,
-            'full_name': self.full_name,
-            'phone': self.phone,
-            'is_active': self.is_active,
-            'email_verified': self.email_verified,
-            'profile_image': self.profile_image,
-            'created_at': self.created_at.isoformat() if self.created_at else None,
-            'last_login_at': self.last_login_at.isoformat() if self.last_login_at else None,
-            'login_count': self.login_count
+            "id": self.id,
+            "username": self.username,
+            "email": self.email,
+            "role": self.role,
+            "full_name": self.full_name,
+            "phone": self.phone,
+            "is_active": self.is_active,
+            "email_verified": self.email_verified,
+            "profile_image": self.profile_image,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+            "last_login_at": self.last_login_at.isoformat() if self.last_login_at else None,
+            "login_count": self.login_count,
         }
