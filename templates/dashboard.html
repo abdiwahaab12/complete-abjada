@@ -113,6 +113,7 @@
           <div class="header-user-wrap">
             <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
               <div class="user-avatar-small" id="userAvatar">JD</div>
+              <span class="header-user-name" id="headerUserName">User</span>
               <span style="font-size: 11px; color: var(--text-muted);">▼</span>
             </div>
             <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
@@ -198,6 +199,7 @@
     const roleLabel = (user.role || 'user').charAt(0).toUpperCase() + (user.role || 'user').slice(1);
     
     document.getElementById('userAvatar').textContent = initials;
+    document.getElementById('headerUserName').textContent = userName;
     document.getElementById('sidebarUserAvatar').textContent = initials;
     document.getElementById('sidebarUserName').textContent = userName;
     document.getElementById('sidebarUserRole').textContent = roleLabel;

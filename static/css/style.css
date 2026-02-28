@@ -657,6 +657,15 @@ body {
 .user-dropdown:hover {
   background: var(--bg-light);
 }
+.header-user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  white-space: nowrap;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .user-avatar-small {
   width: 34px;
   height: 34px;
