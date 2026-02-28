@@ -41,16 +41,7 @@ def ensure_mysql_database():
 # ✅ Import models AFTER db init
 from models import (
     User,
-    Measurement,
-    Order,
-    Payment,
-    Transaction,
-    Swap,
-    Bank,
-    Inventory,
-    Task,
-    Notification,
-    LowStockAlertRead
+    
 )
 
 # Ensure upload folder exists
