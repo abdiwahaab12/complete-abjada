@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Management - Abjad tailor management system</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+<aside class="sidebar sidebar-modern" aria-label="Main navigation">
+  <div class="sidebar-modern-brand">Abjad Super style tailor</div>
+
+  <nav class="sidebar-modern-inner">
+    <div class="sidebar-modern-scroll">
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">DISCOVER</h2>
+        <a href="/dashboard" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Dashboard</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">INVENTORY</h2>
+        <a href="/store" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Products</span>
+        </a>
+        <a href="/category-page" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M7 3h3"/><path d="M14 3h3"/><path d="M7 20h3"/><path d="M14 20h3"/><path d="M3 7v3"/><path d="M3 14v3"/><path d="M20 7v3"/><path d="M20 14v3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Category</span>
+        </a>
+        <a href="/orders" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Orders</span>
+        </a>
+        <a href="/stock" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22.08V12"/><path d="M16 8h-6M13 11h4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Stock</span>
+        </a>
+        <a href="/customers" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Customer</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+        <a href="/measurements" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Tailor Orders</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">FINANCES</h2>
+        <a href="/transactions" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Bank</span>
+        </a>
+        <a href="/reports" class="sidebar-modern-link sidebar-modern-link--tight">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Report</span>
+          <span class="sidebar-modern-badge">NEW</span>
+          <span class="sidebar-modern-chevron" aria-hidden="true">›</span>
+        </a>
+
+      </section>
+
+      <div class="sidebar-modern-util">
+        <a href="/settings" class="sidebar-modern-util-link">Settings</a>
+        <a href="/staff" class="sidebar-modern-util-link nav-admin-only">Staff</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer sidebar-modern-footer">
+    <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+    <div class="sidebar-user">
+      <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
+      <div class="sidebar-user-info">
+        <span class="sidebar-user-name" id="sidebarUserName"></span>
+        <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+      </div>
+    </div>
+    <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+  </div>
+</aside>
+<script src="/static/js/sidebar-active.js" defer></script>
+
+<!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <div class="main-header">
+        <div class="welcome-text"></div>
+        <div class="header-right">
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" class="search-input" id="headerSearch" placeholder="Search customers...">
+          </div>
+          <div class="header-user-wrap">
+            <button type="button" class="header-icon-btn" id="notificationBtn" title="Notifications" aria-label="Notifications">
+              🔔
+              <span class="notification-badge" id="notificationBadge" style="display:none">0</span>
+            </button>
+            <div id="notificationPanel" class="notification-panel" aria-hidden="true">
+              <h4>Notifications</h4>
+              <div class="notification-panel-empty" id="notificationList">No new notifications</div>
+            </div>
+          </div>
+          <div class="header-user-wrap">
+            <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="user-avatar-small" id="userAvatar"></div>
+              <span class="header-user-name" id="headerUserName"></span>
+              <span style="font-size: 11px; color: var(--text-muted);">▼</span>
+            </div>
+            <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
+              <a href="/dashboard" role="menuitem">Dashboard</a>
+              <a href="/customers" role="menuitem">Customers</a>
+              <a href="/orders" role="menuitem">Orders</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" id="headerLogoutBtn" role="menuitem">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page Content -->
+      <div class="page-content customer-management-page">
+        <div class="customer-mgmt-hero">
+          <div class="customer-mgmt-titles">
+            <h1 class="customer-mgmt-title">Customer Management</h1>
+            <p class="customer-mgmt-subtitle">Manage your customer database and measurements</p>
+          </div>
+          <button type="button" class="btn-add-new-customer" id="btnAdd">
+            <span aria-hidden="true">+</span> Add New Customer
+          </button>
+        </div>
+
+        <div class="customer-mgmt-kpis" id="customerKpis">
+          <div class="customer-kpi-card">
+            <div class="customer-kpi-text">
+              <span class="customer-kpi-label">Total Customers</span>
+              <span class="customer-kpi-value is-blue" id="kpiTotal">0</span>
+            </div>
+            <div class="customer-kpi-icon customer-kpi-icon--blue" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+          </div>
+          <div class="customer-kpi-card">
+            <div class="customer-kpi-text">
+              <span class="customer-kpi-label">With Measurements</span>
+              <span class="customer-kpi-value is-green" id="kpiMeasured">0</span>
+            </div>
+            <div class="customer-kpi-icon customer-kpi-icon--green" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+            </div>
+          </div>
+          <div class="customer-kpi-card">
+            <div class="customer-kpi-text">
+              <span class="customer-kpi-label">Completion Rate</span>
+              <span class="customer-kpi-value is-purple" id="kpiRate">0%</span>
+            </div>
+            <div class="customer-kpi-icon customer-kpi-icon--purple" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="customer-directory-card">
+          <div class="customer-directory-head">
+            <h2 class="customer-directory-title">Customer Directory</h2>
+            <p class="customer-directory-desc">View and manage all your customers</p>
+          </div>
+          <div class="customer-directory-toolbar">
+            <input type="search" class="orders-filter-input" id="search" placeholder="Filter by name" autocomplete="off">
+            <span class="orders-toolbar-spacer"></span>
+            <div class="orders-col-menu-wrap">
+              <button type="button" class="btn-select-columns" id="btnSelectColumns" aria-expanded="false">Select columns</button>
+              <div id="customersColPanel" class="orders-col-panel hidden" aria-hidden="true">
+                <label><input type="checkbox" data-col-key="name" checked disabled> Customer Name</label>
+                <label><input type="checkbox" data-col-key="phone" checked disabled> Phone Number</label>
+                <label><input type="checkbox" data-col-key="measurements" checked disabled> Measurements</label>
+                <label><input type="checkbox" data-col-key="created" checked disabled> Created At</label>
+                <label><input type="checkbox" data-col-key="email"> Email</label>
+                <label><input type="checkbox" data-col-key="address"> Address</label>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="customers-table customers-data-table">
+              <thead>
+                <tr>
+                  <th data-col-key="name">
+                    <span class="th-inline"><span class="th-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span> Customer Name</span>
+                  </th>
+                  <th data-col-key="phone">
+                    <span class="th-inline"><span class="th-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Phone Number</span>
+                  </th>
+                  <th data-col-key="measurements">
+                    <span class="th-inline"><span class="th-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20"/><path d="M6 8v8"/><path d="M10 5v14"/><path d="M14 9v6"/><path d="M18 7v10"/></svg></span> Measurements</span>
+                  </th>
+                  <th data-col-key="created" class="th-sortable" id="thSortCreated" title="Sort by date">
+                    <span class="th-inline"><span class="th-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M9 16l2 2 4-4"/></svg></span> Created At <span id="sortCreatedIndicator">↓</span></span>
+                  </th>
+                  <th data-col-key="email" class="col-hidden">Email</th>
+                  <th data-col-key="address" class="col-hidden">Address</th>
+                  <th data-col-key="action" class="text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="list"></tbody>
+            </table>
+          </div>
+          <div class="table-pagination" style="border-top:none; margin-top:8px;">
+            <div class="swaps-pagination" style="justify-content:flex-end;">
+              <span class="swaps-pagination-rows">Rows per page <select id="rowsPerPage" aria-label="Rows per page"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option><option value="100">100</option></select></span>
+              <span class="swaps-pagination-info" id="pageInfo">Page 1 of 1</span>
+              <div class="swaps-pagination-nav">
+                <button type="button" class="swaps-pagination-btn" id="btnFirst" title="First">&laquo;</button>
+                <button type="button" class="swaps-pagination-btn" id="btnPrev" title="Previous">&lsaquo;</button>
+                <button type="button" class="swaps-pagination-btn" id="btnNext" title="Next">&rsaquo;</button>
+                <button type="button" class="swaps-pagination-btn" id="btnLast" title="Last">&raquo;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add Customer</h3>
+        <button class="btn btn-secondary btn-sm" id="closeModal">✕</button>
+      </div>
+      <form id="form">
+        <input type="hidden" id="customerId">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="full_name" required>
+        </div>
+        <div class="form-group">
+          <label>Phone *</label>
+          <input type="text" id="phone" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email">
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <textarea id="address" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Special Notes</label>
+          <textarea id="special_notes" rows="2"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="viewModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content" style="max-width:480px;">
+      <div class="modal-header">
+        <h3 id="viewModalTitle">Customer</h3>
+        <button type="button" class="btn btn-secondary btn-sm" id="closeViewModal" aria-label="Close">&times;</button>
+      </div>
+      <div id="viewModalBody" class="modal-view-body" style="font-size:14px;"></div>
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn btn-secondary btn-sm" id="viewModalMeasurements" href="#">Measurements</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/avatar.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    let user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+    initAvatarFromApi(user);
+    
+    // Theme toggle in sidebar
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) {
+        btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+    })();
+    
+    // Logout (sidebar and header)
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) {
+      e.preventDefault();
+      logout();
+    });
+    document.getElementById('headerLogoutBtn').addEventListener('click', function() {
+      logout();
+    });
+
+    // User dropdown (header)
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      function open() { menu.classList.add('show'); menu.setAttribute('aria-hidden', 'false'); profile.setAttribute('aria-expanded', 'true'); }
+      function close() { menu.classList.remove('show'); menu.setAttribute('aria-hidden', 'true'); profile.setAttribute('aria-expanded', 'false'); }
+      function toggle() { if (menu.classList.contains('show')) close(); else { open(); notifClose(); } }
+      profile.addEventListener('click', function(e) { e.stopPropagation(); toggle(); });
+      document.addEventListener('click', function(e) {
+        if (!profile.contains(e.target) && !menu.contains(e.target)) close();
+      });
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    })();
+
+    // Notification panel
+    var notifPanel = document.getElementById('notificationPanel');
+    var notifBtn = document.getElementById('notificationBtn');
+    var headerUserWrapNotif = notifBtn.closest('.header-user-wrap');
+    function notifClose() { notifPanel.classList.remove('show'); notifPanel.setAttribute('aria-hidden', 'true'); }
+    function notifToggle() {
+      if (notifPanel.classList.contains('show')) notifClose();
+      else {
+        notifPanel.classList.add('show');
+        notifPanel.setAttribute('aria-hidden', 'false');
+        document.getElementById('userDropdownMenu').classList.remove('show');
+      }
+    }
+    notifBtn.addEventListener('click', function(e) { e.stopPropagation(); notifToggle(); });
+    document.addEventListener('click', function(e) {
+      if (!headerUserWrapNotif.contains(e.target)) notifClose();
+    });
+
+    document.getElementById('headerSearch').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        document.getElementById('search').value = this.value.trim();
+        currentPage = 1;
+        loadCustomers();
+        this.blur();
+      }
+    });
+
+    // Hide admin-only nav
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    var currentPage = 1;
+    var perPage = 20;
+    var sortDir = 'desc';
+    var customerTotalPages = 1;
+    var customerCache = [];
+    var searchDebounceTimer = null;
+
+    function escapeHtml(s) {
+      if (s == null || s === '') return '';
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+    function ordinalDay(n) {
+      var j = n % 10, k = n % 100;
+      if (j === 1 && k !== 11) return n + 'st';
+      if (j === 2 && k !== 12) return n + 'nd';
+      if (j === 3 && k !== 13) return n + 'rd';
+      return n + 'th';
+    }
+    function formatCustomerDate(iso) {
+      if (!iso) return '—';
+      try {
+        var d = new Date(iso);
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var mon = months[d.getMonth()];
+        var day = ordinalDay(d.getDate());
+        var y = d.getFullYear();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var ampm = h >= 12 ? 'PM' : 'AM';
+        h = h % 12;
+        if (h === 0) h = 12;
+        return mon + ' ' + day + ', ' + y + ' ' + h + ':' + String(m).padStart(2, '0') + ' ' + ampm;
+      } catch (e) { return iso; }
+    }
+    function applyCustomerColumnVisibility() {
+      var panel = document.getElementById('customersColPanel');
+      if (!panel) return;
+      var map = {};
+      panel.querySelectorAll('input[data-col-key]').forEach(function(inp) {
+        if (inp.disabled) return;
+        map[inp.getAttribute('data-col-key')] = inp.checked;
+      });
+      document.querySelectorAll('.customers-data-table [data-col-key]').forEach(function(el) {
+        var key = el.getAttribute('data-col-key');
+        if (key === 'action' || key === 'name' || key === 'phone' || key === 'measurements' || key === 'created') return;
+        if (map[key]) el.classList.remove('col-hidden');
+        else el.classList.add('col-hidden');
+      });
+    }
+    function updateSortIndicator() {
+      var el = document.getElementById('sortCreatedIndicator');
+      if (el) el.textContent = sortDir === 'desc' ? '↓' : '↑';
+    }
+    function setCustomerPaginationUi(res) {
+      var page = res.page || 1;
+      var pages = res.pages || 1;
+      var total = res.total || 0;
+      customerTotalPages = Math.max(1, pages);
+      document.getElementById('pageInfo').textContent = total ? ('Page ' + page + ' of ' + pages) : 'Page 0 of 0';
+      document.getElementById('btnFirst').disabled = page <= 1;
+      document.getElementById('btnPrev').disabled = page <= 1;
+      document.getElementById('btnNext').disabled = page >= pages || pages < 1;
+      document.getElementById('btnLast').disabled = page >= pages || pages < 1;
+    }
+    function updateKpis(stats) {
+      if (!stats) return;
+      document.getElementById('kpiTotal').textContent = stats.total_customers != null ? stats.total_customers : '0';
+      document.getElementById('kpiMeasured').textContent = stats.with_measurements != null ? stats.with_measurements : '0';
+      document.getElementById('kpiRate').textContent = (stats.completion_rate != null ? stats.completion_rate : 0) + '%';
+    }
+
+    function openModal(customer) {
+      document.getElementById('modalTitle').textContent = customer ? 'Edit Customer' : 'Add Customer';
+      document.getElementById('customerId').value = customer ? customer.id : '';
+      document.getElementById('full_name').value = customer ? customer.full_name : '';
+      document.getElementById('phone').value = customer ? customer.phone : '';
+      document.getElementById('email').value = customer ? (customer.email || '') : '';
+      document.getElementById('address').value = customer ? (customer.address || '') : '';
+      document.getElementById('special_notes').value = customer ? (customer.special_notes || '') : '';
+      document.getElementById('modal').classList.remove('hidden');
+    }
+    function customerById(id) {
+      return customerCache.find(function(x) { return x.id === id; });
+    }
+    function closeViewModal() {
+      document.getElementById('viewModal').classList.add('hidden');
+      document.getElementById('viewModal').setAttribute('aria-hidden', 'true');
+    }
+    function openViewModal(c) {
+      document.getElementById('viewModalTitle').textContent = c.full_name || 'Customer';
+      var meas = c.has_measurements
+        ? '<span class="badge-measurements">Available</span>'
+        : '<span class="badge-measurements is-missing">None</span>';
+      document.getElementById('viewModalBody').innerHTML =
+        '<dl style="margin:0;">' +
+        '<dt style="color:var(--text-muted);font-weight:600;margin-top:10px;">Phone</dt><dd>' + escapeHtml(c.phone || '—') + '</dd>' +
+        '<dt style="color:var(--text-muted);font-weight:600;margin-top:10px;">Email</dt><dd>' + escapeHtml(c.email || '—') + '</dd>' +
+        '<dt style="color:var(--text-muted);font-weight:600;margin-top:10px;">Address</dt><dd>' + escapeHtml(c.address || '—') + '</dd>' +
+        '<dt style="color:var(--text-muted);font-weight:600;margin-top:10px;">Measurements</dt><dd>' + meas + '</dd>' +
+        '<dt style="color:var(--text-muted);font-weight:600;margin-top:10px;">Created</dt><dd class="customer-row-created">' + escapeHtml(formatCustomerDate(c.created_at)) + '</dd>' +
+        '</dl>';
+      document.getElementById('viewModalMeasurements').href = '/measurements?customer_id=' + c.id;
+      document.getElementById('viewModal').classList.remove('hidden');
+      document.getElementById('viewModal').setAttribute('aria-hidden', 'false');
+    }
+    window.__customerView = function(id) {
+      var c = customerById(id);
+      if (c) openViewModal(c);
+    };
+    window.__customerEdit = function(id) {
+      var c = customerById(id);
+      if (c) openModal(c);
+    };
+
+    document.getElementById('btnAdd').onclick = function() { window.location.href = '/customers/add'; };
+    document.getElementById('closeModal').onclick = function() { document.getElementById('modal').classList.add('hidden'); };
+    document.getElementById('cancelBtn').onclick = function() { document.getElementById('modal').classList.add('hidden'); };
+    document.getElementById('closeViewModal').onclick = closeViewModal;
+    document.getElementById('viewModal').addEventListener('click', function(e) {
+      if (e.target === this) closeViewModal();
+    });
+
+    document.getElementById('form').onsubmit = async function(e) {
+      e.preventDefault();
+      var id = document.getElementById('customerId').value;
+      var payload = {
+        full_name: document.getElementById('full_name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value,
+        special_notes: document.getElementById('special_notes').value
+      };
+      try {
+        if (id) await api('/customers/' + id, { method: 'PUT', body: JSON.stringify(payload) });
+        else await api('/customers', { method: 'POST', body: JSON.stringify(payload) });
+        document.getElementById('modal').classList.add('hidden');
+        showToast(id ? 'Customer updated' : 'Customer added', 'success');
+        loadCustomers();
+      } catch (err) {
+        showToast(err.message || 'Failed to save customer', 'error');
+      }
+    };
+
+    async function loadCustomers(goPage) {
+      if (goPage !== undefined && goPage !== null) currentPage = goPage;
+      try {
+        var params = new URLSearchParams();
+        params.set('page', String(currentPage));
+        params.set('per_page', String(perPage));
+        params.set('sort_dir', sortDir);
+        params.set('include_stats', '1');
+        var q = document.getElementById('search').value.trim();
+        if (q) params.set('search', q);
+        var res = await api('/customers?' + params.toString());
+        customerCache = res.items || [];
+        if (res.stats) updateKpis(res.stats);
+        updateSortIndicator();
+
+        var eyeSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+        var editSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>';
+
+        document.getElementById('list').innerHTML = (customerCache.length ? customerCache : []).map(function(c) {
+          var measBadge = c.has_measurements
+            ? '<span class="badge-measurements">Available</span>'
+            : '<span class="badge-measurements is-missing">None</span>';
+          return (
+            '<tr>' +
+            '<td data-col-key="name"><strong>' + escapeHtml(c.full_name) + '</strong></td>' +
+            '<td data-col-key="phone">' + escapeHtml(c.phone) + '</td>' +
+            '<td data-col-key="measurements">' + measBadge + '</td>' +
+            '<td data-col-key="created" class="customer-row-created">' + escapeHtml(formatCustomerDate(c.created_at)) + '</td>' +
+            '<td data-col-key="email" class="col-hidden">' + escapeHtml(c.email || '—') + '</td>' +
+            '<td data-col-key="address" class="col-hidden">' + escapeHtml((c.address || '').slice(0, 80)) + (c.address && c.address.length > 80 ? '…' : '') + '</td>' +
+            '<td data-col-key="action" class="text-right">' +
+              '<div class="customer-actions-cell">' +
+              '<button type="button" class="btn-customer-view" onclick="window.__customerView(' + c.id + ')">' + eyeSvg + ' View</button>' +
+              '<button type="button" class="btn-customer-edit" onclick="window.__customerEdit(' + c.id + ')">' + editSvg + ' Edit</button>' +
+              '<button type="button" class="btn-customer-delete" onclick="window.__customerDelete(' + c.id + ')">Delete</button>' +
+              '</div></td></tr>'
+          );
+        }).join('') || '<tr><td colspan="7" style="text-align:center; padding: 24px; color: var(--text-muted);">No customers found</td></tr>';
+        applyCustomerColumnVisibility();
+        setCustomerPaginationUi(res);
+      } catch (err) {
+        showToast(err.message || 'Failed to load customers', 'error');
+        document.getElementById('list').innerHTML = '<tr><td colspan="7" style="text-align:center; padding: 24px; color: var(--text-muted);">Failed to load customers</td></tr>';
+        setCustomerPaginationUi({ page: 1, pages: 1, total: 0 });
+      }
+    }
+
+    window.__customerDelete = async function(id) {
+      if (!confirm('Delete this customer? This action cannot be undone.')) return;
+      try {
+        await api('/customers/' + id, { method: 'DELETE' });
+        showToast('Customer deleted', 'success');
+        loadCustomers();
+      } catch (err) {
+        showToast(err.message || 'Failed to delete customer', 'error');
+      }
+    };
+
+    document.getElementById('btnSelectColumns').addEventListener('click', function(e) {
+      e.stopPropagation();
+      var p = document.getElementById('customersColPanel');
+      var hidden = p.classList.toggle('hidden');
+      this.setAttribute('aria-expanded', hidden ? 'false' : 'true');
+      p.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+    });
+    document.getElementById('customersColPanel').addEventListener('change', function(e) {
+      if (e.target && e.target.matches('input[data-col-key]')) applyCustomerColumnVisibility();
+    });
+    document.getElementById('customersColPanel').addEventListener('click', function(e) { e.stopPropagation(); });
+    document.addEventListener('click', function() {
+      var p = document.getElementById('customersColPanel');
+      var b = document.getElementById('btnSelectColumns');
+      if (p && !p.classList.contains('hidden')) {
+        p.classList.add('hidden');
+        if (b) { b.setAttribute('aria-expanded', 'false'); p.setAttribute('aria-hidden', 'true'); }
+      }
+    });
+
+    document.getElementById('thSortCreated').addEventListener('click', function() {
+      sortDir = sortDir === 'desc' ? 'asc' : 'desc';
+      currentPage = 1;
+      loadCustomers();
+    });
+
+    document.getElementById('search').addEventListener('input', function() {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(function() { currentPage = 1; loadCustomers(); }, 320);
+    });
+    document.getElementById('rowsPerPage').addEventListener('change', function() {
+      perPage = parseInt(this.value, 10) || 20;
+      loadCustomers(1);
+    });
+    document.getElementById('btnFirst').addEventListener('click', function() { loadCustomers(1); });
+    document.getElementById('btnPrev').addEventListener('click', function() { if (currentPage > 1) loadCustomers(currentPage - 1); });
+    document.getElementById('btnNext').addEventListener('click', function() { loadCustomers(currentPage + 1); });
+    document.getElementById('btnLast').addEventListener('click', function() { loadCustomers(customerTotalPages); });
+
+    document.getElementById('rowsPerPage').value = String(perPage);
+    applyCustomerColumnVisibility();
+    updateSortIndicator();
+    loadCustomers(1);
+  </script>
+</body>
+</html>
+

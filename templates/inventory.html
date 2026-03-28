@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stocks - Abjad tailor management system</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+<aside class="sidebar sidebar-modern" aria-label="Main navigation">
+  <div class="sidebar-modern-brand">Abjad Super style tailor</div>
+
+  <nav class="sidebar-modern-inner">
+    <div class="sidebar-modern-scroll">
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">DISCOVER</h2>
+        <a href="/dashboard" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Dashboard</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">INVENTORY</h2>
+        <a href="/store" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Products</span>
+        </a>
+        <a href="/category-page" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M7 3h3"/><path d="M14 3h3"/><path d="M7 20h3"/><path d="M14 20h3"/><path d="M3 7v3"/><path d="M3 14v3"/><path d="M20 7v3"/><path d="M20 14v3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Category</span>
+        </a>
+        <a href="/orders" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Orders</span>
+        </a>
+        <a href="/stock" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22.08V12"/><path d="M16 8h-6M13 11h4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Stock</span>
+        </a>
+        <a href="/customers" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Customer</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+        <a href="/measurements" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Tailor Orders</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">FINANCES</h2>
+        <a href="/transactions" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Bank</span>
+        </a>
+        <a href="/reports" class="sidebar-modern-link sidebar-modern-link--tight">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Report</span>
+          <span class="sidebar-modern-badge">NEW</span>
+          <span class="sidebar-modern-chevron" aria-hidden="true">›</span>
+        </a>
+
+      </section>
+
+      <div class="sidebar-modern-util">
+        <a href="/settings" class="sidebar-modern-util-link">Settings</a>
+        <a href="/staff" class="sidebar-modern-util-link nav-admin-only">Staff</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer sidebar-modern-footer">
+    <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+    <div class="sidebar-user">
+      <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
+      <div class="sidebar-user-info">
+        <span class="sidebar-user-name" id="sidebarUserName"></span>
+        <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+      </div>
+    </div>
+    <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+  </div>
+</aside>
+<script src="/static/js/sidebar-active.js" defer></script>
+
+<!-- Main Content -->
+    <main class="main-content">
+     
+      <!-- Page Content -->
+      <div class="page-content orders-page">
+        <div class="orders-page-title-row">
+          <h1 class="orders-page-title">Stocks</h1>
+          <button type="button" class="btn-add-order-primary" id="btnAdd">Add Stock</button>
+        </div>
+
+        <div class="orders-toolbar">
+          <input type="search" class="orders-filter-input" id="filterProductName" placeholder="Filter by product_name" autocomplete="off">
+          <span class="orders-toolbar-spacer"></span>
+          <div class="orders-col-menu-wrap">
+            <button type="button" class="btn-select-columns" id="btnSelectColumns" aria-expanded="false" aria-haspopup="true">Select columns</button>
+            <div id="stocksColPanel" class="orders-col-panel hidden" role="menu" aria-hidden="true">
+              <label><input type="checkbox" data-col-key="no" checked disabled> NO</label>
+              <label><input type="checkbox" data-col-key="product" checked> product</label>
+              <label><input type="checkbox" data-col-key="quantity" checked> Quantity</label>
+              <label><input type="checkbox" data-col-key="created" checked> Created At</label>
+              <label><input type="checkbox" data-col-key="type"> Type</label>
+              <label><input type="checkbox" data-col-key="unit"> Unit</label>
+              <label><input type="checkbox" data-col-key="minstock"> Min stock</label>
+              <label><input type="checkbox" data-col-key="low"> Low alert</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="orders-table-card dashboard-card" style="box-shadow:none; margin:0; padding:0;">
+          <div class="table-responsive">
+            <table class="customers-table stock-data-table">
+              <thead>
+                <tr>
+                  <th data-col-key="no">NO</th>
+                  <th data-col-key="product">product</th>
+                  <th data-col-key="quantity">Quantity</th>
+                  <th data-col-key="created">Created At</th>
+                  <th data-col-key="type" class="col-hidden">Type</th>
+                  <th data-col-key="unit" class="col-hidden">Unit</th>
+                  <th data-col-key="minstock" class="col-hidden">Min stock</th>
+                  <th data-col-key="low" class="col-hidden">Low</th>
+                  <th data-col-key="action" class="text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="list"></tbody>
+            </table>
+          </div>
+          <div class="table-pagination">
+            <div class="swaps-pagination" id="stockPaginationBar">
+              <span class="swaps-pagination-rows">Rows per page <select id="rowsPerPage" aria-label="Rows per page"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option><option value="100">100</option></select></span>
+              <span class="swaps-pagination-info" id="pageInfo">Page 1 of 1</span>
+              <div class="swaps-pagination-nav">
+                <button type="button" class="swaps-pagination-btn" id="btnFirst" title="First page">&laquo;</button>
+                <button type="button" class="swaps-pagination-btn" id="btnPrev" title="Previous">&lsaquo;</button>
+                <button type="button" class="swaps-pagination-btn" id="btnNext" title="Next">&rsaquo;</button>
+                <button type="button" class="swaps-pagination-btn" id="btnLast" title="Last page">&raquo;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add / Edit Stock Quantity -->
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content stock-quantity-modal">
+      <div class="stock-quantity-modal-header">
+        <div class="modal-header-text">
+          <h3 id="modalTitle">Add Stock Quantity</h3>
+          <p id="modalSubtitle" class="stock-form-subtitle">Add a new stock quantity for a product</p>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm" id="closeModal" aria-label="Close">&times;</button>
+      </div>
+      <form id="form">
+        <input type="hidden" id="itemId" value="">
+        <div class="form-group">
+          <label for="stock_product">Product</label>
+          <select id="stock_product"></select>
+        </div>
+        <div id="stockNewProductBlock" class="stock-new-product-block">
+          <div class="form-group" style="margin-bottom:14px;">
+            <label for="new_product_name">Product name</label>
+            <input type="text" id="new_product_name" placeholder="Enter product name" autocomplete="off">
+          </div>
+          <div class="form-group" style="margin-bottom:14px;">
+            <label for="new_item_type">Type</label>
+            <select id="new_item_type">
+              <option value="fabric">Fabric</option>
+              <option value="button">Button</option>
+              <option value="zipper">Zipper</option>
+              <option value="thread">Thread</option>
+              <option value="qamiis">Qamiis</option>
+              <option value="shaati">Shaati</option>
+              <option value="surwaal">Surwaal</option>
+              <option value="futishaar">Futishaar</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label for="new_unit">Unit</label>
+            <input type="text" id="new_unit" value="pcs" placeholder="pcs, meters…" autocomplete="off">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="stock_variant">Variant</label>
+          <select id="stock_variant"></select>
+        </div>
+        <div class="form-group">
+          <label for="stock_sku">SKU</label>
+          <select id="stock_sku"></select>
+        </div>
+        <div class="form-group">
+          <label for="stock_quantity">Quantity</label>
+          <input type="number" id="stock_quantity" step="any" min="0.01" value="1">
+        </div>
+        <details class="order-more-options stock-edit-extra" id="stockEditExtra" style="display:none;">
+          <summary>Min stock &amp; notes</summary>
+          <div class="form-group" style="margin-top:12px;">
+            <label for="stock_min_stock">Min stock</label>
+            <input type="number" id="stock_min_stock" step="0.01" min="0" placeholder="Optional">
+          </div>
+          <div class="form-group">
+            <label for="stock_notes">Notes</label>
+            <textarea id="stock_notes" rows="2" placeholder="Optional"></textarea>
+          </div>
+        </details>
+        <div class="stock-form-actions">
+          <button type="submit" class="btn-stock-submit" id="btnStockSubmit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/avatar.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    let user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+    initAvatarFromApi(user);
+    
+    // Theme toggle in sidebar
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) {
+        btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+    })();
+    
+    // Logout (sidebar and header)
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) {
+      e.preventDefault();
+      logout();
+    });
+    document.getElementById('headerLogoutBtn').addEventListener('click', function() {
+      logout();
+    });
+
+    // User dropdown (header)
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      function open() { menu.classList.add('show'); menu.setAttribute('aria-hidden', 'false'); profile.setAttribute('aria-expanded', 'true'); }
+      function close() { menu.classList.remove('show'); menu.setAttribute('aria-hidden', 'true'); profile.setAttribute('aria-expanded', 'false'); }
+      function toggle() { if (menu.classList.contains('show')) close(); else { open(); notifClose(); } }
+      profile.addEventListener('click', function(e) { e.stopPropagation(); toggle(); });
+      document.addEventListener('click', function(e) {
+        if (!profile.contains(e.target) && !menu.contains(e.target)) close();
+      });
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    })();
+
+    // Notification panel
+    var notifPanel = document.getElementById('notificationPanel');
+    var notifBtn = document.getElementById('notificationBtn');
+    var headerUserWrapNotif = notifBtn.closest('.header-user-wrap');
+    function notifClose() { notifPanel.classList.remove('show'); notifPanel.setAttribute('aria-hidden', 'true'); }
+    function notifToggle() {
+      if (notifPanel.classList.contains('show')) notifClose();
+      else {
+        notifPanel.classList.add('show');
+        notifPanel.setAttribute('aria-hidden', 'false');
+        document.getElementById('userDropdownMenu').classList.remove('show');
+      }
+    }
+    notifBtn.addEventListener('click', function(e) { e.stopPropagation(); notifToggle(); });
+    document.addEventListener('click', function(e) {
+      if (!headerUserWrapNotif.contains(e.target)) notifClose();
+    });
+
+    document.getElementById('headerSearch').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        var f = document.getElementById('filterProductName');
+        if (f) { f.value = this.value.trim(); loadStock(1); }
+        this.blur();
+      }
+    });
+
+    // Hide admin-only nav
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    // Stocks page (table UI)
+    var itemCache = [];
+    var currentPage = 1;
+    var perPage = 20;
+    var stockTotalPages = 1;
+    var filterDebounceTimer = null;
+
+    function escapeHtml(s) {
+      if (s == null || s === '') return '';
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+    function formatCreatedAt(iso) {
+      if (!iso) return '—';
+      try {
+        var d = new Date(iso);
+        return d.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'medium' });
+      } catch (e) { return iso; }
+    }
+    function qtyDisplay(i) {
+      var n = Number(i.quantity || 0);
+      var u = (i.unit || 'units').trim() || 'units';
+      return escapeHtml(String(n)) + ' ' + escapeHtml(u);
+    }
+    function applyStockColumnVisibility() {
+      var panel = document.getElementById('stocksColPanel');
+      if (!panel) return;
+      var map = {};
+      panel.querySelectorAll('input[data-col-key]').forEach(function(inp) {
+        if (inp.disabled) return;
+        map[inp.getAttribute('data-col-key')] = inp.checked;
+      });
+      document.querySelectorAll('.stock-data-table [data-col-key]').forEach(function(el) {
+        var key = el.getAttribute('data-col-key');
+        if (key === 'action' || key === 'no') return;
+        if (map[key]) el.classList.remove('col-hidden');
+        else el.classList.add('col-hidden');
+      });
+    }
+    function setStockPaginationUi(res) {
+      var page = res.page || 1;
+      var pages = res.pages || 1;
+      var total = res.total || 0;
+      stockTotalPages = Math.max(1, pages);
+      document.getElementById('pageInfo').textContent = total ? ('Page ' + page + ' of ' + pages) : 'Page 0 of 0';
+      document.getElementById('btnFirst').disabled = page <= 1;
+      document.getElementById('btnPrev').disabled = page <= 1;
+      document.getElementById('btnNext').disabled = page >= pages || pages < 1;
+      document.getElementById('btnLast').disabled = page >= pages || pages < 1;
+    }
+    async function loadStock(goPage) {
+      if (goPage !== undefined && goPage !== null) currentPage = goPage;
+      try {
+        var params = new URLSearchParams();
+        params.set('page', String(currentPage));
+        params.set('per_page', String(perPage));
+        var q = document.getElementById('filterProductName').value.trim();
+        if (q) params.set('search', q);
+        var res = await api('/inventory?' + params.toString());
+        itemCache = res.items || [];
+        var colCount = 9;
+        var startNo = ((res.page || 1) - 1) * (res.per_page || perPage);
+        document.getElementById('list').innerHTML = (itemCache.length ? itemCache : []).map(function(i, idx) {
+          var no = startNo + idx + 1;
+          var lowBg = i.is_low_stock ? ' style="background:rgba(239,68,68,0.08)"' : '';
+          return (
+            '<tr' + lowBg + '>' +
+            '<td data-col-key="no">' + no + '</td>' +
+            '<td data-col-key="product">' + escapeHtml(i.name) + '</td>' +
+            '<td data-col-key="quantity" class="stock-qty-cell">' + qtyDisplay(i) + '</td>' +
+            '<td data-col-key="created">' + escapeHtml(formatCreatedAt(i.created_at)) + '</td>' +
+            '<td data-col-key="type" class="col-hidden">' + escapeHtml(i.item_type || '') + '</td>' +
+            '<td data-col-key="unit" class="col-hidden">' + escapeHtml(i.unit || '') + '</td>' +
+            '<td data-col-key="minstock" class="col-hidden">' + (i.min_stock != null ? escapeHtml(String(i.min_stock)) : '—') + '</td>' +
+            '<td data-col-key="low" class="col-hidden">' + (i.is_low_stock ? '<span class="badge badge-cancelled">Low</span>' : '—') + '</td>' +
+            '<td data-col-key="action" class="text-right">' +
+              '<div class="orders-actions-cell">' +
+              '<button type="button" class="btn-action-edit" onclick="window.__stockEdit(' + i.id + ')">Edit</button>' +
+              '<button type="button" class="btn-action-delete" onclick="window.__stockDelete(' + i.id + ')">Delete</button>' +
+              '</div></td></tr>'
+          );
+        }).join('') || ('<tr><td colspan="' + colCount + '" style="text-align:center; padding: 24px; color: var(--text-muted);">No items found</td></tr>');
+        applyStockColumnVisibility();
+        setStockPaginationUi(res);
+      } catch (err) {
+        showToast(err.message || 'Failed to load stock', 'error');
+        document.getElementById('list').innerHTML = '<tr><td colspan="9" style="text-align:center; padding: 24px; color: var(--text-muted);">Failed to load stock</td></tr>';
+        setStockPaginationUi({ page: 1, pages: 1, total: 0 });
+      }
+    }
+    function itemById(id) {
+      return itemCache.find(function(x) { return x.id === id; });
+    }
+
+    var stockCatalog = [];
+    var editingItem = null;
+
+    function refreshStockCatalog() {
+      return api('/inventory?per_page=500').then(function(res) {
+        stockCatalog = res.items || [];
+      }).catch(function() { stockCatalog = []; });
+    }
+
+    function stockVariantOptionsHtml(inv) {
+      if (!inv) return '<option value="">Select a variant</option>';
+      var seen = {};
+      var list = ['Default'];
+      [inv.unit, inv.item_type].forEach(function(x) {
+        if (x && !seen[x]) { seen[x] = true; list.push(x); }
+      });
+      return '<option value="">Select a variant</option>' + list.map(function(v) {
+        return '<option value="' + escapeHtml(v) + '">' + escapeHtml(v) + '</option>';
+      }).join('');
+    }
+
+    function stockSkuOptionsHtml(inv) {
+      if (!inv) return '<option value="">Select an SKU</option>';
+      var sku = 'INV-' + inv.id;
+      return '<option value="">Select an SKU</option><option value="' + escapeHtml(sku) + '">' + escapeHtml(sku) + '</option>';
+    }
+
+    function buildStockProductSelect(isEdit, item) {
+      var sel = document.getElementById('stock_product');
+      if (isEdit && item) {
+        sel.innerHTML = '<option value="' + item.id + '" selected>' + escapeHtml(item.name) + '</option>';
+        sel.disabled = true;
+        return;
+      }
+      sel.disabled = false;
+      var opts = '<option value="">Select a product</option>';
+      stockCatalog.forEach(function(inv) {
+        opts += '<option value="' + inv.id + '">' + escapeHtml(inv.name) + '</option>';
+      });
+      opts += '<option value="__new__">New product…</option>';
+      sel.innerHTML = opts;
+    }
+
+    function onStockProductChange() {
+      var val = document.getElementById('stock_product').value;
+      var blk = document.getElementById('stockNewProductBlock');
+      var vSel = document.getElementById('stock_variant');
+      var sSel = document.getElementById('stock_sku');
+      if (val === '__new__') {
+        blk.classList.add('is-visible');
+        vSel.innerHTML = '<option value="Standard">Standard</option>';
+        sSel.innerHTML = '<option value="—">—</option>';
+        vSel.disabled = false;
+        sSel.disabled = false;
+        return;
+      }
+      blk.classList.remove('is-visible');
+      if (!val) {
+        vSel.innerHTML = '<option value="">Select a variant</option>';
+        sSel.innerHTML = '<option value="">Select an SKU</option>';
+        vSel.disabled = false;
+        sSel.disabled = false;
+        return;
+      }
+      var inv = stockCatalog.find(function(i) { return String(i.id) === val; });
+      vSel.innerHTML = stockVariantOptionsHtml(inv);
+      sSel.innerHTML = stockSkuOptionsHtml(inv);
+      vSel.disabled = false;
+      sSel.disabled = false;
+      if (inv && vSel.options.length > 1) vSel.selectedIndex = 1;
+      if (inv && sSel.options.length > 1) sSel.selectedIndex = 1;
+    }
+
+    function closeStockModal() {
+      document.getElementById('modal').classList.add('hidden');
+      document.getElementById('modal').setAttribute('aria-hidden', 'true');
+    }
+
+    function openModal(item) {
+      var isEdit = !!item;
+      document.getElementById('modalTitle').textContent = isEdit ? 'Edit Stock Quantity' : 'Add Stock Quantity';
+      document.getElementById('modalSubtitle').textContent = isEdit
+        ? 'Update stock levels for this product'
+        : 'Add a new stock quantity for a product';
+      document.getElementById('itemId').value = isEdit ? String(item.id) : '';
+      document.getElementById('stockEditExtra').style.display = isEdit ? 'block' : 'none';
+      editingItem = isEdit ? item : null;
+
+      refreshStockCatalog().then(function() {
+        if (isEdit) {
+          buildStockProductSelect(true, item);
+          var inv = item;
+          var vSel = document.getElementById('stock_variant');
+          var sSel = document.getElementById('stock_sku');
+          vSel.innerHTML = stockVariantOptionsHtml(inv);
+          var pref = inv.unit || inv.item_type || 'Default';
+          var ok = [].some.call(vSel.options, function(o) { return o.value === pref; });
+          vSel.value = ok ? pref : 'Default';
+          sSel.innerHTML = stockSkuOptionsHtml(inv);
+          if (sSel.options.length > 1) sSel.selectedIndex = 1;
+          vSel.disabled = true;
+          sSel.disabled = true;
+          document.getElementById('stockNewProductBlock').classList.remove('is-visible');
+          document.getElementById('stock_quantity').value = Number(inv.quantity || 0) || 1;
+          document.getElementById('stock_min_stock').value = inv.min_stock != null ? inv.min_stock : '';
+          document.getElementById('stock_notes').value = inv.notes || '';
+        } else {
+          buildStockProductSelect(false, null);
+          document.getElementById('stock_variant').disabled = false;
+          document.getElementById('stock_sku').disabled = false;
+          onStockProductChange();
+          document.getElementById('stock_quantity').value = 1;
+          document.getElementById('new_product_name').value = '';
+          document.getElementById('new_unit').value = 'pcs';
+          document.getElementById('new_item_type').value = 'fabric';
+          document.getElementById('stock_min_stock').value = '';
+          document.getElementById('stock_notes').value = '';
+        }
+        document.getElementById('modal').classList.remove('hidden');
+        document.getElementById('modal').setAttribute('aria-hidden', 'false');
+      });
+    }
+
+    document.getElementById('stock_product').addEventListener('change', onStockProductChange);
+
+    window.__stockEdit = function(id) {
+      var it = itemById(id);
+      if (it) openModal(it);
+    };
+    window.__stockDelete = async function(id) {
+      if (!confirm('Delete this stock item permanently?')) return;
+      try {
+        await api('/inventory/' + id, { method: 'DELETE' });
+        showToast('Stock item deleted', 'success');
+        loadStock();
+      } catch (err) {
+        showToast(err.message || 'Failed to delete', 'error');
+      }
+    };
+    document.getElementById('btnAdd').onclick = function() { openModal(null); };
+    document.getElementById('closeModal').onclick = closeStockModal;
+
+    document.getElementById('form').onsubmit = async function(e) {
+      e.preventDefault();
+      var id = document.getElementById('itemId').value;
+      var qty = parseFloat(document.getElementById('stock_quantity').value);
+      if (isNaN(qty) || qty <= 0) {
+        showToast('Enter a valid quantity', 'error');
+        return;
+      }
+      try {
+        if (id) {
+          var inv = editingItem;
+          if (!inv) {
+            showToast('Item not loaded', 'error');
+            return;
+          }
+          await api('/inventory/' + id, { method: 'PUT', body: JSON.stringify({
+            item_type: inv.item_type,
+            name: inv.name,
+            quantity: qty,
+            unit: inv.unit || 'pcs',
+            min_stock: document.getElementById('stock_min_stock').value || null,
+            notes: document.getElementById('stock_notes').value || ''
+          }) });
+          showToast('Stock updated', 'success');
+        } else {
+          var pid = document.getElementById('stock_product').value;
+          if (pid === '__new__') {
+            var nm = document.getElementById('new_product_name').value.trim();
+            if (!nm) {
+              showToast('Enter product name', 'error');
+              return;
+            }
+            await api('/inventory', { method: 'POST', body: JSON.stringify({
+              item_type: document.getElementById('new_item_type').value,
+              name: nm,
+              quantity: qty,
+              unit: document.getElementById('new_unit').value || 'pcs',
+              min_stock: null,
+              notes: ''
+            }) });
+            showToast('Product created', 'success');
+          } else if (pid) {
+            if (!document.getElementById('stock_variant').value || !document.getElementById('stock_sku').value) {
+              showToast('Select variant and SKU', 'error');
+              return;
+            }
+            await api('/inventory/' + pid + '/adjust', { method: 'POST', body: JSON.stringify({ quantity: qty }) });
+            showToast('Stock quantity added', 'success');
+          } else {
+            showToast('Select a product', 'error');
+            return;
+          }
+        }
+        closeStockModal();
+        loadStock();
+      } catch (err) {
+        showToast(err.message || 'Failed to save', 'error');
+      }
+    };
+
+    document.getElementById('btnSelectColumns').addEventListener('click', function(e) {
+      e.stopPropagation();
+      var p = document.getElementById('stocksColPanel');
+      var on = p.classList.toggle('hidden');
+      this.setAttribute('aria-expanded', on ? 'false' : 'true');
+      p.setAttribute('aria-hidden', on ? 'true' : 'false');
+    });
+    document.getElementById('stocksColPanel').addEventListener('change', function(e) {
+      if (e.target && e.target.matches('input[data-col-key]')) applyStockColumnVisibility();
+    });
+    document.getElementById('stocksColPanel').addEventListener('click', function(e) { e.stopPropagation(); });
+    document.addEventListener('click', function() {
+      var p = document.getElementById('stocksColPanel');
+      var b = document.getElementById('btnSelectColumns');
+      if (p && !p.classList.contains('hidden')) {
+        p.classList.add('hidden');
+        if (b) { b.setAttribute('aria-expanded', 'false'); p.setAttribute('aria-hidden', 'true'); }
+      }
+    });
+
+    document.getElementById('filterProductName').addEventListener('input', function() {
+      clearTimeout(filterDebounceTimer);
+      filterDebounceTimer = setTimeout(function() { loadStock(1); }, 320);
+    });
+    document.getElementById('rowsPerPage').addEventListener('change', function() {
+      perPage = parseInt(this.value, 10) || 20;
+      loadStock(1);
+    });
+    document.getElementById('btnFirst').addEventListener('click', function() { loadStock(1); });
+    document.getElementById('btnPrev').addEventListener('click', function() { if (currentPage > 1) loadStock(currentPage - 1); });
+    document.getElementById('btnNext').addEventListener('click', function() { loadStock(currentPage + 1); });
+    document.getElementById('btnLast').addEventListener('click', function() { loadStock(stockTotalPages); });
+
+    document.getElementById('rowsPerPage').value = String(perPage);
+    applyStockColumnVisibility();
+    loadStock(1);
+  </script>
+</body>
+</html>

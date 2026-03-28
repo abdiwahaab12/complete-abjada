@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orders - Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+  <style>
+    .modal-view-body { font-size: 14px; color: var(--text-dark); }
+    .modal-view-body dt { color: var(--text-muted); font-weight: 600; margin-top: 12px; }
+    .modal-view-body dd { margin: 4px 0 0 0; }
+    .modal-view-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+<aside class="sidebar sidebar-modern" aria-label="Main navigation">
+  <div class="sidebar-modern-brand">Abjad Super style tailor</div>
+
+  <nav class="sidebar-modern-inner">
+    <div class="sidebar-modern-scroll">
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">DISCOVER</h2>
+        <a href="/dashboard" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Dashboard</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">INVENTORY</h2>
+        <a href="/store" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Products</span>
+        </a>
+        <a href="/category-page" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M7 3h3"/><path d="M14 3h3"/><path d="M7 20h3"/><path d="M14 20h3"/><path d="M3 7v3"/><path d="M3 14v3"/><path d="M20 7v3"/><path d="M20 14v3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Category</span>
+        </a>
+        <a href="/orders" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Orders</span>
+        </a>
+        <a href="/stock" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22.08V12"/><path d="M16 8h-6M13 11h4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Stock</span>
+        </a>
+        <a href="/customers" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Customer</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+        <a href="/measurements" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Tailor Orders</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">FINANCES</h2>
+        <a href="/transactions" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Bank</span>
+        </a>
+        <a href="/reports" class="sidebar-modern-link sidebar-modern-link--tight">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Report</span>
+          <span class="sidebar-modern-badge">NEW</span>
+          <span class="sidebar-modern-chevron" aria-hidden="true">›</span>
+        </a>
+
+      </section>
+
+      <div class="sidebar-modern-util">
+        <a href="/settings" class="sidebar-modern-util-link">Settings</a>
+        <a href="/staff" class="sidebar-modern-util-link nav-admin-only">Staff</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer sidebar-modern-footer">
+    <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+    <div class="sidebar-user">
+      <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
+      <div class="sidebar-user-info">
+        <span class="sidebar-user-name" id="sidebarUserName"></span>
+        <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+      </div>
+    </div>
+    <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+  </div>
+</aside>
+<script src="/static/js/sidebar-active.js" defer></script>
+
+<!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      
+
+      <!-- Page Content -->
+      <div class="page-content orders-page">
+        <div class="orders-page-title-row">
+          <h1 class="orders-page-title">Orders</h1>
+          <button type="button" class="btn-add-order-primary" id="btnAdd">Add Order</button>
+        </div>
+
+        <div id="statusFilterBanner" class="orders-status-banner hidden" role="status">
+          <span>Filtered by status: <strong id="statusFilterLabel"></strong></span>
+          <button type="button" id="clearStatusFilter">Clear filter</button>
+        </div>
+
+        <div class="orders-toolbar">
+          <input type="search" class="orders-filter-input" id="filterOrderId" placeholder="Filter by orderId" autocomplete="off">
+          <span class="orders-toolbar-spacer"></span>
+          <div class="orders-col-menu-wrap">
+            <button type="button" class="btn-select-columns" id="btnSelectColumns" aria-expanded="false" aria-haspopup="true">Select columns</button>
+            <div id="ordersColPanel" class="orders-col-panel hidden" role="menu" aria-hidden="true">
+              <label><input type="checkbox" data-col-key="orderId" checked> Order ID</label>
+              <label><input type="checkbox" data-col-key="items" checked> Items</label>
+              <label><input type="checkbox" data-col-key="total" checked> Total Price</label>
+              <label><input type="checkbox" data-col-key="created" checked> Created At</label>
+              <label><input type="checkbox" data-col-key="customer"> Customer</label>
+              <label><input type="checkbox" data-col-key="status"> Status</label>
+              <label><input type="checkbox" data-col-key="delivery"> Delivery</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="orders-table-card dashboard-card" style="box-shadow:none; margin:0; padding:0;">
+          <div class="table-responsive">
+            <table class="customers-table orders-data-table">
+              <thead>
+                <tr>
+                  <th data-col-key="orderId">Order ID</th>
+                  <th data-col-key="items">Items</th>
+                  <th data-col-key="total">Total Price</th>
+                  <th data-col-key="created">Created At</th>
+                  <th data-col-key="customer" class="col-hidden">Customer</th>
+                  <th data-col-key="status" class="col-hidden">Status</th>
+                  <th data-col-key="delivery" class="col-hidden">Delivery</th>
+                  <th data-col-key="action" class="text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="list"></tbody>
+            </table>
+          </div>
+          <div class="table-pagination">
+            <div class="swaps-pagination" id="ordersPaginationBar">
+              <span class="swaps-pagination-rows">Rows per page <select id="rowsPerPage" aria-label="Rows per page"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option><option value="100">100</option></select></span>
+              <span class="swaps-pagination-info" id="pageInfo">Page 1 of 1</span>
+              <div class="swaps-pagination-nav">
+                <button type="button" class="swaps-pagination-btn" id="btnFirst" title="First page">&laquo;</button>
+                <button type="button" class="swaps-pagination-btn" id="btnPrev" title="Previous">&lsaquo;</button>
+                <button type="button" class="swaps-pagination-btn" id="btnNext" title="Next">&rsaquo;</button>
+                <button type="button" class="swaps-pagination-btn" id="btnLast" title="Last page">&raquo;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Order Form Modal -->
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content order-form-modal">
+      <div class="modal-header order-form-modal-header">
+        <h3 id="modalTitle">Order Form</h3>
+        <button type="button" class="btn btn-secondary btn-sm" id="closeModal" aria-label="Close">&times;</button>
+      </div>
+      <form id="form">
+        <input type="hidden" id="orderId">
+        <div class="form-group">
+          <select id="customer_id" name="customer_id" required aria-label="Customer (required)"></select>
+        </div>
+
+        <div class="order-lines-wrap">
+          <table class="order-lines-table">
+            <thead>
+              <tr>
+                <th style="min-width:140px;">PRODUCT</th>
+                <th style="min-width:100px;">VARIANT</th>
+                <th style="min-width:88px;">SKU</th>
+                <th style="width:88px;">PRICE</th>
+                <th style="width:84px;">QUANTITY</th>
+                <th style="width:88px;">TOTAL</th>
+                <th style="width:48px;">REMOVE</th>
+              </tr>
+            </thead>
+            <tbody id="orderLinesBody"></tbody>
+          </table>
+          <button type="button" class="btn-add-product" id="btnAddProduct">Add Product</button>
+        </div>
+
+        <div class="order-payment-row">
+          <div class="form-group" style="margin:0;">
+            <label for="cash_amount">Cash Amount</label>
+            <input type="number" id="cash_amount" step="0.01" min="0" placeholder="Enter cash amount" value="">
+          </div>
+          <div class="form-group" style="margin:0;">
+            <label for="digital_amount">Digital Amount</label>
+            <input type="number" id="digital_amount" step="0.01" min="0" placeholder="Enter digital amount" value="">
+          </div>
+        </div>
+
+        <div class="order-subtotal-row">
+          <span class="order-subtotal-label">Subtotal:</span>
+          <span class="order-subtotal-value" id="orderSubtotalDisplay">0.00</span>
+        </div>
+
+        <details class="order-more-options">
+          <summary>Delivery date, notes &amp; design image</summary>
+          <div class="form-group" style="margin-top:12px;"><label for="delivery_date">Delivery Date</label><input type="date" id="delivery_date"></div>
+          <div class="form-group"><label for="design_description">Notes</label><textarea id="design_description" rows="2" placeholder="Optional notes"></textarea></div>
+          <div class="form-group"><label>Design Image</label><input type="file" id="design_file" accept="image/*"><input type="text" id="design_image" placeholder="Or image URL" style="margin-top:8px;"></div>
+        </details>
+
+        <button type="submit" class="btn-create-order" id="btnSubmitOrder">Create Order</button>
+        <div class="order-form-cancel-row">
+          <button type="button" class="btn btn-secondary btn-sm" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- View order (read-only) -->
+  <div id="viewModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content" style="max-width:520px;">
+      <div class="modal-header">
+        <h3 id="viewModalTitle">Order details</h3>
+        <button type="button" class="btn btn-secondary btn-sm" id="closeViewModal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-view-body" id="viewModalBody"></div>
+      <div class="modal-view-actions" id="viewModalActions"></div>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/avatar.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    let user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+    initAvatarFromApi(user);
+    
+    // Theme toggle in sidebar
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) {
+        btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+    })();
+    
+    // Logout (sidebar and header)
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) {
+      e.preventDefault();
+      logout();
+    });
+    document.getElementById('headerLogoutBtn').addEventListener('click', function() {
+      logout();
+    });
+
+    // User dropdown (header)
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      function open() { menu.classList.add('show'); menu.setAttribute('aria-hidden', 'false'); profile.setAttribute('aria-expanded', 'true'); }
+      function close() { menu.classList.remove('show'); menu.setAttribute('aria-hidden', 'true'); profile.setAttribute('aria-expanded', 'false'); }
+      function toggle() { if (menu.classList.contains('show')) close(); else { open(); notifClose(); } }
+      profile.addEventListener('click', function(e) { e.stopPropagation(); toggle(); });
+      document.addEventListener('click', function(e) {
+        if (!profile.contains(e.target) && !menu.contains(e.target)) close();
+      });
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    })();
+
+    // Notification panel
+    var notifPanel = document.getElementById('notificationPanel');
+    var notifBtn = document.getElementById('notificationBtn');
+    var headerUserWrapNotif = notifBtn.closest('.header-user-wrap');
+    function notifClose() { notifPanel.classList.remove('show'); notifPanel.setAttribute('aria-hidden', 'true'); }
+    function notifToggle() {
+      if (notifPanel.classList.contains('show')) notifClose();
+      else {
+        notifPanel.classList.add('show');
+        notifPanel.setAttribute('aria-hidden', 'false');
+        document.getElementById('userDropdownMenu').classList.remove('show');
+      }
+    }
+    notifBtn.addEventListener('click', function(e) { e.stopPropagation(); notifToggle(); });
+    document.addEventListener('click', function(e) {
+      if (!headerUserWrapNotif.contains(e.target)) notifClose();
+    });
+
+    // Header search → same as order ID filter
+    document.getElementById('headerSearch').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        var fid = document.getElementById('filterOrderId');
+        if (fid) { fid.value = this.value.trim(); loadOrders(1); }
+        this.blur();
+      }
+    });
+
+    // Hide admin-only nav
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    // Orders page logic
+    let customers = [];
+    let orderCache = [];
+    let currentPage = 1;
+    let perPage = 20;
+    let ordersTotalPages = 1;
+    let statusFilter = '';
+    var filterDebounceTimer = null;
+
+    function escapeHtml(s) {
+      if (s == null || s === '') return '';
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+    function formatOrderId(id) {
+      return 'ORD-' + String(id).padStart(4, '0');
+    }
+    function formatMoney(n) {
+      return Number(n || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+    function formatCreatedAt(iso) {
+      if (!iso) return '—';
+      try {
+        var d = new Date(iso);
+        return d.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'medium' });
+      } catch (e) { return iso; }
+    }
+    function orderItemsLine(o) {
+      var fd = (o.fabric_details || '').split('ABJAD_LINES_JSON:')[0].trim();
+      var parts = [o.clothing_type || ''];
+      if (fd) parts.push(fd.replace(/\n/g, ' · '));
+      var notes = (o.design_description || '').trim();
+      if (notes && !fd) parts.push(notes);
+      var joined = parts.filter(Boolean).join(' · ');
+      return joined.length > 180 ? joined.slice(0, 177) + '…' : (joined || '—');
+    }
+    function syncStatusBanner() {
+      var banner = document.getElementById('statusFilterBanner');
+      var label = document.getElementById('statusFilterLabel');
+      if (!banner || !label) return;
+      if (statusFilter) {
+        label.textContent = statusFilter.replace(/_/g, ' ');
+        banner.classList.remove('hidden');
+      } else {
+        banner.classList.add('hidden');
+      }
+    }
+    function readUrlState() {
+      var params = new URLSearchParams(location.search);
+      var st = params.get('status');
+      if (st) statusFilter = st;
+      var p = parseInt(params.get('page'), 10);
+      if (p > 0) currentPage = p;
+      var pp = parseInt(params.get('per_page'), 10);
+      if (pp > 0 && pp <= 100) perPage = pp;
+      var q = params.get('search') || params.get('q');
+      if (q != null && q !== '') document.getElementById('filterOrderId').value = q;
+      var byId = params.get('id');
+      if (byId && !(q && q !== '')) document.getElementById('filterOrderId').value = byId;
+    }
+    function pushUrlState() {
+      var params = new URLSearchParams();
+      if (statusFilter) params.set('status', statusFilter);
+      if (currentPage > 1) params.set('page', String(currentPage));
+      if (perPage !== 20) params.set('per_page', String(perPage));
+      var q = document.getElementById('filterOrderId').value.trim();
+      if (q) params.set('search', q);
+      var s = params.toString();
+      var url = location.pathname + (s ? '?' + s : '');
+      if (url !== location.pathname + location.search) history.replaceState({}, '', url);
+    }
+
+    function applyColumnVisibility() {
+      var panel = document.getElementById('ordersColPanel');
+      if (!panel) return;
+      var map = {};
+      panel.querySelectorAll('input[data-col-key]').forEach(function(inp) {
+        map[inp.getAttribute('data-col-key')] = inp.checked;
+      });
+      document.querySelectorAll('.orders-data-table [data-col-key]').forEach(function(el) {
+        var key = el.getAttribute('data-col-key');
+        if (key === 'action') return;
+        if (map[key]) el.classList.remove('col-hidden');
+        else el.classList.add('col-hidden');
+      });
+    }
+
+    async function loadCustomers() {
+      const res = await api('/customers?per_page=500');
+      customers = res.items || [];
+      const sel = document.getElementById('customer_id');
+      sel.innerHTML = '<option value=""></option>' + customers.map(c => `<option value="${c.id}">${c.full_name} - ${c.phone}</option>`).join('');
+    }
+    function statusBadge(s) {
+      const c = { pending: 'badge-pending', in_progress: 'badge-progress', completed: 'badge-completed', delivered: 'badge-delivered', cancelled: 'badge-cancelled' }[s] || '';
+      return `<span class="badge ${c}">${escapeHtml(s || 'pending')}</span>`;
+    }
+    function orderById(id) {
+      return orderCache.find(function(x) { return x.id === id; });
+    }
+    function closeViewModal() {
+      var m = document.getElementById('viewModal');
+      m.classList.add('hidden');
+      m.setAttribute('aria-hidden', 'true');
+    }
+    function openViewModal(id) {
+      var o = orderById(id);
+      if (!o) return;
+      document.getElementById('viewModalTitle').textContent = formatOrderId(o.id);
+      var cust = o.customer ? escapeHtml(o.customer.full_name) + ' — ' + escapeHtml(o.customer.phone || '') : '—';
+      var body = document.getElementById('viewModalBody');
+      body.innerHTML =
+        '<dl style="margin:0;">' +
+        '<dt>Order ID</dt><dd>' + escapeHtml(formatOrderId(o.id)) + '</dd>' +
+        '<dt>Customer</dt><dd>' + cust + '</dd>' +
+        '<dt>Items</dt><dd>' + escapeHtml(orderItemsLine(o)) + '</dd>' +
+        '<dt>Total price</dt><dd><strong>' + formatMoney(o.total_price) + '</strong></dd>' +
+        '<dt>Advance paid</dt><dd>' + formatMoney(o.advance_paid) + '</dd>' +
+        '<dt>Status</dt><dd>' + statusBadge(o.status) + '</dd>' +
+        '<dt>Delivery date</dt><dd>' + escapeHtml(o.delivery_date || '—') + '</dd>' +
+        '<dt>Created</dt><dd>' + escapeHtml(formatCreatedAt(o.created_at)) + '</dd>' +
+        '</dl>';
+      var actions = document.getElementById('viewModalActions');
+      var pay = '<a class="btn btn-secondary btn-sm" href="/payments?order_id=' + o.id + '">Payments</a>';
+      var inv = o.status !== 'cancelled'
+        ? '<a class="btn btn-secondary btn-sm" href="' + window.location.origin + '/api/payments/invoice/' + o.id + '" target="_blank" rel="noopener">Invoice</a>'
+        : '';
+      actions.innerHTML = pay + inv;
+      var vm = document.getElementById('viewModal');
+      vm.classList.remove('hidden');
+      vm.setAttribute('aria-hidden', 'false');
+    }
+    document.getElementById('closeViewModal').onclick = closeViewModal;
+    document.getElementById('viewModal').addEventListener('click', function(e) {
+      if (e.target === this) closeViewModal();
+    });
+
+    document.getElementById('btnSelectColumns').addEventListener('click', function(e) {
+      e.stopPropagation();
+      var p = document.getElementById('ordersColPanel');
+      var open = p.classList.toggle('hidden');
+      this.setAttribute('aria-expanded', open ? 'false' : 'true');
+      p.setAttribute('aria-hidden', open ? 'true' : 'false');
+    });
+    document.getElementById('ordersColPanel').addEventListener('change', function(e) {
+      if (e.target && e.target.matches('input[data-col-key]')) applyColumnVisibility();
+    });
+    document.addEventListener('click', function() {
+      var p = document.getElementById('ordersColPanel');
+      var b = document.getElementById('btnSelectColumns');
+      if (p && !p.classList.contains('hidden')) {
+        p.classList.add('hidden');
+        if (b) { b.setAttribute('aria-expanded', 'false'); p.setAttribute('aria-hidden', 'true'); }
+      }
+    });
+    document.getElementById('ordersColPanel').addEventListener('click', function(e) { e.stopPropagation(); });
+
+    document.getElementById('clearStatusFilter').addEventListener('click', function() {
+      statusFilter = '';
+      syncStatusBanner();
+      loadOrders(1);
+    });
+
+    function setPaginationUi(res) {
+      var page = res.page || 1;
+      var pages = res.pages || 1;
+      var total = res.total || 0;
+      ordersTotalPages = Math.max(1, pages);
+      document.getElementById('pageInfo').textContent = total ? ('Page ' + page + ' of ' + pages) : 'Page 0 of 0';
+      document.getElementById('btnFirst').disabled = page <= 1;
+      document.getElementById('btnPrev').disabled = page <= 1;
+      document.getElementById('btnNext').disabled = page >= pages || pages < 1;
+      document.getElementById('btnLast').disabled = page >= pages || pages < 1;
+    }
+
+    async function loadOrders(goPage) {
+      if (goPage !== undefined && goPage !== null) currentPage = goPage;
+      try {
+        var params = new URLSearchParams();
+        params.set('page', String(currentPage));
+        params.set('per_page', String(perPage));
+        var q = document.getElementById('filterOrderId').value.trim();
+        if (q) params.set('search', q);
+        if (statusFilter) params.set('status', statusFilter);
+        var res = await api('/orders?' + params.toString());
+        orderCache = res.items || [];
+        pushUrlState();
+
+        var colspan = 8;
+        document.getElementById('list').innerHTML = (orderCache.length ? orderCache : []).map(function(o) {
+          var custName = o.customer ? o.customer.full_name : '—';
+          var del = o.delivery_date || '—';
+          return (
+            '<tr>' +
+            '<td data-col-key="orderId">' + escapeHtml(formatOrderId(o.id)) + '</td>' +
+            '<td data-col-key="items">' + escapeHtml(orderItemsLine(o)) + '</td>' +
+            '<td data-col-key="total" class="price-cell">' + escapeHtml(formatMoney(o.total_price)) + '</td>' +
+            '<td data-col-key="created">' + escapeHtml(formatCreatedAt(o.created_at)) + '</td>' +
+            '<td data-col-key="customer" class="col-hidden">' + escapeHtml(custName) + '</td>' +
+            '<td data-col-key="status" class="col-hidden">' + statusBadge(o.status) + '</td>' +
+            '<td data-col-key="delivery" class="col-hidden">' + escapeHtml(del) + '</td>' +
+            '<td data-col-key="action" class="text-right">' +
+              '<div class="orders-actions-cell">' +
+              '<button type="button" class="btn-action-view" onclick="window.__ordersView(' + o.id + ')">View</button>' +
+              '<button type="button" class="btn-action-edit" onclick="window.__ordersEdit(' + o.id + ')">Edit</button>' +
+              (o.status !== 'cancelled'
+                ? '<button type="button" class="btn-action-delete" onclick="window.__ordersDelete(' + o.id + ')">Delete</button>'
+                : '<button type="button" class="btn-action-delete" disabled title="Already cancelled">Delete</button>') +
+              '</div></td></tr>'
+          );
+        }).join('') || ('<tr><td colspan="' + colspan + '" style="text-align:center; padding: 24px; color: var(--text-muted);">No orders found</td></tr>');
+        applyColumnVisibility();
+        setPaginationUi(res);
+      } catch (err) {
+        showToast(err.message || 'Failed to load orders', 'error');
+        document.getElementById('list').innerHTML = '<tr><td colspan="8" style="text-align:center; padding: 24px; color: var(--text-muted);">Failed to load orders</td></tr>';
+        setPaginationUi({ page: 1, pages: 1, total: 0 });
+      }
+    }
+
+    window.__ordersView = function(id) { openViewModal(id); };
+    window.__ordersEdit = function(id) {
+      loadInventory().then(function() {
+        var o = orderById(id);
+        if (o) openModal(o);
+      });
+    };
+    window.__ordersDelete = async function(id) {
+      if (!confirm('Cancel this order? It will be marked as cancelled.')) return;
+      try {
+        await api('/orders/' + id, { method: 'DELETE' });
+        showToast('Order cancelled', 'success');
+        loadOrders();
+      } catch (err) {
+        showToast(err.message || 'Failed to cancel order', 'error');
+      }
+    };
+
+    document.getElementById('rowsPerPage').addEventListener('change', function() {
+      perPage = parseInt(this.value, 10) || 20;
+      loadOrders(1);
+    });
+    document.getElementById('btnFirst').addEventListener('click', function() { loadOrders(1); });
+    document.getElementById('btnPrev').addEventListener('click', function() { if (currentPage > 1) loadOrders(currentPage - 1); });
+    document.getElementById('btnNext').addEventListener('click', function() { loadOrders(currentPage + 1); });
+    document.getElementById('btnLast').addEventListener('click', function() {
+      loadOrders(ordersTotalPages);
+    });
+
+    document.getElementById('filterOrderId').addEventListener('input', function() {
+      clearTimeout(filterDebounceTimer);
+      filterDebounceTimer = setTimeout(function() { loadOrders(1); }, 320);
+    });
+
+    var LINES_PREFIX = 'ABJAD_LINES_JSON:';
+    var inventoryCatalog = [];
+    var orderLineIdSeq = 0;
+
+    function loadInventory() {
+      return api('/inventory?per_page=500').then(function(res) {
+        inventoryCatalog = res.items || [];
+      }).catch(function() { inventoryCatalog = []; });
+    }
+
+    function productSelectOptions() {
+      var opts = '<option value="">Select Product</option>';
+      opts += '<option value="__other__">Other (custom)</option>';
+      inventoryCatalog.forEach(function(inv) {
+        opts += '<option value="' + inv.id + '">' + escapeHtml(inv.name) + '</option>';
+      });
+      return opts;
+    }
+
+    function variantOptionsForInv(inv) {
+      if (!inv) return '<option value="Standard">Standard</option>';
+      var seen = {};
+      var list = ['Default'];
+      [inv.unit, inv.item_type].forEach(function(x) {
+        if (x && !seen[x]) { seen[x] = true; list.push(x); }
+      });
+      return list.map(function(v) { return '<option value="' + escapeHtml(v) + '">' + escapeHtml(v) + '</option>'; }).join('');
+    }
+
+    function skuOptionsForInv(inv) {
+      if (!inv) return '<option value="—">—</option>';
+      var sku = 'INV-' + inv.id;
+      return '<option value="' + escapeHtml(sku) + '">' + escapeHtml(sku) + '</option>';
+    }
+
+    function otherVariantOptions() {
+      return ['Standard', 'S', 'M', 'L', 'XL', 'Custom'].map(function(v) {
+        return '<option value="' + v + '">' + v + '</option>';
+      }).join('');
+    }
+
+    function addOrderLine(prefill) {
+      var tbody = document.getElementById('orderLinesBody');
+      var rid = 'ln-' + (++orderLineIdSeq);
+      var tr = document.createElement('tr');
+      tr.dataset.rowId = rid;
+      tr.innerHTML =
+        '<td><div class="line-product-cell"><select class="line-product" data-rid="' + rid + '">' + productSelectOptions() + '</select>' +
+        '<input type="text" class="line-custom-name" data-rid="' + rid + '" placeholder="Item name" autocomplete="off"></div></td>' +
+        '<td><select class="line-variant" data-rid="' + rid + '"></select></td>' +
+        '<td><select class="line-sku" data-rid="' + rid + '"></select></td>' +
+        '<td><input type="number" class="line-price" data-rid="' + rid + '" step="0.01" min="0" value="0"></td>' +
+        '<td><input type="number" class="line-qty" data-rid="' + rid + '" step="1" min="1" value="1"></td>' +
+        '<td><span class="line-total" data-rid="' + rid + '">0.00</span></td>' +
+        '<td><button type="button" class="order-line-remove" data-line-remove data-rid="' + rid + '" aria-label="Remove row">&times;</button></td>';
+      tbody.appendChild(tr);
+      var invId = prefill && prefill.invId != null && prefill.invId !== '' ? String(prefill.invId) : '';
+      if (invId && inventoryCatalog.some(function(i) { return String(i.id) === invId; })) {
+        tr.querySelector('.line-product').value = invId;
+        syncLineRow(tr);
+        if (prefill) {
+          if (prefill.variant) tr.querySelector('.line-variant').value = prefill.variant;
+          if (prefill.sku) tr.querySelector('.line-sku').value = prefill.sku;
+          if (prefill.price != null) tr.querySelector('.line-price').value = prefill.price;
+          if (prefill.qty != null) tr.querySelector('.line-qty').value = prefill.qty;
+        }
+      } else if (prefill) {
+        tr.querySelector('.line-product').value = '__other__';
+        syncLineRow(tr);
+        if (prefill.product) tr.querySelector('.line-custom-name').value = prefill.product;
+        tr.querySelector('.line-variant').value = prefill.variant || 'Standard';
+        tr.querySelector('.line-sku').innerHTML = '<option value="' + escapeHtml(prefill.sku || '—') + '">' + escapeHtml(prefill.sku || '—') + '</option>';
+        tr.querySelector('.line-price').value = prefill.price != null ? prefill.price : 0;
+        tr.querySelector('.line-qty').value = prefill.qty != null ? prefill.qty : 1;
+      } else {
+        syncLineRow(tr);
+      }
+      recalcLineRow(tr);
+      recalcSubtotal();
+    }
+
+    function syncLineRow(tr) {
+      var sel = tr.querySelector('.line-product');
+      var vSel = tr.querySelector('.line-variant');
+      var sSel = tr.querySelector('.line-sku');
+      var customInp = tr.querySelector('.line-custom-name');
+      var val = sel.value;
+      if (val === '__other__') {
+        customInp.classList.add('is-visible');
+        vSel.innerHTML = otherVariantOptions();
+        sSel.innerHTML = '<option value="—">—</option>';
+      } else if (val) {
+        customInp.classList.remove('is-visible');
+        customInp.value = '';
+        var inv = inventoryCatalog.find(function(i) { return String(i.id) === val; });
+        vSel.innerHTML = variantOptionsForInv(inv);
+        sSel.innerHTML = skuOptionsForInv(inv);
+      } else {
+        customInp.classList.remove('is-visible');
+        customInp.value = '';
+        vSel.innerHTML = '<option value="">Select Vari…</option>';
+        sSel.innerHTML = '<option value="">Select S…</option>';
+      }
+    }
+
+    function getProductLabel(tr) {
+      var sel = tr.querySelector('.line-product');
+      if (sel.value === '__other__') {
+        var cn = tr.querySelector('.line-custom-name').value.trim();
+        return cn || 'Custom item';
+      }
+      if (!sel.value) return '';
+      var inv = inventoryCatalog.find(function(i) { return String(i.id) === sel.value; });
+      return inv ? inv.name : '';
+    }
+
+    function recalcLineRow(tr) {
+      var p = parseFloat(tr.querySelector('.line-price').value) || 0;
+      var q = parseInt(tr.querySelector('.line-qty').value, 10) || 0;
+      if (q < 1) q = 1;
+      tr.querySelector('.line-qty').value = q;
+      var tot = (p * q).toFixed(2);
+      tr.querySelector('.line-total').textContent = tot;
+      return parseFloat(tot);
+    }
+
+    function recalcSubtotal() {
+      var tbody = document.getElementById('orderLinesBody');
+      var sum = 0;
+      tbody.querySelectorAll('tr').forEach(function(tr) { sum += recalcLineRow(tr); });
+      document.getElementById('orderSubtotalDisplay').textContent = sum.toFixed(2);
+      return sum;
+    }
+
+    function collectLines() {
+      var rows = document.getElementById('orderLinesBody').querySelectorAll('tr');
+      var lines = [];
+      rows.forEach(function(tr) {
+        var prodSel = tr.querySelector('.line-product');
+        var label = getProductLabel(tr);
+        if (!prodSel.value) return;
+        var variant = tr.querySelector('.line-variant').value || '';
+        var sku = tr.querySelector('.line-sku').value || '';
+        var price = parseFloat(tr.querySelector('.line-price').value) || 0;
+        var qty = parseInt(tr.querySelector('.line-qty').value, 10) || 1;
+        var invId = prodSel.value === '__other__' ? null : parseInt(prodSel.value, 10);
+        lines.push({
+          invId: invId,
+          product: label,
+          variant: variant,
+          sku: sku,
+          price: price,
+          qty: qty
+        });
+      });
+      return lines;
+    }
+
+    function buildFabricDetailsHuman(lines) {
+      return lines.map(function(L, i) {
+        var lineTot = (L.qty * L.price).toFixed(2);
+        return 'Line ' + (i + 1) + ': ' + L.product + ' (' + L.variant + ') [' + L.sku + '] ×' + L.qty + ' @ ' + L.price + ' = ' + lineTot;
+      }).join('\n');
+    }
+
+    function tryParseStoredLines(fabricDetails) {
+      if (!fabricDetails || fabricDetails.indexOf(LINES_PREFIX) === -1) return null;
+      try {
+        var raw = fabricDetails.split(LINES_PREFIX)[1].trim();
+        return JSON.parse(raw);
+      } catch (e) { return null; }
+    }
+
+    function clearOrderLines() {
+      document.getElementById('orderLinesBody').innerHTML = '';
+    }
+
+    document.getElementById('orderLinesBody').addEventListener('change', function(e) {
+      var t = e.target;
+      if (t.classList && t.classList.contains('line-product')) {
+        syncLineRow(t.closest('tr'));
+        recalcSubtotal();
+      }
+    });
+    document.getElementById('orderLinesBody').addEventListener('input', function(e) {
+      if (e.target.matches && e.target.matches('.line-price, .line-qty, .line-custom-name')) recalcSubtotal();
+    });
+    document.getElementById('orderLinesBody').addEventListener('click', function(e) {
+      if (e.target.hasAttribute('data-line-remove')) {
+        var tr = e.target.closest('tr');
+        if (tr && document.getElementById('orderLinesBody').querySelectorAll('tr').length > 1) {
+          tr.remove();
+          recalcSubtotal();
+        } else if (tr) {
+          showToast('At least one line is required', 'error');
+        }
+      }
+    });
+
+    document.getElementById('btnAddProduct').addEventListener('click', function() {
+      addOrderLine(null);
+    });
+
+    function openModal(order) {
+      var isEdit = !!order;
+      document.getElementById('modalTitle').textContent = 'Order Form';
+      document.getElementById('orderId').value = isEdit ? String(order.id) : '';
+      document.getElementById('btnSubmitOrder').textContent = isEdit ? 'Save changes' : 'Create Order';
+      document.getElementById('cash_amount').disabled = isEdit;
+      document.getElementById('digital_amount').disabled = isEdit;
+      if (isEdit) {
+        document.getElementById('cash_amount').title = 'Payments are managed from the Payments page when editing';
+        document.getElementById('digital_amount').title = 'Payments are managed from the Payments page when editing';
+      } else {
+        document.getElementById('cash_amount').removeAttribute('title');
+        document.getElementById('digital_amount').removeAttribute('title');
+      }
+
+      if (!isEdit) {
+        document.getElementById('customer_id').value = new URLSearchParams(location.search).get('customer_id') || '';
+        document.getElementById('cash_amount').value = '';
+        document.getElementById('digital_amount').value = '';
+        document.getElementById('delivery_date').value = '';
+        document.getElementById('design_description').value = '';
+        document.getElementById('design_image').value = '';
+        clearOrderLines();
+        addOrderLine(null);
+      } else {
+        document.getElementById('customer_id').value = String(order.customer_id);
+        var parsed = tryParseStoredLines(order.fabric_details || '');
+        document.getElementById('delivery_date').value = order.delivery_date || '';
+        document.getElementById('design_description').value = order.design_description || '';
+        document.getElementById('design_image').value = order.design_image || '';
+        if (parsed) {
+          document.getElementById('cash_amount').value = parsed.cash != null && parsed.cash !== '' ? parsed.cash : '';
+          document.getElementById('digital_amount').value = parsed.digital != null && parsed.digital !== '' ? parsed.digital : '';
+        } else {
+          document.getElementById('cash_amount').value = '';
+          document.getElementById('digital_amount').value = '';
+        }
+        clearOrderLines();
+        if (parsed && parsed.lines && parsed.lines.length) {
+          parsed.lines.forEach(function(L) { addOrderLine(L); });
+        } else {
+          addOrderLine({
+            invId: null,
+            product: order.clothing_type || 'Item',
+            variant: 'Standard',
+            sku: '—',
+            price: Number(order.total_price || 0),
+            qty: 1
+          });
+        }
+        recalcSubtotal();
+      }
+
+      var m = document.getElementById('modal');
+      m.classList.remove('hidden');
+      m.setAttribute('aria-hidden', 'false');
+      if (!isEdit) recalcSubtotal();
+    }
+
+    function closeOrderModal() {
+      var m = document.getElementById('modal');
+      m.classList.add('hidden');
+      m.setAttribute('aria-hidden', 'true');
+    }
+
+    document.getElementById('btnAdd').onclick = function() {
+      loadInventory().then(function() { openModal(null); });
+    };
+    document.getElementById('closeModal').onclick = closeOrderModal;
+    document.getElementById('cancelBtn').onclick = closeOrderModal;
+
+    document.getElementById('design_file').onchange = async function(e) {
+      var f = e.target.files[0];
+      if (!f) return;
+      var fd = new FormData();
+      fd.append('file', f);
+      var token = getToken();
+      var r = await fetch(window.location.origin + '/api/orders/upload-design', {
+        method: 'POST',
+        headers: token ? { Authorization: 'Bearer ' + token } : {},
+        body: fd
+      });
+      var j = await r.json();
+      if (j.design_image) document.getElementById('design_image').value = j.design_image;
+    };
+
+    document.getElementById('form').onsubmit = async function(e) {
+      e.preventDefault();
+      var id = document.getElementById('orderId').value;
+      var customerId = parseInt(document.getElementById('customer_id').value, 10);
+      if (!customerId) {
+        showToast('Select a customer', 'error');
+        return;
+      }
+      var lines = collectLines();
+      if (!lines.length) {
+        showToast('Add at least one product line', 'error');
+        return;
+      }
+      var subtotal = lines.reduce(function(s, L) { return s + L.price * L.qty; }, 0);
+      var cash = parseFloat(document.getElementById('cash_amount').value) || 0;
+      var digital = parseFloat(document.getElementById('digital_amount').value) || 0;
+      var clothing_type = lines[0].product || 'Order';
+      var human = buildFabricDetailsHuman(lines);
+      var jsonPayload = { v: 1, lines: lines, cash: cash, digital: digital };
+      var fabric_details = human + '\n' + LINES_PREFIX + JSON.stringify(jsonPayload);
+      var payload = {
+        customer_id: customerId,
+        clothing_type: clothing_type,
+        fabric_details: fabric_details,
+        design_description: document.getElementById('design_description').value || '',
+        delivery_date: document.getElementById('delivery_date').value || null,
+        total_price: subtotal,
+        advance_paid: 0,
+        design_image: document.getElementById('design_image').value || null
+      };
+
+      try {
+        if (id) {
+          var existing = orderCache.find(function(o) { return String(o.id) === id; });
+          var prevParsed = existing ? tryParseStoredLines(existing.fabric_details || '') : null;
+          jsonPayload.cash = prevParsed && prevParsed.cash != null ? prevParsed.cash : 0;
+          jsonPayload.digital = prevParsed && prevParsed.digital != null ? prevParsed.digital : 0;
+          fabric_details = human + '\n' + LINES_PREFIX + JSON.stringify(jsonPayload);
+          await api('/orders/' + id, { method: 'PUT', body: JSON.stringify({
+            customer_id: customerId,
+            clothing_type: clothing_type,
+            fabric_details: fabric_details,
+            design_description: payload.design_description,
+            delivery_date: payload.delivery_date,
+            total_price: subtotal,
+            design_image: payload.design_image
+          }) });
+          showToast('Order updated', 'success');
+        } else {
+          var created = await api('/orders', { method: 'POST', body: JSON.stringify(payload) });
+          var oid = created.id;
+          if (cash > 0) {
+            await api('/payments', { method: 'POST', body: JSON.stringify({ order_id: oid, amount: cash, payment_type: 'partial', notes: 'Cash' }) });
+          }
+          if (digital > 0) {
+            await api('/payments', { method: 'POST', body: JSON.stringify({ order_id: oid, amount: digital, payment_type: 'partial', notes: 'Digital' }) });
+          }
+          showToast('Order created', 'success');
+        }
+        closeOrderModal();
+        loadOrders();
+      } catch (err) {
+        showToast(err.message || 'Failed to save order', 'error');
+      }
+    };
+
+    readUrlState();
+    document.getElementById('rowsPerPage').value = String(perPage);
+    syncStatusBanner();
+    applyColumnVisibility();
+    Promise.all([loadCustomers(), loadInventory()]).then(function() { loadOrders(); });
+  </script>
+</body>
+</html>

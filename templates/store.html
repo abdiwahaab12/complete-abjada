@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products - Abjad Super style tailor</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/products-page.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { corePlugins: { preflight: false } };
+  </script>
+</head>
+<body>
+  <div class="dashboard-container">
+<aside class="sidebar sidebar-modern" aria-label="Main navigation">
+  <div class="sidebar-modern-brand">Abjad Super style tailor</div>
+
+  <nav class="sidebar-modern-inner">
+    <div class="sidebar-modern-scroll">
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">DISCOVER</h2>
+        <a href="/dashboard" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Dashboard</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">INVENTORY</h2>
+        <a href="/store" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Products</span>
+        </a>
+        <a href="/category-page" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M7 3h3"/><path d="M14 3h3"/><path d="M7 20h3"/><path d="M14 20h3"/><path d="M3 7v3"/><path d="M3 14v3"/><path d="M20 7v3"/><path d="M20 14v3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Category</span>
+        </a>
+        <a href="/orders" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Orders</span>
+        </a>
+        <a href="/stock" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22.08V12"/><path d="M16 8h-6M13 11h4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Stock</span>
+        </a>
+        <a href="/customers" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Customer</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+        <a href="/measurements" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Tailor Orders</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">FINANCES</h2>
+        <a href="/transactions" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Bank</span>
+        </a>
+        <a href="/reports" class="sidebar-modern-link sidebar-modern-link--tight">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Report</span>
+          <span class="sidebar-modern-badge">NEW</span>
+          <span class="sidebar-modern-chevron" aria-hidden="true">›</span>
+        </a>
+
+      </section>
+
+      <div class="sidebar-modern-util">
+        <a href="/settings" class="sidebar-modern-util-link">Settings</a>
+        <a href="/staff" class="sidebar-modern-util-link nav-admin-only">Staff</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer sidebar-modern-footer">
+    <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+    <div class="sidebar-user">
+      <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
+      <div class="sidebar-user-info">
+        <span class="sidebar-user-name" id="sidebarUserName"></span>
+        <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+      </div>
+    </div>
+    <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+  </div>
+</aside>
+<script src="/static/js/sidebar-active.js" defer></script>
+
+    <main class="main-content products-shell flex-1 min-w-0">
+      <div class="products-admin min-h-full bg-stone-100/90 p-6 md:p-8 rounded-none md:rounded-r-3xl">
+        <header class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
+          <h1 class="text-2xl md:text-3xl font-bold text-neutral-900 tracking-tight">Products</h1>
+          <button type="button" id="btnAddProduct" class="inline-flex items-center justify-center rounded-xl bg-neutral-900 text-white px-5 py-2.5 text-sm font-semibold shadow-md hover:bg-neutral-800 transition-colors duration-200">
+            Add Product
+          </button>
+        </header>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-5">
+          <input type="search" id="productFilter" placeholder="Filter by name" autocomplete="off"
+            class="w-full sm:max-w-xs rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-800 placeholder:text-neutral-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500 transition-shadow" />
+          <div class="relative shrink-0">
+            <button type="button" id="btnSelectColumns" class="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-medium text-neutral-700 shadow-sm hover:bg-neutral-50 transition-colors duration-200">
+              Select columns
+            </button>
+            <div id="columnPanel" class="hidden absolute right-0 top-full z-20 mt-2 w-52 rounded-xl border border-neutral-200 bg-white py-2 shadow-lg" role="menu">
+              <label class="flex items-center gap-2 px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 cursor-pointer"><input type="checkbox" class="col-toggle rounded border-neutral-300 text-emerald-600 focus:ring-emerald-500" data-col="num" checked /> #</label>
+              <label class="flex items-center gap-2 px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 cursor-pointer"><input type="checkbox" class="col-toggle rounded border-neutral-300 text-emerald-600 focus:ring-emerald-500" data-col="product" checked /> Product</label>
+              <label class="flex items-center gap-2 px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 cursor-pointer"><input type="checkbox" class="col-toggle rounded border-neutral-300 text-emerald-600 focus:ring-emerald-500" data-col="category" checked /> Category</label>
+              <label class="flex items-center gap-2 px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 cursor-pointer"><input type="checkbox" class="col-toggle rounded border-neutral-300 text-emerald-600 focus:ring-emerald-500" data-col="price" checked /> Price</label>
+              <label class="flex items-center gap-2 px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 cursor-pointer"><input type="checkbox" class="col-toggle rounded border-neutral-300 text-emerald-600 focus:ring-emerald-500" data-col="stock" checked /> Stock</label>
+              <label class="flex items-center gap-2 px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 cursor-pointer"><input type="checkbox" class="col-toggle rounded border-neutral-300 text-emerald-600 focus:ring-emerald-500" data-col="created" checked /> Created At</label>
+              <label class="flex items-center gap-2 px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 cursor-pointer"><input type="checkbox" class="col-toggle rounded border-neutral-300 text-emerald-600 focus:ring-emerald-500" data-col="action" checked /> Action</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-neutral-100 bg-white shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08)] overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="products-table w-full text-left text-sm">
+              <thead>
+                <tr class="border-b border-neutral-100 bg-neutral-50/80 text-neutral-500">
+                  <th class="th-col px-4 py-3.5 font-medium whitespace-nowrap" data-col="num">
+                    <span class="inline-flex items-center gap-1"><svg class="w-3.5 h-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg> #</span>
+                  </th>
+                  <th class="th-col px-4 py-3.5 font-medium whitespace-nowrap" data-col="product">
+                    <span class="inline-flex items-center gap-1.5">Product <svg class="w-3.5 h-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+                  </th>
+                  <th class="th-col px-4 py-3.5 font-medium whitespace-nowrap" data-col="category">
+                    <span class="inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Category</span>
+                  </th>
+                  <th class="th-col px-4 py-3.5 font-medium whitespace-nowrap" data-col="price">
+                    <span class="inline-flex items-center gap-1">Price <svg class="w-3 h-3 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l4-4 4 4M16 15l-4 4-4-4"/></svg></span>
+                  </th>
+                  <th class="th-col px-4 py-3.5 font-medium whitespace-nowrap" data-col="stock">
+                    <span class="inline-flex items-center gap-1">Stock <svg class="w-3 h-3 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l4-4 4 4M16 15l-4 4-4-4"/></svg></span>
+                  </th>
+                  <th class="th-col px-4 py-3.5 font-medium whitespace-nowrap" data-col="created">
+                    <span class="inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Created At</span>
+                  </th>
+                  <th class="th-col px-4 py-3.5 font-medium text-right whitespace-nowrap" data-col="action">Action</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Register New Product modal -->
+  <div id="registerProductModal" class="modal hidden" aria-hidden="true">
+    <div class="bg-white rounded-lg shadow-sm max-w-xl w-full p-8 relative mx-4 border border-gray-100" role="document">
+      <button type="button" id="registerProductModalClose" class="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-md text-xl text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors leading-none" aria-label="Close">&times;</button>
+      <h2 id="registerModalTitle" class="text-2xl font-bold text-black tracking-tight pr-10">Register New Product</h2>
+      <p id="registerModalSubtitle" class="text-sm text-gray-500 mt-1 mb-6">Register a new product</p>
+
+      <form id="registerProductForm" class="space-y-6">
+        <div>
+          <label for="productName" class="block text-sm font-semibold text-black mb-2">Name</label>
+          <input type="text" id="productName" name="name" required autocomplete="off" placeholder="Enter product name"
+            class="w-full rounded-md border border-gray-200 p-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-shadow" />
+        </div>
+        <div>
+          <label for="productCategory" class="block text-sm font-semibold text-black mb-2">Choose Category</label>
+          <select id="productCategory" name="category" required
+            class="product-form-select w-full rounded-md border border-gray-200 p-3 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 appearance-none cursor-pointer transition-shadow">
+            <option value="">Choose category</option>
+            <option value="khamis">khamis</option>
+            <option value="shirt">shirt</option>
+            <option value="fabric">fabric</option>
+            <option value="button">button</option>
+            <option value="zipper">zipper</option>
+            <option value="thread">thread</option>
+            <option value="other">other</option>
+          </select>
+        </div>
+        <div>
+          <label for="productPrice" class="block text-sm font-semibold text-black mb-2">Product Price</label>
+          <input type="text" id="productPrice" name="price" inputmode="decimal" placeholder="Enter product price"
+            class="w-full rounded-md border border-gray-200 p-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-shadow" />
+        </div>
+        <div>
+          <label for="productDescription" class="block text-sm font-semibold text-black mb-2">Product Description</label>
+          <textarea id="productDescription" name="description" rows="4" placeholder="Enter product description"
+            class="w-full rounded-md border border-gray-200 p-3 text-sm text-gray-900 placeholder:text-gray-400 resize-y min-h-[100px] focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-shadow"></textarea>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold text-black mb-3">Variants</h3>
+          <div id="variantsContainer" class="space-y-3 mb-3"></div>
+          <button type="button" id="btnAddVariant" class="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition-colors duration-200">
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-lg leading-none font-light">+</span>
+            Add Variant
+          </button>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" id="registerSubmitBtn" class="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition-colors duration-200">
+            Register Product
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Product details (View) -->
+  <div id="productDetailsModal" class="modal hidden" aria-hidden="true">
+    <div class="product-details-sheet bg-white rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] border border-neutral-100 max-w-5xl w-full max-h-[92vh] overflow-y-auto relative p-6 md:p-8 pb-24 md:pb-28" role="dialog" aria-labelledby="productDetailsHeading">
+      <button type="button" id="productDetailsModalClose" class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-xl text-neutral-400 hover:bg-neutral-100 hover:text-neutral-800 transition-colors text-2xl leading-none font-light" aria-label="Close">&times;</button>
+
+      <h2 id="productDetailsHeading" class="sr-only">Product details</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 pr-10">
+        <div class="rounded-2xl p-5 text-white shadow-md bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-600">
+          <p class="text-sm font-medium text-white/90">Total Sales</p>
+          <p id="pdTotalSales" class="text-2xl md:text-3xl font-bold tracking-tight mt-1">$0.00</p>
+        </div>
+        <div class="rounded-2xl p-5 text-white shadow-md bg-gradient-to-br from-teal-500 to-emerald-600">
+          <p class="text-sm font-medium text-white/90">Units Sold</p>
+          <p id="pdUnitsSold" class="text-2xl md:text-3xl font-bold tracking-tight mt-1">0</p>
+        </div>
+        <div class="rounded-2xl p-5 text-white shadow-md bg-gradient-to-br from-pink-500 via-fuchsia-500 to-violet-600">
+          <p class="text-sm font-medium text-white/90">Average Price</p>
+          <p id="pdAvgPrice" class="text-2xl md:text-3xl font-bold tracking-tight mt-1">$0.00</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Product sections">
+        <button type="button" role="tab" aria-selected="true" id="pdTabInfo" data-pd-tab="info" class="pd-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors bg-violet-600 text-white shadow-sm">Info</button>
+        <button type="button" role="tab" aria-selected="false" id="pdTabVariants" data-pd-tab="variants" class="pd-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors bg-neutral-100 text-neutral-600 hover:bg-neutral-200">Variants</button>
+        <button type="button" role="tab" aria-selected="false" id="pdTabSales" data-pd-tab="sales" class="pd-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors bg-neutral-100 text-neutral-600 hover:bg-neutral-200">Sales</button>
+      </div>
+
+      <div id="pdPanelInfo" class="pd-panel">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+          <div>
+            <h3 class="text-lg font-bold text-neutral-900 mb-4">Product Details</h3>
+            <div class="divide-y divide-neutral-100 rounded-2xl border border-neutral-100 bg-neutral-50/40 overflow-hidden">
+              <div class="px-4 py-4">
+                <p class="text-xs font-medium text-neutral-500 uppercase tracking-wide">Product Name</p>
+                <p id="pdName" class="text-base font-bold text-neutral-900 mt-1"></p>
+              </div>
+              <div class="px-4 py-4">
+                <p class="text-xs font-medium text-neutral-500 uppercase tracking-wide">Category</p>
+                <p class="mt-2"><span id="pdCategory" class="inline-flex rounded-full bg-violet-100 px-3 py-1 text-sm font-semibold text-violet-700"></span></p>
+              </div>
+              <div class="px-4 py-4">
+                <p class="text-xs font-medium text-neutral-500 uppercase tracking-wide">Price</p>
+                <p id="pdPrice" class="text-base font-bold text-neutral-900 mt-1"></p>
+              </div>
+              <div class="px-4 py-4">
+                <p class="text-xs font-medium text-neutral-500 uppercase tracking-wide">Stock Quantity</p>
+                <p id="pdStock" class="text-base font-bold text-neutral-900 mt-1"></p>
+              </div>
+              <div class="px-4 py-4">
+                <p class="text-xs font-medium text-neutral-500 uppercase tracking-wide">Created At</p>
+                <p id="pdCreated" class="text-base font-bold text-neutral-900 mt-1"></p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-lg font-bold text-neutral-900 mb-3">Description</h3>
+              <p id="pdDescription" class="text-sm text-neutral-700 leading-relaxed whitespace-pre-wrap min-h-[3rem]"></p>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-neutral-900 mb-3">Sales Overview</h3>
+              <div id="pdSalesBoxInfo" class="rounded-2xl border border-neutral-200 bg-neutral-50 flex items-center justify-center min-h-[160px] px-6 py-8">
+                <p class="text-sm text-neutral-500 text-center">No sales data available</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pdPanelVariants" class="pd-panel hidden">
+        <h3 class="text-lg font-bold text-neutral-900 mb-4">Variants</h3>
+        <div id="pdVariantsList" class="space-y-3"></div>
+        <div id="pdVariantsEmpty" class="rounded-2xl border border-neutral-200 bg-neutral-50 flex items-center justify-center min-h-[200px] px-6 hidden">
+          <p class="text-sm text-neutral-500 text-center">No variants defined for this product.</p>
+        </div>
+      </div>
+
+      <div id="pdPanelSales" class="pd-panel hidden">
+        <h3 class="text-lg font-bold text-neutral-900 mb-4">Sales</h3>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 flex items-center justify-center min-h-[240px] px-6">
+          <p class="text-sm text-neutral-500 text-center">No sales data available</p>
+        </div>
+      </div>
+
+      <button type="button" id="productDetailsFabEdit" class="absolute bottom-6 right-6 flex h-14 w-14 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg shadow-violet-600/40 hover:bg-violet-700 transition-colors z-20" title="Edit product" aria-label="Edit product">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/avatar.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    (function () {
+      var user = typeof requireAuth === 'function' ? requireAuth() : null;
+      if (!user) { throw new Error('Auth required'); }
+      initAvatarFromApi(user);
+
+      (function () {
+        initTheme();
+        var btn = document.getElementById('sidebarThemeBtn');
+        if (btn) {
+          btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+          btn.onclick = function () {
+            toggleTheme();
+            btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+          };
+        }
+      })();
+
+      document.getElementById('sidebarLogout').addEventListener('click', function (e) {
+        e.preventDefault();
+        logout();
+      });
+
+      if (user.role !== 'admin') {
+        document.querySelectorAll('.nav-admin-only').forEach(function (el) { el.classList.add('hidden'); });
+      }
+
+      function newLocalClientId() {
+        return 'local_' + Math.random().toString(36).slice(2, 11);
+      }
+      var SAMPLE = [
+        { id: null, clientId: newLocalClientId(), name: 'Chine material', item_type: 'khamis', category: 'khamis', price: '$340.00', stock: 50, status: 'Good', dateLine: 'August 25th, 2025', timeLine: '3:50 PM', notes: 'yardi' },
+        { id: null, clientId: newLocalClientId(), name: 'korean New material', item_type: 'khamis', category: 'khamis', price: '$400.00', stock: 75, status: 'Good', dateLine: 'July 12th, 2025', timeLine: '10:15 AM', notes: null },
+        { id: null, clientId: newLocalClientId(), name: 'lenen', item_type: 'shirt', category: 'shirt', price: '$1700.00', stock: 100, status: 'Good', dateLine: 'June 27th, 2025', timeLine: '2:30 PM', notes: null },
+        { id: null, clientId: newLocalClientId(), name: 'folower shirt', item_type: 'shirt', category: 'shirt', price: '$500.00', stock: 200, status: 'Good', dateLine: 'June 27th, 2025', timeLine: '9:00 AM', notes: null }
+      ];
+
+      function findRowByClientId(clientId) {
+        for (var i = 0; i < SAMPLE.length; i++) {
+          if (SAMPLE[i].clientId === clientId) return SAMPLE[i];
+        }
+        return null;
+      }
+
+      function parseDescriptionFromNotes(notes) {
+        if (!notes) return '';
+        var lines = notes.split(/\r?\n/);
+        var desc = '';
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i];
+          if (/^Price:\s*/i.test(line) || /^Variant:\s*/i.test(line)) break;
+          desc = desc ? desc + '\n' + line : line;
+        }
+        return desc.trim();
+      }
+
+      function parseVariantsFromNotes(notes) {
+        var out = [];
+        if (!notes) return out;
+        var lines = notes.split(/\r?\n/);
+        for (var i = 0; i < lines.length; i++) {
+          var m = lines[i].match(/^Variant:\s*(.+)$/i);
+          if (m) {
+            var rest = m[1];
+            var sep = rest.indexOf(' — ');
+            out.push({
+              name: sep >= 0 ? rest.slice(0, sep).trim() : rest.trim(),
+              detail: sep >= 0 ? rest.slice(sep + 3).trim() : ''
+            });
+          }
+        }
+        return out;
+      }
+
+      function escapeHtml(s) {
+        var d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+      }
+
+      var productDetailsModal = document.getElementById('productDetailsModal');
+
+      function setProductDetailsTab(which) {
+        document.querySelectorAll('.pd-tab').forEach(function (t) {
+          var w = t.getAttribute('data-pd-tab');
+          var on = w === which;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          if (on) {
+            t.className = 'pd-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors bg-violet-600 text-white shadow-sm';
+          } else {
+            t.className = 'pd-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
+          }
+        });
+        document.getElementById('pdPanelInfo').classList.toggle('hidden', which !== 'info');
+        document.getElementById('pdPanelVariants').classList.toggle('hidden', which !== 'variants');
+        document.getElementById('pdPanelSales').classList.toggle('hidden', which !== 'sales');
+      }
+
+      function openProductDetailsModal(clientId) {
+        var row = findRowByClientId(clientId);
+        if (!row) return;
+        productDetailsModal.dataset.clientId = clientId;
+        document.getElementById('pdTotalSales').textContent = '$0.00';
+        document.getElementById('pdUnitsSold').textContent = '0';
+        document.getElementById('pdAvgPrice').textContent = '$0.00';
+        document.getElementById('pdName').textContent = row.name || '—';
+        document.getElementById('pdCategory').textContent = row.category || row.item_type || '—';
+        document.getElementById('pdPrice').textContent = row.price || '—';
+        document.getElementById('pdStock').textContent = row.stock != null ? String(row.stock) : '—';
+        document.getElementById('pdCreated').textContent =
+          (row.dateLine || '') + (row.dateLine && row.timeLine ? ' at ' : '') + (row.timeLine || '') || '—';
+        var desc = parseDescriptionFromNotes(row.notes || '');
+        var descEl = document.getElementById('pdDescription');
+        if (desc) {
+          descEl.textContent = desc;
+          descEl.classList.remove('text-neutral-400', 'italic');
+          descEl.classList.add('text-neutral-700');
+        } else {
+          descEl.textContent = 'No description added.';
+          descEl.classList.add('text-neutral-400', 'italic');
+          descEl.classList.remove('text-neutral-700');
+        }
+        var variants = parseVariantsFromNotes(row.notes || '');
+        var vl = document.getElementById('pdVariantsList');
+        var ve = document.getElementById('pdVariantsEmpty');
+        if (variants.length) {
+          ve.classList.add('hidden');
+          vl.classList.remove('hidden');
+          vl.innerHTML = variants
+            .map(function (v) {
+              return (
+                '<div class="rounded-xl border border-neutral-200 bg-white px-4 py-3 shadow-sm">' +
+                '<p class="font-semibold text-neutral-900">' +
+                escapeHtml(v.name) +
+                '</p>' +
+                (v.detail ? '<p class="text-sm text-neutral-500 mt-1">' + escapeHtml(v.detail) + '</p>' : '') +
+                '</div>'
+              );
+            })
+            .join('');
+        } else {
+          vl.innerHTML = '';
+          vl.classList.add('hidden');
+          ve.classList.remove('hidden');
+        }
+        setProductDetailsTab('info');
+        productDetailsModal.classList.remove('hidden');
+        productDetailsModal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeProductDetailsModal() {
+        productDetailsModal.classList.add('hidden');
+        productDetailsModal.setAttribute('aria-hidden', 'true');
+        productDetailsModal.dataset.clientId = '';
+      }
+
+      var eyeSvg = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+      var editSvg = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>';
+      var trashSvg = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>';
+      var boxSvg = '<svg class="w-4 h-4 text-emerald-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>';
+
+      function rowHtml(row, index) {
+        var sid = row.id != null && row.id !== '' ? String(row.id) : '';
+        return (
+          '<tr class="product-row border-b border-neutral-50 transition-colors duration-150 hover:bg-neutral-50/90" data-name="' +
+          row.name.replace(/"/g, '&quot;') +
+          '" data-client-id="' +
+          String(row.clientId).replace(/"/g, '&quot;') +
+          '" data-server-id="' +
+          sid +
+          '">' +
+          '<td class="td-col px-4 py-4 align-middle" data-col="num"><span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-xs font-semibold text-neutral-600">' +
+          (index + 1) +
+          '</span></td>' +
+          '<td class="td-col px-4 py-4 align-middle font-medium text-neutral-900" data-col="product">' +
+          row.name +
+          '</td>' +
+          '<td class="td-col px-4 py-4 align-middle" data-col="category"><span class="inline-flex rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">' +
+          row.category +
+          '</span></td>' +
+          '<td class="td-col px-4 py-4 align-middle font-semibold text-emerald-600" data-col="price">' +
+          row.price +
+          '</td>' +
+          '<td class="td-col px-4 py-4 align-middle" data-col="stock">' +
+          '<div class="flex items-center gap-2 flex-wrap">' +
+          boxSvg +
+          '<span class="font-medium text-neutral-800">' +
+          row.stock +
+          '</span>' +
+          '<span class="inline-flex rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700">' +
+          row.status +
+          '</span></div></td>' +
+          '<td class="td-col px-4 py-4 align-middle text-neutral-600" data-col="created">' +
+          '<div class="leading-tight"><div class="font-medium text-neutral-800">' +
+          row.dateLine +
+          '</div><div class="text-xs text-neutral-500">' +
+          row.timeLine +
+          '</div></div></td>' +
+          '<td class="td-col px-4 py-4 align-middle text-right" data-col="action">' +
+          '<div class="inline-flex items-center justify-end gap-1.5 flex-wrap">' +
+          '<button type="button" class="product-view-btn inline-flex items-center gap-1.5 rounded-lg border border-neutral-200 px-2 py-1 text-sm font-medium text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 transition-colors">' +
+          eyeSvg +
+          ' View</button>' +
+          '<button type="button" class="product-edit-btn inline-flex items-center gap-1.5 rounded-lg border border-neutral-200 px-2 py-1 text-sm font-medium text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 transition-colors">' +
+          editSvg +
+          ' Edit</button>' +
+          '<button type="button" class="product-delete-btn inline-flex items-center gap-1.5 rounded-lg border border-red-200 px-2 py-1 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors">' +
+          trashSvg +
+          ' Delete</button>' +
+          '</div></td>' +
+          '</tr>'
+        );
+      }
+
+      function renderTable(filterVal) {
+        var q = (filterVal || '').trim().toLowerCase();
+        var rows = SAMPLE.filter(function (r) { return !q || r.name.toLowerCase().indexOf(q) !== -1; });
+        document.getElementById('productsTableBody').innerHTML = rows.map(function (r, i) { return rowHtml(r, i); }).join('');
+        document.querySelectorAll('.product-view-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var tr = btn.closest('tr');
+            var cid = tr ? tr.getAttribute('data-client-id') : '';
+            if (cid) openProductDetailsModal(cid);
+          });
+        });
+        document.querySelectorAll('.product-edit-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var tr = btn.closest('tr');
+            var cid = tr ? tr.getAttribute('data-client-id') : '';
+            if (cid) openEditModal(cid);
+          });
+        });
+        document.querySelectorAll('.product-delete-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var tr = btn.closest('tr');
+            var cid = tr ? tr.getAttribute('data-client-id') : '';
+            if (cid) deleteProductByClientId(cid);
+          });
+        });
+      }
+
+      function applyColumnVisibility() {
+        document.querySelectorAll('.col-toggle').forEach(function (cb) {
+          var col = cb.getAttribute('data-col');
+          var on = cb.checked;
+          document.querySelectorAll('[data-col="' + col + '"]').forEach(function (el) {
+            if (el.classList.contains('col-toggle')) return;
+            el.classList.toggle('hidden', !on);
+          });
+        });
+      }
+
+      document.getElementById('productFilter').addEventListener('input', function () {
+        renderTable(this.value);
+        applyColumnVisibility();
+      });
+
+      document.getElementById('btnSelectColumns').addEventListener('click', function (e) {
+        e.stopPropagation();
+        document.getElementById('columnPanel').classList.toggle('hidden');
+      });
+
+      document.querySelectorAll('.col-toggle').forEach(function (cb) {
+        cb.addEventListener('change', applyColumnVisibility);
+      });
+
+      document.addEventListener('click', function () {
+        document.getElementById('columnPanel').classList.add('hidden');
+      });
+
+      document.getElementById('columnPanel').addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+
+      var registerModal = document.getElementById('registerProductModal');
+      var registerForm = document.getElementById('registerProductForm');
+      var variantsContainer = document.getElementById('variantsContainer');
+
+      function formatOrdinalDay(n) {
+        var s = ['th', 'st', 'nd', 'rd'];
+        var v = n % 100;
+        return n + (s[(v - 20) % 10] || s[v] || s[0]);
+      }
+      function formatNiceDateTime(d) {
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var dateLine = months[d.getMonth()] + ' ' + formatOrdinalDay(d.getDate()) + ', ' + d.getFullYear();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var am = h >= 12 ? 'PM' : 'AM';
+        h = h % 12;
+        if (h === 0) h = 12;
+        var timeLine = h + ':' + (m < 10 ? '0' : '') + m + ' ' + am;
+        return { dateLine: dateLine, timeLine: timeLine };
+      }
+
+      function clearEditState() {
+        registerForm.dataset.editServerId = '';
+        registerForm.dataset.editClientId = '';
+        var t = document.getElementById('registerModalTitle');
+        var s = document.getElementById('registerModalSubtitle');
+        var b = document.getElementById('registerSubmitBtn');
+        if (t) t.textContent = 'Register New Product';
+        if (s) s.textContent = 'Register a new product';
+        if (b) b.textContent = 'Register Product';
+      }
+
+      function resetProductForm() {
+        registerForm.reset();
+        variantsContainer.innerHTML = '';
+        clearEditState();
+      }
+
+      function openRegisterModal() {
+        resetProductForm();
+        registerModal.classList.remove('hidden');
+        registerModal.setAttribute('aria-hidden', 'false');
+      }
+
+      function addVariantPrefilled(nameVal, detailVal) {
+        var div = document.createElement('div');
+        div.className = 'variant-dynamic flex flex-wrap gap-2 items-center';
+        div.innerHTML =
+          '<input type="text" class="variant-name flex-1 min-w-[120px] rounded-md border border-gray-200 p-3 text-sm placeholder:text-gray-400" placeholder="Variant name" />' +
+          '<input type="text" class="variant-detail flex-1 min-w-[120px] rounded-md border border-gray-200 p-3 text-sm placeholder:text-gray-400" placeholder="Details / SKU" />' +
+          '<button type="button" class="variant-remove flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-red-600 hover:bg-red-50 text-lg leading-none" aria-label="Remove variant">&times;</button>';
+        var n = div.querySelector('.variant-name');
+        var d = div.querySelector('.variant-detail');
+        if (nameVal) n.value = nameVal;
+        if (detailVal) d.value = detailVal;
+        variantsContainer.appendChild(div);
+        div.querySelector('.variant-remove').addEventListener('click', function () {
+          div.remove();
+        });
+      }
+
+      function fillFormFromProductRow(row) {
+        document.getElementById('productName').value = row.name || '';
+        var it = row.item_type || row.category || '';
+        document.getElementById('productCategory').value = it;
+        variantsContainer.innerHTML = '';
+        var notes = row.notes || '';
+        var desc = '';
+        var priceFromNotes = '';
+        if (notes) {
+          var lines = notes.split(/\r?\n/);
+          var i = 0;
+          for (; i < lines.length; i++) {
+            var line = lines[i];
+            if (/^Price:\s*/i.test(line) || /^Variant:\s*/i.test(line)) break;
+            desc = desc ? desc + '\n' + line : line;
+          }
+          document.getElementById('productDescription').value = desc.trim();
+          for (; i < lines.length; i++) {
+            var L = lines[i];
+            var pm = L.match(/^Price:\s*(.+)$/i);
+            if (pm) {
+              priceFromNotes = pm[1].trim();
+              continue;
+            }
+            var vm = L.match(/^Variant:\s*(.+)$/i);
+            if (vm) {
+              var rest = vm[1];
+              var sep = rest.indexOf(' — ');
+              var vn = sep >= 0 ? rest.slice(0, sep).trim() : rest.trim();
+              var vd = sep >= 0 ? rest.slice(sep + 3).trim() : '';
+              addVariantPrefilled(vn, vd);
+            }
+          }
+        } else {
+          document.getElementById('productDescription').value = '';
+        }
+        var priceField = priceFromNotes;
+        if (!priceField && row.price) {
+          var n = parseFloat(String(row.price).replace(/[^0-9.]/g, ''));
+          if (!isNaN(n)) priceField = String(n);
+        }
+        document.getElementById('productPrice').value = priceField || '';
+      }
+
+      function openEditModal(clientId) {
+        var row = findRowByClientId(clientId);
+        if (!row) return;
+        registerForm.dataset.editServerId = row.id != null && row.id !== '' ? String(row.id) : '';
+        registerForm.dataset.editClientId = row.clientId;
+        document.getElementById('registerModalTitle').textContent = 'Edit Product';
+        document.getElementById('registerModalSubtitle').textContent = 'Update product details';
+        document.getElementById('registerSubmitBtn').textContent = 'Save changes';
+        registerForm.reset();
+        variantsContainer.innerHTML = '';
+        fillFormFromProductRow(row);
+        registerModal.classList.remove('hidden');
+        registerModal.setAttribute('aria-hidden', 'false');
+      }
+
+      async function deleteProductByClientId(clientId) {
+        var row = findRowByClientId(clientId);
+        if (!row) return;
+        if (!confirm('Delete this product? This cannot be undone.')) return;
+        try {
+          if (row.id != null && row.id !== '') {
+            await api('/inventory/' + row.id, { method: 'DELETE' });
+          }
+          SAMPLE = SAMPLE.filter(function (r) {
+            return r.clientId !== clientId;
+          });
+          showToast('Product deleted', 'success');
+          renderTable(document.getElementById('productFilter').value);
+          applyColumnVisibility();
+        } catch (err) {
+          showToast(err.message || 'Delete failed', 'error');
+        }
+      }
+
+      function closeRegisterModal() {
+        registerModal.classList.add('hidden');
+        registerModal.setAttribute('aria-hidden', 'true');
+      }
+
+      document.getElementById('btnAddProduct').addEventListener('click', openRegisterModal);
+
+      document.getElementById('registerProductModalClose').addEventListener('click', closeRegisterModal);
+      registerModal.addEventListener('click', function (e) {
+        if (e.target === registerModal) closeRegisterModal();
+      });
+      document.querySelectorAll('.pd-tab').forEach(function (tabBtn) {
+        tabBtn.addEventListener('click', function () {
+          setProductDetailsTab(tabBtn.getAttribute('data-pd-tab'));
+        });
+      });
+      document.getElementById('productDetailsModalClose').addEventListener('click', closeProductDetailsModal);
+      productDetailsModal.addEventListener('click', function (e) {
+        if (e.target === productDetailsModal) closeProductDetailsModal();
+      });
+      document.getElementById('productDetailsFabEdit').addEventListener('click', function () {
+        var cid = productDetailsModal.dataset.clientId;
+        if (!cid) return;
+        closeProductDetailsModal();
+        openEditModal(cid);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        if (productDetailsModal && !productDetailsModal.classList.contains('hidden')) {
+          closeProductDetailsModal();
+          return;
+        }
+        if (!registerModal.classList.contains('hidden')) closeRegisterModal();
+      });
+
+      function addVariantRow() {
+        var div = document.createElement('div');
+        div.className = 'variant-dynamic flex flex-wrap gap-2 items-center';
+        div.innerHTML =
+          '<input type="text" class="variant-name flex-1 min-w-[120px] rounded-md border border-gray-200 p-3 text-sm placeholder:text-gray-400" placeholder="Variant name" />' +
+          '<input type="text" class="variant-detail flex-1 min-w-[120px] rounded-md border border-gray-200 p-3 text-sm placeholder:text-gray-400" placeholder="Details / SKU" />' +
+          '<button type="button" class="variant-remove flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-red-600 hover:bg-red-50 text-lg leading-none" aria-label="Remove variant">&times;</button>';
+        variantsContainer.appendChild(div);
+        div.querySelector('.variant-remove').addEventListener('click', function () {
+          div.remove();
+        });
+      }
+
+      document.getElementById('btnAddVariant').addEventListener('click', addVariantRow);
+
+      registerForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var name = document.getElementById('productName').value.trim();
+        var catSel = document.getElementById('productCategory');
+        var categoryVal = catSel.value;
+        var categoryLabel = catSel.options[catSel.selectedIndex].text;
+        var priceRaw = document.getElementById('productPrice').value.trim();
+        var description = document.getElementById('productDescription').value.trim();
+
+        if (!name) {
+          showToast('Please enter a product name', 'error');
+          return;
+        }
+        if (!categoryVal) {
+          showToast('Please choose a category', 'error');
+          return;
+        }
+
+        var noteParts = [];
+        if (description) noteParts.push(description);
+        if (priceRaw) noteParts.push('Price: ' + priceRaw);
+        document.querySelectorAll('.variant-dynamic').forEach(function (row) {
+          var vn = row.querySelector('.variant-name').value.trim();
+          var vd = row.querySelector('.variant-detail').value.trim();
+          if (vn || vd) noteParts.push('Variant: ' + vn + (vd ? ' — ' + vd : ''));
+        });
+        var notes = noteParts.join('\n');
+
+        var now = new Date();
+        var dt = formatNiceDateTime(now);
+        var num = parseFloat(String(priceRaw).replace(/[^0-9.]/g, ''));
+        var priceDisplay = priceRaw
+          ? (String(priceRaw).indexOf('$') === 0
+              ? priceRaw
+              : (!isNaN(num) ? '$' + num.toFixed(2) : '$' + priceRaw))
+          : '$0.00';
+
+        var editServerId = registerForm.dataset.editServerId || '';
+        var editClientId = registerForm.dataset.editClientId || '';
+
+        if (editClientId) {
+          var edRow = findRowByClientId(editClientId);
+          if (!edRow) {
+            showToast('Product not found', 'error');
+            return;
+          }
+          try {
+            if (editServerId) {
+              var q = parseFloat(edRow.stock);
+              if (isNaN(q) && edRow.quantity != null) q = parseFloat(edRow.quantity);
+              if (isNaN(q)) q = 0;
+              var updated = await api('/inventory/' + editServerId, {
+                method: 'PUT',
+                body: JSON.stringify({
+                  name: name,
+                  item_type: categoryVal,
+                  quantity: q,
+                  unit: 'pcs',
+                  notes: notes || null
+                })
+              });
+              if (updated && updated.quantity != null) edRow.stock = updated.quantity;
+            }
+            edRow.name = name;
+            edRow.item_type = categoryVal;
+            edRow.category = categoryLabel;
+            edRow.price = priceDisplay;
+            edRow.notes = notes;
+            showToast(editServerId ? 'Product updated' : 'Product saved', 'success');
+            closeRegisterModal();
+            resetProductForm();
+            renderTable(document.getElementById('productFilter').value);
+            applyColumnVisibility();
+          } catch (err) {
+            showToast(err.message || 'Could not update product', 'error');
+          }
+          return;
+        }
+
+        try {
+          var created = await api('/inventory', {
+            method: 'POST',
+            body: JSON.stringify({
+              name: name,
+              item_type: categoryVal,
+              quantity: 0,
+              unit: 'pcs',
+              notes: notes || null
+            })
+          });
+          showToast('Product registered', 'success');
+          var newId = created && created.id != null ? created.id : null;
+          SAMPLE.push({
+            id: newId,
+            clientId: newId != null ? 'c_' + newId : newLocalClientId(),
+            name: name,
+            item_type: categoryVal,
+            category: categoryLabel,
+            price: priceDisplay,
+            stock: created && created.quantity != null ? created.quantity : 0,
+            status: 'Good',
+            dateLine: dt.dateLine,
+            timeLine: dt.timeLine,
+            notes: notes
+          });
+          closeRegisterModal();
+          resetProductForm();
+          renderTable(document.getElementById('productFilter').value);
+          applyColumnVisibility();
+        } catch (err) {
+          showToast(err.message || 'Could not save to server', 'error');
+        }
+      });
+
+      renderTable('');
+      applyColumnVisibility();
+    })();
+  </script>
+</body>
+</html>

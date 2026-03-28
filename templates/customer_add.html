@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Customer - Abjad tailor management system</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+<aside class="sidebar sidebar-modern" aria-label="Main navigation">
+  <div class="sidebar-modern-brand">Abjad Super style tailor</div>
+
+  <nav class="sidebar-modern-inner">
+    <div class="sidebar-modern-scroll">
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">DISCOVER</h2>
+        <a href="/dashboard" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Dashboard</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">INVENTORY</h2>
+        <a href="/store" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Products</span>
+        </a>
+        <a href="/category-page" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M7 3h3"/><path d="M14 3h3"/><path d="M7 20h3"/><path d="M14 20h3"/><path d="M3 7v3"/><path d="M3 14v3"/><path d="M20 7v3"/><path d="M20 14v3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Category</span>
+        </a>
+        <a href="/orders" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Orders</span>
+        </a>
+        <a href="/stock" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22.08V12"/><path d="M16 8h-6M13 11h4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Stock</span>
+        </a>
+        <a href="/customers" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Customer</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+        <a href="/measurements" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Tailor Orders</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">FINANCES</h2>
+        <a href="/transactions" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Transactions</span>
+        </a>
+        <a href="/swap" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Bank</span>
+        </a>
+        <a href="/reports" class="sidebar-modern-link sidebar-modern-link--tight">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Report</span>
+          <span class="sidebar-modern-badge">NEW</span>
+          <span class="sidebar-modern-chevron" aria-hidden="true">›</span>
+        </a>
+
+      </section>
+
+      <div class="sidebar-modern-util">
+        <a href="/settings" class="sidebar-modern-util-link">Settings</a>
+        <a href="/staff" class="sidebar-modern-util-link nav-admin-only">Staff</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer sidebar-modern-footer">
+    <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+    <div class="sidebar-user">
+      <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
+      <div class="sidebar-user-info">
+        <span class="sidebar-user-name" id="sidebarUserName"></span>
+        <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+      </div>
+    </div>
+    <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+  </div>
+</aside>
+<script src="/static/js/sidebar-active.js" defer></script>
+
+    <main class="main-content add-customer-main">
+      <div class="main-header">
+        <div class="welcome-text">Add Customer</div>
+        <div class="header-right">
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" class="search-input" id="headerSearch" placeholder="Search customers..." title="Opens customer list">
+          </div>
+          <div class="header-user-wrap">
+            <button type="button" class="header-icon-btn" id="notificationBtn" title="Notifications" aria-label="Notifications">
+              🔔
+              <span class="notification-badge" id="notificationBadge" style="display:none">0</span>
+            </button>
+            <div id="notificationPanel" class="notification-panel" aria-hidden="true">
+              <h4>Notifications</h4>
+              <div class="notification-panel-empty" id="notificationList">No new notifications</div>
+            </div>
+          </div>
+          <div class="header-user-wrap">
+            <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="user-avatar-small" id="userAvatar"></div>
+              <span class="header-user-name" id="headerUserName"></span>
+              <span style="font-size: 11px; color: var(--text-muted);">▼</span>
+            </div>
+            <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
+              <a href="/dashboard" role="menuitem">Dashboard</a>
+              <a href="/customers" role="menuitem">Customers</a>
+              <a href="/orders" role="menuitem">Orders</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" id="headerLogoutBtn" role="menuitem">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-content add-customer-page">
+        <a href="/customers" class="btn-back-customer" id="backLink">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </a>
+        <h1 class="add-customer-page-title">Add Customer</h1>
+        <p class="add-customer-page-sub">Add new customer or measurements to existing customer</p>
+
+        <div class="customer-selection-card">
+          <div class="customer-selection-card-bar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Customer Selection
+          </div>
+          <div class="customer-selection-card-body">
+            <div class="customer-type-switch" role="tablist" aria-label="Customer type">
+              <button type="button" class="is-active" id="btnModeExisting" role="tab" aria-selected="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Existing Customer
+              </button>
+              <button type="button" id="btnModeNew" role="tab" aria-selected="false">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                New Customer
+              </button>
+            </div>
+
+            <div id="blockExisting">
+              <span class="customer-select-label" id="selectCustomerLabel">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Select Customer
+              </span>
+              <select id="existingCustomerId" class="orders-filter-input" style="max-width:none;width:100%; box-sizing:border-box;" aria-label="Choose an existing customer">
+                <option value="">Choose an existing customer…</option>
+              </select>
+              <p class="customer-select-help">Select a customer to add measurements to their profile</p>
+            </div>
+
+            <div id="blockNew" class="hidden">
+              <div class="new-customer-fields-grid">
+                <div class="form-group">
+                  <label for="new_full_name">Full name *</label>
+                  <input type="text" id="new_full_name" class="orders-filter-input" style="max-width:none;width:100%;box-sizing:border-box;" autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label for="new_phone">Phone *</label>
+                  <input type="text" id="new_phone" class="orders-filter-input" style="max-width:none;width:100%;box-sizing:border-box;" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                  <label for="new_email">Email</label>
+                  <input type="email" id="new_email" class="orders-filter-input" style="max-width:none;width:100%;box-sizing:border-box;" autocomplete="email">
+                </div>
+                <div class="form-group">
+                  <label for="new_address">Address</label>
+                  <textarea id="new_address" class="orders-filter-input" style="max-width:none;width:100%;box-sizing:border-box;min-height:72px;resize:vertical;" rows="2"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="measurements-card">
+          <div class="measurements-card-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg>
+            Body Measurements
+          </div>
+          <div class="measurements-card-body">
+            <div class="add-customer-profile-row">
+              <label for="profile_type">Profile</label>
+              <select id="profile_type" class="orders-filter-input" style="max-width:280px;">
+                <option value="standard">Standard</option>
+                <option value="men">Men</option>
+                <option value="women">Women</option>
+                <option value="kids">Kids</option>
+              </select>
+            </div>
+            <div class="add-customer-measurements-grid">
+              <div class="add-customer-measure-col">
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M6 3v6M18 3v6"/></svg></span>
+                    Neck (inches)
+                  </span>
+                  <input type="number" id="neck" step="0.01" placeholder="Enter neck">
+                  <span class="measurement-field-desc">Around the base of the neck</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="M3 12h18"/></svg></span>
+                    Hip (inches)
+                  </span>
+                  <input type="number" id="hip" step="0.01" placeholder="Enter hip">
+                  <span class="measurement-field-desc">Around the fullest part of the hips</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                    Inseam (inches)
+                  </span>
+                  <input type="number" id="inseam" step="0.01" placeholder="Enter inseam">
+                  <span class="measurement-field-desc">Inside leg from crotch to ankle</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="M12 6v12"/><path d="M7 12h10"/></svg></span>
+                    Weight (kg)
+                  </span>
+                  <input type="number" id="weight" step="0.01" placeholder="Enter weight">
+                  <span class="measurement-field-desc">Body weight</span>
+                </div>
+              </div>
+              <div class="add-customer-measure-col">
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></span>
+                    Chest (inches)
+                  </span>
+                  <input type="number" id="chest" step="0.01" placeholder="Enter chest">
+                  <span class="measurement-field-desc">Around the fullest part of the chest</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg></span>
+                    Shoulder (inches)
+                  </span>
+                  <input type="number" id="shoulder" step="0.01" placeholder="Enter shoulder">
+                  <span class="measurement-field-desc">Across the shoulders from point to point</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                    Outseam (inches)
+                  </span>
+                  <input type="number" id="outseam" step="0.01" placeholder="Enter outseam">
+                  <span class="measurement-field-desc">Outside leg from waist to ankle</span>
+                </div>
+              </div>
+              <div class="add-customer-measure-col">
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                    Waist (inches)
+                  </span>
+                  <input type="number" id="waist" step="0.01" placeholder="Enter waist">
+                  <span class="measurement-field-desc">Around the natural waistline</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></span>
+                    Sleeve (inches)
+                  </span>
+                  <input type="number" id="sleeve" step="0.01" placeholder="Enter sleeve">
+                  <span class="measurement-field-desc">From shoulder to wrist</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg></span>
+                    Height (inches)
+                  </span>
+                  <input type="number" id="length" step="0.01" placeholder="Enter height">
+                  <span class="measurement-field-desc">Total height</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="add-customer-footer">
+          <a href="/customers" class="btn-cancel-customer">Cancel</a>
+          <button type="button" class="btn-save-customer" id="btnSave">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            Save Customer
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/avatar.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    (function () {
+      var user = requireAuth();
+      if (!user) return;
+      initAvatarFromApi(user);
+
+      initTheme();
+      var themeBtn = document.getElementById('sidebarThemeBtn');
+      if (themeBtn) {
+        themeBtn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        themeBtn.onclick = function () { toggleTheme(); themeBtn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+
+      document.getElementById('sidebarLogout').addEventListener('click', function (e) { e.preventDefault(); logout(); });
+      document.getElementById('headerLogoutBtn').addEventListener('click', function () { logout(); });
+      if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(function (el) { el.classList.add('hidden'); });
+
+      document.getElementById('headerSearch').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); window.location.href = '/customers'; }
+      });
+
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      if (profile && menu) {
+        function openM() { menu.classList.add('show'); menu.setAttribute('aria-hidden', 'false'); profile.setAttribute('aria-expanded', 'true'); }
+        function closeM() { menu.classList.remove('show'); menu.setAttribute('aria-hidden', 'true'); profile.setAttribute('aria-expanded', 'false'); }
+        profile.addEventListener('click', function (e) { e.stopPropagation(); if (menu.classList.contains('show')) closeM(); else openM(); });
+        document.addEventListener('click', function (e) { if (!profile.contains(e.target) && !menu.contains(e.target)) closeM(); });
+        menu.addEventListener('click', function (e) { e.stopPropagation(); });
+      }
+
+      var mode = 'existing';
+      var sel = document.getElementById('existingCustomerId');
+      var blockEx = document.getElementById('blockExisting');
+      var blockNw = document.getElementById('blockNew');
+      var btnEx = document.getElementById('btnModeExisting');
+      var btnNw = document.getElementById('btnModeNew');
+
+      function setMode(m) {
+        mode = m;
+        var isEx = m === 'existing';
+        btnEx.classList.toggle('is-active', isEx);
+        btnNw.classList.toggle('is-active', !isEx);
+        btnEx.setAttribute('aria-selected', isEx ? 'true' : 'false');
+        btnNw.setAttribute('aria-selected', isEx ? 'false' : 'true');
+        blockEx.classList.toggle('hidden', !isEx);
+        blockNw.classList.toggle('hidden', isEx);
+        sel.required = isEx;
+      }
+
+      btnEx.addEventListener('click', function () { setMode('existing'); });
+      btnNw.addEventListener('click', function () { setMode('new'); });
+
+      function valNum(id) {
+        var el = document.getElementById(id);
+        if (!el) return null;
+        var v = String(el.value || '').trim();
+        if (!v) return null;
+        var n = parseFloat(v);
+        return isNaN(n) ? null : n;
+      }
+
+      function hasMeasurementInput() {
+        return ['neck', 'chest', 'waist', 'hip', 'shoulder', 'sleeve', 'inseam', 'outseam', 'length', 'weight'].some(function (id) {
+          return valNum(id) !== null;
+        });
+      }
+
+      function buildMeasurementPayload(customerId) {
+        var payload = {
+          customer_id: customerId,
+          profile_type: document.getElementById('profile_type').value || 'standard'
+        };
+        ['neck', 'chest', 'waist', 'shoulder', 'length', 'sleeve', 'hip', 'inseam'].forEach(function (k) {
+          var v = valNum(k);
+          if (v !== null) payload[k] = v;
+        });
+        var o = valNum('outseam');
+        if (o !== null) payload.outseam = o;
+        var w = valNum('weight');
+        if (w !== null) payload.weight = w;
+        return payload;
+      }
+
+      async function loadCustomerSelect(preselectId) {
+        var res = await api('/customers?page=1&per_page=500&sort_dir=asc');
+        var items = res.items || [];
+        sel.innerHTML = '<option value="">Choose an existing customer…</option>';
+        items.forEach(function (c) {
+          var opt = document.createElement('option');
+          opt.value = String(c.id);
+          opt.textContent = (c.full_name || 'Customer') + ' — ' + (c.phone || '');
+          sel.appendChild(opt);
+        });
+        if (preselectId && sel.querySelector('option[value="' + preselectId + '"]')) sel.value = preselectId;
+      }
+
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('mode') === 'new') setMode('new');
+      var preCid = params.get('customer_id');
+      if (preCid) setMode('existing');
+
+      loadCustomerSelect(preCid || '').catch(function (err) { showToast(err.message || 'Could not load customers', 'error'); });
+
+      document.getElementById('btnSave').addEventListener('click', async function () {
+        var btn = document.getElementById('btnSave');
+        if (btn.disabled) return;
+        var customerId = null;
+
+        if (mode === 'new') {
+          var fullName = document.getElementById('new_full_name').value.trim();
+          var phone = document.getElementById('new_phone').value.trim();
+          if (!fullName || !phone) {
+            showToast('Full name and phone are required for a new customer', 'error');
+            return;
+          }
+        } else {
+          var cid = parseInt(sel.value, 10);
+          if (!cid) {
+            showToast('Select an existing customer', 'error');
+            return;
+          }
+          customerId = cid;
+        }
+
+        var hasMeas = hasMeasurementInput();
+        if (mode === 'existing' && !hasMeas) {
+          showToast('Enter at least one measurement or cancel', 'error');
+          return;
+        }
+
+        btn.disabled = true;
+        try {
+          if (mode === 'new') {
+            var custBody = {
+              full_name: document.getElementById('new_full_name').value.trim(),
+              phone: document.getElementById('new_phone').value.trim()
+            };
+            var em = document.getElementById('new_email').value.trim();
+            if (em) custBody.email = em;
+            var ad = document.getElementById('new_address').value.trim();
+            if (ad) custBody.address = ad;
+            var created = await api('/customers', { method: 'POST', body: JSON.stringify(custBody) });
+            customerId = created.id;
+          }
+
+          if (hasMeas) {
+            await api('/measurements', { method: 'POST', body: JSON.stringify(buildMeasurementPayload(customerId)) });
+          }
+
+          showToast(mode === 'new' && !hasMeas ? 'Customer saved' : 'Saved successfully', 'success');
+          window.location.href = '/customers';
+        } catch (err) {
+          showToast(err.message || 'Save failed', 'error');
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
