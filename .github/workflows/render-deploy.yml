@@ -1,0 +1,31 @@
+# Automatic redeploy when you push to `main`.
+#
+# Easiest: Render → Web Service → Settings → Build & Deploy → Auto-Deploy = Yes (branch main).
+# Then every `git push origin main` redeploys with no GitHub secret.
+#
+# Optional: Render → Manual Deploy → Create Deploy Hook → copy URL.
+# GitHub → repo → Settings → Secrets → Actions → New secret:
+#   RENDER_DEPLOY_HOOK_URL = (paste hook URL)
+# This workflow POSTs to that URL on each push (backup if you prefer hooks).
+
+name: Redeploy on Render
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy hook
+        env:
+          HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "RENDER_DEPLOY_HOOK_URL not set — skipped."
+            echo "Use Render Auto-Deploy (recommended), or add the deploy hook secret."
+            exit 0
+          fi
+          curl -fsS -X POST "$HOOK"

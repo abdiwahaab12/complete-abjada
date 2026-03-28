@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Transaction - Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="/static/img/abjad-logo.png" alt="Abjad" class="sidebar-logo-img">
+          <div class="sidebar-logo-wrap">
+            <span class="sidebar-logo-text">Abjad</span>
+            <span class="sidebar-logo-tagline">tailor management system</span>
+          </div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/transactions" class="sidebar-nav-link active"><span class="sidebar-nav-text">Transactions</span></a>
+        <a href="/orders" class="sidebar-nav-link"><span class="sidebar-nav-text">Orders</span></a>
+        <a href="/dashboard" class="sidebar-nav-link"><span class="sidebar-nav-text">Dashboard</span></a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <div class="main-header">
+        <div class="welcome-text">Add Transaction</div>
+        <div class="header-right">
+          <a href="/transactions" class="btn btn-secondary">Back to Transactions</a>
+        </div>
+      </div>
+      <div class="page-content">
+        <div class="add-transaction-card">
+          <h2 class="add-transaction-title">New Transaction</h2>
+          <form id="transactionForm">
+            <div class="add-transaction-grid">
+              <div class="form-group">
+                <label for="currency">Account</label>
+                <select id="currency" required>
+                  <option value="KES" selected>KES</option>
+                  <option value="USD">USD</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="category">Category</label>
+                <div style="display:flex; gap:8px;">
+                  <select id="category" style="flex:1;"></select>
+                  <button type="button" class="btn btn-secondary btn-sm" id="btnAddCategory">Add</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" step="0.01" min="0" required>
+              </div>
+              <div class="form-group">
+                <label>In/Out</label>
+                <div class="transaction-type-radio">
+                  <label><input type="radio" name="transaction_type" value="in" checked> IN</label>
+                  <label><input type="radio" name="transaction_type" value="out"> OUT</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="method">Type</label>
+                <select id="method" required>
+                  <option value="cash" selected>Cash</option>
+                  <option value="digital">Digital</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="transaction_date">Transaction Date</label>
+                <input type="datetime-local" id="transaction_date">
+              </div>
+              <div class="form-group full-width">
+                <label for="details">Transaction Details</label>
+                <textarea id="details" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="add-transaction-actions">
+              <button type="submit" class="btn btn-primary">Save Transaction</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script>
+    const user = requireAuth();
+    if (!user) throw new Error('Auth required');
+
+    function setDefaultTransactionDate() {
+      const el = document.getElementById('transaction_date');
+      const d = new Date();
+      const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
+      const h = String(d.getHours()).padStart(2, '0'), min = String(d.getMinutes()).padStart(2, '0');
+      el.value = y + '-' + m + '-' + day + 'T' + h + ':' + min;
+    }
+    setDefaultTransactionDate();
+
+    async function loadCategories() {
+      const sel = document.getElementById('category');
+      try {
+        const rows = await api('/categories?type=transaction');
+        sel.innerHTML = '<option value="">Select category</option>' +
+          (rows || []).map(c => '<option value="' + c.name + '">' + c.name + '</option>').join('');
+      } catch {
+        sel.innerHTML = '<option value="">Select category</option>';
+      }
+    }
+    loadCategories();
+
+    document.getElementById('btnAddCategory').addEventListener('click', async function() {
+      const name = prompt('New category name');
+      if (!name) return;
+      await api('/categories', { method: 'POST', body: JSON.stringify({ name: name.trim(), type: 'transaction' }) });
+      await loadCategories();
+      document.getElementById('category').value = name.trim();
+    });
+
+    document.getElementById('transactionForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const typeRadio = document.querySelector('input[name="transaction_type"]:checked');
+      const transactionDate = document.getElementById('transaction_date').value;
+      const payload = {
+        currency: document.getElementById('currency').value,
+        category: document.getElementById('category').value || null,
+        amount: parseFloat(document.getElementById('amount').value),
+        transaction_type: typeRadio ? typeRadio.value : 'in',
+        method: document.getElementById('method').value,
+        details: document.getElementById('details').value || null
+      };
+      if (transactionDate) {
+        const d = new Date(transactionDate);
+        payload.transaction_date = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0') + ' ' + String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0') + ':00';
+      }
+      try {
+        await api('/transactions', { method: 'POST', body: JSON.stringify(payload) });
+        showToast('Transaction saved', 'success');
+        window.location.href = '/transactions';
+      } catch (err) {
+        showToast(err.message || 'Failed to save transaction', 'error');
+      }
+    });
+  </script>
+</body>
+</html>

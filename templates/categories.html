@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Categories - Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="/static/img/abjad-logo.png" alt="Abjad" class="sidebar-logo-img">
+          <div class="sidebar-logo-wrap">
+            <span class="sidebar-logo-text">Abjad</span>
+            <span class="sidebar-logo-tagline">tailor management system</span>
+          </div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="sidebar-nav-label">Main</span>
+        <a href="/dashboard" class="sidebar-nav-link"><span class="sidebar-nav-text">Dashboard</span></a>
+        <span class="sidebar-nav-label">Operations</span>
+        <a href="/customers" class="sidebar-nav-link"><span class="sidebar-nav-text">Customers</span></a>
+        <a href="/orders" class="sidebar-nav-link"><span class="sidebar-nav-text">Orders</span></a>
+        <a href="/transactions" class="sidebar-nav-link"><span class="sidebar-nav-text">Transactions</span></a>
+        <a href="/categories" class="sidebar-nav-link active"><span class="sidebar-nav-text">Categories</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="#" class="sidebar-logout" id="sidebarLogout">Sign out</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="main-header">
+        <div class="welcome-text">Categories</div>
+        <div class="header-right">
+          <button type="button" class="btn btn-primary" id="btnAdd">Add Category</button>
+        </div>
+      </div>
+      <div class="page-content">
+        <p class="categories-page-intro">Categories are shared in one list but scoped by <strong>Type</strong> so each form shows only relevant options.</p>
+        <div class="dashboard-card">
+          <div class="table-responsive">
+            <table class="customers-table categories-admin-table">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Category Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th>Created At</th>
+                  <th class="text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="list"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content" style="max-width:480px;">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add Category</h3>
+        <button type="button" class="btn btn-secondary btn-sm" id="closeModal">Close</button>
+      </div>
+      <form id="form">
+        <input type="hidden" id="catId">
+        <div class="form-group">
+          <label for="catName">Category name *</label>
+          <input type="text" id="catName" class="search-input" required maxlength="120" placeholder="e.g. Clothes, Service">
+        </div>
+        <div class="form-group">
+          <label for="catType">Category type *</label>
+          <select id="catType" class="search-input" required>
+            <option value="transaction">Transaction</option>
+            <option value="order">Order</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="catDesc">Description</label>
+          <textarea id="catDesc" class="search-input" rows="3" placeholder="Optional notes"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script>
+    const user = requireAuth();
+    if (!user) throw new Error('Auth required');
+
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) {
+      e.preventDefault();
+      logout();
+    });
+
+    function escapeHtml(s) {
+      if (s == null || s === '') return '-';
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    function formatDate(s) {
+      if (!s) return '-';
+      try { return new Date(s).toLocaleString(); } catch (e) { return s; }
+    }
+
+    var categoriesCache = [];
+
+    async function load() {
+      try {
+        const rows = await api('/categories');
+        categoriesCache = rows || [];
+        const tbody = document.getElementById('list');
+        if (!categoriesCache.length) {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--text-muted);">No categories yet</td></tr>';
+          return;
+        }
+        tbody.innerHTML = categoriesCache.map(function(c, i) {
+          var typeLabel = c.type === 'order' ? 'Order' : 'Transaction';
+          return '<tr>' +
+            '<td>' + (i + 1) + '</td>' +
+            '<td><strong>' + escapeHtml(c.name) + '</strong></td>' +
+            '<td>' + escapeHtml(typeLabel) + '</td>' +
+            '<td>' + escapeHtml(c.description) + '</td>' +
+            '<td>' + escapeHtml(formatDate(c.created_at)) + '</td>' +
+            '<td class="text-right">' +
+              '<button type="button" class="btn btn-secondary btn-sm" data-edit-id="' + c.id + '">Edit</button> ' +
+              '<button type="button" class="btn btn-danger btn-sm" data-del-id="' + c.id + '">Delete</button>' +
+            '</td></tr>';
+        }).join('');
+        tbody.querySelectorAll('[data-edit-id]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var id = parseInt(btn.getAttribute('data-edit-id'), 10);
+            var c = categoriesCache.find(function(x) { return x.id === id; });
+            if (c) openModal(c);
+          });
+        });
+        tbody.querySelectorAll('[data-del-id]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            deleteCategory(parseInt(btn.getAttribute('data-del-id'), 10));
+          });
+        });
+      } catch (err) {
+        showToast(err.message || 'Failed to load categories', 'error');
+      }
+    }
+
+    function openModal(c) {
+      document.getElementById('modalTitle').textContent = c ? 'Edit Category' : 'Add Category';
+      document.getElementById('catId').value = c ? c.id : '';
+      document.getElementById('catName').value = c ? (c.name || '') : '';
+      document.getElementById('catType').value = c && c.type ? c.type : 'transaction';
+      document.getElementById('catDesc').value = c ? (c.description || '') : '';
+      document.getElementById('modal').classList.remove('hidden');
+    }
+
+    document.getElementById('btnAdd').onclick = function() { openModal(null); };
+    document.getElementById('closeModal').onclick = function() { document.getElementById('modal').classList.add('hidden'); };
+    document.getElementById('cancelBtn').onclick = function() { document.getElementById('modal').classList.add('hidden'); };
+
+    document.getElementById('form').onsubmit = async function(e) {
+      e.preventDefault();
+      var id = document.getElementById('catId').value;
+      var payload = {
+        name: document.getElementById('catName').value.trim(),
+        type: document.getElementById('catType').value,
+        description: document.getElementById('catDesc').value.trim() || null
+      };
+      if (!payload.name) return;
+      try {
+        if (id) await api('/categories/' + id, { method: 'PUT', body: JSON.stringify(payload) });
+        else await api('/categories', { method: 'POST', body: JSON.stringify(payload) });
+        document.getElementById('modal').classList.add('hidden');
+        showToast('Saved', 'success');
+        load();
+      } catch (err) {
+        showToast(err.message || 'Save failed', 'error');
+      }
+    };
+
+    async function deleteCategory(id) {
+      if (!confirm('Delete this category?')) return;
+      const token = getToken();
+      const url = window.location.origin + '/api/categories/' + id;
+      let res = await fetch(url, { method: 'DELETE', headers: { 'Authorization': 'Bearer ' + token } });
+      let data = await res.json().catch(function() { return {}; });
+      if (res.status === 409 && (data.transaction_count !== undefined || data.order_count !== undefined)) {
+        var tx = data.transaction_count || 0;
+        var od = data.order_count || 0;
+        var msg = (data.message || data.error || 'Category is in use.') + '\n\nTransactions: ' + tx + '\nOrders: ' + od;
+        if (confirm(msg + '\n\nDelete anyway? Category will be cleared on those records.')) {
+          res = await fetch(url + '?force=1', { method: 'DELETE', headers: { 'Authorization': 'Bearer ' + token } });
+          data = await res.json().catch(function() { return {}; });
+          if (!res.ok) { showToast(data.error || data.message || 'Delete failed', 'error'); return; }
+          showToast('Category deleted', 'success');
+          load();
+        }
+        return;
+      }
+      if (!res.ok) { showToast(data.error || data.message || 'Delete failed', 'error'); return; }
+      showToast('Category deleted', 'success');
+      load();
+    }
+
+    load();
+  </script>
+</body>
+</html>

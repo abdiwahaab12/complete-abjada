@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <script>
+    if (localStorage.getItem('token')) window.location.href = '/dashboard';
+    else window.location.href = '/login';
+  </script>
+  <p class="container">Redirecting...</p>
+</body>
+</html>

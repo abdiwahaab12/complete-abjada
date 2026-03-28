@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transactions - Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="/static/img/abjad-logo.png" alt="Abjad" class="sidebar-logo-img">
+          <div class="sidebar-logo-wrap">
+            <span class="sidebar-logo-text">Abjad</span>
+            <span class="sidebar-logo-tagline">tailor management system</span>
+          </div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="sidebar-nav-label">Main</span>
+        <a href="/dashboard" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+          <span class="sidebar-nav-text">Dashboard</span>
+        </a>
+        <span class="sidebar-nav-label">Operations</span>
+        <a href="/customers" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="sidebar-nav-text">Customers</span>
+        </a>
+        <a href="/orders" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+          <span class="sidebar-nav-text">Orders</span>
+        </a>
+        <a href="/measurements" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg></span>
+          <span class="sidebar-nav-text">Measurements</span>
+        </a>
+        <a href="/payments" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
+          <span class="sidebar-nav-text">Payments</span>
+        </a>
+        <a href="/transactions" class="sidebar-nav-link active">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="sidebar-nav-text">Transactions</span>
+        </a>
+        <a href="/categories" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+          <span class="sidebar-nav-text">Categories</span>
+        </a>
+        <a href="/swap" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4l4 4"/><path d="M17 8v12M17 20l4-4M17 20l-4-4"/></svg></span>
+          <span class="sidebar-nav-text">Swap</span>
+        </a>
+        <a href="/banks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M6 14h2"/><path d="M10 14h2"/></svg></span>
+          <span class="sidebar-nav-text">Banks</span>
+        </a>
+        <a href="/stock" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+          <span class="sidebar-nav-text">Stock</span>
+        </a>
+        <a href="/store" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/><path d="M12 14v4"/></svg></span>
+          <span class="sidebar-nav-text">Store</span>
+        </a>
+        <a href="/tasks" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="sidebar-nav-text">Tasks</span>
+        </a>
+        <span class="sidebar-nav-label">Reports</span>
+        <a href="/reports" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+          <span class="sidebar-nav-text">Reports</span>
+        </a>
+        <a href="/staff" class="sidebar-nav-link nav-admin-only">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></span>
+          <span class="sidebar-nav-text">Staff</span>
+        </a>
+        <span class="sidebar-nav-label">Account</span>
+        <a href="/settings" class="sidebar-nav-link">
+          <span class="sidebar-nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1.08A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h1.08A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v1.08a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-1.08a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+          <span class="sidebar-nav-text">Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name" id="sidebarUserName"></span>
+            <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+          </div>
+        </div>
+        <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="main-header">
+        <div class="welcome-text">Transactions</div>
+        <div class="header-right">
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" class="search-input" id="headerSearch" placeholder="Search transactions...">
+          </div>
+          <div class="header-user-wrap">
+            <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="user-avatar-small" id="userAvatar"></div>
+              <span class="header-user-name" id="headerUserName"></span>
+              <span style="font-size: 11px; color: var(--text-muted);">▼</span>
+            </div>
+            <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
+              <a href="/dashboard" role="menuitem">Dashboard</a>
+              <a href="/customers" role="menuitem">Customers</a>
+              <a href="/orders" role="menuitem">Orders</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" id="headerLogoutBtn" role="menuitem">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-content">
+        <div class="customers-header-actions">
+          <div style="display:flex; gap:10px; align-items:center;">
+            <a href="/categories" class="btn btn-success">Manage categories</a>
+            <button class="btn btn-primary" id="btnAddTransaction" type="button">Add Transaction</button>
+          </div>
+        </div>
+
+        <!-- Add Transaction (old form style) -->
+        <div id="transactionFormCard" class="add-transaction-card hidden">
+          <h2 class="add-transaction-title">Add Transaction</h2>
+          <form id="transactionForm">
+            <div class="add-transaction-grid">
+              <div class="form-group">
+                <label for="currency">Choose Account</label>
+                <select id="currency" required>
+                  <option value="KES" selected>KES (Default)</option>
+                  <option value="USD">USD</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="category">Choose Transaction Category</label>
+                <select id="category">
+                  <option value="">Select category</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="amount">Transaction Amount</label>
+                <input type="number" id="amount" step="0.01" min="0" placeholder="Enter transaction amount" required>
+              </div>
+              <div class="form-group">
+                <label>Transaction Type</label>
+                <div class="transaction-type-radio">
+                  <label><input type="radio" name="transaction_type" value="in" checked> IN</label>
+                  <label><input type="radio" name="transaction_type" value="out"> OUT</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="method">Transaction Method</label>
+                <select id="method" required>
+                  <option value="">Select transaction type</option>
+                  <option value="cash" selected>Cash</option>
+                  <option value="digital">Digital</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="transaction_date">Transaction Date</label>
+                <input type="datetime-local" id="transaction_date">
+              </div>
+              <div class="form-group full-width">
+                <label for="details">Transaction Details</label>
+                <textarea id="details" placeholder="Enter transaction details" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="add-transaction-actions">
+              <button type="submit" class="btn btn-primary">Save Transaction</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="table-responsive">
+            <table class="customers-table transactions-table">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Transaction Details</th>
+                  <th>Category</th>
+                  <th>Amount</th>
+                  <th>Account</th>
+                  <th>In/Out</th>
+                  <th>Type</th>
+                  <th>Exchange Info</th>
+                  <th>Created At</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="list"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content" style="max-width:560px;">
+      <div class="modal-header">
+        <h3>Edit Transaction</h3>
+        <button type="button" class="btn btn-secondary btn-sm" id="closeEditModal">Close</button>
+      </div>
+      <form id="editForm">
+        <input type="hidden" id="editId">
+        <div class="form-group"><label>Account</label><select id="editCurrency"><option value="KES">KES</option><option value="USD">USD</option></select></div>
+        <div class="form-group"><label>Category</label><select id="editCategory"></select></div>
+        <div class="form-group"><label>Amount</label><input type="number" id="editAmount" step="0.01" min="0" required></div>
+        <div class="form-group"><label>In/Out</label><select id="editType"><option value="in">IN</option><option value="out">OUT</option></select></div>
+        <div class="form-group"><label>Type</label><select id="editMethod"><option value="cash">Cash</option><option value="digital">Digital</option></select></div>
+        <div class="form-group"><label>Details</label><textarea id="editDetails" rows="3"></textarea></div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancelEditBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/avatar.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    let user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+    initAvatarFromApi(user);
+
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) {
+        btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+    })();
+
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) {
+      e.preventDefault();
+      logout();
+    });
+    document.getElementById('headerLogoutBtn').addEventListener('click', function() {
+      logout();
+    });
+
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      function open() { menu.classList.add('show'); menu.setAttribute('aria-hidden', 'false'); profile.setAttribute('aria-expanded', 'true'); }
+      function close() { menu.classList.remove('show'); menu.setAttribute('aria-hidden', 'true'); profile.setAttribute('aria-expanded', 'false'); }
+      profile.addEventListener('click', function(e) { e.stopPropagation(); open(); });
+      document.addEventListener('click', function(e) {
+        if (!profile.contains(e.target) && !menu.contains(e.target)) close();
+      });
+    })();
+
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    function escapeHtml(s) {
+      if (s == null || s === '') return '-';
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+    function formatDate(s) {
+      if (!s) return '-';
+      var d = new Date(s);
+      if (Number.isNaN(d.getTime())) return String(s).replace('T', ' ').slice(0, 19);
+      return d.toLocaleString();
+    }
+
+    let currentPage = 1;
+    let currentRows = [];
+
+    function typeBadge(type) {
+      var t = (type || 'in').toLowerCase();
+      return t === 'in'
+        ? '<span class="badge badge-completed">IN</span>'
+        : '<span class="badge badge-pending">OUT</span>';
+    }
+
+    async function load(page) {
+      page = page || 1;
+      currentPage = page;
+      try {
+        var q = encodeURIComponent(document.getElementById('headerSearch').value || '');
+        const res = await api('/transactions?page=' + page + '&per_page=25&q=' + q);
+        let items = res.items || [];
+        currentRows = items;
+        const total = res.total || 0;
+        const pages = res.pages || 1;
+        const tbody = document.getElementById('list');
+        const sym = function(c) { return c === 'USD' ? '$' : 'KSh '; };
+
+        if (items.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="10" style="text-align:center; padding:24px; color:var(--text-muted);">No transactions found</td></tr>';
+        } else {
+          tbody.innerHTML = items.map((t, i) => {
+            const idx = ((page - 1) * 25) + i + 1;
+            const amount = Number(t.amount || 0).toFixed(2);
+            const txType = (t.method || '-');
+            const exchange = t.currency === 'USD' ? 'USD account' : 'KES account';
+            return '<tr>' +
+              '<td>' + idx + '</td>' +
+              '<td>' + escapeHtml(t.details) + '</td>' +
+              '<td>' + escapeHtml(t.category) + '</td>' +
+              '<td><strong>' + sym(t.currency) + amount + '</strong></td>' +
+              '<td>' + escapeHtml(t.currency || 'KES') + '</td>' +
+              '<td>' + typeBadge(t.transaction_type) + '</td>' +
+              '<td>' + escapeHtml(txType) + '</td>' +
+              '<td>' + escapeHtml(exchange) + '</td>' +
+              '<td>' + escapeHtml(formatDate(t.created_at || t.transaction_date)) + '</td>' +
+              '<td>' +
+                '<button class="btn btn-secondary btn-sm" onclick="editTransaction(' + t.id + ')">Edit</button> ' +
+                '<button class="btn btn-danger btn-sm" onclick="deleteTransaction(' + t.id + ')">Delete</button>' +
+              '</td>' +
+              '</tr>';
+          }).join('');
+        }
+
+        const pagEl = document.getElementById('pagination');
+        if (pagEl) {
+          if (pages <= 1) {
+            pagEl.innerHTML = '';
+          } else {
+            let links = '';
+            if (page > 1) links += '<a href="#" class="btn btn-secondary btn-sm" data-page="' + (page - 1) + '">Previous</a> ';
+            links += '<span class="text-muted">Page ' + page + ' of ' + pages + ' (' + total + ' total)</span>';
+            if (page < pages) links += ' <a href="#" class="btn btn-secondary btn-sm" data-page="' + (page + 1) + '">Next</a>';
+            pagEl.innerHTML = links;
+            pagEl.querySelectorAll('[data-page]').forEach(a => {
+              a.addEventListener('click', function(ev) { ev.preventDefault(); load(parseInt(this.getAttribute('data-page'), 10)); });
+            });
+          }
+        }
+      } catch (err) {
+        showToast(err.message || 'Failed to load transactions', 'error');
+      }
+    }
+
+    async function editTransaction(id) {
+      const tx = currentRows.find(t => t.id === id);
+      if (!tx) return;
+      document.getElementById('editId').value = tx.id;
+      document.getElementById('editCurrency').value = tx.currency || 'KES';
+      document.getElementById('editAmount').value = tx.amount || 0;
+      document.getElementById('editType').value = tx.transaction_type || 'in';
+      document.getElementById('editMethod').value = tx.method || 'cash';
+      document.getElementById('editDetails').value = tx.details || '';
+      await fillCategorySelect('editCategory', tx.category || '');
+      document.getElementById('editModal').classList.remove('hidden');
+    }
+
+    async function deleteTransaction(id) {
+      if (!confirm('Delete this transaction? This action cannot be undone.')) return;
+      try {
+        await api('/transactions/' + id, { method: 'DELETE' });
+        showToast('Transaction deleted', 'success');
+        load(currentPage);
+      } catch (err) {
+        showToast(err.message || 'Delete failed', 'error');
+      }
+    }
+
+    async function fillCategorySelect(selectId, selected) {
+      const rows = await api('/categories?type=transaction');
+      const sel = document.getElementById(selectId);
+      sel.innerHTML = '<option value="">Select category</option>' + (rows || []).map(c =>
+        '<option value="' + c.name + '">' + c.name + '</option>'
+      ).join('');
+      sel.value = selected || '';
+    }
+
+    document.getElementById('closeEditModal').addEventListener('click', function() {
+      document.getElementById('editModal').classList.add('hidden');
+    });
+    document.getElementById('cancelEditBtn').addEventListener('click', function() {
+      document.getElementById('editModal').classList.add('hidden');
+    });
+    document.getElementById('editForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const id = document.getElementById('editId').value;
+      const payload = {
+        currency: document.getElementById('editCurrency').value,
+        category: document.getElementById('editCategory').value || null,
+        amount: parseFloat(document.getElementById('editAmount').value || 0),
+        transaction_type: document.getElementById('editType').value,
+        method: document.getElementById('editMethod').value,
+        details: document.getElementById('editDetails').value || null
+      };
+      try {
+        await api('/transactions/' + id, { method: 'PUT', body: JSON.stringify(payload) });
+        document.getElementById('editModal').classList.add('hidden');
+        showToast('Transaction updated', 'success');
+        load(currentPage);
+      } catch (err) {
+        showToast(err.message || 'Update failed', 'error');
+      }
+    });
+    document.getElementById('headerSearch').addEventListener('input', function() { load(1); });
+
+    function setDefaultTransactionDate() {
+      const el = document.getElementById('transaction_date');
+      if (el && !el.value) {
+        var d = new Date();
+        var y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
+        var h = String(d.getHours()).padStart(2, '0'), min = String(d.getMinutes()).padStart(2, '0');
+        el.value = y + '-' + m + '-' + day + 'T' + h + ':' + min;
+      }
+    }
+
+    async function loadCategoryDropdown() {
+      const sel = document.getElementById('category');
+      try {
+        const rows = await api('/categories?type=transaction');
+        sel.innerHTML = '<option value="">Select category</option>' + (rows || []).map(c => (
+          '<option value="' + c.name + '">' + c.name + '</option>'
+        )).join('');
+      } catch {
+        sel.innerHTML = '<option value="">Select category</option>';
+      }
+    }
+
+    document.getElementById('btnAddTransaction').addEventListener('click', function() {
+      document.getElementById('transactionFormCard').classList.remove('hidden');
+      setDefaultTransactionDate();
+      loadCategoryDropdown();
+      document.getElementById('amount').focus();
+    });
+
+    document.getElementById('transactionForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var currency = document.getElementById('currency').value;
+      var category = document.getElementById('category').value;
+      var amount = document.getElementById('amount').value;
+      var method = document.getElementById('method').value;
+      var typeRadio = document.querySelector('input[name="transaction_type"]:checked');
+      var transaction_type = typeRadio ? typeRadio.value : 'in';
+      var transaction_date = document.getElementById('transaction_date').value;
+      var details = document.getElementById('details').value;
+
+      var payload = {
+        currency: currency,
+        category: category || null,
+        amount: parseFloat(amount),
+        transaction_type: transaction_type,
+        method: method,
+        details: details || null
+      };
+      if (transaction_date) {
+        var d = new Date(transaction_date);
+        payload.transaction_date =
+          d.getFullYear() + '-' +
+          String(d.getMonth() + 1).padStart(2, '0') + '-' +
+          String(d.getDate()).padStart(2, '0') + ' ' +
+          String(d.getHours()).padStart(2, '0') + ':' +
+          String(d.getMinutes()).padStart(2, '0') + ':00';
+      }
+
+      try {
+        await api('/transactions', { method: 'POST', body: JSON.stringify(payload) });
+        showToast('Transaction saved', 'success');
+        document.getElementById('transactionFormCard').classList.add('hidden');
+        document.getElementById('amount').value = '';
+        document.getElementById('details').value = '';
+        var inRadio = document.querySelector('input[name="transaction_type"][value="in"]');
+        if (inRadio) inRadio.checked = true;
+        setDefaultTransactionDate();
+        await loadCategoryDropdown();
+        load(currentPage);
+      } catch (err) {
+        showToast(err.message || 'Failed to save transaction', 'error');
+      }
+    });
+
+    // Initial setup
+    setDefaultTransactionDate();
+    loadCategoryDropdown();
+
+    load(1);
+  </script>
+</body>
+</html>
