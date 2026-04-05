@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports - Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+<aside class="sidebar sidebar-modern" aria-label="Main navigation">
+  <div class="sidebar-modern-brand">Abjad Super style tailor</div>
+
+  <nav class="sidebar-modern-inner">
+    <div class="sidebar-modern-scroll">
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">DISCOVER</h2>
+        <a href="/dashboard" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Dashboard</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">INVENTORY</h2>
+        <a href="/products" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Products</span>
+        </a>
+        <a href="/category-page" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M7 3h3"/><path d="M14 3h3"/><path d="M7 20h3"/><path d="M14 20h3"/><path d="M3 7v3"/><path d="M3 14v3"/><path d="M20 7v3"/><path d="M20 14v3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Category</span>
+        </a>
+        <a href="/orders" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Orders</span>
+        </a>
+        <a href="/stock" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22.08V12"/><path d="M16 8h-6M13 11h4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Stock</span>
+        </a>
+        <a href="/customers" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Customer</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+        <a href="/measurements" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Tailor Orders</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">FINANCES</h2>
+        <a href="/transactions" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Transactions</span>
+        </a>
+        <a href="/accounts" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Financial accounts</span>
+        </a>
+        <div class="sidebar-modern-report-nav" id="sidebarReportNav">
+          <a href="/reports" class="sidebar-modern-link sidebar-modern-link--tight" id="sidebarReportMain">
+            <span class="sidebar-modern-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </span>
+            <span class="sidebar-modern-label">Report</span>
+            <span class="sidebar-modern-badge">NEW</span>
+            <span class="sidebar-modern-chevron" aria-hidden="true">›</span>
+          </a>
+
+          <div id="sidebarReportSubmenu" class="sidebar-modern-report-submenu is-open" aria-hidden="false">
+            <a href="/reports/orders" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Orders</span></a>
+            <a href="/reports/products" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Products</span></a>
+            <a href="/reports/transactions" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Transactions</span></a>
+            <a href="/reports/exchange" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Exchange</span></a>
+            <a href="/reports/swaps" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Swaps</span></a>
+            <a href="/reports/accounts" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Accounts</span></a>
+          </div>
+        </div>
+        <a href="/store" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Store</span>
+        </a>
+      </section>
+
+      <div class="sidebar-modern-util">
+        <a href="/user" class="sidebar-modern-util-link">User</a>
+        <a href="/settings" class="sidebar-modern-util-link">Settings</a>
+        <a href="/help" class="sidebar-modern-util-link">Help</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer sidebar-modern-footer">
+    <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+    <div class="sidebar-user">
+      <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
+      <div class="sidebar-user-info">
+        <span class="sidebar-user-name" id="sidebarUserName"></span>
+        <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+      </div>
+    </div>
+    <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+  </div>
+</aside>
+<script src="/static/js/sidebar-active.js" defer></script>
+<main class="main-content">
+      <div class="page-content">
+        <h1 class="swaps-page-title">Order Report</h1>
+        <div class="report-filters" id="reportFilters">
+          <!-- Orders filter UI (matches requested screenshot layout) -->
+          <div id="ordersFilterCard" class="orders-filter-card" style="display:none;">
+            <div class="orders-filter-title">Filter Data</div>
+            <div class="orders-filter-grid">
+              <div class="orders-filter-field">
+                <label>Category</label>
+                <select id="ordersCategory" class="search-input orders-filter-select">
+                  <option value="">All Categories</option>
+                </select>
+          </div>
+              <div class="orders-filter-field">
+                <label>Product</label>
+                <select id="ordersProduct" class="search-input orders-filter-select">
+                  <option value="">All Products</option>
+                </select>
+            </div>
+              <div class="orders-filter-field">
+                <label>Customer</label>
+                <select id="ordersUser" class="search-input orders-filter-select">
+                  <option value="">All customers</option>
+                </select>
+            </div>
+          </div>
+
+            <div class="orders-filter-date-range">
+              <div class="orders-filter-field">
+                <label>Date Range</label>
+                <select id="ordersDateRange" class="search-input orders-filter-select">
+                  <option value="all">All Time</option>
+                  <option value="7d">Last 7 Days</option>
+                  <option value="30d">Last 30 Days</option>
+                  <option value="this_month">This Month</option>
+                </select>
+        </div>
+      </div>
+
+            <div class="orders-filter-actions">
+              <button class="btn btn-primary" id="btnApplyOrdersFilters" type="button">Apply Filters</button>
+          </div>
+            </div>
+          <div id="productsFilterCard" class="orders-filter-card product-filter-card" style="display:none;">
+            <div class="orders-filter-title product-filter-title">Filter Products</div>
+            <div class="orders-filter-grid product-filter-grid">
+              <div class="orders-filter-field">
+                <label>Select Products</label>
+                <select id="productReportSelect" class="search-input orders-filter-select">
+                  <option value="">Choose products...</option>
+                </select>
+            </div>
+            </div>
+            <div class="orders-filter-actions">
+              <button class="btn btn-primary" id="btnApplyProductFilters" type="button">Apply Filter</button>
+            </div>
+          </div>
+          <div id="transactionsFilterCard" class="orders-filter-card" style="display:none;">
+            <div class="transactions-filter-title">Search Data</div>
+            <div class="orders-filter-grid">
+              <div class="orders-filter-field">
+                <label>Category</label>
+                <select id="txCategory" class="search-input orders-filter-select">
+                  <option value="">All Categories</option>
+                </select>
+              </div>
+              <div class="orders-filter-field">
+                <label>User</label>
+                <select id="txUser" class="search-input orders-filter-select">
+                  <option value="">All Users</option>
+                </select>
+              </div>
+              <div class="orders-filter-field">
+                <label>Account Type</label>
+                <select id="txAccountType" class="search-input orders-filter-select">
+                  <option value="">All</option>
+                  <option value="credit">Credit (IN)</option>
+                  <option value="debit">Debit (OUT)</option>
+                </select>
+              </div>
+            </div>
+            <div class="orders-filter-date-range">
+              <div class="orders-filter-field">
+                <label>Date Range</label>
+                <select id="txDateRange" class="search-input orders-filter-select">
+                  <option value="all">All Time</option>
+                  <option value="7d">Last 7 Days</option>
+                  <option value="30d">Last 30 Days</option>
+                  <option value="this_month">This Month</option>
+                </select>
+              </div>
+            </div>
+            <div class="orders-filter-actions" style="justify-content:flex-start;">
+              <button class="btn btn-primary" id="btnApplyTxFilters" type="button">Filter</button>
+            </div>
+          </div>
+          <div id="exchangeFilterCard" class="orders-filter-card" style="display:none;">
+            <div class="transactions-filter-title">Exchange Type</div>
+            <div class="orders-filter-grid">
+              <div class="orders-filter-field">
+                <label>Exchange Type</label>
+                <select id="exType" class="search-input orders-filter-select">
+                  <option value="">All</option>
+                  <option value="deposit">Deposit</option>
+                  <option value="withdraw">Withdraw</option>
+                </select>
+              </div>
+              <div class="orders-filter-field">
+                <label>User</label>
+                <select id="exUser" class="search-input orders-filter-select">
+                  <option value="">All Users</option>
+                </select>
+              </div>
+              <div class="orders-filter-field">
+                <label>Date Range</label>
+                <select id="exDateRange" class="search-input orders-filter-select">
+                  <option value="all">All Data</option>
+                  <option value="today">Today</option>
+                  <option value="yesterday">Yesterday</option>
+                  <option value="this_week">This Week</option>
+                  <option value="this_month">This Month</option>
+                  <option value="this_year">This Year</option>
+                  <option value="specific">Specific Date Range</option>
+                </select>
+              </div>
+            </div>
+            <div id="exSpecificDateWrap" class="orders-filter-grid" style="display:none; margin-top: 12px;">
+              <div class="orders-filter-field">
+                <label>From Date</label>
+                <input type="date" id="exDateFrom" class="search-input orders-filter-select">
+              </div>
+              <div class="orders-filter-field">
+                <label>To Date</label>
+                <input type="date" id="exDateTo" class="search-input orders-filter-select">
+              </div>
+            </div>
+            <div class="orders-filter-actions">
+              <button class="btn btn-primary" id="btnApplyExchangeFilters" type="button">Apply Filters</button>
+            </div>
+          </div>
+          <div id="swapsFilterCard" class="orders-filter-card" style="display:none;">
+            <div class="orders-filter-grid swaps-filter-grid">
+              <div class="orders-filter-field">
+                <label>User</label>
+                <select id="swpUser" class="search-input orders-filter-select">
+                  <option value="">All Users</option>
+                </select>
+              </div>
+              <div class="orders-filter-field">
+                <label>Date Range</label>
+                <select id="swpDateRange" class="search-input orders-filter-select">
+                  <option value="all">All Time</option>
+                  <option value="today">Today</option>
+                  <option value="yesterday">Yesterday</option>
+                  <option value="this_week">This Week</option>
+                  <option value="this_month">This Month</option>
+                  <option value="this_year">This Year</option>
+                  <option value="specific">Specific Date Range</option>
+                </select>
+              </div>
+            </div>
+            <div id="swpSpecificDateWrap" class="orders-filter-grid swaps-filter-grid" style="display:none; margin-top: 12px;">
+              <div class="orders-filter-field">
+                <label>From Date</label>
+                <input type="date" id="swpDateFrom" class="search-input orders-filter-select">
+              </div>
+              <div class="orders-filter-field">
+                <label>To Date</label>
+                <input type="date" id="swpDateTo" class="search-input orders-filter-select">
+              </div>
+            </div>
+            <div class="orders-filter-actions">
+              <button class="btn btn-primary" id="btnApplySwapsFilters" type="button">Apply Filters</button>
+            </div>
+          </div>
+          <div id="accountsFilterCard" class="orders-filter-card" style="display:none;">
+            <div class="transactions-filter-title">Report Filters</div>
+            <div class="report-helper-text">Select an account and date range to view its history</div>
+            <div class="orders-filter-grid swaps-filter-grid">
+              <div class="orders-filter-field">
+                <label>Account</label>
+                <select id="accAccount" class="search-input orders-filter-select">
+                  <option value="">Choose account</option>
+                </select>
+              </div>
+              <div class="orders-filter-field">
+                <label>From Date</label>
+                <input type="date" id="accFromDate" class="search-input orders-filter-select">
+              </div>
+              <div class="orders-filter-field">
+                <label>To Date</label>
+                <input type="date" id="accToDate" class="search-input orders-filter-select">
+              </div>
+            </div>
+            <div class="orders-filter-actions" style="justify-content:flex-end;">
+              <button class="btn btn-secondary" id="btnGenerateAccountReport" type="button" style="background:#111827;color:#fff;border-color:#111827;">Generate Report</button>
+            </div>
+          </div>
+          <input type="hidden" id="dateFrom">
+          <input type="hidden" id="dateTo">
+        </div>
+
+        <div id="orderReportSummaryPanel" class="order-report-summary-panel" style="display:none;">
+          <div class="order-report-stats-grid">
+            <div class="order-report-stat-card" title="Sum of advance_paid on filtered orders">
+              <div class="order-report-stat-value stat-cash" id="statTotalCash">0.00 KES</div>
+              <div class="order-report-stat-label">Total advance paid</div>
+            </div>
+            <div class="order-report-stat-card" title="mPesa is not split per order in this report yet; value stays 0 until payments are linked">
+              <div class="order-report-stat-value stat-mpesa" id="statTotalMpesa">0.00 KES</div>
+              <div class="order-report-stat-label">mPesa (not tracked)</div>
+            </div>
+            <div class="order-report-stat-card" title="Sum of total_price on filtered orders">
+              <div class="order-report-stat-value stat-orders" id="statTotalOrders">0.00 KES</div>
+              <div class="order-report-stat-label">Total order value</div>
+            </div>
+            <div class="order-report-stat-card" title="Sum(advance_paid) − Sum(total_price) for filtered orders">
+              <div class="order-report-stat-value stat-profit" id="statProfit">0.00 KES</div>
+              <div class="order-report-stat-label">Net (advance − order value)</div>
+          </div>
+        </div>
+
+        <div class="dashboard-card report-table-card">
+            <h3 class="order-report-section-title">Earnings Summary</h3>
+          <div class="table-responsive">
+              <table class="customers-table report-table">
+                <thead>
+                  <tr><th>Summary Type</th><th>Details</th></tr>
+              </thead>
+                <tbody id="earningsSummaryBody"></tbody>
+            </table>
+          </div>
+          </div>
+
+          <div class="dashboard-card report-table-card">
+            <h3 class="order-report-section-title">Sold Products</h3>
+            <div class="table-responsive">
+              <table class="customers-table report-table">
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Product Price (KES)</th>
+                    <th>Sell Price (KES)</th>
+                    <th>Quantity Sold</th>
+                    <th>Profit (KES)</th>
+                    <th>Sale Date</th>
+                  </tr>
+                </thead>
+                <tbody id="soldProductsBody"></tbody>
+              </table>
+            </div>
+            <div class="report-pagination" id="soldProductsPagination">
+              <span id="soldProductsPageInfo">Page 1 of 1</span>
+            <div class="report-pagination-btns">
+                <button type="button" class="btn btn-secondary btn-sm" id="btnSoldPrev">Previous</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="btnSoldNext">Next</button>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div id="productReportSummaryPanel" class="order-report-summary-panel" style="display:none;">
+          <div class="dashboard-card report-table-card">
+            <h3 class="order-report-section-title">Summary Totals</h3>
+            <div class="order-report-stats-grid product-report-stats-grid">
+              <div class="order-report-stat-card">
+                <div class="order-report-stat-label">Total Product Value (All Quantities):</div>
+                <div class="order-report-stat-value stat-orders" id="prdTotalProductValue">0.00 KES</div>
+              </div>
+              <div class="order-report-stat-card">
+                <div class="order-report-stat-label">Total Sales:</div>
+                <div class="order-report-stat-value stat-profit" id="prdTotalSales">0.00 KES</div>
+              </div>
+              <div class="order-report-stat-card">
+                <div class="order-report-stat-label">Total Unsold Value:</div>
+                <div class="order-report-stat-value" style="color:#dc2626" id="prdTotalUnsold">0.00 KES</div>
+              </div>
+              <div class="order-report-stat-card">
+                <div class="order-report-stat-label">Total Profit:</div>
+                <div class="order-report-stat-value stat-orders" id="prdTotalProfit">0.00 KES</div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="customers-table report-table">
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Product Price (KES)</th>
+                    <th>Total Quantity</th>
+                    <th>Quantity Sold</th>
+                    <th>Remaining Quantity</th>
+                    <th>Total Product Value (KES)</th>
+                    <th>Total Sales (KES)</th>
+                    <th>Unsold Value (KES)</th>
+                    <th>Profit (KES)</th>
+                  </tr>
+                </thead>
+                <tbody id="productReportBody"></tbody>
+              </table>
+            </div>
+            <div class="report-pagination" id="productReportPagination">
+              <span id="productReportPageInfo">Page 1 of 1</span>
+              <div class="report-pagination-btns">
+                <button type="button" class="btn btn-secondary btn-sm" id="btnProductPrev">Previous</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="btnProductNext">Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="transactionsReportPanel" class="order-report-summary-panel" style="display:none;">
+          <div class="tx-summary-gradient">
+            <h3 class="order-report-section-title tx-summary-title">Transaction Summary</h3>
+            <div class="tx-summary-grid">
+              <div class="tx-summary-card">
+                <div class="tx-summary-label">Total Credit</div>
+                <div class="tx-summary-value" id="txTotalCredit">KES 0.00</div>
+              </div>
+              <div class="tx-summary-card">
+                <div class="tx-summary-label">Total Debit</div>
+                <div class="tx-summary-value" id="txTotalDebit">KES 0.00</div>
+              </div>
+              <div class="tx-summary-card">
+                <div class="tx-summary-label">Total Cash</div>
+                <div class="tx-summary-value" id="txTotalCash">KES 0.00</div>
+              </div>
+              <div class="tx-summary-card">
+                <div class="tx-summary-label">Total Digital</div>
+                <div class="tx-summary-value" id="txTotalDigital">KES 0.00</div>
+              </div>
+              <div class="tx-summary-card">
+                <div class="tx-summary-label">Total Amount</div>
+                <div class="tx-summary-value" id="txTotalAmount">KES 0.00</div>
+              </div>
+              <div class="tx-summary-card">
+                <div class="tx-summary-label">Transaction Count</div>
+                <div class="tx-summary-value" id="txCount">0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="exchangeReportPanel" class="order-report-summary-panel" style="display:none;">
+          <div class="tx-summary-gradient">
+            <h3 class="order-report-section-title tx-summary-title">Exchange Transaction Summary</h3>
+            <div class="tx-summary-grid exchange-summary-grid">
+              <div class="tx-summary-card">
+                <div class="tx-summary-label">Total Deposits</div>
+                <div class="tx-summary-value" id="exTotalDeposits">0</div>
+              </div>
+              <div class="tx-summary-card">
+                <div class="tx-summary-label">Total Deposit Amount</div>
+                <div class="tx-summary-value" id="exTotalDepositAmount">KES 0.00</div>
+              </div>
+              <div class="tx-summary-card">
+                <div class="tx-summary-label">Total Withdrawals</div>
+                <div class="tx-summary-value" id="exTotalWithdrawals">0</div>
+              </div>
+              <div class="tx-summary-card">
+                <div class="tx-summary-label">Total Withdrawal Amount</div>
+                <div class="tx-summary-value" id="exTotalWithdrawalAmount">KES 0.00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="accountsReportPanel" class="order-report-summary-panel" style="display:none;">
+          <div class="account-history-cards">
+            <div class="account-history-card">
+              <div class="account-history-card-label">Account</div>
+              <div class="account-history-card-value" id="accCardAccount">-</div>
+              <div class="account-history-card-sub" id="accCardCurrentBalance">Current Balance: -</div>
+            </div>
+            <div class="account-history-card">
+              <div class="account-history-card-label">Balance Change</div>
+              <div class="account-history-card-value" id="accCardBalanceChange">0.00</div>
+              <div class="account-history-card-sub" id="accCardRange">-</div>
+            </div>
+            <div class="account-history-card">
+              <div class="account-history-card-label">Starting Balance</div>
+              <div class="account-history-card-value" id="accCardStartingBalance">0.00</div>
+              <div class="account-history-card-sub" id="accCardStartDate">-</div>
+            </div>
+            <div class="account-history-card">
+              <div class="account-history-card-label">Final Balance</div>
+              <div class="account-history-card-value" id="accCardFinalBalance">0.00</div>
+              <div class="account-history-card-sub" id="accCardEndDate">-</div>
+            </div>
+          </div>
+
+          <div class="dashboard-card report-table-card">
+            <h3 class="order-report-section-title" style="text-align:left;">Account Activity</h3>
+            <div class="account-activity-grid">
+              <div class="account-activity-item"><strong id="accMoneyIn">+0.00</strong><span>Money In</span></div>
+              <div class="account-activity-item"><strong id="accMoneyOut">-0.00</strong><span>Money Out</span></div>
+              <div class="account-activity-item"><strong id="accTxCount">0</strong><span>Transactions</span></div>
+              <div class="account-activity-item"><strong id="accSalesCount">0</strong><span>Sales</span></div>
+              <div class="account-activity-item"><strong id="accSwapsCount">0</strong><span>Swaps</span></div>
+            </div>
+          </div>
+
+          <div class="dashboard-card report-table-card">
+            <h3 class="order-report-section-title" style="text-align:left;">Account Timeline</h3>
+            <div class="report-helper-text">Chronological history of all account activities</div>
+            <div class="report-toolbar-lite">
+              <input type="text" id="accTimelineSearch" class="search-input" placeholder="Filter by description">
+              <button type="button" class="btn btn-secondary btn-sm">Select columns</button>
+            </div>
+            <div class="table-responsive">
+              <table class="customers-table report-table">
+                <thead>
+                  <tr>
+                    <th>Date &amp; Time</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Running Balance</th>
+                  </tr>
+                </thead>
+                <tbody id="accTimelineBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/avatar.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    let user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+    initAvatarFromApi(user);
+
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) { btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; }; };
+    })();
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) { e.preventDefault(); logout(); });
+    var headerLogoutBtn = document.getElementById('headerLogoutBtn');
+    if (headerLogoutBtn) {
+      headerLogoutBtn.addEventListener('click', function() { logout(); });
+    }
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      if (!profile || !menu) return;
+      profile.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('show'); });
+      document.addEventListener('click', function(e) { if (!profile.contains(e.target) && !menu.contains(e.target)) menu.classList.remove('show'); });
+    })();
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    function escapeHtml(s) {
+      if (s == null || s === '') return '-';
+      var d = document.createElement('div'); d.textContent = s; return d.innerHTML;
+    }
+    function formatDate(iso) {
+      if (!iso) return '-';
+      var s = String(iso).slice(0, 10);
+      return s ? new Date(s + 'T00:00:00').toLocaleDateString() : '-';
+    }
+    function formatDateTime(iso) {
+      if (!iso) return '-';
+      return new Date(iso.replace('T', ' ').slice(0, 19)).toLocaleString();
+    }
+
+    var reportOrdersApi = '/reports/orders';
+    var reportProductsApi = '/reports/products';
+    var reportTransactionsApi = '/reports/transactions';
+    var reportExchangeApi = '/reports/exchange';
+    var reportSwapsApi = '/reports/swaps';
+    var reportAccountsApi = '/reports/accounts';
+
+    function getReportSection() {
+      var p = window.location.pathname || '';
+      if (p.indexOf('/reports/products') === 0) return 'products';
+      if (p.indexOf('/reports/transactions') === 0) return 'transactions';
+      if (p.indexOf('/reports/exchange') === 0) return 'exchange';
+      if (p.indexOf('/reports/swaps') === 0) return 'swaps';
+      if (p.indexOf('/reports/accounts') === 0) return 'accounts';
+      return 'orders';
+    }
+
+    var inventoryItemsCache = [];
+    var productCategoriesCache = [];
+    var customersCache = [];
+    var txCategoriesCache = [];
+    var usersCache = [];
+    var banksCache = [];
+    var ordersFilterValues = {
+      category: '',
+      product: '',
+      customer_id: '',
+      date_range: 'all'
+    };
+
+    function yyyyMmDd(d) {
+      return d.toISOString().slice(0, 10);
+    }
+
+    function applyDateRangeToInputs(rangeValue, specificRange) {
+      var dateFromEl = document.getElementById('dateFrom');
+      var dateToEl = document.getElementById('dateTo');
+      var today = new Date();
+      var to = yyyyMmDd(today);
+      var from = '';
+      if (rangeValue === 'today') {
+        from = to;
+      } else if (rangeValue === 'yesterday') {
+        var yd = new Date(today);
+        yd.setDate(yd.getDate() - 1);
+        from = yyyyMmDd(yd);
+        to = from;
+      } else if (rangeValue === 'this_week') {
+        var wk = new Date(today);
+        wk.setDate(wk.getDate() - wk.getDay());
+        from = yyyyMmDd(wk);
+      } else if (rangeValue === '7d') {
+        var d7 = new Date(today);
+        d7.setDate(d7.getDate() - 6);
+        from = yyyyMmDd(d7);
+      } else if (rangeValue === '30d') {
+        var d30 = new Date(today);
+        d30.setDate(d30.getDate() - 29);
+        from = yyyyMmDd(d30);
+      } else if (rangeValue === 'this_month') {
+        var m = new Date(today.getFullYear(), today.getMonth(), 1);
+        from = yyyyMmDd(m);
+      } else if (rangeValue === 'this_year') {
+        var y = new Date(today.getFullYear(), 0, 1);
+        from = yyyyMmDd(y);
+      } else if (rangeValue === 'specific') {
+        from = (specificRange && specificRange.from) ? specificRange.from : '';
+        to = (specificRange && specificRange.to) ? specificRange.to : '';
+      }
+      dateFromEl.value = from;
+      dateToEl.value = rangeValue === 'all' ? '' : to;
+    }
+
+    function fillOrdersCategoryOptions() {
+      var categoryEl = document.getElementById('ordersCategory');
+      if (!categoryEl) return;
+      // Order report filters by Inventory.item_type (= product category slug). Previously we only
+      // listed item_types seen on inventory rows, so if all products were "khamis" the dropdown
+      // showed only khamis — categories added on /category-page were missing until used on a product.
+      var seen = {};
+      var pairs = [];
+      (productCategoriesCache || []).forEach(function(c) {
+        var key = (c.slug || '').trim();
+        if (!key || seen[key]) return;
+        seen[key] = true;
+        pairs.push({ value: key, label: (c.name || key) });
+      });
+      (inventoryItemsCache || []).forEach(function(it) {
+        var key = (it.item_type || '').trim();
+        if (!key || seen[key]) return;
+        seen[key] = true;
+        pairs.push({ value: key, label: key });
+      });
+      pairs.sort(function(a, b) {
+        return String(a.label).localeCompare(String(b.label), undefined, { sensitivity: 'base' });
+      });
+      var opts = ['<option value="">All Categories</option>'];
+      pairs.forEach(function(p) {
+        opts.push('<option value="' + escapeHtml(p.value) + '">' + escapeHtml(p.label) + '</option>');
+      });
+      categoryEl.innerHTML = opts.join('');
+      categoryEl.value = ordersFilterValues.category || '';
+    }
+
+    function fillOrdersProductOptions(categoryValue) {
+      var productEl = document.getElementById('ordersProduct');
+      if (!productEl) return;
+      var currentCategory = (categoryValue || '').trim();
+      var opts = ['<option value="">All Products</option>'];
+      inventoryItemsCache.forEach(function(it) {
+        if (currentCategory && (it.item_type || '') !== currentCategory) return;
+        var name = (it.name || '').trim();
+        if (!name) return;
+        opts.push('<option value="' + escapeHtml(name) + '">' + escapeHtml(name) + '</option>');
+      });
+      productEl.innerHTML = opts.join('');
+      productEl.value = ordersFilterValues.product || '';
+    }
+
+    function fillOrdersUserOptions() {
+      var userEl = document.getElementById('ordersUser');
+      if (!userEl) return;
+      var opts = ['<option value="">All customers</option>'];
+      customersCache.forEach(function(c) {
+        opts.push('<option value="' + String(c.id) + '">' + escapeHtml(c.full_name || ('Customer #' + c.id)) + '</option>');
+      });
+      userEl.innerHTML = opts.join('');
+      userEl.value = ordersFilterValues.customer_id || '';
+    }
+
+    function loadOrdersFilterSources() {
+      return Promise.all([
+        api('/inventory?per_page=500').then(function(r) { inventoryItemsCache = r.items || []; }).catch(function() { inventoryItemsCache = []; }),
+        api('/categories?per_page=500&sort=name&order=asc', { cache: 'no-store' }).then(function(r) { productCategoriesCache = r.items || []; }).catch(function() { productCategoriesCache = []; }),
+        api('/customers?per_page=500').then(function(r) { customersCache = r.items || []; }).catch(function() { customersCache = []; }),
+        api('/transaction-categories?per_page=500').then(function(r) { txCategoriesCache = r.items || []; }).catch(function() { txCategoriesCache = []; }),
+        api('/auth/users').then(function(r) { usersCache = r || []; }).catch(function() { usersCache = []; }),
+        api('/banks?per_page=500').then(function(r) { banksCache = r.items || []; }).catch(function() { banksCache = []; })
+      ]).then(function() {
+        fillOrdersCategoryOptions();
+        fillOrdersProductOptions(ordersFilterValues.category);
+        fillOrdersUserOptions();
+        fillProductReportOptions();
+        fillTransactionsFilterOptions();
+        fillAccountsFilterOptions();
+      });
+    }
+
+    function fillTransactionsFilterOptions() {
+      var catSel = document.getElementById('txCategory');
+      var userSel = document.getElementById('txUser');
+      if (catSel) {
+        catSel.innerHTML = '<option value="">All Categories</option>' + txCategoriesCache.map(function(c) {
+          return '<option value="' + escapeHtml(c.name || '') + '">' + escapeHtml(c.name || '') + '</option>';
+        }).join('');
+      }
+      if (userSel) {
+        userSel.innerHTML = '<option value="">All Users</option>' + usersCache.map(function(u) {
+          var name = u.full_name || u.username || ('User #' + u.id);
+          return '<option value="' + String(u.id) + '">' + escapeHtml(name) + '</option>';
+        }).join('');
+      }
+      var exUserSel = document.getElementById('exUser');
+      if (exUserSel) {
+        exUserSel.innerHTML = '<option value="">All Users</option>' + usersCache.map(function(u) {
+          var name = u.full_name || u.username || ('User #' + u.id);
+          return '<option value="' + String(u.id) + '">' + escapeHtml(name) + '</option>';
+        }).join('');
+      }
+      var swpUserSel = document.getElementById('swpUser');
+      if (swpUserSel) {
+        swpUserSel.innerHTML = '<option value="">All Users</option>' + usersCache.map(function(u) {
+          var name = u.full_name || u.username || ('User #' + u.id);
+          return '<option value="' + String(u.id) + '">' + escapeHtml(name) + '</option>';
+        }).join('');
+      }
+    }
+
+    function fillProductReportOptions() {
+      var sel = document.getElementById('productReportSelect');
+      if (!sel) return;
+      var opts = ['<option value="">Choose products...</option>'];
+      inventoryItemsCache.forEach(function(it) {
+        var nm = (it.name || '').trim();
+        if (!nm) return;
+        opts.push('<option value="' + escapeHtml(nm) + '">' + escapeHtml(nm) + '</option>');
+      });
+      sel.innerHTML = opts.join('');
+    }
+
+    function fillAccountsFilterOptions() {
+      var sel = document.getElementById('accAccount');
+      if (!sel) return;
+      var opts = ['<option value="">Choose account</option>'];
+      banksCache.forEach(function(b) {
+        var bal = Number(b.balance || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        var key = (b.account_number || b.name || '').trim();
+        if (!key) return;
+        opts.push('<option value="' + escapeHtml(key) + '">' + escapeHtml(key + ' (' + bal + ')') + '</option>');
+      });
+      sel.innerHTML = opts.join('');
+    }
+
+    function fmtKes(n) {
+      return (Number(n || 0)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' KES';
+    }
+    function fmtKesLead(n) {
+      return 'KES ' + (Number(n || 0)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function selectedText(selectId, fallback) {
+      var el = document.getElementById(selectId);
+      if (!el) return fallback || '-';
+      var opt = el.options[el.selectedIndex];
+      return (opt && opt.textContent ? opt.textContent : (fallback || '-'));
+    }
+
+    var soldRows = [];
+    var soldCurrentPage = 1;
+    var soldPerPage = 8;
+    var productRows = [];
+    var productCurrentPage = 1;
+    var productPerPage = 10;
+
+    function renderSoldProductsTable() {
+      var tbody = document.getElementById('soldProductsBody');
+      var pageInfo = document.getElementById('soldProductsPageInfo');
+      var prevBtn = document.getElementById('btnSoldPrev');
+      var nextBtn = document.getElementById('btnSoldNext');
+      if (!tbody) return;
+
+      var pages = Math.max(1, Math.ceil(soldRows.length / soldPerPage));
+      if (soldCurrentPage > pages) soldCurrentPage = pages;
+      var start = (soldCurrentPage - 1) * soldPerPage;
+      var pageRows = soldRows.slice(start, start + soldPerPage);
+      tbody.innerHTML = pageRows.length ? pageRows.map(function(r) {
+        return '<tr>' +
+          '<td>' + escapeHtml(r.name) + '</td>' +
+          '<td>' + fmtKes(r.productPrice) + '</td>' +
+          '<td>' + fmtKes(r.sellPrice) + '</td>' +
+          '<td>' + escapeHtml(String(r.qty)) + '</td>' +
+          '<td>' + fmtKes(r.profit) + '</td>' +
+          '<td>' + escapeHtml(r.saleDate || '-') + '</td>' +
+          '</tr>';
+      }).join('') : '<tr><td colspan="6" class="report-empty">No sold products</td></tr>';
+
+      if (pageInfo) pageInfo.textContent = 'Page ' + soldCurrentPage + ' of ' + pages;
+      if (prevBtn) prevBtn.disabled = soldCurrentPage <= 1;
+      if (nextBtn) nextBtn.disabled = soldCurrentPage >= pages;
+    }
+
+    function renderProductReportTable() {
+      var tbody = document.getElementById('productReportBody');
+      var pageInfo = document.getElementById('productReportPageInfo');
+      var prevBtn = document.getElementById('btnProductPrev');
+      var nextBtn = document.getElementById('btnProductNext');
+      if (!tbody) return;
+      var pages = Math.max(1, Math.ceil(productRows.length / productPerPage));
+      if (productCurrentPage > pages) productCurrentPage = pages;
+      var start = (productCurrentPage - 1) * productPerPage;
+      var pageRows = productRows.slice(start, start + productPerPage);
+      tbody.innerHTML = pageRows.length ? pageRows.map(function(r) {
+        return '<tr>' +
+          '<td>' + escapeHtml(r.name) + '</td>' +
+          '<td>' + fmtKes(r.productPrice) + '</td>' +
+          '<td>' + escapeHtml(String(r.totalQty)) + '</td>' +
+          '<td>' + escapeHtml(String(r.qtySold)) + '</td>' +
+          '<td>' + escapeHtml(String(r.remainingQty)) + '</td>' +
+          '<td>' + fmtKes(r.totalProductValue) + '</td>' +
+          '<td>' + fmtKes(r.totalSales) + '</td>' +
+          '<td>' + fmtKes(r.unsoldValue) + '</td>' +
+          '<td>' + fmtKes(r.profit) + '</td>' +
+          '</tr>';
+      }).join('') : '<tr><td colspan="9" class="report-empty">No data</td></tr>';
+      if (pageInfo) pageInfo.textContent = 'Page ' + productCurrentPage + ' of ' + pages;
+      if (prevBtn) prevBtn.disabled = productCurrentPage <= 1;
+      if (nextBtn) nextBtn.disabled = productCurrentPage >= pages;
+    }
+
+    var currentPage = 1;
+    function loadReport() {
+      if (getReportSection() === 'products') {
+        return loadProductReport();
+      }
+      if (getReportSection() === 'transactions') {
+        return loadTransactionsReport();
+      }
+      if (getReportSection() === 'exchange') {
+        return loadExchangeReport();
+      }
+      if (getReportSection() === 'swaps') {
+        return loadSwapsReport();
+      }
+      if (getReportSection() === 'accounts') {
+        return loadAccountsReport();
+      }
+      var panel = document.getElementById('orderReportSummaryPanel');
+      var earningsBody = document.getElementById('earningsSummaryBody');
+      if (!panel || !earningsBody) return;
+      var dateFrom = document.getElementById('dateFrom').value;
+      var dateTo = document.getElementById('dateTo').value;
+      var params = ['page=1', 'per_page=500'];
+      if (dateFrom) params.push('date_from=' + dateFrom);
+      if (dateTo) params.push('date_to=' + dateTo);
+      if (ordersFilterValues.category) params.push('category=' + encodeURIComponent(ordersFilterValues.category));
+      if (ordersFilterValues.product) params.push('product=' + encodeURIComponent(ordersFilterValues.product));
+      if (ordersFilterValues.customer_id) params.push('customer_id=' + encodeURIComponent(ordersFilterValues.customer_id));
+      panel.style.display = '';
+      earningsBody.innerHTML = '<tr><td colspan="2" class="report-loading">Loading...</td></tr>';
+      api(reportOrdersApi + '?' + params.join('&')).then(function(res) {
+        var items = res.items || [];
+
+        // Matches Order model: advance_paid and total_price (no per-order cash/mPesa split in API yet).
+        var totalAdvance = items.reduce(function(sum, o) { return sum + Number(o.advance_paid || 0); }, 0);
+        var totalOrderValue = items.reduce(function(sum, o) { return sum + Number(o.total_price || 0); }, 0);
+        var totalMpesa = 0;
+        var netAdvanceVsValue = totalAdvance - totalOrderValue;
+
+        var elCash = document.getElementById('statTotalCash');
+        var elMpesa = document.getElementById('statTotalMpesa');
+        var elOrders = document.getElementById('statTotalOrders');
+        var elProfit = document.getElementById('statProfit');
+        if (elCash) elCash.textContent = fmtKes(totalAdvance);
+        if (elMpesa) elMpesa.textContent = fmtKes(totalMpesa);
+        if (elOrders) elOrders.textContent = fmtKes(totalOrderValue);
+        if (elProfit) elProfit.textContent = fmtKes(netAdvanceVsValue);
+
+        var allTime = !dateFrom && !dateTo && (ordersFilterValues.date_range === 'all' || !ordersFilterValues.date_range);
+        var fromLabel = dateFrom || (allTime ? 'All time' : 'Not set');
+        var toLabel = dateTo || (allTime ? 'All time' : 'Not set');
+        earningsBody.innerHTML =
+          '<tr><td>From Date</td><td>' + escapeHtml(fromLabel) + '</td></tr>' +
+          '<tr><td>To Date</td><td>' + escapeHtml(toLabel) + '</td></tr>' +
+          '<tr><td>Orders in report</td><td>' + escapeHtml(String(items.length)) + '</td></tr>' +
+          '<tr><td>Total advance paid</td><td>' + fmtKes(totalAdvance) + '</td></tr>' +
+          '<tr><td>mPesa (orders)</td><td>' + fmtKes(totalMpesa) + ' <span style="font-size:12px;color:var(--text-muted,#6b7280);">(not split in API)</span></td></tr>' +
+          '<tr><td>Total order value</td><td>' + fmtKes(totalOrderValue) + '</td></tr>' +
+          '<tr><td>Net (advance − order value)</td><td>' + fmtKes(netAdvanceVsValue) + '</td></tr>' +
+          '<tr><td>Selected customer</td><td>' + escapeHtml(selectedText('ordersUser', 'All customers')) + '</td></tr>' +
+          '<tr><td>Selected category</td><td>' + escapeHtml(selectedText('ordersCategory', 'All Categories')) + '</td></tr>' +
+          '<tr><td>Selected product</td><td>' + escapeHtml(selectedText('ordersProduct', 'All Products')) + '</td></tr>';
+
+        var byProduct = {};
+        items.forEach(function(o) {
+          var key = (o.clothing_type || 'Unknown').trim() || 'Unknown';
+          if (!byProduct[key]) {
+            byProduct[key] = { name: key, qty: 0, productPrice: 0, sellPrice: 0, profit: 0, saleDate: '' };
+          }
+          byProduct[key].qty += 1;
+          byProduct[key].sellPrice += Number(o.total_price || 0);
+          byProduct[key].productPrice += Number(o.advance_paid || 0);
+          byProduct[key].profit += Number(o.advance_paid || 0) - Number(o.total_price || 0);
+          byProduct[key].saleDate = formatDate(o.created_at);
+        });
+        soldRows = Object.keys(byProduct).map(function(k) {
+          var r = byProduct[k];
+          return {
+            name: r.name,
+            qty: r.qty,
+            productPrice: r.qty ? (r.productPrice / r.qty) : 0,
+            sellPrice: r.qty ? (r.sellPrice / r.qty) : 0,
+            profit: r.profit,
+            saleDate: r.saleDate
+          };
+        });
+        soldCurrentPage = 1;
+        renderSoldProductsTable();
+      }).catch(function(err) {
+        earningsBody.innerHTML = '<tr><td colspan="2" class="report-error">' + escapeHtml(err.message || 'Failed to load') + '</td></tr>';
+        soldRows = [];
+        renderSoldProductsTable();
+      });
+    }
+
+    function loadTransactionsReport() {
+      var panel = document.getElementById('transactionsReportPanel');
+      var tbody = document.getElementById('transactionsReportBody');
+      if (!panel) return;
+      var range = (document.getElementById('txDateRange').value || 'all');
+      var cat = (document.getElementById('txCategory').value || '').trim();
+      var uid = (document.getElementById('txUser').value || '').trim();
+      var accountType = (document.getElementById('txAccountType').value || '').trim();
+      applyDateRangeToInputs(range);
+      var dateFrom = document.getElementById('dateFrom').value;
+      var dateTo = document.getElementById('dateTo').value;
+      var params = ['page=1', 'per_page=300'];
+      if (dateFrom) params.push('date_from=' + dateFrom);
+      if (dateTo) params.push('date_to=' + dateTo);
+      if (cat) params.push('category=' + encodeURIComponent(cat));
+      if (uid) params.push('created_by=' + encodeURIComponent(uid));
+      if (accountType === 'credit') params.push('transaction_type=in');
+      if (accountType === 'debit') params.push('transaction_type=out');
+      panel.style.display = '';
+      if (tbody) tbody.innerHTML = '<tr><td colspan="7" class="report-loading">Loading...</td></tr>';
+      api(reportTransactionsApi + '?' + params.join('&')).then(function(res) {
+        var items = res.items || [];
+        var totalCredit = 0;
+        var totalDebit = 0;
+        var totalCash = 0;
+        var totalDigital = 0;
+        items.forEach(function(t) {
+          var amt = Number(t.amount || 0);
+          var tt = (t.transaction_type || '').toLowerCase();
+          var mm = (t.method || '').toLowerCase();
+          if (tt === 'in' || tt === 'credit') totalCredit += amt;
+          if (tt === 'out' || tt === 'debit') totalDebit += amt;
+          if (mm === 'cash') totalCash += amt;
+          if (mm === 'digital' || mm === 'mpesa' || mm === 'mobile_money' || mm === 'bank') totalDigital += amt;
+        });
+        var totalAmount = totalCredit - totalDebit;
+        var elCredit = document.getElementById('txTotalCredit');
+        var elDebit = document.getElementById('txTotalDebit');
+        var elCash = document.getElementById('txTotalCash');
+        var elDigital = document.getElementById('txTotalDigital');
+        var elAmount = document.getElementById('txTotalAmount');
+        var elCount = document.getElementById('txCount');
+        if (elCredit) elCredit.textContent = fmtKesLead(totalCredit);
+        if (elDebit) elDebit.textContent = fmtKesLead(totalDebit);
+        if (elCash) elCash.textContent = fmtKesLead(totalCash);
+        if (elDigital) elDigital.textContent = fmtKesLead(totalDigital);
+        if (elAmount) elAmount.textContent = fmtKesLead(totalAmount);
+        if (elCount) elCount.textContent = String(items.length);
+        if (!tbody) return;
+        tbody.innerHTML = items.length ? items.map(function(t) {
+          var u = usersCache.find(function(x) { return Number(x.id) === Number(t.created_by); }) || {};
+          var uname = u.full_name || u.username || '-';
+          return '<tr>' +
+            '<td>' + escapeHtml(formatDateTime(t.transaction_date || t.created_at)) + '</td>' +
+            '<td>' + escapeHtml(t.category || '-') + '</td>' +
+            '<td>' + escapeHtml(uname) + '</td>' +
+            '<td>' + escapeHtml((t.method || '-').toUpperCase()) + '</td>' +
+            '<td>' + escapeHtml(t.transaction_type || '-') + '</td>' +
+            '<td>' + fmtKes(t.amount || 0) + '</td>' +
+            '<td>' + escapeHtml((t.details || '').slice(0, 80) || '-') + '</td>' +
+            '</tr>';
+          }).join('') : '<tr><td colspan="7" class="report-empty">No data</td></tr>';
+      }).catch(function(err) {
+        if (tbody) tbody.innerHTML = '<tr><td colspan="7" class="report-error">' + escapeHtml(err.message || 'Failed to load') + '</td></tr>';
+      });
+    }
+
+    function loadProductReport() {
+      var panel = document.getElementById('productReportSummaryPanel');
+      var tbody = document.getElementById('productReportBody');
+      if (!panel || !tbody) return;
+      var selectedProduct = (document.getElementById('productReportSelect').value || '').trim();
+      panel.style.display = '';
+      tbody.innerHTML = '<tr><td colspan="9" class="report-loading">Loading...</td></tr>';
+
+      api(reportProductsApi + '?per_page=500').then(function(res) {
+        var items = res.items || [];
+        if (selectedProduct) {
+          items = items.filter(function(i) { return (i.name || '') === selectedProduct; });
+        }
+        productRows = items.map(function(i) {
+          var totalQty = Number(i.quantity || 0);
+          var productPrice = 0;
+          var qtySold = 0;
+          var remainingQty = totalQty - qtySold;
+          var totalProductValue = productPrice * totalQty;
+          var totalSales = productPrice * qtySold;
+          var unsoldValue = productPrice * remainingQty;
+          var profit = totalSales - totalProductValue;
+          return {
+            name: i.name || '-',
+            productPrice: productPrice,
+            totalQty: totalQty,
+            qtySold: qtySold,
+            remainingQty: remainingQty,
+            totalProductValue: totalProductValue,
+            totalSales: totalSales,
+            unsoldValue: unsoldValue,
+            profit: profit
+          };
+        });
+
+        var totalProductValue = productRows.reduce(function(s, r) { return s + r.totalProductValue; }, 0);
+        var totalSales = productRows.reduce(function(s, r) { return s + r.totalSales; }, 0);
+        var totalUnsold = productRows.reduce(function(s, r) { return s + r.unsoldValue; }, 0);
+        var totalProfit = productRows.reduce(function(s, r) { return s + r.profit; }, 0);
+        var el1 = document.getElementById('prdTotalProductValue');
+        var el2 = document.getElementById('prdTotalSales');
+        var el3 = document.getElementById('prdTotalUnsold');
+        var el4 = document.getElementById('prdTotalProfit');
+        if (el1) el1.textContent = fmtKes(totalProductValue);
+        if (el2) el2.textContent = fmtKes(totalSales);
+        if (el3) el3.textContent = fmtKes(totalUnsold);
+        if (el4) el4.textContent = fmtKes(totalProfit);
+        productCurrentPage = 1;
+        renderProductReportTable();
+      }).catch(function(err) {
+        tbody.innerHTML = '<tr><td colspan="9" class="report-error">' + escapeHtml(err.message || 'Failed to load') + '</td></tr>';
+      });
+    }
+
+    function loadExchangeReport() {
+      var panel = document.getElementById('exchangeReportPanel');
+      if (!panel) return;
+      var exType = (document.getElementById('exType').value || '').trim();
+      var exUser = (document.getElementById('exUser').value || '').trim();
+      var range = (document.getElementById('exDateRange').value || 'all');
+      var specific = {
+        from: (document.getElementById('exDateFrom') && document.getElementById('exDateFrom').value) ? document.getElementById('exDateFrom').value : '',
+        to: (document.getElementById('exDateTo') && document.getElementById('exDateTo').value) ? document.getElementById('exDateTo').value : ''
+      };
+      applyDateRangeToInputs(range, specific);
+      var dateFrom = document.getElementById('dateFrom').value;
+      var dateTo = document.getElementById('dateTo').value;
+      var params = ['page=1', 'per_page=200'];
+      if (dateFrom) params.push('date_from=' + dateFrom);
+      if (dateTo) params.push('date_to=' + dateTo);
+      if (exType) params.push('exchange_type=' + encodeURIComponent(exType));
+      if (exUser) params.push('created_by=' + encodeURIComponent(exUser));
+      panel.style.display = '';
+      return api(reportExchangeApi + '?' + params.join('&')).then(function(res) {
+        var items = res.items || [];
+        var totalDeposits = 0;
+        var totalWithdrawals = 0;
+        var totalDepositAmount = 0;
+        var totalWithdrawalAmount = 0;
+        items.forEach(function(s) {
+          var details = String(s.details || '').toLowerCase();
+          var amt = Number(s.to_cash_amount || 0) + Number(s.to_digital_amount || 0);
+          if (details.indexOf('deposit') !== -1) {
+            totalDeposits += 1;
+            totalDepositAmount += amt;
+          } else if (details.indexOf('withdraw') !== -1) {
+            totalWithdrawals += 1;
+            totalWithdrawalAmount += amt;
+          }
+        });
+        var elD = document.getElementById('exTotalDeposits');
+        var elDA = document.getElementById('exTotalDepositAmount');
+        var elW = document.getElementById('exTotalWithdrawals');
+        var elWA = document.getElementById('exTotalWithdrawalAmount');
+        if (elD) elD.textContent = String(totalDeposits);
+        if (elDA) elDA.textContent = fmtKesLead(totalDepositAmount);
+        if (elW) elW.textContent = String(totalWithdrawals);
+        if (elWA) elWA.textContent = fmtKesLead(totalWithdrawalAmount);
+      }).catch(function() {});
+    }
+
+    function loadSwapsReport() {
+      var swpUser = (document.getElementById('swpUser').value || '').trim();
+      var range = (document.getElementById('swpDateRange').value || 'all');
+      var specific = {
+        from: (document.getElementById('swpDateFrom') && document.getElementById('swpDateFrom').value) ? document.getElementById('swpDateFrom').value : '',
+        to: (document.getElementById('swpDateTo') && document.getElementById('swpDateTo').value) ? document.getElementById('swpDateTo').value : ''
+      };
+      applyDateRangeToInputs(range, specific);
+      var dateFrom = document.getElementById('dateFrom').value;
+      var dateTo = document.getElementById('dateTo').value;
+      var params = ['page=1', 'per_page=200'];
+      if (dateFrom) params.push('date_from=' + dateFrom);
+      if (dateTo) params.push('date_to=' + dateTo);
+      if (swpUser) params.push('created_by=' + encodeURIComponent(swpUser));
+      return api(reportSwapsApi + '?' + params.join('&')).catch(function() {});
+    }
+
+    function loadAccountsReport() {
+      var panel = document.getElementById('accountsReportPanel');
+      if (!panel) return;
+      var account = (document.getElementById('accAccount').value || '').trim();
+      var from = (document.getElementById('accFromDate').value || '').trim();
+      var to = (document.getElementById('accToDate').value || '').trim();
+      var params = ['page=1', 'per_page=200'];
+      if (account) params.push('search=' + encodeURIComponent(account));
+      if (from) params.push('date_from=' + encodeURIComponent(from));
+      if (to) params.push('date_to=' + encodeURIComponent(to));
+      panel.style.display = '';
+      var timelineBody = document.getElementById('accTimelineBody');
+      if (timelineBody) timelineBody.innerHTML = '<tr><td colspan="5" class="report-loading">Loading...</td></tr>';
+      var txParams = ['page=1','per_page=500'];
+      if (from) txParams.push('date_from=' + encodeURIComponent(from));
+      if (to) txParams.push('date_to=' + encodeURIComponent(to));
+      if (account) txParams.push('search=' + encodeURIComponent(account));
+      var swpParams = ['page=1','per_page=300'];
+      if (from) swpParams.push('date_from=' + encodeURIComponent(from));
+      if (to) swpParams.push('date_to=' + encodeURIComponent(to));
+      if (account) swpParams.push('search=' + encodeURIComponent(account));
+      return Promise.all([
+        api(reportAccountsApi + '?' + params.join('&')).catch(function(){ return {items:[]}; }),
+        api(reportTransactionsApi + '?' + txParams.join('&')).catch(function(){ return {items:[]}; }),
+        api(reportSwapsApi + '?' + swpParams.join('&')).catch(function(){ return {items:[]}; })
+      ]).then(function(all) {
+        var accRes = all[0] || {items:[]};
+        var txRes = all[1] || {items:[]};
+        var swpRes = all[2] || {items:[]};
+        var accountItem = (accRes.items || [])[0] || null;
+        var finalBalance = Number(accountItem && accountItem.balance || 0);
+        var txItems = txRes.items || [];
+        var swpItems = swpRes.items || [];
+
+        var moneyIn = 0, moneyOut = 0, salesCount = 0;
+        txItems.forEach(function(t){
+          var amt = Number(t.amount || 0);
+          var tt = (t.transaction_type || '').toLowerCase();
+          if (tt === 'in' || tt === 'credit') moneyIn += amt;
+          if (tt === 'out' || tt === 'debit') moneyOut += amt;
+          if (String(t.category || '').toLowerCase().indexOf('sale') !== -1) salesCount += 1;
+        });
+        var balanceChange = moneyIn - moneyOut;
+        var startingBalance = finalBalance - balanceChange;
+
+        var accLabel = account || (accountItem ? (accountItem.account_number || accountItem.name || '-') : '-');
+        var setTxt = function(id, v){ var e=document.getElementById(id); if(e) e.textContent=v; };
+        setTxt('accCardAccount', accLabel || '-');
+        setTxt('accCardCurrentBalance', 'Current Balance: ' + fmtKes(finalBalance));
+        setTxt('accCardBalanceChange', (balanceChange < 0 ? '-' : '+') + fmtKes(Math.abs(balanceChange)));
+        setTxt('accCardRange', (from || '-') + ' to ' + (to || '-'));
+        setTxt('accCardStartingBalance', fmtKes(startingBalance));
+        setTxt('accCardStartDate', from ? ('As of ' + from) : 'As of start');
+        setTxt('accCardFinalBalance', fmtKes(finalBalance));
+        setTxt('accCardEndDate', to ? ('As of ' + to) : 'As of now');
+        setTxt('accMoneyIn', '+' + Number(moneyIn || 0).toFixed(2));
+        setTxt('accMoneyOut', '-' + Number(moneyOut || 0).toFixed(2));
+        setTxt('accTxCount', String(txItems.length));
+        setTxt('accSalesCount', String(salesCount));
+        setTxt('accSwapsCount', String(swpItems.length));
+
+        var rows = [];
+        rows.push({dt: from ? (from + 'T00:00:00') : (new Date().toISOString()), type:'Initial Balance', desc:'Starting Balance', amount:0, delta:0});
+        txItems.forEach(function(t){
+          var tt = (t.transaction_type || '').toLowerCase();
+          var sign = (tt === 'out' || tt === 'debit') ? -1 : 1;
+          rows.push({
+            dt: t.transaction_date || t.created_at || new Date().toISOString(),
+            type: sign < 0 ? 'Transaction Out' : 'Transaction In',
+            desc: (t.details || t.category || 'Transaction'),
+            amount: sign * Number(t.amount || 0),
+            delta: sign * Number(t.amount || 0)
+          });
+        });
+        swpItems.forEach(function(s){
+          var amt = Number(s.to_cash_amount || 0) + Number(s.to_digital_amount || 0);
+          rows.push({
+            dt: s.created_at || new Date().toISOString(),
+            type: 'Swap',
+            desc: (s.details || ((s.from_account || '-') + ' to ' + (s.to_account || '-'))),
+            amount: amt,
+            delta: 0
+          });
+        });
+        rows.sort(function(a,b){ return new Date(a.dt) - new Date(b.dt); });
+        var running = startingBalance;
+        rows = rows.map(function(r){
+          running += Number(r.delta || 0);
+          r.running = running;
+          return r;
+        });
+        if (timelineBody) {
+          timelineBody.innerHTML = rows.map(function(r){
+            var badge = r.type === 'Initial Balance' ? '<span class="badge">Initial Balance</span>' : (r.type.indexOf('Out') !== -1 ? '<span class="badge badge-cancelled">Transaction Out</span>' : '<span class="badge badge-completed">' + escapeHtml(r.type) + '</span>');
+            var amtCls = Number(r.amount) < 0 ? 'style="color:#dc2626"' : '';
+            return '<tr>' +
+              '<td>' + escapeHtml(formatDateTime(r.dt)) + '</td>' +
+              '<td>' + badge + '</td>' +
+              '<td>' + escapeHtml(r.desc || '-') + '</td>' +
+              '<td ' + amtCls + '>' + escapeHtml((Number(r.amount) < 0 ? '-' : '') + Number(Math.abs(r.amount)).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})) + '</td>' +
+              '<td>' + escapeHtml(Number(r.running || 0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})) + '</td>' +
+              '</tr>';
+          }).join('');
+        }
+      }).catch(function(){
+        if (timelineBody) timelineBody.innerHTML = '<tr><td colspan="5" class="report-error">Failed to load</td></tr>';
+      });
+    }
+
+    var btnSoldPrev = document.getElementById('btnSoldPrev');
+    var btnSoldNext = document.getElementById('btnSoldNext');
+    var btnProductPrev = document.getElementById('btnProductPrev');
+    var btnProductNext = document.getElementById('btnProductNext');
+    if (btnSoldPrev) btnSoldPrev.onclick = function() { soldCurrentPage = Math.max(1, soldCurrentPage - 1); renderSoldProductsTable(); };
+    if (btnSoldNext) btnSoldNext.onclick = function() { soldCurrentPage += 1; renderSoldProductsTable(); };
+    if (btnProductPrev) btnProductPrev.onclick = function() { productCurrentPage = Math.max(1, productCurrentPage - 1); renderProductReportTable(); };
+    if (btnProductNext) btnProductNext.onclick = function() { productCurrentPage += 1; renderProductReportTable(); };
+
+    var ordersCategoryEl = document.getElementById('ordersCategory');
+    var ordersProductEl = document.getElementById('ordersProduct');
+    var ordersUserEl = document.getElementById('ordersUser');
+    var ordersDateRangeEl = document.getElementById('ordersDateRange');
+    var btnApplyOrdersFiltersEl = document.getElementById('btnApplyOrdersFilters');
+    var btnApplyProductFiltersEl = document.getElementById('btnApplyProductFilters');
+    var btnApplyTxFiltersEl = document.getElementById('btnApplyTxFilters');
+    var btnApplyExchangeFiltersEl = document.getElementById('btnApplyExchangeFilters');
+    var btnApplySwapsFiltersEl = document.getElementById('btnApplySwapsFilters');
+    var btnGenerateAccountReportEl = document.getElementById('btnGenerateAccountReport');
+    var exDateRangeEl = document.getElementById('exDateRange');
+    var swpDateRangeEl = document.getElementById('swpDateRange');
+    if (ordersCategoryEl) {
+      ordersCategoryEl.addEventListener('change', function() {
+        ordersFilterValues.category = this.value || '';
+        ordersFilterValues.product = '';
+        fillOrdersProductOptions(ordersFilterValues.category);
+      });
+    }
+    if (ordersProductEl) {
+      ordersProductEl.addEventListener('change', function() {
+        ordersFilterValues.product = this.value || '';
+      });
+    }
+    if (ordersUserEl) {
+      ordersUserEl.addEventListener('change', function() {
+        ordersFilterValues.customer_id = this.value || '';
+      });
+    }
+    if (ordersDateRangeEl) {
+      ordersDateRangeEl.addEventListener('change', function() {
+        ordersFilterValues.date_range = this.value || 'all';
+      });
+    }
+    if (btnApplyOrdersFiltersEl) {
+      btnApplyOrdersFiltersEl.addEventListener('click', function() {
+        ordersFilterValues.date_range = ordersDateRangeEl ? (ordersDateRangeEl.value || 'all') : 'all';
+        applyDateRangeToInputs(ordersFilterValues.date_range);
+      currentPage = 1;
+      loadReport();
+      });
+    }
+    if (btnApplyProductFiltersEl) {
+      btnApplyProductFiltersEl.addEventListener('click', function() {
+        loadProductReport();
+      });
+    }
+    if (btnApplyTxFiltersEl) {
+      btnApplyTxFiltersEl.addEventListener('click', function() {
+        loadTransactionsReport();
+      });
+    }
+    if (btnApplyExchangeFiltersEl) {
+      btnApplyExchangeFiltersEl.addEventListener('click', function() {
+        loadExchangeReport();
+      });
+    }
+    if (btnApplySwapsFiltersEl) {
+      btnApplySwapsFiltersEl.addEventListener('click', function() {
+        loadSwapsReport();
+      });
+    }
+    if (btnGenerateAccountReportEl) {
+      btnGenerateAccountReportEl.addEventListener('click', function() {
+        loadAccountsReport();
+      });
+    }
+    if (exDateRangeEl) {
+      exDateRangeEl.addEventListener('change', function() {
+        var wrap = document.getElementById('exSpecificDateWrap');
+        if (wrap) wrap.style.display = this.value === 'specific' ? '' : 'none';
+      });
+    }
+    if (swpDateRangeEl) {
+      swpDateRangeEl.addEventListener('change', function() {
+        var wrap = document.getElementById('swpSpecificDateWrap');
+        if (wrap) wrap.style.display = this.value === 'specific' ? '' : 'none';
+      });
+    }
+
+    function initSection() {
+      var section = getReportSection();
+      var pageTitle = document.querySelector('.swaps-page-title');
+      var ordersFilterCard = document.getElementById('ordersFilterCard');
+      var productsFilterCard = document.getElementById('productsFilterCard');
+      var transactionsFilterCard = document.getElementById('transactionsFilterCard');
+      var exchangeFilterCard = document.getElementById('exchangeFilterCard');
+      var swapsFilterCard = document.getElementById('swapsFilterCard');
+      var accountsFilterCard = document.getElementById('accountsFilterCard');
+      var summaryPanel = document.getElementById('orderReportSummaryPanel');
+      var productPanel = document.getElementById('productReportSummaryPanel');
+      var txPanel = document.getElementById('transactionsReportPanel');
+      var exPanel = document.getElementById('exchangeReportPanel');
+      var accPanel = document.getElementById('accountsReportPanel');
+      if (pageTitle) pageTitle.textContent = section === 'products' ? 'Product Report' : (section === 'transactions' ? 'Transactions Report' : (section === 'exchange' ? 'Exchanges Report' : (section === 'swaps' ? 'Swap Report' : (section === 'accounts' ? 'Account History Report' : 'Order Report'))));
+      if (ordersFilterCard) ordersFilterCard.style.display = section === 'orders' ? '' : 'none';
+      if (productsFilterCard) productsFilterCard.style.display = section === 'products' ? '' : 'none';
+      if (transactionsFilterCard) transactionsFilterCard.style.display = section === 'transactions' ? '' : 'none';
+      if (exchangeFilterCard) exchangeFilterCard.style.display = section === 'exchange' ? '' : 'none';
+      if (swapsFilterCard) swapsFilterCard.style.display = section === 'swaps' ? '' : 'none';
+      if (accountsFilterCard) accountsFilterCard.style.display = section === 'accounts' ? '' : 'none';
+      if (summaryPanel) summaryPanel.style.display = 'none';
+      if (productPanel) productPanel.style.display = 'none';
+      if (txPanel) txPanel.style.display = 'none';
+      if (exPanel) exPanel.style.display = 'none';
+      if (accPanel) accPanel.style.display = 'none';
+      if (ordersDateRangeEl) ordersDateRangeEl.value = ordersFilterValues.date_range || 'all';
+      applyDateRangeToInputs(ordersFilterValues.date_range || 'all');
+      currentPage = 1;
+      loadOrdersFilterSources().then(function() {
+        // Wait for explicit "Apply Filters" click before showing report
+      });
+    }
+
+    initSection();
+    window.addEventListener('popstate', initSection);
+  </script>
+</body>
+</html>
+
+
+

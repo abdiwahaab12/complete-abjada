@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('tailor_theme') || 'dark');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - Abjad tailor management system</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+  <style>
+    .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+    .login-box { width: 100%; max-width: 520px; background: #f4f6fb; border: 1px solid #dfe5ef; border-radius: 14px; padding: 1.35rem; box-shadow: 0 10px 24px rgba(0,0,0,0.10); }
+    .login-brand { text-align: center; margin-bottom: 1.5rem; }
+    .login-brand-img { display: block; margin: 0 auto 0.6rem; width: 62px; height: 62px; object-fit: contain; border-radius: 10px; }
+    .login-brand-title { margin: 0; font-size: 1.55rem; font-weight: 800; letter-spacing: 0.02em; line-height: 1.1; color: #0f2345; text-transform: uppercase; }
+    .login-brand-tagline { margin: 0.45rem 0 0; font-size: 1rem; font-weight: 500; color: #51657f; }
+    .login-field { margin-bottom: 1rem; }
+    .login-field input { width: 100%; border: 1px solid #c8d2e2; border-radius: 10px; padding: 0.72rem 0.9rem; font-size: 0.95rem; background: #d7deec; }
+    .login-password-wrap { position: relative; }
+    .login-eye { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #1f2d44; font-size: 1.2rem; user-select: none; border: none; background: transparent; padding: 4px 8px; border-radius: 8px; line-height: 1; }
+    .login-eye:hover { background: rgba(0,0,0,0.06); }
+    .login-remember { display: flex; align-items: center; gap: 8px; margin: 0.35rem 0 0.9rem; color: #394a64; font-size: 0.92rem; }
+    .login-remember input { width: 16px; height: 16px; margin: 0; flex: 0 0 auto; }
+    .login-box .btn { width: 100%; justify-content: center; padding: 0.66rem; font-size: 0.95rem; border-radius: 10px; }
+    .login-forgot { margin-top: 0.75rem; font-size: 0.92rem; }
+    .login-forgot a { color: #334766; text-decoration: none; }
+    .login-forgot a:hover { text-decoration: underline; }
+    .login-err { color: var(--danger); font-size: 1rem; margin-bottom: 0.5rem; }
+    .theme-toggle-login { position: fixed; top: 1rem; right: 1rem; }
+  </style>
+</head>
+<body>
+  <button type="button" class="btn btn-secondary theme-toggle-login" id="themeToggle" title="Toggle light/dark mode" aria-label="Theme">🌙</button>
+  <div class="login-wrap">
+    <div class="login-box">
+      <div class="login-brand">
+        <img src="/static/img/abjad-logo.png" alt="Abjad" class="login-brand-img">
+        <h1 class="login-brand-title">ABJAD</h1>
+        <p class="login-brand-tagline">tailor management system</p>
+      </div>
+      <form id="loginForm" method="post" action="#" novalidate>
+        <div class="login-field">
+          <label for="email" style="display:block;margin-bottom:0.35rem;font-size:0.9rem;font-weight:600;color:#394a64;">Email or username</label>
+          <input type="text" id="email" name="email" required autocomplete="username" placeholder="you@example.com or admin" inputmode="email" spellcheck="false">
+        </div>
+        <div class="login-field login-password-wrap">
+          <label for="password" style="display:block;margin-bottom:0.35rem;font-size:0.9rem;font-weight:600;color:#394a64;">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="Your password" spellcheck="false">
+          <button type="button" class="login-eye" id="togglePassword" aria-label="Show password" title="Show or hide password">👁</button>
+        </div>
+        <label class="login-remember"><input type="checkbox" id="rememberMe"> Keep me logged in</label>
+        <div id="loginErr" class="login-err hidden"></div>
+        <button type="submit" class="btn">Log in</button>
+        <div class="login-forgot"><a href="#">Forgot Password?</a></div>
+      </form>
+    </div>
+  </div>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script>
+    if (getToken()) { window.location.href = '/dashboard'; }
+    document.getElementById('themeToggle').onclick = () => { toggleTheme(); updateThemeButton(document.getElementById('themeToggle')); };
+    initTheme();
+    updateThemeButton(document.getElementById('themeToggle'));
+    document.getElementById('togglePassword').onclick = () => {
+      const p = document.getElementById('password');
+      p.type = p.type === 'password' ? 'text' : 'password';
+    };
+
+    document.getElementById('loginForm').onsubmit = async (e) => {
+      e.preventDefault();
+      const errEl = document.getElementById('loginErr');
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      
+      errEl.classList.add('hidden');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Signing in...';
+      
+      try {
+        const email = document.getElementById('email').value.trim().toLowerCase();
+        const password = document.getElementById('password').value;
+        
+        if (!email || !password) {
+          throw new Error('Please enter both email and password');
+        }
+        
+        const res = await api('/auth/login', {
+          method: 'POST',
+          body: JSON.stringify({ email, password })
+        });
+        
+        if (res.access_token && res.user) {
+          setToken(res.access_token);
+          setUser(res.user);
+          submitBtn.textContent = 'Success! Redirecting...';
+          setTimeout(() => {
+            window.location.href = '/dashboard';
+          }, 500);
+        } else {
+          throw new Error('Invalid response from server');
+        }
+      } catch (e) {
+        errEl.textContent = e.message || 'Invalid email or password. Please try again.';
+        errEl.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    };
+  </script>
+</body>
+</html>

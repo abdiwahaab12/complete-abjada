@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transactions - Tailor Shop</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+<aside class="sidebar sidebar-modern" aria-label="Main navigation">
+  <div class="sidebar-modern-brand">Abjad Super style tailor</div>
+
+  <nav class="sidebar-modern-inner">
+    <div class="sidebar-modern-scroll">
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">DISCOVER</h2>
+        <a href="/dashboard" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Dashboard</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">INVENTORY</h2>
+        <a href="/products" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Products</span>
+        </a>
+        <a href="/category-page" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M7 3h3"/><path d="M14 3h3"/><path d="M7 20h3"/><path d="M14 20h3"/><path d="M3 7v3"/><path d="M3 14v3"/><path d="M20 7v3"/><path d="M20 14v3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Category</span>
+        </a>
+        <a href="/orders" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Orders</span>
+        </a>
+        <a href="/stock" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22.08V12"/><path d="M16 8h-6M13 11h4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Stock</span>
+        </a>
+        <a href="/customers" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Customer</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+        <a href="/measurements" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Tailor Orders</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">FINANCES</h2>
+        <a href="/transactions" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Transactions</span>
+        </a>
+        <a href="/accounts" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Financial accounts</span>
+        </a>
+        <div class="sidebar-modern-report-nav" id="sidebarReportNav">
+          <a href="/reports" class="sidebar-modern-link sidebar-modern-link--tight" id="sidebarReportMain">
+            <span class="sidebar-modern-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </span>
+            <span class="sidebar-modern-label">Report</span>
+            <span class="sidebar-modern-badge">NEW</span>
+            <span class="sidebar-modern-chevron" aria-hidden="true">›</span>
+          </a>
+
+          <div id="sidebarReportSubmenu" class="sidebar-modern-report-submenu is-open" aria-hidden="false">
+            <a href="/reports/orders" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Orders</span></a>
+            <a href="/reports/products" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Products</span></a>
+            <a href="/reports/transactions" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Transactions</span></a>
+            <a href="/reports/exchange" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Exchange</span></a>
+            <a href="/reports/swaps" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Swaps</span></a>
+            <a href="/reports/accounts" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Accounts</span></a>
+          </div>
+        </div>
+        <a href="/store" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Store</span>
+        </a>
+      </section>
+
+      <div class="sidebar-modern-util">
+        <a href="/user" class="sidebar-modern-util-link">User</a>
+        <a href="/settings" class="sidebar-modern-util-link">Settings</a>
+        <a href="/help" class="sidebar-modern-util-link">Help</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer sidebar-modern-footer">
+    <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+    <div class="sidebar-user">
+      <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
+      <div class="sidebar-user-info">
+        <span class="sidebar-user-name" id="sidebarUserName"></span>
+        <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+      </div>
+    </div>
+    <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+  </div>
+</aside>
+<script src="/static/js/sidebar-active.js" defer></script>
+<!-- Main Content -->
+    <main class="main-content transactions-page-root">
+      <div class="main-header">
+        <div class="welcome-text">Transactions</div>
+        <div class="header-right">
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">ðŸ”</span>
+            <input type="text" class="search-input" id="headerSearch" placeholder="Search transactions...">
+          </div>
+          <div class="header-user-wrap">
+            <div class="user-dropdown" id="userProfile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="user-avatar-small" id="userAvatar"></div>
+              <span class="header-user-name" id="headerUserName"></span>
+              <span style="font-size: 11px; color: var(--text-muted);">â–¼</span>
+            </div>
+            <div id="userDropdownMenu" class="user-dropdown-menu" role="menu" aria-hidden="true">
+              <a href="/dashboard" role="menuitem">Dashboard</a>
+              <a href="/customers" role="menuitem">Customers</a>
+              <a href="/orders" role="menuitem">Orders</a>
+              <div class="dropdown-divider"></div>
+              <button type="button" id="headerLogoutBtn" role="menuitem">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-content transactions-page">
+        <div class="transactions-hero" id="transactionsHero">
+          <div class="transactions-hero-left">
+            <h1 class="transactions-page-title">Transactions</h1>
+            <button type="button" class="btn-transaction-categories" id="btnTransactionCategories">
+              <span aria-hidden="true">â†»</span>
+              More categories
+            </button>
+          </div>
+          <div class="transactions-hero-right">
+            <button type="button" class="btn-transaction-add" id="btnAddTransaction">Add Transaction</button>
+          </div>
+        </div>
+
+        <div class="transactions-toolbar" id="transactionsToolbar">
+          <input type="text" class="transactions-filter-input" id="filterDetails" placeholder="Filter by details">
+          <button type="button" class="btn-select-columns" id="btnSelectColumns" aria-expanded="false">Select columns</button>
+        </div>
+
+        <div class="transactions-table-card dashboard-card orders-page" id="transactionsTableCard" style="padding-top: 18px;">
+          <div class="table-responsive">
+            <table class="customers-table transactions-data-table">
+              <thead>
+                <tr>
+                  <th style="width:64px;">NO</th>
+                  <th>Transaction Details</th>
+                  <th>Category</th>
+                  <th style="width:120px;">Account type</th>
+                  <th style="width:130px;">Counterparty</th>
+                  <th style="width:140px;">Amount</th>
+                  <th style="width:90px;">Currency</th>
+                  <th style="width:90px;">In/Out</th>
+                  <th style="width:100px;">Method</th>
+                  <th style="width:120px;">Exchange Info</th>
+                  <th style="width:190px;">Created At</th>
+                  <th style="width:230px;" class="text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="list"></tbody>
+            </table>
+          </div>
+          <div class="table-pagination" id="pagination"></div>
+        </div>
+
+        <!-- Add Transaction form (hidden; opened by button) -->
+        <div class="add-transaction-card hidden" id="addTransactionCard">
+          <h2 class="add-transaction-title" id="transactionFormTitle">Add Transaction</h2>
+          <form id="transactionForm">
+            <input type="hidden" id="transactionEditId" value="">
+            <div class="add-transaction-grid">
+              <div class="form-group">
+                <label for="currency">Currency</label>
+                <select id="currency" required>
+                  <option value="KES" selected>KES (Default)</option>
+                  <option value="USD">USD</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="amount">Transaction Amount</label>
+                <input type="number" id="amount" step="0.01" min="0" placeholder="Enter transaction amount" required>
+              </div>
+              <div class="form-group">
+                <label for="transaction_date">Transaction Date</label>
+                <input type="datetime-local" id="transaction_date">
+              </div>
+              <div class="form-group">
+                <label for="method">Transaction Method</label>
+                <select id="method" required>
+                  <option value="cash" selected>Cash</option>
+                  <option value="mpesa">M-Pesa</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="account_type">Account type</label>
+                <select id="account_type" required>
+                  <option value="Account received" selected>Received</option>
+                  <option value="Receivable">Receivable</option>
+                  <option value="Liability">Liability</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="category">Category <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
+                <select id="category">
+                  <option value="">— Optional —</option>
+                </select>
+              </div>
+              <div class="form-group" id="counterpartyWrap" style="display:none;">
+                <label for="counterparty" id="counterpartyLabel">Customer name</label>
+                <input type="text" id="counterparty" placeholder="" autocomplete="name">
+              </div>
+              <div class="form-group" id="linkCustomerWrap" style="display:none;">
+                <label for="link_customer_id">Select customer record</label>
+                <select id="link_customer_id">
+                  <option value="">— Optional: pick to auto-fill name —</option>
+                </select>
+              </div>
+              <div class="form-group" id="ledgerPaymentStatusWrap">
+                <label for="ledger_payment_status">Status</label>
+                <select id="ledger_payment_status">
+                  <option value="">— Not set —</option>
+                  <option value="paid">Paid</option>
+                  <option value="partial">Partial</option>
+                  <option value="unpaid">Pending</option>
+                </select>
+              </div>
+              <div class="form-group" id="paidAmountWrap" style="display:none;">
+                <label for="paid_amount">Total paid <span style="font-weight:400;color:var(--text-muted)">(required if Partial)</span></label>
+                <input type="number" id="paid_amount" step="0.01" min="0" placeholder="Amount collected so far">
+              </div>
+              <div class="form-group full-width">
+                <label for="details">Transaction Details / Note</label>
+                <textarea id="details" placeholder="Enter transaction details" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="add-transaction-actions">
+              <button type="button" class="btn btn-secondary btn-sm" id="btnCancelAddTransaction">Cancel</button>
+              <button type="submit" class="btn btn-primary">Save Transaction</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Transaction View Modal -->
+        <div id="transactionViewModal" class="modal hidden transaction-view-modal" aria-hidden="true">
+          <div class="modal-content transaction-view-modal-content">
+            <div class="transaction-view-topbar">
+              <span id="transactionViewTypePill" class="transaction-view-pill transaction-view-pill--credit">Credit</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="transactionViewClose" aria-label="Close">Ã—</button>
+            </div>
+            <div id="transactionViewBody" class="transaction-view-body"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/avatar.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    let user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+    initAvatarFromApi(user);
+
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) {
+        btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+    })();
+
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) {
+      e.preventDefault();
+      logout();
+    });
+    document.getElementById('headerLogoutBtn').addEventListener('click', function() {
+      logout();
+    });
+
+    (function() {
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      function open() { menu.classList.add('show'); menu.setAttribute('aria-hidden', 'false'); profile.setAttribute('aria-expanded', 'true'); }
+      function close() { menu.classList.remove('show'); menu.setAttribute('aria-hidden', 'true'); profile.setAttribute('aria-expanded', 'false'); }
+      profile.addEventListener('click', function(e) { e.stopPropagation(); open(); });
+      document.addEventListener('click', function(e) {
+        if (!profile.contains(e.target) && !menu.contains(e.target)) close();
+      });
+    })();
+
+    if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    function escapeHtml(s) {
+      if (s == null || s === '') return '-';
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    // Default transaction date to now (local)
+    function setDefaultTransactionDate() {
+      var el = document.getElementById('transaction_date');
+      if (el && !el.value) {
+        var d = new Date();
+        var y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
+        var h = String(d.getHours()).padStart(2, '0'), min = String(d.getMinutes()).padStart(2, '0');
+        el.value = y + '-' + m + '-' + day + 'T' + h + ':' + min;
+      }
+    }
+    setDefaultTransactionDate();
+
+    function transactionTypeFromAccountType(accountType) {
+      var a = (accountType || '').trim().toLowerCase();
+      if (a === 'liability') return 'out';
+      if (a === 'account received' || a === 'receivable') return 'in';
+      return 'in';
+    }
+
+    function methodDisplay(m) {
+      var x = String(m || 'cash').toLowerCase().replace(' ', '_').replace('-', '');
+      if (x === 'cash') return 'Cash';
+      if (x === 'mpesa' || x === 'mobile_money' || x === 'digital' || x === 'bank') return 'M-Pesa';
+      return 'Cash';
+    }
+
+    async function loadTransactionCategoriesToSelect() {
+      var sel = document.getElementById('category');
+      if (!sel) return;
+      try {
+        sel.innerHTML = '<option value="">— Optional —</option>';
+        var res = await api('/transaction-categories?per_page=500&sort=name&order=asc');
+        var items = res.items || [];
+        items.forEach(function (c) {
+          var n = (c.name || '').trim();
+          if (!n) return;
+          var opt = document.createElement('option');
+          opt.value = c.name;
+          opt.textContent = c.name;
+          sel.appendChild(opt);
+        });
+      } catch (e) {
+        sel.innerHTML = '<option value="">— Optional —</option>';
+      }
+      sel.onchange = function () {};
+    }
+
+    loadTransactionCategoriesToSelect();
+
+    function syncAccountTypeDependentFields() {
+      var atEl = document.getElementById('account_type');
+      var wrap = document.getElementById('ledgerPaymentStatusWrap');
+      var cpWrap = document.getElementById('counterpartyWrap');
+      var cpLabel = document.getElementById('counterpartyLabel');
+      var cpInput = document.getElementById('counterparty');
+      var linkWrap = document.getElementById('linkCustomerWrap');
+      var a = (atEl && atEl.value || '').trim().toLowerCase();
+      var showPay = a === 'account received' || a === 'receivable' || a === 'liability';
+      if (wrap) wrap.style.display = showPay ? '' : 'none';
+      if (cpWrap && cpLabel && cpInput) {
+        if (a === 'account received') {
+          cpWrap.style.display = '';
+          cpLabel.textContent = 'Customer name *';
+          cpInput.placeholder = 'Required, or pick a customer below';
+        } else if (a === 'receivable') {
+          cpWrap.style.display = '';
+          cpLabel.textContent = 'Customer name *';
+          cpInput.placeholder = 'Required, or pick a customer below';
+        } else if (a === 'liability') {
+          cpWrap.style.display = '';
+          cpLabel.textContent = 'Creditor / supplier';
+          cpInput.placeholder = 'Name of creditor or supplier';
+        } else {
+          cpWrap.style.display = 'none';
+          cpInput.value = '';
+        }
+      }
+      if (linkWrap) {
+        if (a === 'account received' || a === 'receivable') {
+          linkWrap.style.display = '';
+        } else {
+          linkWrap.style.display = 'none';
+          var lk = document.getElementById('link_customer_id');
+          if (lk) lk.value = '';
+        }
+      }
+      var paidWrap = document.getElementById('paidAmountWrap');
+      if (paidWrap) {
+        var showPaid = a === 'account received' || a === 'receivable';
+        paidWrap.style.display = showPaid ? '' : 'none';
+        if (!showPaid) {
+          var paClear = document.getElementById('paid_amount');
+          if (paClear) paClear.value = '';
+        }
+      }
+    }
+
+    async function loadCustomersForTransactionForm() {
+      var sel = document.getElementById('link_customer_id');
+      if (!sel) return;
+      try {
+        var res = await api('/customers?per_page=500&sort_dir=asc');
+        var items = res.items || [];
+        var cur = sel.value;
+        sel.innerHTML = '<option value="">— Optional: pick to auto-fill name —</option>';
+        items.forEach(function (c) {
+          var o = document.createElement('option');
+          o.value = String(c.id);
+          o.setAttribute('data-name', c.full_name || '');
+          o.textContent = (c.full_name || 'Customer') + (c.phone ? ' — ' + c.phone : '');
+          sel.appendChild(o);
+        });
+        if (cur) sel.value = cur;
+      } catch (e) { /* keep empty */ }
+    }
+
+    loadCustomersForTransactionForm();
+
+    (function () {
+      var lk = document.getElementById('link_customer_id');
+      if (lk) {
+        lk.addEventListener('change', function () {
+          var opt = lk.options[lk.selectedIndex];
+          var name = opt && opt.getAttribute('data-name');
+          if (lk.value && name) {
+            var cp = document.getElementById('counterparty');
+            if (cp) cp.value = name;
+          }
+        });
+      }
+    })();
+
+    var accountTypeEl = document.getElementById('account_type');
+    if (accountTypeEl) accountTypeEl.onchange = syncAccountTypeDependentFields;
+    var psLedgerEl = document.getElementById('ledger_payment_status');
+    if (psLedgerEl) psLedgerEl.addEventListener('change', syncAccountTypeDependentFields);
+    syncAccountTypeDependentFields();
+
+    document.getElementById('transactionForm').onsubmit = async function(e) {
+      e.preventDefault();
+      var editId = document.getElementById('transactionEditId') ? document.getElementById('transactionEditId').value : '';
+      var currency = document.getElementById('currency').value;
+      var categoryEl = document.getElementById('category');
+      var category = categoryEl ? categoryEl.value : '';
+      var amount = document.getElementById('amount').value;
+      var method = document.getElementById('method').value;
+      var accountTypeEl = document.getElementById('account_type');
+      var accountType = accountTypeEl ? accountTypeEl.value : 'Account received';
+      var transaction_type = transactionTypeFromAccountType(accountType);
+      var transaction_date = document.getElementById('transaction_date').value;
+      var details = document.getElementById('details').value;
+      var cpEl = document.getElementById('counterparty');
+      var counterparty = cpEl && cpEl.value ? cpEl.value.trim() : '';
+      var linkSel = document.getElementById('link_customer_id');
+      var linkCid = linkSel && linkSel.value ? String(linkSel.value).trim() : '';
+      var aLow = (accountType || '').trim().toLowerCase();
+      if (aLow === 'account received' || aLow === 'receivable') {
+        if (!counterparty && !linkCid) {
+          showToast('Customer name is required: type a name or select a customer from the list.', 'error');
+          return;
+        }
+      }
+      if (!amount || !method) { showToast('Amount and transaction method are required', 'error'); return; }
+      var payload = {
+        currency: currency,
+        category: (category && String(category).trim()) ? category.trim() : null,
+        account_type: accountType,
+        counterparty: counterparty || null,
+        amount: parseFloat(amount),
+        transaction_type: transaction_type,
+        method: method,
+        details: details || null
+      };
+      if (linkCid) {
+        var cidNum = parseInt(linkCid, 10);
+        if (!isNaN(cidNum)) payload.customer_id = cidNum;
+      }
+      var psEl = document.getElementById('ledger_payment_status');
+      var psVal = psEl && psEl.value ? psEl.value : '';
+      if (aLow === 'account received' || aLow === 'receivable' || aLow === 'liability') {
+        payload.payment_status = psVal || null;
+      }
+      if (aLow === 'account received' || aLow === 'receivable') {
+        if (psVal === 'partial') {
+          var paInChk = document.getElementById('paid_amount');
+          var paNum = paInChk && paInChk.value !== '' ? parseFloat(paInChk.value) : NaN;
+          if (!paNum || paNum <= 0 || isNaN(paNum)) {
+            showToast('Total paid is required when status is Partial', 'error');
+            return;
+          }
+        }
+        var paIn = document.getElementById('paid_amount');
+        if (paIn && paIn.value !== '' && !isNaN(parseFloat(paIn.value))) {
+          payload.paid_amount = parseFloat(paIn.value);
+        } else if (psVal === 'paid') {
+          payload.paid_amount = parseFloat(amount);
+        } else {
+          payload.paid_amount = null;
+        }
+      }
+      if (transaction_date) {
+        var d = new Date(transaction_date);
+        payload.transaction_date = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0') + ' ' + String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0') + ':00';
+      }
+      try {
+        if (editId) {
+          await api('/transactions/' + editId, { method: 'PUT', body: JSON.stringify(payload) });
+          showToast('Transaction updated', 'success');
+        } else {
+          await api('/transactions', { method: 'POST', body: JSON.stringify(payload) });
+          showToast('Transaction saved', 'success');
+        }
+        var card = document.getElementById('addTransactionCard');
+        if (card) card.classList.add('hidden');
+        // Reset edit state
+        var tidEl = document.getElementById('transactionEditId');
+        if (tidEl) tidEl.value = '';
+        var titleEl = document.getElementById('transactionFormTitle');
+        if (titleEl) titleEl.textContent = 'Add Transaction';
+
+        // Restore table view
+        showTableOnly();
+        document.getElementById('amount').value = '';
+        document.getElementById('details').value = '';
+        var psClear = document.getElementById('ledger_payment_status');
+        if (psClear) psClear.value = '';
+        var paClear = document.getElementById('paid_amount');
+        if (paClear) paClear.value = '';
+        var atClear = document.getElementById('account_type');
+        if (atClear) atClear.value = 'Account received';
+        var cpClear = document.getElementById('counterparty');
+        if (cpClear) cpClear.value = '';
+        var catClear = document.getElementById('category');
+        if (catClear) catClear.value = '';
+        var lkClr = document.getElementById('link_customer_id');
+        if (lkClr) lkClr.value = '';
+        if (typeof syncAccountTypeDependentFields === 'function') syncAccountTypeDependentFields();
+        setDefaultTransactionDate();
+        load(1);
+      } catch (err) {
+        showToast(err.message || 'Failed to save transaction', 'error');
+      }
+    };
+
+    var addBtn = document.getElementById('btnAddTransaction');
+    var addCard = document.getElementById('addTransactionCard');
+    var cancelAddBtn = document.getElementById('btnCancelAddTransaction');
+    var tableCard = document.getElementById('transactionsTableCard');
+    var heroEl = document.getElementById('transactionsHero');
+    var toolbarEl = document.getElementById('transactionsToolbar');
+
+    function showFormOnly() {
+      if (tableCard) tableCard.classList.add('hidden');
+      if (heroEl) heroEl.classList.add('hidden');
+      if (toolbarEl) toolbarEl.classList.add('hidden');
+      if (addCard) addCard.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showTableOnly() {
+      if (addCard) addCard.classList.add('hidden');
+      if (tableCard) tableCard.classList.remove('hidden');
+      if (heroEl) heroEl.classList.remove('hidden');
+      if (toolbarEl) toolbarEl.classList.remove('hidden');
+    }
+
+    function resetToAddMode() {
+      var editIdEl = document.getElementById('transactionEditId');
+      if (editIdEl) editIdEl.value = '';
+      var titleEl = document.getElementById('transactionFormTitle');
+      if (titleEl) titleEl.textContent = 'Add Transaction';
+
+      if (document.getElementById('currency')) document.getElementById('currency').value = 'KES';
+      if (document.getElementById('category')) document.getElementById('category').value = '';
+      if (document.getElementById('amount')) document.getElementById('amount').value = '';
+      if (document.getElementById('method')) document.getElementById('method').value = 'cash';
+      if (document.getElementById('account_type')) document.getElementById('account_type').value = 'Account received';
+      if (document.getElementById('counterparty')) document.getElementById('counterparty').value = '';
+      if (document.getElementById('link_customer_id')) document.getElementById('link_customer_id').value = '';
+      var psR = document.getElementById('ledger_payment_status');
+      if (psR) psR.value = '';
+      var paR = document.getElementById('paid_amount');
+      if (paR) paR.value = '';
+      if (document.getElementById('details')) document.getElementById('details').value = '';
+      if (typeof syncAccountTypeDependentFields === 'function') syncAccountTypeDependentFields();
+      setDefaultTransactionDate();
+    }
+
+    // Initial state: table visible, form hidden.
+    showTableOnly();
+
+    if (addBtn && addCard) {
+      addBtn.addEventListener('click', function() { resetToAddMode(); showFormOnly(); });
+    }
+    if (cancelAddBtn && addCard) {
+      cancelAddBtn.addEventListener('click', function() { resetToAddMode(); showTableOnly(); });
+    }
+
+    function formatDateTimeForView(iso) {
+      if (!iso) return '-';
+      try {
+        var d = new Date(iso);
+        if (String(d) === 'Invalid Date') return '-';
+        return d.toLocaleString(undefined, {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit',
+          second: '2-digit'
+        });
+      } catch (e) {
+        return '-';
+      }
+    }
+
+    function formatDateTimeForInput(iso) {
+      if (!iso) return '';
+      try {
+        var d = new Date(iso);
+        if (String(d) === 'Invalid Date') return '';
+        var pad = function(n) { return String(n).padStart(2, '0'); };
+        return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + 'T' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+      } catch (e) {
+        return '';
+      }
+    }
+
+    async function openTransactionView(tid) {
+      try {
+        var t = await api('/transactions/' + tid);
+        var isCredit = (t.transaction_type || 'in') === 'in';
+        var pill = document.getElementById('transactionViewTypePill');
+        if (pill) {
+          pill.textContent = isCredit ? 'Credit' : 'Debit';
+          if (isCredit) {
+            pill.classList.add('transaction-view-pill--credit');
+            pill.classList.remove('transaction-view-pill--debit');
+          } else {
+            pill.classList.add('transaction-view-pill--debit');
+            pill.classList.remove('transaction-view-pill--credit');
+          }
+        }
+
+        var body = document.getElementById('transactionViewBody');
+        if (body) {
+          var userName = t.created_by_name || '-';
+          var amountNum = Number(t.amount || 0);
+          var amount = amountNum.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+          var currency = t.currency || 'KES';
+          var details = t.details || '-';
+          var ref = details;
+          var txDate = formatDateTimeForView(t.transaction_date || t.created_at);
+
+          var acctType = t.account_type || 'Account received';
+          var atLow = (acctType || '').trim().toLowerCase();
+          var showPaidRows = atLow === 'account received' || atLow === 'receivable';
+          var paidStr = '';
+          if (showPaidRows) {
+            var pNum = t.paid_amount != null && t.paid_amount !== '' ? Number(t.paid_amount) : null;
+            var bal = amountNum - (pNum != null && !isNaN(pNum) ? pNum : 0);
+            paidStr = '<div class="transaction-view-row"><span class="transaction-view-label">Total paid:</span> <span class="transaction-view-value">' +
+              escapeHtml((pNum != null && !isNaN(pNum) ? pNum.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 }) : '—') + ' ' + currency) + '</span></div>' +
+              '<div class="transaction-view-row"><span class="transaction-view-label">Balance due:</span> <span class="transaction-view-value">' +
+              escapeHtml(bal.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + ' ' + currency) + '</span></div>' +
+              '<div class="transaction-view-row"><span class="transaction-view-label">Status:</span> <span class="transaction-view-value">' + escapeHtml(t.payment_status || '—') + '</span></div>';
+          }
+          body.innerHTML =
+            '<div class="transaction-view-row"><span class="transaction-view-label">Transaction ID:</span> <span class="transaction-view-value">' + escapeHtml(t.id) + '</span></div>' +
+            '<div class="transaction-view-row"><span class="transaction-view-label">User:</span> <span class="transaction-view-value">' + escapeHtml(userName) + '</span></div>' +
+            '<div class="transaction-view-row"><span class="transaction-view-label">Account type:</span> <span class="transaction-view-value">' + escapeHtml(acctType) + '</span></div>' +
+            '<div class="transaction-view-row"><span class="transaction-view-label">Category:</span> <span class="transaction-view-value">' + escapeHtml(t.category || '—') + '</span></div>' +
+            '<div class="transaction-view-row"><span class="transaction-view-label">Customer / party:</span> <span class="transaction-view-value">' + escapeHtml(t.customer_name || t.counterparty || '—') + '</span></div>' +
+            '<div class="transaction-view-row"><span class="transaction-view-label">Payment method:</span> <span class="transaction-view-value">' + escapeHtml(methodDisplay(t.method)) + '</span></div>' +
+            '<div class="transaction-view-row"><span class="transaction-view-label">Amount:</span> <span class="transaction-view-value">' + escapeHtml(amount + ' ' + currency) + '</span></div>' +
+            paidStr +
+            '<div class="transaction-view-row"><span class="transaction-view-label">Details:</span> <span class="transaction-view-value">' + escapeHtml(details) + '</span></div>' +
+            '<div class="transaction-view-row"><span class="transaction-view-label">Transaction Date:</span> <span class="transaction-view-value">' + escapeHtml(txDate) + '</span></div>' +
+            '<div class="transaction-view-row"><span class="transaction-view-label">Reference:</span> <span class="transaction-view-value">' + escapeHtml(ref) + '</span></div>';
+        }
+
+        var vm = document.getElementById('transactionViewModal');
+        if (vm) {
+          vm.classList.remove('hidden');
+          vm.setAttribute('aria-hidden', 'false');
+        }
+      } catch (e) {
+        showToast(e.message || 'Failed to load transaction', 'error');
+      }
+    }
+
+    function closeTransactionView() {
+      var vm = document.getElementById('transactionViewModal');
+      if (!vm) return;
+      vm.classList.add('hidden');
+      vm.setAttribute('aria-hidden', 'true');
+    }
+
+    var viewCloseBtn = document.getElementById('transactionViewClose');
+    if (viewCloseBtn) viewCloseBtn.addEventListener('click', closeTransactionView);
+    var txViewModalEl = document.getElementById('transactionViewModal');
+    if (txViewModalEl) {
+      txViewModalEl.addEventListener('click', function(e) {
+        if (e.target === this) closeTransactionView();
+      });
+    }
+
+    async function openTransactionEdit(tid) {
+      try {
+        var t = await api('/transactions/' + tid);
+        await loadCustomersForTransactionForm();
+        var editIdEl = document.getElementById('transactionEditId');
+        if (editIdEl) editIdEl.value = String(t.id);
+
+        var titleEl = document.getElementById('transactionFormTitle');
+        if (titleEl) titleEl.textContent = 'Edit Transaction';
+
+        document.getElementById('currency').value = t.currency || 'KES';
+        var catSel = document.getElementById('category');
+        var catVal = t.category || '';
+        if (catSel) {
+          if (catVal && !Array.prototype.some.call(catSel.options, function(o){ return o.value === catVal; })) {
+            var opt = document.createElement('option');
+            opt.value = catVal;
+            opt.textContent = catVal;
+            catSel.appendChild(opt);
+          }
+          catSel.value = catVal;
+        }
+        document.getElementById('amount').value = Number(t.amount || 0);
+        var mRaw = (t.method || 'cash').toLowerCase().replace('-', '');
+        if (mRaw === 'digital' || mRaw === 'mobile_money' || mRaw === 'bank') mRaw = 'mpesa';
+        document.getElementById('method').value = mRaw === 'mpesa' ? 'mpesa' : 'cash';
+
+        document.getElementById('transaction_date').value = formatDateTimeForInput(t.transaction_date || t.created_at);
+        var atSel = document.getElementById('account_type');
+        var atVal = t.account_type || 'Account received';
+        if (atSel) {
+          if (atVal && !Array.prototype.some.call(atSel.options, function(o){ return o.value === atVal; })) {
+            var atOpt = document.createElement('option');
+            atOpt.value = atVal;
+            atOpt.textContent = atVal;
+            atSel.appendChild(atOpt);
+          }
+          atSel.value = atVal;
+        }
+        document.getElementById('details').value = t.details || '';
+        var cpEd = document.getElementById('counterparty');
+        if (cpEd) cpEd.value = t.counterparty || '';
+        var lkEd = document.getElementById('link_customer_id');
+        if (lkEd && t.customer_id) lkEd.value = String(t.customer_id);
+          var psEl = document.getElementById('ledger_payment_status');
+        if (psEl) psEl.value = t.payment_status || '';
+        var paEd = document.getElementById('paid_amount');
+        if (paEd) {
+          if (t.paid_amount != null && t.paid_amount !== '') {
+            paEd.value = Number(t.paid_amount);
+          } else {
+            paEd.value = '';
+          }
+        }
+        if (typeof syncAccountTypeDependentFields === 'function') syncAccountTypeDependentFields();
+
+        showFormOnly();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (e) {
+        showToast(e.message || 'Failed to load transaction', 'error');
+      }
+    }
+
+    async function deleteTransaction(tid) {
+      if (!confirm('Delete this transaction?')) return;
+      try {
+        await api('/transactions/' + tid, { method: 'DELETE' });
+        showToast('Transaction deleted', 'success');
+        load(currentPage);
+      } catch (e) {
+        showToast(e.message || 'Failed to delete transaction', 'error');
+      }
+    }
+
+    var listEl = document.getElementById('list');
+    if (listEl) {
+      listEl.addEventListener('click', function(e) {
+        var t = e.target;
+        if (!t || !t.classList) return;
+        if (t.classList.contains('btn-action-view')) {
+          openTransactionView(t.getAttribute('data-tid'));
+        } else if (t.classList.contains('btn-action-edit')) {
+          openTransactionEdit(t.getAttribute('data-tid-edit'));
+        } else if (t.classList.contains('btn-action-delete')) {
+          deleteTransaction(t.getAttribute('data-tid-del'));
+        } else if (t.classList.contains('btn-action-pdf')) {
+          var tidPdf = t.getAttribute('data-tid-pdf');
+          if (tidPdf) openFinancePdf('/finance/transactions/' + tidPdf + '/pdf');
+        }
+      });
+    }
+
+    var txCatsBtn = document.getElementById('btnTransactionCategories');
+    if (txCatsBtn) {
+      txCatsBtn.addEventListener('click', function() {
+        window.location.href = '/transaction-categories';
+      });
+    }
+
+    let currentPage = 1;
+
+    async function load(page) {
+      page = page || 1;
+      currentPage = page;
+      try {
+        const res = await api('/transactions?page=' + page + '&per_page=25');
+        const items = res.items || [];
+        const total = res.total || 0;
+        const pages = res.pages || 1;
+        const searchInput = document.getElementById('filterDetails');
+        const searchTerm = (searchInput ? (searchInput.value || '') : (document.getElementById('headerSearch') ? document.getElementById('headerSearch').value : '')) || '';
+        const searchLower = searchTerm.toLowerCase();
+        const filtered = searchTerm
+          ? items.filter(t => {
+              const cat = (t.category || '').toLowerCase();
+              const atype = (t.account_type || '').toLowerCase();
+              const det = (t.details || '').toLowerCase();
+              const cp = (t.counterparty || '').toLowerCase();
+              const cur = (t.currency || '').toLowerCase();
+              const meth = (t.method || '').toLowerCase();
+              const typ = (t.transaction_type || '').toLowerCase();
+              const amt = String(t.amount || '');
+              return cat.includes(searchLower) || atype.includes(searchLower) || cp.includes(searchLower) || det.includes(searchLower) || cur.includes(searchLower) || meth.includes(searchLower) || typ.includes(searchLower) || amt.includes(searchLower);
+            })
+          : items;
+
+        const tbody = document.getElementById('list');
+        const sym = function(c) { return c === 'USD' ? '$' : 'KSh '; };
+        if (filtered.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="12" style="text-align:center; padding: 24px; color: var(--text-muted);">No transactions found</td></tr>';
+        } else {
+          var baseNo = (page - 1) * 25;
+          tbody.innerHTML = filtered.map((t, idx) => {
+            var date = (t.transaction_date || t.created_at || '').slice(0, 19).replace('T', ' ');
+            if (!date) date = '-';
+            var inOut = (t.transaction_type || 'in') === 'in' ? 'IN' : 'OUT';
+            var inOutClass = inOut === 'IN' ? 'badge-completed' : 'badge-cancelled';
+            var exchangeInfo = '-';
+            var amt = Number(t.amount || 0);
+            var amtStr = amt.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            var acctTypeDisp = t.account_type || '—';
+            return '<tr>' +
+              '<td>' + (baseNo + idx + 1) + '</td>' +
+              '<td>' + escapeHtml(t.details || 'â€”') + '</td>' +
+              '<td>' + escapeHtml(t.category || 'â€”') + '</td>' +
+              '<td>' + escapeHtml(acctTypeDisp) + '</td>' +
+              '<td>' + escapeHtml(t.counterparty || 'â€”') + '</td>' +
+              '<td><strong>' + sym(t.currency) + escapeHtml(amtStr) + '</strong></td>' +
+              '<td>' + escapeHtml(t.currency || 'KES') + '</td>' +
+              '<td><span class="badge ' + inOutClass + '">' + inOut + '</span></td>' +
+              '<td>' + escapeHtml(methodDisplay(t.method)) + '</td>' +
+              '<td>' + escapeHtml(exchangeInfo) + '</td>' +
+              '<td>' + escapeHtml(date) + '</td>' +
+              '<td class="text-right">' +
+                '<div class="orders-actions-cell">' +
+                  '<button type="button" class="btn-action-view" data-tid="' + t.id + '">View</button>' +
+                  '<button type="button" class="btn-action-edit" data-tid-edit="' + t.id + '">Edit</button>' +
+                  '<button type="button" class="btn-action-pdf" data-tid-pdf="' + t.id + '" title="Receipt or invoice PDF">PDF</button>' +
+                  '<button type="button" class="btn-action-delete" data-tid-del="' + t.id + '">Delete</button>' +
+                '</div>' +
+              '</td>' +
+            '</tr>';
+          }).join('');
+        }
+
+        const pagEl = document.getElementById('pagination');
+        if (pages <= 1) {
+          pagEl.innerHTML = '<span class="text-muted">Total: ' + total + ' transaction(s)</span>';
+        } else {
+          var links = '';
+          if (page > 1) links += '<a href="#" class="btn btn-secondary btn-sm" data-page="' + (page - 1) + '">Previous</a> ';
+          links += '<span class="text-muted">Page ' + page + ' of ' + pages + ' (' + total + ' total)</span>';
+          if (page < pages) links += ' <a href="#" class="btn btn-secondary btn-sm" data-page="' + (page + 1) + '">Next</a>';
+          pagEl.innerHTML = links;
+          pagEl.querySelectorAll('[data-page]').forEach(a => {
+            a.addEventListener('click', function(ev) { ev.preventDefault(); load(parseInt(this.getAttribute('data-page'), 10)); });
+          });
+        }
+      } catch (err) {
+        showToast(err.message || 'Failed to load transactions', 'error');
+        document.getElementById('list').innerHTML = '<tr><td colspan="12" style="text-align:center; padding: 24px; color: var(--text-danger);">Failed to load transactions</td></tr>';
+      }
+    }
+
+    var filterDetailsEl = document.getElementById('filterDetails');
+    if (filterDetailsEl) {
+      filterDetailsEl.addEventListener('input', function() { load(1); });
+    }
+
+    // Keep existing header search support if the element exists (optional).
+    var headerSearchEl = document.getElementById('headerSearch');
+    if (headerSearchEl) {
+      headerSearchEl.addEventListener('input', function() { load(currentPage); });
+    }
+
+    load(1);
+  </script>
+</body>
+</html>
+
+
+

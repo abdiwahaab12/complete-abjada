@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abjad Super Tailor — Invoice</title>
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+  <style>
+    /* ----- Screen + print base ----- */
+    * { box-sizing: border-box; }
+    html { font-size: 16px; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #e8eaed;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .invoice-toolbar.no-print {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: #fff;
+      border-bottom: 1px solid #dadce0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .invoice-toolbar button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-print {
+      background: #1a73e8;
+      color: #fff;
+    }
+    .btn-print:hover { filter: brightness(1.05); }
+    .btn-back {
+      background: #fff;
+      color: #1a73e8;
+      border: 1px solid #dadce0 !important;
+    }
+
+    .invoice-sheet {
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto 40px;
+      padding: 18mm 20mm 22mm;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    }
+
+    .invoice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 28px;
+      margin-bottom: 18px;
+    }
+    .company-block .company-name {
+      font-size: 1.0625rem; /* ~17px */
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      margin: 0 0 6px 0;
+      line-height: 1.35;
+      color: #111;
+    }
+    .company-block .company-line {
+      margin: 0;
+      font-size: 0.875rem; /* 14px */
+      font-weight: 400;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .invoice-meta {
+      text-align: right;
+      font-size: 0.8125rem; /* 13px */
+      line-height: 1.55;
+      color: #333;
+    }
+    .invoice-meta .invoice-title {
+      font-size: 1rem; /* 16px — modest emphasis vs body */
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+      color: #111;
+    }
+    .invoice-meta .invoice-meta-line {
+      font-weight: 400;
+      font-size: 0.8125rem;
+    }
+    .invoice-meta p { margin: 0; }
+    .invoice-meta .inv-num {
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .seller-block {
+      margin-top: 8px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .seller-block .seller-label {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .rule {
+      border: none;
+      border-top: 1px solid #333;
+      margin: 18px 0 20px;
+    }
+
+    .invoice-table-wrap {
+      width: 100%;
+      overflow: hidden;
+    }
+    table.invoice-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .invoice-table thead th {
+      background: #eceff1;
+      color: #111;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 11px;
+      padding: 10px 12px;
+      text-align: left;
+      border: 1px solid #cfd8dc;
+    }
+    .invoice-table thead th:nth-child(2),
+    .invoice-table thead th:nth-child(3),
+    .invoice-table thead th:nth-child(4) { text-align: right; }
+    .invoice-table thead th:nth-child(2) { text-align: center; }
+
+    .invoice-table tbody td {
+      padding: 12px;
+      border: 1px solid #cfd8dc;
+      vertical-align: top;
+    }
+    .invoice-table tbody td:nth-child(2) { text-align: center; }
+    .invoice-table tbody td:nth-child(3),
+    .invoice-table tbody td:nth-child(4) { text-align: right; font-variant-numeric: tabular-nums; }
+
+    .invoice-total-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 22px;
+      padding-top: 12px;
+      font-size: 15px;
+    }
+    .invoice-total-row .total-label {
+      font-weight: 700;
+      margin-right: 16px;
+    }
+    .invoice-total-row .total-amount {
+      font-weight: 700;
+      min-width: 8rem;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .invoice-loading,
+    .invoice-error {
+      max-width: 210mm;
+      margin: 48px auto;
+      padding: 24px;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .invoice-error { color: #b3261e; }
+
+    /* ----- Print only ----- */
+    @media print {
+      body {
+        background: #fff !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .invoice-sheet {
+        margin: 0 !important;
+        padding: 15mm 18mm 18mm !important;
+        box-shadow: none !important;
+        max-width: none !important;
+        min-height: auto !important;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 12mm;
+      }
+      /* Lock header scale for PDF/print preview */
+      .company-block .company-name {
+        font-size: 17px !important;
+        font-weight: 600 !important;
+      }
+      .company-block .company-line {
+        font-size: 14px !important;
+      }
+      .invoice-meta .invoice-title {
+        font-size: 16px !important;
+      }
+      .invoice-meta .invoice-meta-line {
+        font-size: 13px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="invoice-toolbar no-print" id="invoiceToolbar">
+    <button type="button" class="btn-back" id="btnBack">← Back</button>
+    <button type="button" class="btn-print" id="btnPrint">Print Invoice</button>
+  </div>
+
+  <div class="invoice-loading" id="invoiceLoading">Loading invoice…</div>
+  <div class="invoice-error hidden" id="invoiceError" style="display:none;"></div>
+
+  <div class="invoice-sheet" id="invoiceRoot" hidden>
+    <header class="invoice-header">
+      <div class="company-block">
+        <p class="company-name" id="brandName">Abjad Super Tailor</p>
+        <p class="company-line" id="brandAddress">Nairobi - Kenya</p>
+        <p class="company-line" id="brandPhone">+254 799 824 10</p>
+      </div>
+      <div class="invoice-meta">
+        <p class="invoice-title">INVOICE</p>
+        <p class="invoice-meta-line"><span id="invDateLabel">Date:</span> <span id="invDate"></span></p>
+        <p class="invoice-meta-line inv-num"><span id="invNoLabel">Invoice #:</span><br /><span id="invNumber"></span></p>
+      </div>
+    </header>
+
+    <section class="seller-block">
+      <div class="seller-label">Seller:</div>
+      <div id="sellerName">—</div>
+      <div id="sellerEmail">—</div>
+    </section>
+
+    <hr class="rule" />
+
+    <div class="invoice-table-wrap">
+      <table class="invoice-table" aria-label="Invoice line items">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="invLinesBody"></tbody>
+      </table>
+    </div>
+
+    <div class="invoice-total-row">
+      <span class="total-label">Total:</span>
+      <span class="total-amount" id="invGrandTotal">0.00</span>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script>
+(function () {
+  var ABJAD_LINES_PREFIX = 'ABJAD_LINES_JSON:';
+
+  /* Branding — edit here to match your business */
+  var BRAND = {
+    name: 'Abjad Super Tailor',
+    address: 'Nairobi - Kenya',
+    phone: '+254 799 824 10'
+  };
+
+  function matchOrderId() {
+    var p = location.pathname.replace(/\/$/, '');
+    var m = p.match(/\/invoice\/(\d+)\/print$/);
+    return m ? parseInt(m[1], 10) : null;
+  }
+
+  function formatMoney(n) {
+    return Number(n || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function tryParsePayload(raw) {
+    if (!raw || raw.indexOf(ABJAD_LINES_PREFIX) === -1) return null;
+    try {
+      return JSON.parse(raw.split(ABJAD_LINES_PREFIX)[1].trim());
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function stableInvoiceNumber(orderId) {
+    var x = orderId >>> 0;
+    var s = '';
+    for (var i = 0; i < 12; i++) {
+      x = Math.imul(x ^ (i * 1315423911 + orderId), 2654435761) >>> 0;
+      s += (x & 0xff).toString(16).padStart(2, '0');
+    }
+    return 'INV' + s;
+  }
+
+  function formatInvoiceDate(iso) {
+    if (!iso) return '—';
+    try {
+      var d = new Date(iso);
+      return d.toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' });
+    } catch (e) {
+      return iso;
+    }
+  }
+
+  var orderId = matchOrderId();
+  if (!orderId) {
+    document.getElementById('invoiceLoading').style.display = 'none';
+    document.getElementById('invoiceError').textContent = 'Invalid invoice link.';
+    document.getElementById('invoiceError').style.display = 'block';
+    return;
+  }
+
+  if (!requireAuth()) return;
+
+  document.getElementById('brandName').textContent = BRAND.name;
+  document.getElementById('brandAddress').textContent = BRAND.address;
+  document.getElementById('brandPhone').textContent = BRAND.phone;
+
+  document.getElementById('btnBack').onclick = function () {
+    if (history.length > 1) history.back();
+    else window.location.href = '/orders';
+  };
+  document.getElementById('btnPrint').onclick = function () {
+    window.print();
+  };
+
+  Promise.all([api('/orders/' + orderId), api('/auth/me').catch(function () { return null; })])
+    .then(function (results) {
+      var order = results[0];
+      var me = results[1];
+
+      document.getElementById('invoiceLoading').style.display = 'none';
+
+      var sellerEmail = me && me.email ? me.email : '—';
+      document.getElementById('sellerName').textContent = BRAND.name;
+      document.getElementById('sellerEmail').textContent = sellerEmail;
+
+      document.getElementById('invDate').textContent = formatInvoiceDate(order.created_at);
+      document.getElementById('invNumber').textContent = stableInvoiceNumber(order.id);
+
+      var parsed = tryParsePayload(order.fabric_details || '');
+      var rows = [];
+      if (parsed && parsed.lines && parsed.lines.length) {
+        parsed.lines.forEach(function (L) {
+          var qty = Number(L.qty) || 0;
+          var price = Number(L.price) || 0;
+          var lineTot = qty * price;
+          rows.push({
+            desc: (L.product || '—').trim() || '—',
+            qty: qty,
+            price: price,
+            total: lineTot
+          });
+        });
+      } else {
+        rows.push({
+          desc: order.clothing_type || 'Item',
+          qty: 1,
+          price: Number(order.total_price || 0),
+          total: Number(order.total_price || 0)
+        });
+      }
+
+      var tbody = document.getElementById('invLinesBody');
+      tbody.innerHTML = rows
+        .map(function (r) {
+          return (
+            '<tr>' +
+            '<td>' + escapeHtml(r.desc) + '</td>' +
+            '<td>' + escapeHtml(String(r.qty)) + '</td>' +
+            '<td>' + escapeHtml(formatMoney(r.price)) + '</td>' +
+            '<td>' + escapeHtml(formatMoney(r.total)) + '</td>' +
+            '</tr>'
+          );
+        })
+        .join('');
+
+      document.getElementById('invGrandTotal').textContent = formatMoney(order.total_price);
+
+      document.getElementById('invoiceRoot').hidden = false;
+    })
+    .catch(function (err) {
+      document.getElementById('invoiceLoading').style.display = 'none';
+      document.getElementById('invoiceError').textContent = err.message || 'Failed to load invoice.';
+      document.getElementById('invoiceError').style.display = 'block';
+    });
+
+  function escapeHtml(s) {
+    if (s == null || s === '') return '';
+    var d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+})();
+  </script>
+</body>
+</html>

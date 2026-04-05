@@ -1,0 +1,271 @@
+/* Neon dark sidebar — used with .sidebar.sidebar-modern */
+
+.sidebar.sidebar-modern {
+  --sb-neon: #39ff14;
+  --sb-neon-soft: rgba(57, 255, 20, 0.18);
+  --sb-neon-glow: rgba(57, 255, 20, 0.45);
+  --sb-bg: #000000;
+  --sb-muted: rgba(255, 255, 255, 0.52);
+  --sb-row-hover: rgba(255, 255, 255, 0.06);
+  --sb-active-bg: rgba(30, 30, 30, 0.95);
+  width: 280px;
+  min-width: 280px;
+  background: var(--sb-bg);
+  border-radius: 24px 0 0 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.sidebar-modern-brand {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--sb-neon);
+  padding: 24px 20px 20px;
+  line-height: 1.2;
+  flex-shrink: 0;
+  text-shadow: 0 0 24px var(--sb-neon-glow);
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.sidebar.sidebar-modern .sidebar-modern-inner {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-modern-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 14px 16px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(57, 255, 20, 0.35) transparent;
+}
+
+.sidebar-modern-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar-modern-scroll::-webkit-scrollbar-thumb {
+  background: rgba(57, 255, 20, 0.35);
+  border-radius: 6px;
+}
+
+.sidebar-modern-section {
+  margin-bottom: 22px;
+}
+
+.sidebar-modern-section:last-of-type {
+  margin-bottom: 12px;
+}
+
+.sidebar-modern-section-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.32);
+  padding: 0 12px 10px;
+  margin: 0;
+}
+
+.sidebar-modern-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px 11px 16px;
+  margin-bottom: 5px;
+  border-radius: 0 12px 12px 0;
+  text-decoration: none;
+  color: var(--sb-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.sidebar-modern-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 0;
+  border-radius: 0 3px 3px 0;
+  background: var(--sb-neon);
+  transition: height 0.2s ease, transform 0.2s ease;
+  opacity: 0;
+}
+
+.sidebar-modern-link:hover {
+  color: rgba(255, 255, 255, 0.92);
+  background: var(--sb-row-hover);
+}
+
+.sidebar-modern-link.is-active {
+  color: var(--sb-neon);
+  background: var(--sb-active-bg);
+  box-shadow:
+    inset 0 0 0 1px rgba(57, 255, 20, 0.25),
+    0 0 28px var(--sb-neon-soft),
+    0 0 48px rgba(57, 255, 20, 0.12);
+  font-weight: 600;
+}
+
+.sidebar-modern-link.is-active::before {
+  opacity: 1;
+  height: 60%;
+  transform: translateY(-50%) scaleY(1);
+}
+
+.sidebar-modern-icon {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  opacity: 0.95;
+}
+
+.sidebar-modern-link.is-active .sidebar-modern-icon {
+  filter: drop-shadow(0 0 8px var(--sb-neon-glow));
+}
+
+.sidebar-modern-label {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-modern-link--tight .sidebar-modern-label {
+  flex: 0 1 auto;
+}
+
+.sidebar-modern-badge {
+  flex-shrink: 0;
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(90deg, #2dd4bf 0%, #06b6d4 45%, #3b82f6 100%);
+  box-shadow: 0 0 14px rgba(45, 212, 191, 0.45);
+}
+
+.sidebar-modern-chevron {
+  flex-shrink: 0;
+  margin-left: 6px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1;
+}
+
+.sidebar-modern-link.is-active .sidebar-modern-chevron {
+  color: var(--sb-neon);
+}
+
+/* Footer: match dark strip */
+.sidebar.sidebar-modern .sidebar-footer {
+  background: rgba(10, 10, 10, 0.98);
+  border-top-color: rgba(57, 255, 20, 0.12);
+}
+
+.sidebar.sidebar-modern .sidebar-theme-btn,
+.sidebar.sidebar-modern .sidebar-user {
+  border-color: rgba(57, 255, 20, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.sidebar.sidebar-modern .sidebar-user-avatar {
+  background: linear-gradient(135deg, rgba(57, 255, 20, 0.35), rgba(59, 130, 246, 0.45));
+}
+
+.sidebar-modern-footer {
+  margin-top: auto;
+}
+
+.sidebar-modern-util {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 14px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 0 -14px 0;
+}
+
+.sidebar-modern-util-link {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.38);
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.sidebar-modern-util-link:hover {
+  color: var(--sb-neon);
+  background: var(--sb-row-hover);
+}
+
+.sidebar-modern-util-link.is-active {
+  color: var(--sb-neon);
+}
+
+/* Reports sidebar submenu (Orders / Products / Transactions / etc) */
+.sidebar-modern-report-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Report sub-links stay visible on all pages (fixed nav — no collapse) */
+.sidebar-modern-report-submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 2px 0 6px 0;
+  padding-left: 18px; /* indent under parent */
+}
+
+.sidebar-modern-report-submenu-link {
+  border-radius: 12px;
+  margin-bottom: 0;
+  padding-left: 12px;
+}
+
+.sidebar-modern-report-submenu-link .sidebar-modern-label {
+  font-size: 0.82rem;
+}
+
+/* Hidden utility row removed from partial — keep class if absent */
+
+.dashboard-container .sidebar.sidebar-modern + .main-content {
+  border-radius: 0 24px 24px 0;
+}
+
+@media (max-width: 900px) {
+  .sidebar.sidebar-modern {
+    width: 100%;
+    min-width: 100%;
+    border-radius: 24px 24px 0 0;
+  }
+}

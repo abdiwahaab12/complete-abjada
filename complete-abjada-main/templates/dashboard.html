@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Abjad Super Style Tailor Management</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container" id="dashboardRoot">
+    <!-- Sidebar -->
+<aside class="sidebar sidebar-modern" aria-label="Main navigation">
+  <div class="sidebar-modern-brand">Abjad Super style tailor</div>
+
+  <nav class="sidebar-modern-inner">
+    <div class="sidebar-modern-scroll">
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">DISCOVER</h2>
+        <a href="/dashboard" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Dashboard</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">INVENTORY</h2>
+        <a href="/products" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Products</span>
+        </a>
+        <a href="/category-page" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M7 3h3"/><path d="M14 3h3"/><path d="M7 20h3"/><path d="M14 20h3"/><path d="M3 7v3"/><path d="M3 14v3"/><path d="M20 7v3"/><path d="M20 14v3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Category</span>
+        </a>
+        <a href="/orders" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Orders</span>
+        </a>
+        <a href="/stock" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22.08V12"/><path d="M16 8h-6M13 11h4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Stock</span>
+        </a>
+        <a href="/customers" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Customer</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+        <a href="/measurements" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Tailor Orders</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">FINANCES</h2>
+        <a href="/transactions" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Transactions</span>
+        </a>
+        <a href="/accounts" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Financial accounts</span>
+        </a>
+        <div class="sidebar-modern-report-nav" id="sidebarReportNav">
+          <a href="/reports" class="sidebar-modern-link sidebar-modern-link--tight" id="sidebarReportMain">
+            <span class="sidebar-modern-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </span>
+            <span class="sidebar-modern-label">Report</span>
+            <span class="sidebar-modern-badge">NEW</span>
+            <span class="sidebar-modern-chevron" aria-hidden="true">›</span>
+          </a>
+
+          <div id="sidebarReportSubmenu" class="sidebar-modern-report-submenu is-open" aria-hidden="false">
+            <a href="/reports/orders" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Orders</span></a>
+            <a href="/reports/products" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Products</span></a>
+            <a href="/reports/transactions" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Transactions</span></a>
+            <a href="/reports/exchange" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Exchange</span></a>
+            <a href="/reports/swaps" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Swaps</span></a>
+            <a href="/reports/accounts" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Accounts</span></a>
+          </div>
+        </div>
+        <a href="/store" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Store</span>
+        </a>
+      </section>
+
+      <div class="sidebar-modern-util">
+        <a href="/user" class="sidebar-modern-util-link">User</a>
+        <a href="/settings" class="sidebar-modern-util-link">Settings</a>
+        <a href="/help" class="sidebar-modern-util-link">Help</a>
+      </div>
+    </div>
+      </nav>
+
+  <div class="sidebar-footer sidebar-modern-footer">
+        <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name" id="sidebarUserName"></span>
+            <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+          </div>
+        </div>
+        <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+      </div>
+    </aside>
+<script src="/static/js/sidebar-active.js" defer></script>
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Summary cards -->
+      <div class="stat-cards" id="summaryCards"></div>
+
+      <!-- New overview layout -->
+      <div id="overviewSampleLayout">
+        <div class="dashboard-bottom-row">
+          <div class="dashboard-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <h3 class="dashboard-card-title" style="margin:0;">Sales by Category</h3>
+              <span class="text-muted" style="font-size:12px;">This Year</span>
+            </div>
+            <p class="text-muted" id="salesByCategoryMsg" style="margin-top:16px;">No data available for this period.</p>
+          </div>
+          <div class="dashboard-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <h3 class="dashboard-card-title" style="margin:0;">Order Summary</h3>
+              <span class="text-muted" style="font-size:12px;">This Month</span>
+            </div>
+            <div id="overviewOrderTotal" style="font-size:42px;font-weight:700;line-height:1.1;margin-top:6px;">0</div>
+            <div class="text-muted" style="font-size:12px;">Total Sales</div>
+            <canvas id="overviewOrderChart" height="130" style="margin-top:6px;"></canvas>
+          </div>
+        </div>
+
+        <div class="dashboard-card" style="margin-top:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div style="display:flex;gap:24px;">
+              <div><div class="text-muted" style="font-size:12px;">Revenue</div><div id="overviewRevenue" style="font-size:34px;font-weight:700;">0</div></div>
+              <div><div class="text-muted" style="font-size:12px;">Profit</div><div id="overviewProfit" style="font-size:34px;font-weight:700;">0</div></div>
+            </div>
+            <select class="period-selector"><option>This Month</option></select>
+          </div>
+          <canvas id="overviewRevenueChart" height="120" style="margin-top:8px;"></canvas>
+        </div>
+
+        <div class="dashboard-card" style="margin-top:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <h3 class="dashboard-card-title" style="margin:0;">Top 10 Products</h3>
+              <div class="text-muted" style="font-size:12px;">Based on total sales and profit</div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" id="overviewRefreshBtn">Refresh</button>
+          </div>
+          <div class="table-responsive" style="margin-top:10px;">
+            <table class="customers-table">
+              <thead>
+                <tr>
+                  <th>PRODUCT</th>
+                  <th>QUANTITY SOLD</th>
+                  <th>PRICE</th>
+                  <th>TOTAL SALES</th>
+                  <th>PROFIT</th>
+                </tr>
+              </thead>
+              <tbody id="overviewTopProducts"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legacy sections hidden -->
+      <div class="dashboard-card dashboard-card-hover" style="display:none;">
+        <div class="recent-orders-header">
+          <h3 class="dashboard-card-title" style="margin: 0;">Recent Orders</h3>
+          <a href="/orders" class="recent-orders-view-all">View all</a>
+        </div>
+        <div class="recent-orders-list" id="recentOrdersList">
+          <div class="recent-orders-loading">Loadingâ€¦</div>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="dashboard-bottom-row" style="display:none;">
+        <!-- Revenue Generated -->
+        <div class="dashboard-card dashboard-card-hover">
+          <h3 class="dashboard-card-title">Revenue Generated</h3>
+          <div class="donut-chart-container">
+            <canvas id="revenueDonut" width="280" height="280"></canvas>
+            <div class="donut-center">
+              <div class="donut-center-value" id="revenueTotal">$0</div>
+            </div>
+          </div>
+          <div class="donut-legend" id="revenueLegend"></div>
+        </div>
+
+        <!-- Top Customers -->
+        <div class="dashboard-card dashboard-card-hover">
+          <div class="top-performer-header">
+            <h3 class="dashboard-card-title" style="margin: 0;">Top Customers</h3>
+            <select class="period-selector" id="periodSelect">
+              <option>This Month</option>
+              <option>Last Month</option>
+              <option>This Year</option>
+            </select>
+          </div>
+          <div class="performer-cards" id="topCustomers"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/role-access.js"></script>
+  <script src="/static/js/avatar.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    let user = requireAuth();
+    if (!user) { throw new Error('Auth required'); }
+
+    // Page enter animation
+    (function() {
+      var root = document.getElementById('dashboardRoot');
+      if (!root) return;
+      // Remove any previous class before re-adding (for hot reloads)
+      root.classList.remove('dashboard-enter');
+      // Small timeout so animation plays after first paint
+      requestAnimationFrame(function() {
+        root.classList.add('dashboard-enter');
+      });
+    })();
+    
+    // User avatar: fetch from DB, show initials or neutral fallback (no placeholders)
+    initAvatarFromApi(user, function(u) { user = u || user; });
+    
+    // Theme toggle in sidebar
+    (function() {
+      initTheme();
+      var btn = document.getElementById('sidebarThemeBtn');
+      if (btn) {
+        btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        btn.onclick = function() { toggleTheme(); btn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+    })();
+    
+    // Logout (sidebar and header)
+    document.getElementById('sidebarLogout').addEventListener('click', function(e) {
+      e.preventDefault();
+      logout();
+    });
+
+    // Hide admin-only nav (legacy)
+    if (user.role !== 'admin' && user.role !== 'super_admin') document.querySelectorAll('.nav-admin-only').forEach(el => el.classList.add('hidden'));
+
+    function formatCompactNumber(value) {
+      const n = Number(value || 0);
+      if (n >= 1_000_000_000) return '$' + (n / 1_000_000_000).toFixed(2) + 'B';
+      if (n >= 1_000_000) return '$' + (n / 1_000_000).toFixed(2) + 'M';
+      if (n >= 1_000) return '$' + (n / 1_000).toFixed(2) + 'K';
+      return '$' + n.toFixed(0);
+    }
+
+    function formatPercentChange(current, previous) {
+      if (previous === null || previous === undefined || previous === 0) return null;
+      const pct = ((current - previous) / previous) * 100;
+      const sign = pct >= 0 ? '+' : '';
+      return { text: sign + pct.toFixed(2) + '%', up: pct >= 0 };
+    }
+
+    // Legacy renderer disabled: keep only the new overview renderer below.
+  </script>
+  <script>
+    (function () {
+      function n(v){ return Number(v || 0); }
+      function money(v){ return '$' + n(v).toLocaleString(); }
+      var orderChart = null;
+      var revChart = null;
+
+      function renderTop(rows){
+        var body = document.getElementById('overviewTopProducts');
+        if (!body) return;
+        if (!rows.length) {
+          body.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:18px;color:var(--text-muted);">No data available.</td></tr>';
+        return;
+        }
+        body.innerHTML = rows.map(function(r){
+          var qty = n(r.quantity_sold || r.qty || 0);
+          var price = n(r.price || 0);
+          var sales = n(r.total_sales || qty * price);
+          var profit = n(r.profit || 0);
+          return '<tr><td>' + (r.product || r.name || '-') + '</td><td>' + qty + '</td><td>' + money(price) + '</td><td style="color:#16a34a;">' + money(sales) + '</td><td style="color:#3b82f6;">' + money(profit) + '</td></tr>';
+        }).join('');
+      }
+
+      async function loadOverviewSample() {
+        try {
+          var d = await api('/dashboard');
+          if (d.mode === 'employee') {
+            var lay = document.getElementById('overviewSampleLayout');
+            if (lay) lay.style.display = 'none';
+            var cards = document.getElementById('summaryCards');
+            if (cards) {
+              cards.innerHTML =
+                '<div class="stat-card stat-card-primary"><div class="stat-card-content"><div class="stat-card-label">Tailor orders</div><div class="stat-card-value">' + n(d.tailor_orders_total) + '</div></div></div>' +
+                '<div class="stat-card stat-card-mint"><div class="stat-card-content"><div class="stat-card-label">Open tailor orders</div><div class="stat-card-value">' + n(d.tailor_orders_open) + '</div></div></div>' +
+                '<div class="stat-card stat-card-lilac"><div class="stat-card-content"><div class="stat-card-label">Customers</div><div class="stat-card-value">' + n(d.active_customers) + '</div></div></div>';
+            }
+            return;
+          }
+          var olay = document.getElementById('overviewSampleLayout');
+          if (olay) olay.style.display = '';
+          var totalProducts = n(d.total_products);
+          var availableStock = n(d.total_stock);
+          var lowStock = n(d.low_stock_items);
+          var outStock = n(d.out_of_stock_items);
+          var cards = document.getElementById('summaryCards');
+          if (cards) {
+            cards.innerHTML =
+              '<div class="stat-card stat-card-primary"><div class="stat-card-content"><div class="stat-card-label">Total Products</div><div class="stat-card-value">' + totalProducts + '</div></div></div>' +
+              '<div class="stat-card stat-card-mint"><div class="stat-card-content"><div class="stat-card-label">Available Stock</div><div class="stat-card-value">' + availableStock.toLocaleString() + '</div></div></div>' +
+              '<div class="stat-card stat-card-lilac"><div class="stat-card-content"><div class="stat-card-label">Low Stock</div><div class="stat-card-value">' + lowStock + '</div></div></div>' +
+              '<div class="stat-card stat-card-rose"><div class="stat-card-content"><div class="stat-card-label">Out of Stock</div><div class="stat-card-value">' + outStock + '</div></div></div>';
+          }
+
+          var monthly = Array.isArray(d.monthly_chart) ? d.monthly_chart : [];
+          var labels = monthly.map(function(x){ return x.label || x.month || ''; });
+          var revenues = monthly.map(function(x){ return n(x.revenue); });
+          var profits = monthly.map(function(x){ return n(x.profit); });
+          var totalRevenue = revenues.reduce(function(a,b){ return a+b; }, 0);
+          var totalProfit = profits.reduce(function(a,b){ return a+b; }, 0);
+          var orderTotalEl = document.getElementById('overviewOrderTotal');
+          var revEl = document.getElementById('overviewRevenue');
+          var profitEl = document.getElementById('overviewProfit');
+          if (orderTotalEl) orderTotalEl.textContent = totalRevenue.toLocaleString();
+          if (revEl) revEl.textContent = totalRevenue.toLocaleString();
+          if (profitEl) profitEl.textContent = totalProfit.toLocaleString();
+
+          if (orderChart) orderChart.destroy();
+          if (revChart) revChart.destroy();
+          var orderCtx = document.getElementById('overviewOrderChart');
+          var revCtx = document.getElementById('overviewRevenueChart');
+          if (orderCtx) {
+            orderChart = new Chart(orderCtx.getContext('2d'), {
+              type: 'line',
+              data: { labels: labels, datasets: [{ data: revenues, borderColor: '#eab308', backgroundColor: 'transparent', tension: 0.35 }] },
+              options: { plugins: { legend: { display: false } }, scales: { x: { grid: { display: false } }, y: { beginAtZero: true } } }
+            });
+          }
+          if (revCtx) {
+            revChart = new Chart(revCtx.getContext('2d'), {
+              type: 'line',
+              data: { labels: labels, datasets: [
+                { label: 'Total Revenue', data: revenues, borderColor: '#2563eb', tension: 0.35 },
+                { label: 'Total Profit', data: profits, borderColor: '#06b6d4', tension: 0.35 }
+              ] },
+              options: { plugins: { legend: { position: 'bottom' } }, scales: { x: { grid: { display: false } }, y: { beginAtZero: true } } }
+            });
+          }
+
+          renderTop((Array.isArray(d.top_products) ? d.top_products : []).slice(0,10));
+        } catch (err) {}
+      }
+
+      var refresh = document.getElementById('overviewRefreshBtn');
+      if (refresh) refresh.addEventListener('click', loadOverviewSample);
+      loadOverviewSample();
+    })();
+  </script>
+</body>
+</html>
+
+
+

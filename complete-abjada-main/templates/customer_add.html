@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Customer - Abjad tailor management system</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/img/abjad-logo.png" type="image/png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+<aside class="sidebar sidebar-modern" aria-label="Main navigation">
+  <div class="sidebar-modern-brand">Abjad Super style tailor</div>
+
+  <nav class="sidebar-modern-inner">
+    <div class="sidebar-modern-scroll">
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">DISCOVER</h2>
+        <a href="/dashboard" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Dashboard</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">INVENTORY</h2>
+        <a href="/products" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Products</span>
+        </a>
+        <a href="/category-page" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10H7z"/><path d="M7 3h3"/><path d="M14 3h3"/><path d="M7 20h3"/><path d="M14 20h3"/><path d="M3 7v3"/><path d="M3 14v3"/><path d="M20 7v3"/><path d="M20 14v3"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Category</span>
+        </a>
+        <a href="/orders" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Orders</span>
+        </a>
+        <a href="/stock" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22.08V12"/><path d="M16 8h-6M13 11h4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Stock</span>
+        </a>
+        <a href="/customers" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Customer</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+        <a href="/measurements" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Tailor Orders</span>
+          <span class="sidebar-modern-badge">NEW</span>
+        </a>
+      </section>
+
+      <section class="sidebar-modern-section">
+        <h2 class="sidebar-modern-section-title">FINANCES</h2>
+        <a href="/transactions" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Transactions</span>
+        </a>
+        <a href="/accounts" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Financial accounts</span>
+        </a>
+        <div class="sidebar-modern-report-nav" id="sidebarReportNav">
+          <a href="/reports" class="sidebar-modern-link sidebar-modern-link--tight" id="sidebarReportMain">
+            <span class="sidebar-modern-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </span>
+            <span class="sidebar-modern-label">Report</span>
+            <span class="sidebar-modern-badge">NEW</span>
+            <span class="sidebar-modern-chevron" aria-hidden="true">›</span>
+          </a>
+
+          <div id="sidebarReportSubmenu" class="sidebar-modern-report-submenu is-open" aria-hidden="false">
+            <a href="/reports/orders" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Orders</span></a>
+            <a href="/reports/products" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Products</span></a>
+            <a href="/reports/transactions" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Transactions</span></a>
+            <a href="/reports/exchange" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Exchange</span></a>
+            <a href="/reports/swaps" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Swaps</span></a>
+            <a href="/reports/accounts" class="sidebar-modern-link sidebar-modern-link--tight sidebar-modern-report-submenu-link"><span class="sidebar-modern-label">Accounts</span></a>
+          </div>
+        </div>
+        <a href="/store" class="sidebar-modern-link">
+          <span class="sidebar-modern-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+          </span>
+          <span class="sidebar-modern-label">Store</span>
+        </a>
+      </section>
+
+      <div class="sidebar-modern-util">
+        <a href="/user" class="sidebar-modern-util-link">User</a>
+        <a href="/settings" class="sidebar-modern-util-link">Settings</a>
+        <a href="/help" class="sidebar-modern-util-link">Help</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer sidebar-modern-footer">
+    <button type="button" class="sidebar-theme-btn" id="sidebarThemeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+    <div class="sidebar-user">
+      <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
+      <div class="sidebar-user-info">
+        <span class="sidebar-user-name" id="sidebarUserName"></span>
+        <span class="sidebar-user-role" id="sidebarUserRole">Admin</span>
+      </div>
+    </div>
+    <a href="#" class="sidebar-logout" id="sidebarLogout" title="Sign out">Sign out</a>
+  </div>
+</aside>
+<script src="/static/js/sidebar-active.js" defer></script>
+<main class="main-content add-customer-main">
+      <div class="page-content add-customer-page">
+        <a href="/customers" class="btn-back-customer" id="backLink">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </a>
+        <h1 class="add-customer-page-title" id="pageTitle">Add Customer</h1>
+        <p class="add-customer-page-sub" id="pageSubtitle">Add new customer or measurements to existing customer</p>
+
+        <div class="customer-selection-card">
+          <div class="customer-selection-card-bar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Customer Selection
+          </div>
+          <div class="customer-selection-card-body">
+            <div class="customer-type-switch" role="tablist" aria-label="Customer type">
+              <button type="button" class="is-active" id="btnModeExisting" role="tab" aria-selected="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Existing Customer
+              </button>
+              <button type="button" id="btnModeNew" role="tab" aria-selected="false">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                New Customer
+              </button>
+            </div>
+
+            <div id="blockExisting">
+              <span class="customer-select-label" id="selectCustomerLabel">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Select Customer
+              </span>
+              <select id="existingCustomerId" class="orders-filter-input" style="max-width:none;width:100%; box-sizing:border-box;" aria-label="Choose an existing customer">
+                <option value="">Choose an existing customerâ€¦</option>
+              </select>
+              <p class="customer-select-help">Select a customer to add measurements to their profile</p>
+            </div>
+
+            <div id="blockNew" class="hidden">
+              <div class="new-customer-fields-grid">
+                <div class="form-group">
+                  <label for="new_full_name">Full name *</label>
+                  <input type="text" id="new_full_name" class="orders-filter-input" style="max-width:none;width:100%;box-sizing:border-box;" autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label for="new_phone">Phone *</label>
+                  <input type="text" id="new_phone" class="orders-filter-input" style="max-width:none;width:100%;box-sizing:border-box;" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                  <label for="new_email">Email</label>
+                  <input type="email" id="new_email" class="orders-filter-input" style="max-width:none;width:100%;box-sizing:border-box;" autocomplete="email">
+                </div>
+                <div class="form-group">
+                  <label for="new_address">Address</label>
+                  <textarea id="new_address" class="orders-filter-input" style="max-width:none;width:100%;box-sizing:border-box;min-height:72px;resize:vertical;" rows="2"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="measurements-card">
+          <div class="measurements-card-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg>
+            Body Measurements
+          </div>
+          <div class="measurements-card-body">
+            <div class="add-customer-profile-row">
+              <label for="profile_type">Profile</label>
+              <select id="profile_type" class="orders-filter-input" style="max-width:280px;">
+                <option value="standard">Standard</option>
+                <option value="men">Men</option>
+                <option value="women">Women</option>
+                <option value="kids">Kids</option>
+              </select>
+            </div>
+            <div class="add-customer-measurements-grid">
+              <div class="add-customer-measure-col">
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M6 3v6M18 3v6"/></svg></span>
+                    Neck (inches)
+                  </span>
+                  <input type="number" id="neck" step="0.01" placeholder="Enter neck">
+                  <span class="measurement-field-desc">Around the base of the neck</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="M3 12h18"/></svg></span>
+                    Hip (inches)
+                  </span>
+                  <input type="number" id="hip" step="0.01" placeholder="Enter hip">
+                  <span class="measurement-field-desc">Around the fullest part of the hips</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                    Inseam (inches)
+                  </span>
+                  <input type="number" id="inseam" step="0.01" placeholder="Enter inseam">
+                  <span class="measurement-field-desc">Inside leg from crotch to ankle</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="M12 6v12"/><path d="M7 12h10"/></svg></span>
+                    Weight (kg)
+                  </span>
+                  <input type="number" id="weight" step="0.01" placeholder="Enter weight">
+                  <span class="measurement-field-desc">Body weight</span>
+                </div>
+              </div>
+              <div class="add-customer-measure-col">
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></span>
+                    Chest (inches)
+                  </span>
+                  <input type="number" id="chest" step="0.01" placeholder="Enter chest">
+                  <span class="measurement-field-desc">Around the fullest part of the chest</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg></span>
+                    Shoulder (inches)
+                  </span>
+                  <input type="number" id="shoulder" step="0.01" placeholder="Enter shoulder">
+                  <span class="measurement-field-desc">Across the shoulders from point to point</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                    Outseam (inches)
+                  </span>
+                  <input type="number" id="outseam" step="0.01" placeholder="Enter outseam">
+                  <span class="measurement-field-desc">Outside leg from waist to ankle</span>
+                </div>
+              </div>
+              <div class="add-customer-measure-col">
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                    Waist (inches)
+                  </span>
+                  <input type="number" id="waist" step="0.01" placeholder="Enter waist">
+                  <span class="measurement-field-desc">Around the natural waistline</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></span>
+                    Sleeve (inches)
+                  </span>
+                  <input type="number" id="sleeve" step="0.01" placeholder="Enter sleeve">
+                  <span class="measurement-field-desc">From shoulder to wrist</span>
+                </div>
+                <div class="measurement-field">
+                  <span class="measurement-field-label">
+                    <span class="measurement-field-icon icon-gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4V3"/><path d="M14 3v18"/><path d="M8 3v18"/></svg></span>
+                    Height (inches)
+                  </span>
+                  <input type="number" id="length" step="0.01" placeholder="Enter height">
+                  <span class="measurement-field-desc">Total height</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="measurements-card fabric-order-card">
+          <div class="measurements-card-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z"/></svg>
+            Fabric &amp; tailoring
+          </div>
+          <div class="measurements-card-body">
+            <p class="customer-select-help" style="margin-top:0;">Select product and color to deduct stock. Enter yards per part (body, sleeve, collar, …); total is calculated automatically.</p>
+            <div class="new-customer-fields-grid">
+              <div class="form-group">
+                <label for="fabric_product_id">Product</label>
+                <select id="fabric_product_id" class="orders-filter-input" style="max-width:none;width:100%;box-sizing:border-box;">
+                  <option value="">— Optional —</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="fabric_color_id">Color</label>
+                <select id="fabric_color_id" class="orders-filter-input" style="max-width:none;width:100%;box-sizing:border-box;" disabled>
+                  <option value="">Choose product first</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="clothing_type">Clothing type</label>
+                <select id="clothing_type" class="orders-filter-input" style="max-width:none;width:100%;box-sizing:border-box;">
+                  <option value="">—</option>
+                  <option value="Qamis">Qamis</option>
+                  <option value="Shirt">Shirt</option>
+                  <option value="Surwaal">Surwaal</option>
+                </select>
+              </div>
+            </div>
+            <p class="fabric-stock-hint" id="fabricStockHint" style="min-height:1.25em;font-size:0.9rem;" aria-live="polite"></p>
+            <div style="font-weight:600;margin:0.75rem 0 0.5rem;">Yard usage by part</div>
+            <div id="yardPartsContainer" class="yard-parts-container"></div>
+            <button type="button" class="btn-cancel-customer" id="btnAddYardPart" style="margin-top:0.5rem;">+ Add part</button>
+            <p style="margin:0.75rem 0 0;">Total yards: <strong id="fabricTotalDisplay">0</strong></p>
+          </div>
+        </div>
+
+        <div class="add-customer-footer">
+          <a href="/customers" class="btn-cancel-customer">Cancel</a>
+          <button type="button" class="btn-save-customer" id="btnSave">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            Save Customer
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/avatar.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/notifications.js"></script>
+  <script>
+    (function () {
+      var user = requireAuth();
+      if (!user) return;
+      initAvatarFromApi(user);
+
+      initTheme();
+      var themeBtn = document.getElementById('sidebarThemeBtn');
+      if (themeBtn) {
+        themeBtn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}';
+        themeBtn.onclick = function () { toggleTheme(); themeBtn.textContent = getTheme() === 'light' ? '\u{1F319}' : '\u{1F506}'; };
+      }
+
+      document.getElementById('sidebarLogout').addEventListener('click', function (e) { e.preventDefault(); logout(); });
+      var headerLogoutBtn = document.getElementById('headerLogoutBtn');
+      if (headerLogoutBtn) headerLogoutBtn.addEventListener('click', function () { logout(); });
+      if (user.role !== 'admin') document.querySelectorAll('.nav-admin-only').forEach(function (el) { el.classList.add('hidden'); });
+
+      var headerSearchEl = document.getElementById('headerSearch');
+      if (headerSearchEl) {
+        headerSearchEl.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') { e.preventDefault(); window.location.href = '/customers'; }
+        });
+      }
+
+      var profile = document.getElementById('userProfile');
+      var menu = document.getElementById('userDropdownMenu');
+      if (profile && menu) {
+        function openM() { menu.classList.add('show'); menu.setAttribute('aria-hidden', 'false'); profile.setAttribute('aria-expanded', 'true'); }
+        function closeM() { menu.classList.remove('show'); menu.setAttribute('aria-hidden', 'true'); profile.setAttribute('aria-expanded', 'false'); }
+        profile.addEventListener('click', function (e) { e.stopPropagation(); if (menu.classList.contains('show')) closeM(); else openM(); });
+        document.addEventListener('click', function (e) { if (!profile.contains(e.target) && !menu.contains(e.target)) closeM(); });
+        menu.addEventListener('click', function (e) { e.stopPropagation(); });
+      }
+
+      var params = new URLSearchParams(window.location.search);
+      var preCid = params.get('customer_id');
+      var isEditing = !!preCid;
+
+      var mode = 'existing';
+      var sel = document.getElementById('existingCustomerId');
+      var blockEx = document.getElementById('blockExisting');
+      var blockNw = document.getElementById('blockNew');
+      var btnEx = document.getElementById('btnModeExisting');
+      var btnNw = document.getElementById('btnModeNew');
+
+      function setMode(m) {
+        mode = m;
+        var isEx = m === 'existing';
+        btnEx.classList.toggle('is-active', isEx);
+        btnNw.classList.toggle('is-active', !isEx);
+        btnEx.setAttribute('aria-selected', isEx ? 'true' : 'false');
+        btnNw.setAttribute('aria-selected', isEx ? 'false' : 'true');
+        // When editing an existing customer directly (/customers/add?customer_id=...), hide the dropdown
+        // and show the full editable fields to match the full-page edit UI.
+        if (isEditing && isEx) {
+          blockEx.classList.add('hidden');
+          blockNw.classList.remove('hidden');
+          sel.required = false;
+        } else {
+          blockEx.classList.toggle('hidden', !isEx);
+          blockNw.classList.toggle('hidden', isEx);
+          sel.required = isEx;
+        }
+      }
+
+      btnEx.addEventListener('click', function () { setMode('existing'); });
+      btnNw.addEventListener('click', function () { setMode('new'); });
+
+      function valNum(id) {
+        var el = document.getElementById(id);
+        if (!el) return null;
+        var v = String(el.value || '').trim();
+        if (!v) return null;
+        var n = parseFloat(v);
+        return isNaN(n) ? null : n;
+      }
+
+      var fabricColorsCache = [];
+
+      function addYardPartRow(partName, yardsVal) {
+        var wrap = document.createElement('div');
+        wrap.className = 'yard-part-row';
+        wrap.style.cssText = 'display:flex;gap:0.5rem;margin-bottom:0.5rem;align-items:center;flex-wrap:wrap;';
+        var nameVal = (partName || '').replace(/"/g, '&quot;');
+        var yStr = (yardsVal != null && yardsVal !== '') ? String(yardsVal) : '';
+        wrap.innerHTML = '<input type="text" class="orders-filter-input yard-part-name" placeholder="Part name" style="flex:1;min-width:100px;box-sizing:border-box;" value="' + nameVal + '">' +
+          '<input type="number" class="orders-filter-input yard-part-yards" step="0.01" min="0" placeholder="Yards" style="width:110px;box-sizing:border-box;" value="' + yStr + '">' +
+          '<button type="button" class="btn-cancel-customer yard-part-remove" style="padding:0.25rem 0.5rem;">Remove</button>';
+        wrap.querySelector('.yard-part-remove').onclick = function () { wrap.remove(); updateFabricTotal(); updateFabricStockHint(); };
+        wrap.querySelectorAll('.yard-part-name, .yard-part-yards').forEach(function (el) {
+          el.addEventListener('input', function () { updateFabricTotal(); updateFabricStockHint(); });
+        });
+        document.getElementById('yardPartsContainer').appendChild(wrap);
+      }
+
+      function defaultYardParts() {
+        document.getElementById('yardPartsContainer').innerHTML = '';
+        addYardPartRow('body', '');
+        addYardPartRow('sleeve', '');
+        addYardPartRow('collar', '');
+        updateFabricTotal();
+        updateFabricStockHint();
+      }
+
+      function collectYardBreakdown() {
+        var out = {};
+        document.querySelectorAll('#yardPartsContainer .yard-part-row').forEach(function (row) {
+          var name = (row.querySelector('.yard-part-name') && row.querySelector('.yard-part-name').value || '').trim().toLowerCase().replace(/\s+/g, '_').replace(/-/g, '_');
+          var yv = row.querySelector('.yard-part-yards');
+          var v = yv && String(yv.value || '').trim() ? parseFloat(yv.value) : NaN;
+          if (!name || isNaN(v) || v <= 0) return;
+          out[name] = (out[name] || 0) + v;
+        });
+        return out;
+      }
+
+      function updateFabricTotal() {
+        var bd = collectYardBreakdown();
+        var t = 0;
+        Object.keys(bd).forEach(function (k) { t += bd[k]; });
+        t = Math.round(t * 10000) / 10000;
+        var el = document.getElementById('fabricTotalDisplay');
+        if (el) el.textContent = String(t);
+      }
+
+      function updateFabricStockHint() {
+        var hint = document.getElementById('fabricStockHint');
+        if (!hint) return;
+        var sel = document.getElementById('fabric_color_id');
+        var opt = sel && sel.options[sel.selectedIndex];
+        if (!opt || !opt.value) {
+          hint.textContent = '';
+          return;
+        }
+        var rem = parseFloat(opt.getAttribute('data-remaining') || '');
+        var st = opt.getAttribute('data-status') || '';
+        if (isNaN(rem)) {
+          hint.textContent = '';
+          return;
+        }
+        var total = 0;
+        var bd = collectYardBreakdown();
+        Object.keys(bd).forEach(function (k) { total += bd[k]; });
+        if (total <= 0) {
+          hint.textContent = 'Remaining for this color: ' + rem + ' yd' + (st === 'not_available' ? ' — Not Available' : (st === 'low' ? ' — Low stock warning' : ''));
+          return;
+        }
+        var after = rem - total;
+        after = Math.round(after * 10000) / 10000;
+        var msg = 'After this order: ' + after + ' yd remaining';
+        if (after < -1e-9) msg = 'Not enough stock: need ' + total + ' yd but only ' + rem + ' yd available.';
+        else if (after < 3 && after >= 0) msg += ' — Low stock warning';
+        hint.textContent = msg;
+      }
+
+      async function loadFabricProducts() {
+        try {
+          var res = await api('/inventory?per_page=500');
+          var items = res.items || [];
+          var fp = document.getElementById('fabric_product_id');
+          var cur = fp.value;
+          fp.innerHTML = '<option value="">— Optional —</option>';
+          items.forEach(function (p) {
+            var o = document.createElement('option');
+            o.value = String(p.id);
+            o.textContent = p.name || ('Product ' + p.id);
+            fp.appendChild(o);
+          });
+          if (cur && fp.querySelector('option[value="' + cur + '"]')) fp.value = cur;
+        } catch (e) { /* ignore */ }
+      }
+
+      async function loadFabricColors(productId) {
+        var fc = document.getElementById('fabric_color_id');
+        fc.innerHTML = '<option value="">Loading…</option>';
+        fc.disabled = true;
+        fabricColorsCache = [];
+        if (!productId) {
+          fc.innerHTML = '<option value="">Choose product first</option>';
+          return;
+        }
+        try {
+          var d = await api('/inventory/' + productId + '?include_colors=true');
+          var colors = d.colors || [];
+          fabricColorsCache = colors;
+          fc.innerHTML = '<option value="">— Select color —</option>';
+          colors.forEach(function (c) {
+            var o = document.createElement('option');
+            o.value = String(c.id);
+            o.setAttribute('data-remaining', String(c.remaining_yards));
+            o.setAttribute('data-status', c.stock_status || '');
+            var msg = c.message ? ' — ' + c.message : '';
+            o.textContent = c.color_name + ' (' + c.remaining_yards + ' yd)' + msg;
+            fc.appendChild(o);
+          });
+          fc.disabled = false;
+        } catch (err) {
+          fc.innerHTML = '<option value="">Could not load colors</option>';
+        }
+      }
+
+      document.getElementById('fabric_product_id').addEventListener('change', function () {
+        var pid = this.value;
+        loadFabricColors(pid).then(function () { updateFabricStockHint(); });
+      });
+      document.getElementById('fabric_color_id').addEventListener('change', updateFabricStockHint);
+      document.getElementById('btnAddYardPart').addEventListener('click', function () {
+        addYardPartRow('', '');
+        updateFabricTotal();
+        updateFabricStockHint();
+      });
+
+      function hasFabricOrder() {
+        var pid = document.getElementById('fabric_product_id').value;
+        var cid = document.getElementById('fabric_color_id').value;
+        var bd = collectYardBreakdown();
+        var t = 0;
+        Object.keys(bd).forEach(function (k) { t += bd[k]; });
+        return !!(pid && cid && t > 0);
+      }
+
+      function hasBodyMeasurementInput() {
+        return ['neck', 'chest', 'waist', 'hip', 'shoulder', 'sleeve', 'inseam', 'outseam', 'length', 'weight'].some(function (id) {
+          return valNum(id) !== null;
+        });
+      }
+
+      function hasMeasurementInput() {
+        return hasBodyMeasurementInput() || hasFabricOrder();
+      }
+
+      function buildMeasurementPayload(customerId) {
+        var payload = {
+          customer_id: customerId,
+          profile_type: document.getElementById('profile_type').value || 'standard'
+        };
+        ['neck', 'chest', 'waist', 'shoulder', 'length', 'sleeve', 'hip', 'inseam'].forEach(function (k) {
+          var v = valNum(k);
+          if (v !== null) payload[k] = v;
+        });
+        var o = valNum('outseam');
+        if (o !== null) payload.outseam = o;
+        var w = valNum('weight');
+        if (w !== null) payload.weight = w;
+
+        var fpid = document.getElementById('fabric_product_id').value;
+        var fcid = document.getElementById('fabric_color_id').value;
+        var bd = collectYardBreakdown();
+        var fabricTotal = 0;
+        Object.keys(bd).forEach(function (k) { fabricTotal += bd[k]; });
+        if (fpid && fcid && fabricTotal > 0) {
+          payload.product_id = parseInt(fpid, 10);
+          payload.product_color_id = parseInt(fcid, 10);
+          payload.yard_breakdown = bd;
+          payload.fabric_yards = Math.round(fabricTotal * 10000) / 10000;
+          var ct = document.getElementById('clothing_type').value;
+          if (ct) payload.clothing_type = ct;
+        }
+        return payload;
+      }
+
+      async function loadCustomerSelect(preselectId) {
+        var res = await api('/customers?page=1&per_page=500&sort_dir=asc');
+        var items = res.items || [];
+        sel.innerHTML = '<option value="">Choose an existing customerâ€¦</option>';
+        items.forEach(function (c) {
+          var opt = document.createElement('option');
+          opt.value = String(c.id);
+          opt.textContent = (c.full_name || 'Customer') + ' â€” ' + (c.phone || '');
+          sel.appendChild(opt);
+        });
+        if (preselectId && sel.querySelector('option[value="' + preselectId + '"]')) sel.value = preselectId;
+      }
+
+      if (params.get('mode') === 'new') setMode('new');
+      if (isEditing) setMode('existing');
+
+      loadCustomerSelect(preCid || '').catch(function (err) { showToast(err.message || 'Could not load customers', 'error'); });
+      defaultYardParts();
+      loadFabricProducts().catch(function () {});
+
+      async function prefillEdit(preCidValue) {
+        var cid = parseInt(preCidValue, 10);
+        if (!cid) return;
+        // Update title/button copy
+        var titleEl = document.getElementById('pageTitle');
+        var subEl = document.getElementById('pageSubtitle');
+        var btnEl = document.getElementById('btnSave');
+        if (titleEl) titleEl.textContent = 'Edit Customer';
+        if (subEl) subEl.textContent = 'Update customer information and measurements';
+        if (btnEl) btnEl.textContent = 'Update Measurements';
+
+        try {
+          // Customer info
+          var c = await api('/customers/' + cid);
+          if (document.getElementById('new_full_name')) document.getElementById('new_full_name').value = c.full_name || '';
+          if (document.getElementById('new_phone')) document.getElementById('new_phone').value = c.phone || '';
+          if (document.getElementById('new_email')) document.getElementById('new_email').value = c.email || '';
+          if (document.getElementById('new_address')) document.getElementById('new_address').value = c.address || '';
+
+          // Latest measurements (and prefill measurement inputs)
+          var list = await api('/measurements?customer_id=' + cid);
+          var latest = (list && list.length) ? list[0] : null;
+          if (latest) {
+            document.getElementById('profile_type').value = latest.profile_type || 'standard';
+            if (latest.neck != null) document.getElementById('neck').value = latest.neck;
+            if (latest.chest != null) document.getElementById('chest').value = latest.chest;
+            if (latest.waist != null) document.getElementById('waist').value = latest.waist;
+            if (latest.shoulder != null) document.getElementById('shoulder').value = latest.shoulder;
+            if (latest.sleeve != null) document.getElementById('sleeve').value = latest.sleeve;
+            if (latest.hip != null) document.getElementById('hip').value = latest.hip;
+            if (latest.inseam != null) document.getElementById('inseam').value = latest.inseam;
+            if (latest.length != null) document.getElementById('length').value = latest.length;
+
+            var extra = {};
+            try {
+              extra = latest.extra_fields ? JSON.parse(latest.extra_fields) : {};
+            } catch (e) { extra = {}; }
+            if (extra.outseam != null) document.getElementById('outseam').value = extra.outseam;
+            if (extra.weight != null) document.getElementById('weight').value = extra.weight;
+
+            if (latest.product_id) document.getElementById('fabric_product_id').value = String(latest.product_id);
+            if (latest.product_id) await loadFabricColors(String(latest.product_id));
+            if (latest.product_color_id) document.getElementById('fabric_color_id').value = String(latest.product_color_id);
+            if (latest.clothing_type) document.getElementById('clothing_type').value = latest.clothing_type;
+            var yb = latest.yard_breakdown;
+            if (yb && typeof yb === 'object' && Object.keys(yb).length) {
+              document.getElementById('yardPartsContainer').innerHTML = '';
+              Object.keys(yb).forEach(function (k) {
+                var label = k.replace(/_/g, ' ');
+                addYardPartRow(label, yb[k]);
+              });
+            } else {
+              defaultYardParts();
+            }
+            updateFabricTotal();
+            updateFabricStockHint();
+          } else {
+            defaultYardParts();
+          }
+        } catch (err) {
+          showToast(err.message || 'Failed to load customer', 'error');
+        }
+      }
+
+      function parseExtraFields(extra) {
+        if (!extra) return {};
+        if (typeof extra === 'object') return extra;
+        try { return JSON.parse(extra); } catch (e) { return {}; }
+      }
+
+      async function upsertMeasurement(customerId, payload) {
+        // Update the latest measurement for the same profile_type if it exists, otherwise create.
+        var list = await api('/measurements?customer_id=' + customerId);
+        var profile = payload && payload.profile_type ? String(payload.profile_type) : 'standard';
+        var latest = (list || []).find(function(m) { return String(m.profile_type || 'standard') === profile; }) || null;
+        if (latest && latest.id) {
+          return api('/measurements/' + latest.id, { method: 'PUT', body: JSON.stringify(payload) });
+        }
+        return api('/measurements', { method: 'POST', body: JSON.stringify(payload) });
+      }
+
+      if (isEditing) {
+        prefillEdit(preCid).catch(function (err) { showToast(err.message || 'Prefill failed', 'error'); });
+      }
+
+      document.getElementById('btnSave').addEventListener('click', async function () {
+        var btn = document.getElementById('btnSave');
+        if (btn.disabled) return;
+        var customerId = null;
+
+        if (mode === 'new' || (isEditing && mode === 'existing')) {
+          var fullName = document.getElementById('new_full_name').value.trim();
+          var phone = document.getElementById('new_phone').value.trim();
+          if (!fullName || !phone) {
+            showToast('Full name and phone are required', 'error');
+            return;
+          }
+        }
+
+        if (mode === 'new') {
+          // Will create after validation below
+        } else {
+          if (isEditing) {
+            customerId = parseInt(preCid, 10);
+            if (!customerId) {
+              showToast('Invalid customer id', 'error');
+              return;
+            }
+          } else {
+            var cid = parseInt(sel.value, 10);
+            if (!cid) {
+              showToast('Select an existing customer', 'error');
+              return;
+            }
+            customerId = cid;
+          }
+        }
+
+        var fpid = document.getElementById('fabric_product_id').value;
+        var fcid = document.getElementById('fabric_color_id').value;
+        var bdPartial = collectYardBreakdown();
+        var ftPartial = 0;
+        Object.keys(bdPartial).forEach(function (k) { ftPartial += bdPartial[k]; });
+        if ((fpid || fcid || ftPartial > 0) && !(fpid && fcid && ftPartial > 0)) {
+          showToast('Fabric: select product, color, and enter yards for at least one part', 'error');
+          return;
+        }
+
+        var hasMeas = hasMeasurementInput();
+        if (mode === 'existing' && !hasMeas) {
+          showToast('Enter at least one measurement or cancel', 'error');
+          return;
+        }
+
+        btn.disabled = true;
+        try {
+          if (mode === 'new') {
+            var custBody = {
+              full_name: document.getElementById('new_full_name').value.trim(),
+              phone: document.getElementById('new_phone').value.trim()
+            };
+            var em = document.getElementById('new_email').value.trim();
+            if (em) custBody.email = em;
+            var ad = document.getElementById('new_address').value.trim();
+            if (ad) custBody.address = ad;
+            var created = await api('/customers', { method: 'POST', body: JSON.stringify(custBody) });
+            customerId = created.id;
+          } else if (isEditing) {
+            // Update customer info in edit mode.
+            var custBody2 = {
+              full_name: document.getElementById('new_full_name').value.trim(),
+              phone: document.getElementById('new_phone').value.trim()
+            };
+            var em2 = document.getElementById('new_email').value.trim();
+            if (em2) custBody2.email = em2;
+            var ad2 = document.getElementById('new_address').value.trim();
+            if (ad2) custBody2.address = ad2;
+            await api('/customers/' + customerId, { method: 'PUT', body: JSON.stringify(custBody2) });
+          }
+
+          if (hasMeas) {
+            await upsertMeasurement(customerId, buildMeasurementPayload(customerId));
+          }
+
+          showToast(mode === 'new' && !hasMeas ? 'Customer saved' : 'Saved successfully', 'success');
+          window.location.href = '/customers';
+        } catch (err) {
+          showToast(err.message || 'Save failed', 'error');
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
+
